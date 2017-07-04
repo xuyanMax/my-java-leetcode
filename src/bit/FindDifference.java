@@ -10,6 +10,9 @@ public class FindDifference {
         System.out.println(" a" + c);
         System.out.println(97^98^97);
         System.out.println(findTheDifference("a","a"));
+        System.out.println((int)Math.pow(2,31));
+        System.out.println(Integer.toBinaryString((int)Math.pow(2,31)));
+
 
     }
 

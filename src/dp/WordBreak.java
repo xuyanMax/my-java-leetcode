@@ -5,7 +5,9 @@ import java.util.List;
 /**
  * Created by xu on 2017/6/8.
  *
- * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words. You may assume the dictionary does not contain duplicate words.
+ * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine
+ * if s can be segmented into a space-separated sequence of one or more dictionary words.
+ * You may assume the dictionary does not contain duplicate words.
 
 For example, given
 s = "leetcode",
@@ -27,7 +29,7 @@ public class WordBreak {
     * dp[i+1] = dp[i+1-j] && wordDict.contains(str.substring(j,i+1)) where j in 0:i
     *
     * 返回
-    * do[str.length];
+    * dp[str.length];
     * */
     public boolean wordBreak(String str, List<String> wordDict) {
 
@@ -40,7 +42,7 @@ public class WordBreak {
         for (int i=0; i<str.length(); i++) {
 
             // check for the substring from [0:i]
-            for (int j=0; j<i; j++) {// i, j的取值比较重要
+            for (int j=0; j<=i; j++) {// i, j的取值比较重要
                 // both str[0:j-1] exist && str[j:i] exist then dp[i + 1] can be true;
                 if (dp[j]==true && wordDict.contains(str.substring(j, i + 1))) {
                     dp[i + 1] = true;

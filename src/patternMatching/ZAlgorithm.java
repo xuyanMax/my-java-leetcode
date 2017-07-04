@@ -67,6 +67,7 @@ public class ZAlgorithm {
 				if (Z[k1] + k < right + 1) {
 					Z[k] = Z[k1];
 				} else {
+
 					left = k;
 					
 					 //  else start from Right  and check manually

@@ -45,8 +45,8 @@ public class WordWrap {
         for(int i=0 ; i < words.length; i++){
             cost[i][i] = width - words[i].length();
             for(int j=i+1; j < words.length; j++)
-                cost[i][j] = cost[i][j-1] - words[j].length() - 1; 
-            
+                cost[i][j] = cost[i][j-1] - words[j].length() - 1;
+
         }
         
         for(int i=0; i < words.length; i++){
@@ -69,7 +69,7 @@ public class WordWrap {
             result[i] = words.length;
             
             for(int j=words.length-1; j > i; j--){
-            	
+
                 if(cost[i][j-1] == Integer.MAX_VALUE)
                     continue;
                 
@@ -95,13 +95,16 @@ public class WordWrap {
             builder.append("\n"); 
             i = j;
         }while(j < words.length);
-        
+
+        for (int n:result)
+            System.out.println(n+" ");
         return builder.toString();
     }
     
     public static void main(String args[]){
-        String words1[] = {"Tushar","likes","to","write","code","at", "free", "time"};
+//        String words1[] = {"Tushar","likes","to","write","code","at", "free", "time"};
+        String words1[] = {"Tushar", "Roy", "likes", "to", "code"};
         WordWrap awl = new WordWrap();
-        System.out.println(awl.justify(words1, 12));
+        System.out.println(awl.justify(words1, 10));
     }
 }

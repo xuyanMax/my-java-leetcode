@@ -42,6 +42,7 @@ public class Subsets {
             result.remove(result.size()-1);// unmake
         }
     }
+
     // reference
     // https://discuss.leetcode.com/topic/2764/my-solution-using-bit-manipulation/48
     // time complexity: O(n*2^n)

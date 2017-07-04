@@ -25,7 +25,7 @@ public class SubstringSearch {
 		int index = sbSearch.KMP(text.toCharArray(), pattern.toCharArray());
 		System.out.println(index);
 
-		sbSearch.naiveSearch(text.toCharArray(), pattern.toCharArray());
+//		sbSearch.naiveSearch(text.toCharArray(), pattern.toCharArray());
 	}
 	// we pre-process pattern pattern and prepare an array lps[] that tell us count of characters to be skipped
 	
@@ -75,30 +75,7 @@ public class SubstringSearch {
 			return i-j;
 		else return -1;
 	}
-	/**
-	 * Time complexity: O(n(n-m+1)) in worst case
-	 * 
-	 * @param text
-	 * @param pattern
-	 * @return
-	 * 
-	 */
-	public int naiveSearch(char[] text, char[] pattern) {
-			
-		int i=0, j=0;
-		 for  (;i<=text.length-pattern.length;i++) {
-			 
-			 for (;j<pattern.length;j++) {
-				 
-				 if (text[i+j]!=pattern[j]) 
-					 break;
-				 
-				 if (j == pattern.length-1)
-					 System.out.println("Pattern found at index " + i);
-			 }
-		 }
-		return -1;
-	}
+
 	
 	
 

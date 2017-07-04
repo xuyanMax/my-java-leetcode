@@ -13,20 +13,8 @@ public class AVLTree_2 {
 //	protected Node root;
 	
 	public static void main(String[] args) {
-		AVLTree_2 avlTree_2 = new AVLTree_2();
-		// TEST 1
-		// using N class as node 
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 5);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 2);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 7);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 1);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 4);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 3);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 6);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 9);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 16);
-//		avlTree_2.root = avlTree_2.insert(avlTree_2.root, 15);
-//		avlTree_2.inOrder(avlTree_2.root);
+		AVLTree_2 avl = new AVLTree_2();
+
 		// 涉及到代码重用问题 <T>
 		// 未来参考 graph->Graph 范型类
 		//TreeTraversals ttt = new TreeTraversals();
@@ -36,21 +24,21 @@ public class AVLTree_2 {
 		// TEST 2
 		// using AvlNode as node class
 		AvlNode root = null;
-		root = avlTree_2.insert(root, 5);
-		root = avlTree_2.insert(root, 2);
-		root = avlTree_2.insert(root, 7);
-		root = avlTree_2.insert(root, 1);
-		root = avlTree_2.insert(root, 4);
-		root = avlTree_2.insert(root, 3);
-		root = avlTree_2.insert(root, 6);
-		root = avlTree_2.insert(root, 9);
-		root = avlTree_2.insert(root, 16);
-		root = avlTree_2.insert(root, 15);
+		root = avl.insert(root, 5);
+		root = avl.insert(root, 2);
+		root = avl.insert(root, 7);
+		root = avl.insert(root, 1);
+		root = avl.insert(root, 4);
+		root = avl.insert(root, 3);
+		root = avl.insert(root, 6);
+		root = avl.insert(root, 9);
+		root = avl.insert(root, 16);
+		root = avl.insert(root, 15);
 		
-		avlTree_2.inOrder(root);
-		root = avlTree_2.delete(root, 15);
+		avl.inOrder(root);
+		root = avl.delete(root, 15);
 		System.out.println("\nafter delete 15");
-		avlTree_2.inOrder(root);
+		avl.inOrder(root);
 		
 	}
 			

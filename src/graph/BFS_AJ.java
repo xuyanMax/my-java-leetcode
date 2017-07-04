@@ -1,6 +1,7 @@
 package graph;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 
@@ -45,7 +46,7 @@ public class BFS_AJ {
 			boolean[] visited = new boolean[N];
 			
 			// Create a ##queue## for BFS
-			LinkedList<Integer> queue = new LinkedList<>();
+			Queue<Integer> queue = new LinkedList<>();
 			
 			visited[src] = true;
 			queue.add(src); // add to the last 
