@@ -62,19 +62,16 @@ public class FindPeakElement {
 	}
 
 	/* iterative binary search*/
-	static int solutionIter(int[] arr) {
+	static int solutionIter(int[] nums) {
 		int left = 0;
-		int right = arr.length-1;
-		
-		while (left <= right) {
-			int mid = (left + right ) / 2;
-			if (arr[mid] < arr[mid+1])
-				left = mid + 1 ;
-			else if (arr[mid] < arr[mid-1])
+		int right = nums.length-1;
+		while(left < right) {
+			int mid = left + (right - left)/2;
+
+			if (nums[mid] < nums[mid+1])
+				left = mid + 1;
+			else
 				right = mid;
-			else 
-				return mid;
-			
 		}
 		return left;
 	}

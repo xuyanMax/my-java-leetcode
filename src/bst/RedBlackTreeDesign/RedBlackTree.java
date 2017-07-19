@@ -313,9 +313,60 @@ public class RedBlackTree <T extends Comparable<T>> {
  *
  ******************************************************/
     public void deleteFixUp(RedBlackNode<T> x) {
+        while (x != nil && x.color == RedBlackNode.BLACK) {// x always points to a nonroot doubly black node
+            RedBlackNode<T> w;
+            if (x == x.parent.left) {
+                 w = x.parent.right;
+                 if (w.color == RedBlackNode.RED) {     //case 1
+                     w.color = RedBlackNode.BLACK;      //case 1
+                     x.parent.color = RedBlackNode.RED; //case 1
+                     leftRotate(x.parent);
+                     w = x.parent.right;                //case 1
+                 }
+                 if (w.left.color == RedBlackNode.BLACK && w.right.color == RedBlackNode.BLACK) {
+                     w.color = RedBlackNode.RED;        //case 2
+                     x = x.parent;                      //case 2 x can be either red-black or doubly black
+                 }
+                 else if (w.right.color == RedBlackNode.BLACK){
+                     w.left.color = RedBlackNode.BLACK;  //case3
+                     w.color = RedBlackNode.RED;         //case3
+                     rightRotate(w);                     //case3
+                     w = x.parent.right;                 //case3
+                 }
+                 w.color = x.parent.color;                  //case4
+                 x.parent.color = RedBlackNode.BLACK;       //case4
+                 w.right.color = RedBlackNode.BLACK;        //case4
+                 leftRotate(x.parent);                      //case4
+                 x = nil; // exit the loop
+            }
+            else {
+                w = x.parent.left;
+                if (w.color == RedBlackNode.RED) {     //case 1
+                    w.color = RedBlackNode.BLACK;      //case 1
+                    x.parent.color = RedBlackNode.RED; //case 1
+                    rightRotate(x.parent);
+                    w = x.parent.left;                //case 1
+                }
+                if (w.right.color == RedBlackNode.BLACK && w.left.color == RedBlackNode.BLACK) {
+                    w.color = RedBlackNode.RED;        //case 2
+                    x = x.parent;                      //case 2 x can be either red-black or doubly black
+                }
+                else if (w.left.color == RedBlackNode.BLACK){
+                    w.right.color = RedBlackNode.BLACK;  //case3
+                    w.color = RedBlackNode.RED;         //case3
+                    leftRotate(w);                     //case3
+                    w = x.parent.left;                 //case3
+                }
+                w.color = x.parent.color;                  //case4
+                x.parent.color = RedBlackNode.BLACK;       //case4
+                w.left.color = RedBlackNode.BLACK;        //case4
+                rightRotate(x.parent);                      //case4
+                x = nil; // exit the loop
 
+            }
+        }// end while
+        x.color = RedBlackNode.BLACK;
     }
-
 
 
 /*****************************************************
