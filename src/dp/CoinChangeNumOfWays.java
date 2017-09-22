@@ -1,5 +1,11 @@
 package dp;
 
+/*
+
+ * Given a total and coins of certain denominations find number of ways total
+ * can be formed from coins assuming INFINITY supply of coins
+
+*/
 public class CoinChangeNumOfWays {
 
 	public static void main(String[] args) {
@@ -11,24 +17,23 @@ public class CoinChangeNumOfWays {
 	 * 1,2,3 - total 5
 	 */
 	public static int getTotalWays(int[] coins, int N) {
-		int[][] dp = new int[coins.length][N+1]; 
+		int[][] dp = new int[coins.length + 1][N+1];
 		
 		// initialize 
-		for (int i=0; i<coins.length; i++) 
+		for (int i=0; i<=coins.length; i++)
 			dp[i][0] = 1;
-		for (int j=0; j<N+1; j++)
-			dp[0][j] = 1;
+
 		
-		for (int i=0; i<coins.length; i++){
+		for (int i=1; i<=coins.length; i++){
 			for (int j=1; j<N+1; j++) {
-				if (j >= coins[i]) {
-					dp[i][j] = dp[i-1][j] + dp[i][j - coins[i]]; 
+				if (j >= coins[i-1]) {
+					dp[i][j] = dp[i-1][j] + dp[i][j - coins[i-1]];
 				}else {
 					dp[i][j] = dp[i-1][j];
 				}
 			}
 		}
-		return dp[coins.length-1][N];
+		return dp[coins.length][N];
 		
 	}
 

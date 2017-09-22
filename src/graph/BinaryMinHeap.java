@@ -129,7 +129,7 @@ public class BinaryMinHeap<T> {
     }
 
     /**
-     * Returns the min node of the heap
+     * Returns the min val of the heap
      */
     public Node extractMinNode() {
         int size = allNodes.size() -1;

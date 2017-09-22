@@ -44,11 +44,15 @@ public class PrimMST2 {
 	
 	// construct and print mst for a graph represented by adjacency list
 	public void primMST (int[][] graph) {
+		//存储 已经建成的mst
 		int[] parent = new int[V];
+		//代表  key value 是否已经包含在mst内
 		Boolean[] mstSet = new Boolean[V];
+
+		// 最小权重边
 		int[] key = new int[V];
 		
-		// initialize all keys as infinity
+		// initialize all keys as infinity， unvisited
 		for (int v=0; v<V; v++) {
 			key[v] = Integer.MAX_VALUE;
 			mstSet[v] = false;
@@ -70,7 +74,7 @@ public class PrimMST2 {
 			// only those not included in mst set && its edge value non-zero && its edge value < key value
 			for (int v=0; v<V; v++){
 				// 0 indicates impassable
-				// 
+
 				if (graph[u][v] != 0 && mstSet[v] == false && graph[u][v] < key[v]) {
 					key[v] = graph[u][v];
 					parent[v] = u;

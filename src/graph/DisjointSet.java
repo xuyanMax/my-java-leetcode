@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://www.youtube.com/watch?v=ID00PMy0-vE
-public class DisjointSet {
+public class DisjointSet { //并查集
 	
-	private Map<Long, Node> maps = new HashMap<>(); // store <data, new Node(data)> pairs
+	private Map<Long, Node> maps = new HashMap<>(); // store <val, new Node(val)> pairs
 	
 	public static void main(String[] args) {
 		
@@ -35,12 +35,13 @@ public class DisjointSet {
         System.out.println(ds.findSet(7));
 
 	}
+
 	class Node{
-		long data;
+		long val;
 		Node parent;
 		int rank;
 		Node(long input) {
-			this.data = input;
+			this.val = input;
 			this.parent = this;
 			this.rank = 0;
 		}
@@ -62,9 +63,9 @@ public class DisjointSet {
 		Node parentB = findSet(nodeB);
 		
 		// if they are in the same set, do nothing
-		if (parentA.data == parentB.data)
+		if (parentA.val == parentB.val)
 			return false;
-		// else the parent node with higher rank becomes the parent of another parent
+		// else the parent val with higher rank becomes the parent of another parent
 		if (parentA.rank >= parentB.rank) {
 			parentB.parent = parentA;
 			// increment rank only if both sets have the same rank
@@ -79,15 +80,16 @@ public class DisjointSet {
 	}
 	// find the representative of this set
 	public long findSet(long data) {
-		return findSet(maps.get(data)).data;
+		return findSet(maps.get(data)).val;
 	}
 	// find the representative of its set recursively and 
 	// do path compression as well (make the parent of the nodes along the path to representative as the representative)
 	private Node findSet(Node node) {
 		Node parent = node.parent;
-		if (parent == node)  // check if it is the representative.
+
+		if (parent == node)  // check if itself is the representative.
 			return parent;
-		
+
 		node.parent = findSet(parent); // do path compression here
 		return node.parent;
 	}

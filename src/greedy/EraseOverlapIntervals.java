@@ -1,4 +1,5 @@
 package greedy;
+
 //https://leetcode.com/problems/non-overlapping-intervals/#/description
 
 // Given a collection of intervals, find the minimum number of intervals 
@@ -8,18 +9,16 @@ import java.util.Comparator;
 
 public class EraseOverlapIntervals {
 
-	public static void main(String[] args) {
-
-
-	}
-	/**
-	 * The problem is the same as "Given a collection of intervals, find the max number of non-overlapping intervals"
-	 * one way: Sorting intervals.end in ascending order O(nlgn) 
-	 * traverse intervals array to get the max number of non overlapping intervals O(n)
-	 * 
-	 * Time complexity - O(nlgn)
-	 * @return
-	 */
+/**
+ *
+ * The problem is the same as "Given a collection of intervals, find the max number of non-overlapping intervals"
+ * one way: sortAlgorithms intervals.end in ascending order O(nlgn)
+ * traverse intervals array to get the max number of non overlapping intervals O(n)
+ *
+ * Time complexity - O(nlgn)
+ * @return
+ *
+ */
 	class Interval{
 		int start;
 		int end;

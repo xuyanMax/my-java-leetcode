@@ -13,12 +13,7 @@ public class FindMinArrowShots {
 	public static int solution(int[][] points) {
 
 		// sort points by their ends	
-		Arrays.sort(points, new Comparator<int[]>() {
-			@Override
-			public int compare(int[] p1, int[] p2) {
-				return Integer.compare(p1[1], p2[1]);
-			} 
-		});
+		Arrays.sort(points, (p1, p2)->(p1[1]-p2[1]));
 		int numOfArrow = 1;
 		int currentEnd = points[0][1];
 		for (int i=1; i<points.length; i++) {

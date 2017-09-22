@@ -78,6 +78,7 @@ public class TreeTraversalLevelByLevel {
 		int levelCount = 1;
 		int CurrentCount = 0;
 		while (!queue.isEmpty()) {
+
 			while (levelCount>0) {
 				root = queue.poll();
 				System.out.print(root.data + " ");

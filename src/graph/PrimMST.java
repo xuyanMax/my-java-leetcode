@@ -45,7 +45,7 @@ public class PrimMST {
 		//stores final result	
 		List<Edge<Integer>> result = new ArrayList<>();
 		
-      //	binary heap + map data structure
+      //	binary heap + map val structure
 		BinaryMinHeap<Vertex<Integer>> minHeap = new BinaryMinHeap<>();
 
 	//	map of vertex to edge which gave minimum weight to this vertex.

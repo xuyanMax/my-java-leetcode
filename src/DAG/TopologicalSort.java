@@ -18,7 +18,7 @@ public class TopologicalSort
         int number_of_nodes = adjacency_matrix[0].length - 1;
         int[] topological_sort = new int [number_of_nodes + 1];
         int pos = 1;   
-        int element;
+        int curr;
      
    
       
@@ -44,13 +44,11 @@ public class TopologicalSort
         
         
         for (int k=1; k<= number_of_nodes; k++){
-        	for(int q=1; q<=number_of_nodes; q++){
-        		
+
+            for(int q=1; q<=number_of_nodes; q++)
         		num_indegree[k] += adjacency_matrix[q][k];
-        		
-        	}
-        	if (num_indegree[k] == 0) 
-        		
+
+        	if (num_indegree[k] == 0)
         		stack.push(k);
         }
         //判断source是否在栈顶
@@ -61,22 +59,16 @@ public class TopologicalSort
         
         while (!stack.isEmpty())
         {
-            element = stack.peek();
+            curr = stack.peek();
         
             topological_sort[pos++] =  stack.pop();
                 
             for (int i=1; i<= number_of_nodes; i++) {
             	
-                if (adjacency_matrix[element][i] == 1 )
-                {
-
-                    if (--num_indegree[i] == 0) {
+                if (adjacency_matrix[curr][i] == 1 ) {
+                    if (--num_indegree[i] == 0)
                     	stack.push(i);
-                    }
-                  
-                  
                     //重新开始匹配
-                
                 }
             }
 
@@ -88,7 +80,7 @@ public class TopologicalSort
     {
         int number_no_nodes;
         Scanner scanner = null;
-        int topological_sort[]  = null;
+        int topological_sort[];
         try 
         {
             System.out.println("Enter the number of nodes in the graph");

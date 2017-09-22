@@ -18,11 +18,11 @@ Return true because "leetcode" can be segmented as "leet code".
 public class WordBreak {
 
 
-    /*dp[]:表示wordDict中是否存在-这样的substring
+    /*dp[i]:表示wordDict中是否存在-这样的substring
     * 存在 true
     * 不存在 false
     *
-    * dp[0] = false;
+    * dp[0] = true;
     * str.substring(0,i+1);
     *
     * formula
@@ -35,7 +35,7 @@ public class WordBreak {
 
         boolean[] dp = new boolean[str.length() + 1];
 
-        // dp[i] - whether substring [0:i] contains in wordDict List or not
+        // dp[i] - whether substring [0:i-1] contains in wordDict List or not
         dp[0] = true; //empty string
 
         // There are only N - 1 ways of dividing a string into two parts, with N the length of the string.
@@ -44,7 +44,7 @@ public class WordBreak {
             // check for the substring from [0:i]
             for (int j=0; j<=i; j++) {// i, j的取值比较重要
                 // both str[0:j-1] exist && str[j:i] exist then dp[i + 1] can be true;
-                if (dp[j]==true && wordDict.contains(str.substring(j, i + 1))) {
+                if (dp[j] == true && wordDict.contains(str.substring(j, i + 1))) {
                     dp[i + 1] = true;
                     break;
                 }
@@ -64,10 +64,8 @@ public class WordBreak {
             for (String seg : wordDict) {
                 if (seg.length() <= i) {
                     if (dp[i - seg.length()] == true && str.substring(i-seg.length(), i).equals(seg)) {
-
                         dp[i] = true;
                         break;
-
                     }
                 }
             }

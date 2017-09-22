@@ -18,7 +18,7 @@ import java.util.List;
  * 
  * 
  */
-public class KruskalMST {
+public class KruskalMST {//最小生成树
 
 	public static void main(String[] args) {
 	
@@ -38,7 +38,8 @@ public class KruskalMST {
         List<Edge<Integer>> result = mst.getMST(graph);
         int sum = 0;
         for (Edge<Integer> edge : result)  {
-        	System.out.println(edge.getVertex1().getID() + " -> " + edge.getVertex2().getID() + " : " + edge.getWeight());
+        	System.out.println(edge.getVertex1().getID() + " -> " +
+					edge.getVertex2().getID() + " : " + edge.getWeight());
         	sum += edge.getWeight();
         }
         System.out.println("Minimum spanning tree weight " + sum);

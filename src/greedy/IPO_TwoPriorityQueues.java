@@ -8,6 +8,7 @@ import java.util.Set;
 /**
  * 
  * @author xu
+ *
  * Given a profit array of projects' profits[], a capital array of projects' capital[]
  * A K #distinct projects and W initial capital.
  * Pick a list of at most K projects to maximize your profits
@@ -15,6 +16,7 @@ import java.util.Set;
  * Example
  * Input: k=2, W=0, Profits=[1,2,3], Capital=[0,1,1].
  * Output: 4
+ *
  * Explanation: Since you have initial capital 0, you can only start the project indexed 0. You got W=W+profit[0] = 1;
  * With capital 1 you can start either project 1 or 2. Since you can choose at most 2 projects. You will choose project2
  * W = W + profit[2] = 4;

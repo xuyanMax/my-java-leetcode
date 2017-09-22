@@ -1,8 +1,6 @@
 package graph;
 
-import java.util.ArrayDeque;
 import java.util.Comparator;
-import java.util.Deque;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -111,49 +109,50 @@ public class Dijkstra_Adj_pq {
 		while (!pQueue.isEmpty()) {
 			curr = pQueue.poll();
 			
-			if (curr.node == target)
+			if (curr.val == target)
 				return;//////////////////////////
 			
-			visited.add(curr.node);
-//			distances[curr.node] = curr.wgt;
-			LinkedList<Node> neighbors = getNeighor(curr);
+			visited.add(curr.val);
+//			distances[curr.val] = curr.wgt;
+			LinkedList<Node> neighbors = getNeighbor(curr);
 			
 			for (Node vNode : neighbors) {
 				
-					int edge = adj[curr.node][vNode.node];
-					int newDistance = edge + distances[curr.node];
-					if (newDistance < distances[vNode.node]){
-						distances[vNode.node] = newDistance;
-					}
-					
-					pQueue.add(new Node(vNode.node, distances[vNode.node]));
+                int edge = adj[curr.val][vNode.val];
+                int newDistance = edge + distances[curr.val];
+
+                if (newDistance < distances[vNode.val])
+                    distances[vNode.val] = newDistance;
+
+
+                pQueue.add(new Node(vNode.val, distances[vNode.val]));
 				
 			}
 					
 		}
 		
 	}
-	public LinkedList<Node> getNeighor(Node u) {
+	public LinkedList<Node> getNeighbor(Node u) {
 		
 		LinkedList<Node> neighbors = new LinkedList<>();
+
 		for (int i=1; i<=num_vert; i++) {
-			if (!visited.contains(i)) {
-				if (adj[u.node][i] != Integer.MAX_VALUE) { // adjacent
-					neighbors.add(new Node(i, adj[u.node][i]));
-				}
+			// 临近节点需要排除已经visited的点
+			if (!visited.contains(i) && adj[u.val][i] != Integer.MAX_VALUE) {
+				neighbors.add(new Node(i, adj[u.val][i]));
 			}
 		}
 		return neighbors;
 		
 	}
 	class Node implements Comparator<Node>{
-		int node;
+		int val;
 		int wgt;
 		public Node() {
 		
 		}
 		public Node(int n, int weight){
-			node = n;
+			val = n;
 			wgt = weight;
 		}
 		@Override

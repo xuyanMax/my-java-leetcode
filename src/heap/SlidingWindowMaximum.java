@@ -48,7 +48,7 @@ public class SlidingWindowMaximum {
 	}
 	
 	/*
-	 * time complextiy - O(n*k), since queue.remove(Object obj) requires O(k) time 
+	 * time complexity - O(n*k), since queue.remove(Object obj) requires O(k) time
 	 * 
 	 * */
 

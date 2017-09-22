@@ -13,6 +13,7 @@ public class StringToInt {
 		Math.sqrt(2);//expensive cost
 		int i=0,j=0;
 		int num3 =num>num2?i:j;
+		System.out.println(Math.pow(2, 32));
 
 	}
 

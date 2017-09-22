@@ -28,6 +28,7 @@ public class DFS_AJ {
 		
 		graph (int n) {// constructor
 			N = n;
+			//初始化
 			adj = new LinkedList [N];
 			for (int i=0; i<N; i++)
 				adj[i] = new LinkedList<Integer>();
@@ -48,9 +49,8 @@ public class DFS_AJ {
 //			LinkedList<Integer> queue = new LinkedList<>();
 			
 			for (int i=0; i<N; i++) {
-				if (!visited[i]) {
+				if (!visited[i])
 					DFSUtil(i, visited);
-				}
 			}
 			
 		}

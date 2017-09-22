@@ -38,7 +38,7 @@ public class LongestIncreasingSequence {
 	public static void main(String[] args) {
 		
 		LongestIncreasingSequence lISequence = new LongestIncreasingSequence();
-		int max = lISequence.solutionNsquare(new int[]{3,4,-1,0,6,2,3});
+		int max = lISequence.dp_solution(new int[]{3,4,-1,0,6,2,3});
 		System.out.println(max);
 
 	}
@@ -46,12 +46,13 @@ public class LongestIncreasingSequence {
 	 * DP 
 	 * @return max length of LIS
 	 */
-	public int solutionNsquare(int[] nums){
+	public int dp_solution(int[] nums){
 		int[] dp = new int[nums.length];
 		
 		// store index of the next smaller number before current 
 		int[] traceback = new int[nums.length];
 		Arrays.fill(dp, 1);
+
 		Arrays.fill(traceback, -1);
 		for (int i=1; i<nums.length; i++) {
 			for (int j = 0; j<i; j++) {
@@ -64,10 +65,8 @@ public class LongestIncreasingSequence {
 				}
 			}
 		}
-		
-		/*
-		 * find the max length 
-		 */
+		 // find the max length
+
 		int maxLen = Integer.MIN_VALUE;
 		int index = -1;
 		for (int n=0; n<dp.length; n++)
@@ -88,5 +87,12 @@ public class LongestIncreasingSequence {
 		System.out.println("");
 		return maxLen;
 	}
+
+	// 使用二分查找+动态规划方法
+//	public int lengthOfLIS(int[] nums) {
+//
+//    }
+
+
 
 }

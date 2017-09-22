@@ -45,7 +45,8 @@ public class EditDistance {
 				//a***c vs b***c => a*** vs b***
 				if(str1[i-1] == str2[j-1]) // if two chars are equal. 
 					dp[i][j] = dp[i-1][j-1];
-				else dp[i][j] = 1 + minOfTree(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
+				else
+					dp[i][j] = 1 + minOfTree(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
 				
 			}
 		

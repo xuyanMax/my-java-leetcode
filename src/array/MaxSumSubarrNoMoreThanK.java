@@ -22,28 +22,27 @@ public class MaxSumSubarrNoMoreThanK {
 	
 		TreeSet<Integer> set = new TreeSet<>();//to help us find the sub-array maxSum <= k with O(logN) time
 		set.add(0);// add 0 to cover single row case
-		int culSum = 0;
+		int sum_j = 0;
 		
-		int nextLarger = 0;
+		int maxLen = 0;
 		/*
-		 * sum[i,j] = sum [i] - sum[j]
+		 * Cumulative sum[i] - sum of first i elements
+		 *
+		 * sum[i,j] = sum [j] - sum[i]
 		 * sum[i,j] is target sub-array that needs to have sum <= K
-		 * sum[i] is know cumulative sum and we will use binary search to find sum[j] s.t. K >= sum[i]-sum[j]
-		 * sum[j] >= sum[i] - K.
+		 * sum[j] is now cumulative sum and we will use binary search to FIND sum[i] s.t. K >= sum[j]-sum[i]
+		 * =>=> sum[i](我们要求的未知数) >= sum[j](当前的累计和) - K.
 		 *   
 		 */
 		for (int ele : arr) {
-			culSum += ele;
-			// we use subtraction culSum - sum[in tree set] <= K
-			// That is we need to look for the next smaller number num of K, num = culSum - presum <= K => culSum - k <= presum  
-			Integer presum = set.ceiling(culSum - K); //寻找大于等于culSum - K 的元素
+			sum_j += ele;
+			Integer sum_i = set.ceiling(sum_j - K); //寻找大于等于culSum - K 的元素
 			
-			if (presum != null) 
-				nextLarger = Math.max(nextLarger, culSum - presum); // culSum - presum <= K
-			set.add(culSum); 
-			
+			if (sum_i != null)
+				maxLen = Math.max(maxLen, sum_j - sum_i); // culSum - presum <= K
+			set.add(sum_j);
 		}
-		return nextLarger;
+		return maxLen;
 	
 	}
 }
