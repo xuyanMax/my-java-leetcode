@@ -9,7 +9,7 @@ public class HINDEX {
 /*
 Bucket sort
 h-index can be at most len
-1、Create an array COUNT of size len+1, storing the number of papers having a citation equal to its index for i in [0:len-1];
+1、Create an arr COUNT of size len+1, storing the number of papers having a citation equal to its index for i in [0:len-1];
    for i = L, it stores the number of papers having a citation >= len
 2、We can locate its h-index by scanning the COUNT from right to left. By definition, index k is the h-index if the summation of
  all elements from count[k] to count[len] is no less than k.

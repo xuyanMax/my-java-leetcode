@@ -5,7 +5,7 @@ package bit;
  */
 
 /*
-    Given an array of integers, every element appears 3 times except for one,
+    Given an arr of integers, every element appears 3 times except for one,
     which appears exactly once. Find that single one.
 
 
@@ -47,7 +47,7 @@ two = (two ^ A[i]) & ~one
         // iterate through every bit of 32-bit number
         for (int i=0; i<32; i++) {
             // Find sum of set bits at ith position in all
-            // array element
+            // arr element
             int sum = 0;
             int mask = 1 << i;
             for (int j=0; j<A.length; j++) {

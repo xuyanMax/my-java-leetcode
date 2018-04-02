@@ -21,8 +21,8 @@ import java.util.Map;
  * https://leetcode.com/problems/intersection-of-two-arrays-ii/#/description
  * 
  * - Hash table
- * - two pointers for each array
- * - we use list to store the result first and then convert to int array since we don't know the length
+ * - two pointers for each arr
+ * - we use list to store the result first and then convert to int arr since we don't know the length
  * 
  */
 public class IntersectionOfTwoArrays {

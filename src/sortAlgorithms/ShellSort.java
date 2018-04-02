@@ -34,9 +34,10 @@ public class ShellSort {
 			for (i = increment; i<arr.length; i++) {
 				if (arr[i] < arr[i - increment]) {
 					int tmp = arr[i];
-					for (j=i-increment; j>=0 && tmp < arr[j]; j -= increment) {
+
+					for (j=i-increment; j>=0 && tmp < arr[j]; j -= increment)
 						arr[j + increment] = arr[j];// 记录后移，查找插入位置
-					}
+
 					arr[j + increment] = tmp;//插入
 				}
 					
@@ -60,7 +61,7 @@ public class ShellSort {
             // Do a gapped insertion sort for this gap size.
             // The first gap elements a[0..gap-1] are already
             // in gapped order keep adding one more element
-            // until the entire array is gap sorted
+            // until the entire arr is gap sorted
             for (int i = gap; i < n; i += 1)
             {
                 // add a[i] to the elements that have been gap

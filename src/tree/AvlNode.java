@@ -6,17 +6,17 @@ public class AvlNode {
  public AvlNode right;
  public AvlNode parent;
  public int height;
- public int data;
+ public int key;
  public int balance;
 
  public AvlNode(int k) {
   left = right = parent = null;
   balance = 0;
   height = 0;
-  data = k;
+  key = k;
  }
  public String toString() {
-  return "" + data;
+  return "" + key;
  }
 
 }

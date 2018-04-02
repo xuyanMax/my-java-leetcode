@@ -22,21 +22,15 @@ public class BinaryTreePath {
 	}
 	static void search (AvlNode root, String path, List<String> paths) {
 		if (root.left == null && root.right == null)
-			paths.add(path + root.data);
+			paths.add(path + root.key);
 		if (root.left != null)
-			search(root.left, path + root.data + "->", paths);
+			search(root.left, path + root.key + "->", paths);
 		if (root.right != null)
-			search(root.right, path + root.data + "->", paths);
+			search(root.right, path + root.key + "->", paths);
 		
 	}
 	
 	
-	 class TreeNode{
-		   int val;
-		   TreeNode left;
-		   TreeNode right;
-		   TreeNode(int x) { val = x; }
-		
-	}
+
 
 }

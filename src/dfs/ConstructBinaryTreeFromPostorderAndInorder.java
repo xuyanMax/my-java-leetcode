@@ -10,13 +10,13 @@ public class ConstructBinaryTreeFromPostorderAndInorder {
     public Map<Integer, Integer> map;
     PostIndex postIndex;
 
-    // memoize hashmap <inorder value, index>
+    // memoize hashmap <preOrder value, index>
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (inorder==null ||  postorder == null || inorder.length == 0 || postorder.length==0)
             return null;
         postIndex = new PostIndex(inorder.length-1);
 
-        // inorder[] value -> index
+        // preOrder[] value -> index
          map = new HashMap();
         for (int i=0; i<inorder.length; i++)
             map.put(inorder[i], i);

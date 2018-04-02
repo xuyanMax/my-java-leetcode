@@ -46,7 +46,7 @@ public class AVLTree_2 {
 	/**
 	 * 
 	 * @param root Tree root
-	 * @param data new data for the toBeInsertNode
+	 * @param data new key for the toBeInsertNode
 	 * @return Tree root
 	 * 
 	 * Following is the implementation for AVL Tree Insertion. The following implementation uses the recursive BST insert to insert a new node. 
@@ -66,11 +66,11 @@ public class AVLTree_2 {
 		/* 1. perform the normal BST insertion.*/
 		if (root==null)
 			return new AvlNode(data);
-		if (data < root.data)
+		if (data < root.key)
 			root.left = insert(root.left, data);
-		else if (data > root.data)
+		else if (data > root.key)
 			root.right = insert(root.right, data);
-		else // Equal data not allowed
+		else // Equal key not allowed
 			return root;
 		
 		/* 2. Update height of this ancestor node */
@@ -118,9 +118,9 @@ public class AVLTree_2 {
 		/* 1. perform standard BST DELETE */
 		if (root == null)
 			return null;
-		if (root.data > data) 
+		if (root.key > data)
 			root.left = delete(root.left, data);
-		else if (root.data < data) 
+		else if (root.key < data)
 			root.right = delete(root.right, data);
 		else { // this is the node to be selected
 			
@@ -146,11 +146,11 @@ public class AVLTree_2 {
 				// find the next larger node in root.right subtree
 				AvlNode nextLarger = minValueNode(root.right);
 				
-				// coppy the nextLarger data into root.data
-				root.data = nextLarger.data;
+				// coppy the nextLarger key into root.key
+				root.key = nextLarger.key;
 				
 				// DELETE the nextLarger node from the root.right subtree
-				root.right = delete(root.right, root.data);
+				root.right = delete(root.right, root.key);
 			}
 			// if tree has only one node w/o children
 			if (root == null)
@@ -282,7 +282,7 @@ public class AVLTree_2 {
         }
 		
         inOrder(root.left);
-        System.out.print(root.data + " ");
+        System.out.print(root.key + " ");
         inOrder(root.right);
       
     }

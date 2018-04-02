@@ -3,12 +3,10 @@ package sortAlgorithms;
 import java.util.Arrays;
 
 /**
- * 
- * @author xu
  * What if the elements are in range from 1 to n^2?
  * We can’t use counting sort because counting sort will take O(n^2) which is worse than comparison based sorting algorithms. 
  * 
- * Can we sort such an array in linear time?
+ *  Can we sort such an arr in linear time?
  * -Radix Sort is the answer. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to 
  *  most significant digit. 
  * -Radix sort uses counting sort as a subroutine to sort.
@@ -16,7 +14,7 @@ import java.util.Arrays;
  *
  * http://www.geeksforgeeks.org/radix-sort/
  */
-public class RadixSort {
+public class RadixSort {//基数排序
 
 	public static void main(String[] args) {
 			int[] arr = new int[]{170, 45, 75, 90, 802, 24, 2, 66};
@@ -39,7 +37,7 @@ public class RadixSort {
 		int n = arr.length;
 		int[] output = new int[n];
 		
-		/* a count array to store the count of individual digits from 0-9*/
+		/* a count arr to store the count of individual digits from 0-9*/
 		int[] count = new int[10];
 		Arrays.fill(count, 0);
 		
@@ -50,13 +48,13 @@ public class RadixSort {
 			count[ (arr[i] / level) % 10]++;
 		
 		/* change count[] so that count[i] contains the actual position of this digit in arr[] */
-		for (i = 1; i < 10; i++){
+		for (i = 1; i < 10; i++)
 			count[i] += count[i-1];
-		}
+
 		/* build the output arr from back to forth so that the rank of numbers with the same digit does not change*/
 		for (i=n-1;i>=0;i--){
 			int index = (arr[i]/level)%10;
-			output[ count[index]-1 ] = arr[i];
+			output[ count[index] - 1 ] = arr[i];
 			count[index]--;
 		}
 		

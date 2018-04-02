@@ -15,20 +15,20 @@ public class JumpGame2 {
 	// for-loop inside while-loop iteratively find out the longest distance reachable in current position
 	// and then take the longest reachable one in current position as the next bounding edge of the next iteration
 	 public int jump(int[] nums) {
-	        int next_jump_lgst_dst = 0;
-	        int longest_dst_sofar = 0;
+	        int next_dst = 0;
+	        int lng_dst_sofar = 0;
 	        
 	        int currPos = 0;
 	        int min_step = 0;
-	        while (longest_dst_sofar < nums.length - 1) {
+	        while (lng_dst_sofar < nums.length - 1) {
 	        	// longest reachable one as the bounding edge
 	        	// i:current position
-	            for (; currPos<=longest_dst_sofar; currPos++) 
-	                if ( (currPos + nums[currPos]) > next_jump_lgst_dst)
-	                    next_jump_lgst_dst = currPos + nums[currPos];
+	            for (; currPos<=lng_dst_sofar; currPos++)
+	                if ( (currPos + nums[currPos]) > next_dst)
+	                    next_dst = currPos + nums[currPos];
 	            
-	            if (next_jump_lgst_dst > longest_dst_sofar) {
-	                longest_dst_sofar = next_jump_lgst_dst;
+	            if (next_dst > lng_dst_sofar) {
+	                lng_dst_sofar = next_dst;
 	                min_step++;
 	            } else // unable to reach beyond the longest distance  
 	            	return -1;

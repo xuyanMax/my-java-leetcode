@@ -35,7 +35,7 @@ public class BinaryWatch {
 
         // loop from 0 to 3 which is the max number of bits can be set in hours (4 bits)
         for(int i=0; i<hour.length && i<=n; i++) {
-            // this if condition is to make sure the index from minutes array would be valid
+            // this if condition is to make sure the index from minutes arr would be valid
             if(n-i<=5) {
                 for(String hr: hour[i]) {
                     // if we have i 1's in hours, then we need n - i 1's in minutes,

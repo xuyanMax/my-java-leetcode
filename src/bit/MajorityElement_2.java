@@ -8,7 +8,7 @@ import java.util.List;
  */
 /*
 
-Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+Given an integer arr of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
 The algorithm should run in linear time and in O(1) space.
 
 */

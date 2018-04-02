@@ -26,12 +26,12 @@ Output: false
 Explanation: You cannot find a way to form a square with all the matchsticks.
 Note:
 The length sum of the given matchsticks is in the range of 0 to 10^9.
-The length of the given matchstick array will not exceed 15.
+The length of the given matchstick arr will not exceed 15.
 
 */
 public class MatchSticks {
 
-    //It is a partition problem, the partition problem is to decide whether a given multiset S of positive
+    // It is a partition problem, the partition problem is to decide whether a given multiset S of positive
     // integers can be partitioned into two subsets S1 and S2 such that the sum of the numbers is S1 equals that of
     // S2. The problem is NP-Complete
     // Time complexity - O(4^N)
@@ -45,7 +45,7 @@ public class MatchSticks {
         if (sum % 4 != 0)
             return false;
         //通过倒排nums，可以起到优化的作用，加快排除不可能的情况
-        //逆序不可以使用一下方法，最好手动实现，先调用顺排，再手动逆序
+        //逆序不可以使用以下方法，最好手动实现，先调用顺排，再手动逆序
 //        Arrays.sort(nums, Collections.reverse());
         Arrays.sort(nums);
         reverseArray(nums);

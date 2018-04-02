@@ -9,7 +9,7 @@ import java.util.Queue;
  * Created by xu on 2017/6/28.
  */
 /*
-Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Your job is to output the median array for each window in the original array.
+Given an arr nums, there is a sliding window of size k which is moving from the very left of the arr to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Your job is to output the median arr for each window in the original arr.
 
 For example,
 Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.

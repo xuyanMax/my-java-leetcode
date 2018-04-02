@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * Created by xu on 2017/6/26.
  */
 public class FindMedian_Design {
-    /** initialize your data structure here. */
+    /** initialize your key structure here. */
     private PriorityQueue<Integer> small =new PriorityQueue<>(Collections.reverseOrder());
     private PriorityQueue<Integer> large = new PriorityQueue<>();
     boolean even = true;

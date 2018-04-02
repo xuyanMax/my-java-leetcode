@@ -20,19 +20,17 @@ public class InfixToPostfix {//逆波兰表达式又称为"后缀表达式"
             if (Character.isDigit(c) || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
                 output += c;
             else if (c == ')') {
-                while (!operator.isEmpty() && operator.peek() != '(') {
+                while (!operator.isEmpty() && operator.peek() != '(')
                     output += operator.poll();
-                }
-                //只有遇到c为)时，才弹出左括号( 且不输入输出到字符川
+                //弹出左括号( 且不输入输出到字符川
                 operator.poll();
 
             } else if (c == '+' | c == '-' | c == '*' | c == '/' | c == '('){
                 if (operator.isEmpty()) {
                     operator.push(c);
                 } else {
-                    while (!operator.isEmpty() && operator.peek()  != '(' && (priority(c) <= priority(operator.peek()))) {
+                    while (!operator.isEmpty() && operator.peek()  != '(' && (priority(c) <= priority(operator.peek())))
                         output += operator.poll();
-                    }
                     operator.push(c);
                     //不弹出左括号
                 }

@@ -39,9 +39,9 @@ class Input extends Thread{
         this.str = str;
     }
     synchronized public void CountNumber(){
-        while (i <2 && (ind = str[i++].indexOf("u51", fromInd)) != -1){
+        while (i <2 && (ind = str[i++].indexOf("u51_1018", fromInd)) != -1){
             count++;
-            fromInd = ind + "u51".length();
+            fromInd = ind + "u51_1018".length();
         }
         totalCount += count;
     }

@@ -1,5 +1,7 @@
 package stack;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,6 +12,7 @@ public class LevelOrderTraversal {
 	/*
 	 * One queue with count
 	 */
+	@Test
 	public List<List<Integer>> LevelOrder(TreeNode root) {
 		List<List<Integer>> ret = new ArrayList<List<Integer>>();
 		

@@ -2,10 +2,11 @@ package trie;
 
 /**
  * Created by xu on 2017/5/28.
+ *
+ * 每一个TrieNode对应一个Character，并拥有26个子节点（对应26个小写a-z）
  */
 public class ImplementTrie {
-    /* 每一个TrieNode对应一个Character，并拥有26个子节点（对应26个小写a-z）
-    * */
+
     class TrieNode{
          public boolean isWord;
          public TrieNode[] children = new TrieNode[26];// 链表的形式存储sub-tree

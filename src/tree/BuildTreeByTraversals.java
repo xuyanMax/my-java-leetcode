@@ -43,7 +43,7 @@ public class BuildTreeByTraversals {
 		
 	   /* Else find the index of this node in In-order
         traversal */
-		int inPos = search(in, left, right, node.data);
+		int inPos = search(in, left, right, node.key);
 		
 	  /* Using index in In-order traversal, construct left and
         right sub-tress */
@@ -90,7 +90,7 @@ public class BuildTreeByTraversals {
 		if (left==right) 
 			return node;
 		
-		int inPos = search(in, left, right, node.data);
+		int inPos = search(in, left, right, node.key);
 		
 		node.left = buildTree2Util(pre, in, left, inPos - 1, preIndex);
 		node.right = buildTree2Util(pre, in, inPos + 1 , right, preIndex);

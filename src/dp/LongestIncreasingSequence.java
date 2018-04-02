@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 
  * @author xu
  * 
- * Given an array, find the sequence from which the subsequence' element is sorted in increasing order,
+ * Given an arr, find the sequence from which the subsequence' element is sorted in increasing order,
  * and in which the subsequence is as long as possible.
  *  
  * DP solution:

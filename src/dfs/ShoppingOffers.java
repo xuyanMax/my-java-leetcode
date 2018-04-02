@@ -17,7 +17,7 @@ You are given the each item's price, a set of special offers, and the number we 
 The job is to output the lowest price you have to pay for EXACTLY certain items as given,
 where you could make optimal use of the special offers.
 
-Each special offer is represented in the form of an array, the last number represents the price you need
+Each special offer is represented in the form of an arr, the last number represents the price you need
 to pay for this special offer, other numbers represents how many specific items you could get if you buy this offer.
 
 You could use any of special offers as many times as you want.
@@ -62,6 +62,7 @@ public class ShoppingOffers {
             // 每一个offer 下 遍历 needs
             for (int j=0; j<needs.size(); j++) {
                 int remain = needs.get(j) - offer.get(j);
+                needs.set(j, remain);
                 if (validOffer && remain < 0) { //如果offer中有超出needs数量的茶品
                     validOffer = false;
                     break;
@@ -76,7 +77,7 @@ public class ShoppingOffers {
                 needs.set(k, remain);
             }
         }
-        // 如果不使用特殊卷呢？对比单个商品按需求购买所需的费用
+        // 如果不使用特殊卷呢(可能特数卷无法"凑整")？对比单个商品按需求购买所需的费用
         int noSpecial = 0;
         for (int i=0; i<needs.size(); i++)
             noSpecial += needs.get(i) * price.get(i);
@@ -87,7 +88,7 @@ public class ShoppingOffers {
     // visit + dp
     public int shoppingOffers_2(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
 
-        // 存储的key 为hashCode(当前的needs对应的各个产品的数目); value 为 此needs对应的花费
+        // 存储的key 为hashCode(当前的needs对应的各个产品的数目); value 为此needs对应的花费
         Map<Integer, Integer> map = new HashMap<>();
         return dfs(price, special, needs, map);
     }

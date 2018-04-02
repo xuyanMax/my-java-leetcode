@@ -33,8 +33,8 @@ public class Oracle_170921_3 {
                 switch (c){
                     case '+': plus(curr2, curr1, builder_stack); break;
                     case '-': minus(curr2, curr1, builder_stack); break;
-                    case '*': multiply(curr2, curr1, builder_stack);break;
-                    case '/': divide(curr2, curr1, builder_stack);break;
+                    case '*': multiply(curr2, curr1, builder_stack); break;
+                    case '/': divide(curr2, curr1, builder_stack); break;
                     default: break;
                 }
             }

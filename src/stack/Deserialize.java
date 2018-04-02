@@ -17,7 +17,7 @@ public class Deserialize {
  * Use a stack to hold the different levels of nested ones
  * 
  * Iterative approach
- * data-structure: a stack & two pointers for windowing substring & a current NestedInteger object
+ * key-structure: a stack & two pointers for windowing substring & a current NestedInteger object
  * 
  * current NestedInteger was set to null at first. 
  * case1:'[' 

@@ -31,7 +31,8 @@ public class PostorderTraversal {
 		}
 		while (!stack2.isEmpty())
 			ret.add(stack2.pop().val);
-	
+
+
 		return ret;
 	}
 	

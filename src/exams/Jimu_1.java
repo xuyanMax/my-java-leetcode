@@ -97,7 +97,7 @@ public class Jimu_1 {
      * elements from index {@code lo}, inclusive, to {@code start},
      * exclusive are already sorted.
      *
-     * @param a the array in which a range is to be sorted
+     * @param a the arr in which a range is to be sorted
      * @param start the index of the first element in the range that is
      *        not already known to be sorted ({@code lo <= start <= hi})
             * @param c comparator to used for the sort

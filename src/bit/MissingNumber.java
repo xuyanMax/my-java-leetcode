@@ -4,7 +4,7 @@ package bit;
  * Created by xu on 2017/6/28.
  */
 /*
-Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+Given an arr containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the arr.
 
 For example,
 Given nums = [0, 1, 3] return 2.
@@ -13,7 +13,7 @@ Given nums = [0, 1, 3] return 2.
 public class MissingNumber {
 /*
 since the n numbers are from [0, n], we can just add all the numbers from [0, n] together and
-minus the sum of the n-1 numbers in array.
+minus the sum of the n-1 numbers in arr.
 
 */
 
@@ -36,8 +36,8 @@ minus the sum of the n-1 numbers in array.
 /*
 BIT-MANIPULATION
 
-Apply XOR operation to both the index and value of the array. In a complete array with no missing numbers,
-the index and value should be perfectly corresponding( nums[index] = index), so in a missing array,
+Apply XOR operation to both the index and value of the arr. In a complete arr with no missing numbers,
+the index and value should be perfectly corresponding( nums[index] = index), so in a missing arr,
 what left finally is the missing number.
 
 * */

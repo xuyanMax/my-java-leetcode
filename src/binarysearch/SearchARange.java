@@ -4,11 +4,11 @@ package binarysearch;
  * Created by xu on 23/07/2017.
  */
 /*
-Given an array of integers SORTED in ascending order, find the starting and ending position of a given target value.
+Given an arr of integers SORTED in ascending order, find the starting and ending position of a given target value.
 
 Your algorithm's runtime complexity must be in the order of O(log n).
 
-If the target is not found in the array, return [-1, -1].
+If the target is not found in the arr, return [-1, -1].
 
 For example,
 Given [5, 7, 7, 8, 8, 10] and target value 8,
@@ -101,12 +101,12 @@ public class SearchARange {
 
 /*
 ####
-If the elements of the whole array is the same as the target, can we do it in a O(logn) time?
+If the elements of the whole arr is the same as the target, can we do it in a O(logn) time?
 
 - ANSWER
 
 Absolutely. You can choose two double numbers T-0.5 and T+0.5 for target T, and then binary search positions for
-the two double numbers in the integer array(suppose the position are a and b respectively), then the answer is [a, b-1].
+the two double numbers in the integer arr(suppose the position are a and b respectively), then the answer is [a, b-1].
 For example, for input [5,7,7,8,8,10], you can search position for number 7.5 and 8.5 using binary-search,
 and the result is 3 and 5, by which the answer [3,4] is easily obtained.
 */

@@ -5,7 +5,7 @@ package exams.multi_thread;
  */
 public class ContainsSubstringTimes {
      public static void main(String[] args){
-         System.out.println(containsTimes("asu51daskjfu51sklfdau51", "u51"));
+         System.out.println(containsTimes("asu51daskjfu51sklfdau51", "u51_1018"));
      }
      public static int containsTimes(String str, String sub) {
          int fromIndex=0;

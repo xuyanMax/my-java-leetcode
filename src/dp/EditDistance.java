@@ -91,7 +91,7 @@ public class EditDistance {
 			} else if(dp[i][j] == dp[i][j-1]+1) {
 				System.out.println("Edit: Delete " + str2[j-1] + " in str2.");
 				j--;
-			} else throw new IllegalArgumentException("Some wrong with given data.");
+			} else throw new IllegalArgumentException("Some wrong with given key.");
 							
 		}
 		

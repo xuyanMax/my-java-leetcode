@@ -1,4 +1,4 @@
-package BackTracing;
+package backTracing;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +44,7 @@ public class StringCombination {
 				else return val+1;
 				});
 
+            countMap.put(c, 1 + countMap.getOrDefault(c, 0));
 		}
 		char[] chars = new char[countMap.size()];
 		int[] count = new int[countMap.size()];
@@ -58,7 +59,7 @@ public class StringCombination {
 		List<String> results = new ArrayList<String>();
 		char[] result = new char[countMap.size()];
 		
-		int level = 0;	// index of the result array 
+		int level = 0;	// index of the result arr
 		int pos = 0;	// pos index, indicates available characters are from the pos index to the n-1.
 		combinationUtil(results, chars, count, result, level, pos);
 		System.out.println(results);

@@ -55,7 +55,7 @@ public class MinimumAbsoluteDifference {
 
     // ==========================================================================================
     // accepted solution on LeetCode
-    // inorder traversal
+    // preOrder traversal
     // 递归法，需要用全局变量来定位pre
     // curr: 中序遍历中的当前节点
     // pre:中序遍历中curr节点的前一节点
@@ -82,7 +82,7 @@ public class MinimumAbsoluteDifference {
     }
 
     // ==========================================================================================
-    // inorder-iterative solution 中序遍历从小到达从stack中弹出
+    // preOrder-iterative solution 中序遍历从小到达从stack中弹出
     // 这次可以在方法内声明pre节点
     // curr: 中序遍历中的当前节点
     // pre:中序遍历中curr节点的前一节点
@@ -115,7 +115,7 @@ public class MinimumAbsoluteDifference {
 
     }
     // ==========================================================================================
-    // use TreeSet + preorder
+    // use TreeSet + preOrder
     private TreeSet<Integer> set = new TreeSet<>();
     //Wrap.diff
     public int AnyOrder_TreeSet(TreeNode root) {

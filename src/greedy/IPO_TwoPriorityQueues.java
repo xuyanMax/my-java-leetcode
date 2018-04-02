@@ -9,7 +9,7 @@ import java.util.Set;
  * 
  * @author xu
  *
- * Given a profit array of projects' profits[], a capital array of projects' capital[]
+ * Given a profit arr of projects' profits[], a capital arr of projects' capital[]
  * A K #distinct projects and W initial capital.
  * Pick a list of at most K projects to maximize your profits
  * 

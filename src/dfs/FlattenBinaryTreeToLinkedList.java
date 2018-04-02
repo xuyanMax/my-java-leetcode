@@ -37,7 +37,7 @@ next node of a pre-order traversal.
 */
 public class FlattenBinaryTreeToLinkedList {
 
-    // use reversed preorder 反向的前序遍历，不是真正意义上的后序遍历
+    // use reversed preOrder 反向的前序遍历，不是真正意义上的后序遍历
     // pre:指向某节点元素的子节点（左或者右节点）
     private TreeNode pre = null;
 

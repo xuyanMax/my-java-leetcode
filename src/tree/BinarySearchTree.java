@@ -5,12 +5,12 @@ package tree;
  * 
  * * Youtube link - https://youtu.be/zm83jPHZ-jA
  * 
- * Given a binary search tree and a key, return node which has data as this key or return
- * null if no node has data as key.
+ * Given a binary search tree and a key, return node which has key as this key or return
+ * null if no node has key as key.
  * 
  * Solution 
- * Since its BST for every node check if root.data is key and if not go either left or
- * right depending on if root.data is greater or less than key
+ * Since its BST for every node check if root.key is key and if not go either left or
+ * right depending on if root.key is greater or less than key
  * 
  * Time complexity is O(n) for non balanced BST
  * Time complexity is O(logn) for balanced BST

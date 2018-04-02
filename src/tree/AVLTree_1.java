@@ -50,7 +50,7 @@ public class AVLTree_1 {
 		if (root == null)
 			this.root = toBeInsert;
 		
-			if (root.data < toBeInsert.data)  {
+			if (root.key < toBeInsert.key)  {
 				if (root.right == null) {
 					root.right = toBeInsert;
 					toBeInsert.parent = root;
@@ -60,7 +60,7 @@ public class AVLTree_1 {
 				} else 
 					 insertAVL(root.right, toBeInsert);
 				}
-			else if (root.data > toBeInsert.data) {
+			else if (root.key > toBeInsert.key) {
 				if (root.left == null) {
 					root.left = toBeInsert;
 					toBeInsert.parent = root;

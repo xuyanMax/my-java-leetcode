@@ -6,13 +6,13 @@ import java.util.Arrays;
  * Created by xu on 28/08/2017.
  */
 /*
-Given an unsorted array, find the maximum difference between the successive elements in its sorted form.
+Given an unsorted arr, find the maximum difference between the successive elements in its sorted form.
 
 Try to solve it in linear time/space.
 
-Return 0 if the array contains less than 2 elements.
+Return 0 if the arr contains less than 2 elements.
 
-You may assume all elements in the array are non-negative integers and fit in the 32-bit signed
+You may assume all elements in the arr are non-negative integers and fit in the 32-bit signed
 integer range.
 
 */

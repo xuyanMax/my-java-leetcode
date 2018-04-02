@@ -24,7 +24,7 @@ public class TrappingTrainWater {
 	// keep track of maximum height from both forward direction and backward direction,
 	// call them leftMax and rightMax.
 	// instead of computing area by height*width, think it in a cumulative way. 
-	// search from both side of the array and keep the leftMax and rightMax
+	// search from both side of the arr and keep the leftMax and rightMax
     // and pick the smaller one
 	
 	public static int solution(int[] height) {

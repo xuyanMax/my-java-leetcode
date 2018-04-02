@@ -35,7 +35,7 @@ public class KthSmallBST {
 
     }
     ////////////////////////////////////////////////////////////////////////////////
-    // visit-inorder recursive
+    // visit-preOrder recursive
     static class Number{
         static int number=0;
     }
@@ -68,7 +68,7 @@ public class KthSmallBST {
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    // visit-inorder iterative
+    // visit-preOrder iterative
     public int kthSmallest_dfs_iter(TreeNode root, int k) {
         LinkedList<TreeNode> stack = new LinkedList<>();
         while (root != null) {

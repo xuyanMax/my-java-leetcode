@@ -30,7 +30,7 @@ public class PalindromePairs {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
         TrieNode root = new TrieNode();
 
-        // contruct the Trie Structure
+        // construct the Trie Structure
         for (int i=0; i<words.length; i++)
             addWord(words[i], root, i);
 
@@ -48,7 +48,7 @@ public class PalindromePairs {
                 root.children[word.charAt(pos) -'a'] = new TrieNode();
 
             // add the INDEX of the word to list if the prefix of the WORD is palindrome
-            // example. lls + (ss)sll since (ss) is palindrom and lls matches sll, so lls+sssll is a palindrome
+            // example. lls + (ss)sll since (ss) is palindrome and lls matches sll, so lls+sssll is a palindrome
             if (isPalindrome(word, 0, pos))
                 root.list.add(index);
 
@@ -86,7 +86,7 @@ public class PalindromePairs {
     /*
     @left = 0
     @right = right boundary
-    Check is str.substring(0,  right) is palindrome or not
+    Check if str.substring(0,  right) is palindrome or not
     *
     * */
     public boolean isPalindrome(String str, int left, int right) {

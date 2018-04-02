@@ -13,7 +13,7 @@ public class EraseOverlapIntervals {
  *
  * The problem is the same as "Given a collection of intervals, find the max number of non-overlapping intervals"
  * one way: sortAlgorithms intervals.end in ascending order O(nlgn)
- * traverse intervals array to get the max number of non overlapping intervals O(n)
+ * traverse intervals arr to get the max number of non overlapping intervals O(n)
  *
  * Time complexity - O(nlgn)
  * @return

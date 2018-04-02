@@ -12,7 +12,8 @@ import java.util.Set;
 /**
  * 
  * @author xu
- * simple Dijkstra implementation with out using any performance optimization, e.g.,  priority queue for unsettled vertices
+ * simple Dijkstra implementation without using any performance optimization,
+ * e.g.,  priority queue for unsettled vertices
  * references:
  * http://www.vogella.com/tutorials/JavaAlgorithmsDijkstra/article.html
  */
@@ -48,17 +49,17 @@ public class Dijkstra_simple {
         }
         
 	}
- 	public void initialize(Vertex current) {
+ 	public void initialize(Vertex src) {
  		for (Vertex v: nodes) 
  			distance.put(v, Integer.MAX_VALUE);
  		
- 		distance.put(current, 0);
+ 		distance.put(src, 0);
  		settledNodes = new HashSet<Vertex>();
         unSettledNodes = new HashSet<Vertex>();
         
         distance = new HashMap<Vertex, Integer>();
         predecessors = new HashMap<Vertex, Vertex>();        
-        unSettledNodes.add(current);
+        unSettledNodes.add(src);
         
  	}
  	public void Relax(Vertex u, Vertex v) {
@@ -72,17 +73,17 @@ public class Dijkstra_simple {
 	}
  	
  	public int getEdgeWeight (Vertex u, Vertex v) {
- 		for (Edge e: edges) {
- 			if (e.getSrc().equals(u) && e.getDst().equals(v)) 
- 				return 	e.getWeight();
+ 		for (Edge edge: edges) {
+ 			if (edge.getSrc().equals(u) && edge.getDst().equals(v))
+ 				return edge.getWeight();
  		}
 		throw new RuntimeException("Shouldn't happen!");
  	}
 	public List<Vertex> getNeighbors (Vertex current) {
 		List<Vertex> neighbors = new ArrayList<Vertex>();
-		for (Edge e : edges)
-			if (e.getSrc().equals(current) && !settledNodes.contains(e.getDst()))
-				neighbors.add(e.getDst());
+		for (Edge edge : edges)
+			if (edge.getSrc().equals(current) && !settledNodes.contains(edge.getDst()))
+				neighbors.add(edge.getDst());
 		
 		return neighbors;
 	}

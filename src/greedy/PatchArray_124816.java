@@ -8,9 +8,9 @@ import java.util.List;
 /**
  * 
  * @author xu
- * Given a sorted positive integer array nums and an integer n, 
- * add/patch elements to the array such that any number in range [1, n] inclusive 
- * can be formed by the sum of some elements in the array. 
+ * Given a sorted positive integer arr nums and an integer n,
+ * add/patch elements to the arr such that any number in range [1, n] inclusive
+ * can be formed by the sum of some elements in the arr.
  * Return the minimum number of patches required.
  * 
  */
@@ -18,7 +18,7 @@ public class PatchArray_124816 {
 
 	public static void main(String[] args) {
 		
-		minPatch(new int[]{1,2,4,13},44);
+		minPatch(new int[]{1,2,4},16);
 //		minPatch(new int[]{1,2,3,9},20);
 //		minPatch(new int[]{1,3,5,7,9},30);
 	}

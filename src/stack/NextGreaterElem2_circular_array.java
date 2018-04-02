@@ -13,7 +13,7 @@ public class NextGreaterElem2_circular_array {
  * 
  * https://leetcode.com/problems/next-greater-element-ii/#/description
  * 
- * Given a circular array (the next element of the last element is the first element of the array), 
+ * Given a circular arr (the next element of the last element is the first element of the arr),
  * print the Next Greater Number for every element. 
  * 
  */

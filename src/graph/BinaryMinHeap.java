@@ -62,17 +62,18 @@ public class BinaryMinHeap<T> {
      
         allNodes.add(node);
         int size = allNodes.size();
-        int currentIndex = size - 1;
-        int parentIndex = (currentIndex - 1) / 2;
-        nodePosition.put(node.key, currentIndex);
+        int index = size - 1;
+        int parentIndex = (index - 1) / 2;
+        nodePosition.put(node.key, index);
 
         while (parentIndex >= 0) {
             Node parentNode = allNodes.get(parentIndex);
-            Node currentNode = allNodes.get(currentIndex);
+            Node currentNode = allNodes.get(index);
+
             if (parentNode.weight > currentNode.weight) {
-                swap(parentNode,currentNode);
-                updatePositionMap(parentNode.key,currentNode.key,parentIndex,currentIndex);
-                currentIndex = parentIndex;
+                swap(parentNode,currentNode);// update heap index
+                updatePositionMap(parentNode.key,currentNode.key,parentIndex,index);
+                index = parentIndex;
                 parentIndex = (parentIndex - 1) / 2;
             } else {
                 break;
@@ -133,18 +134,20 @@ public class BinaryMinHeap<T> {
      */
     public Node extractMinNode() {
         int size = allNodes.size() -1;
+        // returned min mode
         Node minNode = new Node(allNodes.get(0).weight, allNodes.get(0).key);
         
         int lastNodeWeight = allNodes.get(size).weight;
-        
+
+        //更新allNodes[0]
         allNodes.get(0).weight = lastNodeWeight;
         allNodes.get(0).key = allNodes.get(size).key;
 
-        nodePosition.remove(minNode.key);
-        nodePosition.remove(allNodes.get(0));
-        nodePosition.put(allNodes.get(0).key, 0);
+        nodePosition.remove(minNode.key);// remove first
+        nodePosition.remove(allNodes.get(0));// remove last (used to be last node but now first node)
+        nodePosition.put(allNodes.get(0).key, 0);// update index
         
-        allNodes.remove(size);
+        allNodes.remove(size);//remove last index
 
         int currentIndex = 0;
         size--;

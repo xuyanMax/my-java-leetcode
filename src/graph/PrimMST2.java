@@ -53,18 +53,17 @@ public class PrimMST2 {
 		int[] key = new int[V];
 		
 		// initialize all keys as infinity， unvisited
-		for (int v=0; v<V; v++) {
+		for (int v=0; v<V; v++)
 			key[v] = Integer.MAX_VALUE;
-			mstSet[v] = false;
-		}
 		
 		// always include first vertex in mst 
 		key[0] = 0;// make key zero so that this vertex is picked first
 		parent[0] = -1; // set its parent null or -1;
 		
 		
-		// mst should have V-1 edges
+		// mst should have V-1 edges left
 		for (int i = 0; i<V; i++) {
+			//所有的key[]中最短的边
 			int u = minKey(key, mstSet);
 			
 			// add the picked vertex to mstSet
@@ -74,14 +73,11 @@ public class PrimMST2 {
 			// only those not included in mst set && its edge value non-zero && its edge value < key value
 			for (int v=0; v<V; v++){
 				// 0 indicates impassable
-
 				if (graph[u][v] != 0 && mstSet[v] == false && graph[u][v] < key[v]) {
 					key[v] = graph[u][v];
 					parent[v] = u;
 				}
 			}
-			
-			
 		}
 		print(parent, graph, V);
 	}

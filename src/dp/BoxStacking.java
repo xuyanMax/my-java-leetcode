@@ -33,23 +33,24 @@ public class BoxStacking {
 	}
 	public int MaxHeight(Dimension[] input){
 		// get all rotations of the dimensions
-		Dimension[] allRotationInput = new Dimension[input.length * 3];
-		createAllDimensions(input, allRotationInput);
-		Arrays.sort(allRotationInput);
+		Dimension[] allInput = new Dimension[input.length * 3];
+		createAllDimensions(input, allInput);
+		Arrays.sort(allInput);
 		
-		int[] dp = new int[allRotationInput.length];
-		int[] traceback = new int[allRotationInput.length];
-	
+		int[] dp = new int[allInput.length];
+		int[] traceback = new int[allInput.length];
+
+		//初始化dp
 		for (int i=0; i<dp.length; i++) {
-			dp[i] = allRotationInput[i].height;
+			dp[i] = allInput[i].height;
 			traceback[i] = -1;
 		}
 		for (int i=1; i<dp.length; i++) {
 			for (int j=0; j<i; j++) { // before i are those with larger base area 
-				if (allRotationInput[i].length < allRotationInput[j].length && 
-						allRotationInput[i].width < allRotationInput[j].width){
-					if (dp[i] < dp[j] + allRotationInput[i].height) {
-						dp[i] = dp[j] + allRotationInput[i].height;
+				if (allInput[i].length < allInput[j].length &&
+						allInput[i].width < allInput[j].width){
+					if (dp[i] < dp[j] + allInput[i].height) {
+						dp[i] = dp[j] + allInput[i].height;
 						traceback[i] = j;
 					}
 				}
@@ -71,10 +72,10 @@ public class BoxStacking {
 		 * print the stacking boxes
 		 */
 		while (traceback[index] != -1) {
-			System.out.println(allRotationInput[index]);
+			System.out.println(allInput[index]);
 			index = traceback[index];
 		}
-		Arrays.sort(allRotationInput);
+		Arrays.sort(allInput);
 		
 		return maxHeight;
 	}

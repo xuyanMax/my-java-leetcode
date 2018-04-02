@@ -22,105 +22,75 @@ package sortAlgorithms;
  */
 public class HeapSort {
 
-	private int[] array;
-	
 	public void swap(int[]array, int a, int b) {
-		
+
 		int tmp = array[a];
 		array[a] = array[b];
 		array[b] = tmp;
-		
-	}
-	public HeapSort(int[]array){
-		
-		this.array = array;
-		
+
 	}
 	
-	public void heapSorting(){
+	public void heapSorting(int[] nums){
 		
 		int i=0;
-		
 		//对排序初步调整为大顶堆，父结点大于左右子结点，//右结点不一定>左结点
-		for (i = array.length/2 -1; i>=0; i--) 	
-			heapify(array, i, array.length-1);
+		// arr.length/2 -1
+		for (i = nums.length/2 -1; i>=0; i--)
+			heapify(nums, i, nums.length-1);
 		
-		for (i = array.length-1;i>0;i--){
-			
-			swap(array, i, 0);// 参考大话数据结构 堆排序
-			
-			heapify(array, 0, i-1);//堆排序，从叶结点向跟结点逼近
+		for (i = nums.length-1;i>0;i--){
+			swap(nums, i, 0);// 参考大话数据结构 堆排序
+			heapify(nums, 0, i-1);//堆排序，从叶结点向跟结点逼近
 		}
-		
-
-		
 	}
 	
 	/**	对输入的数组进行初始化－堆排序
 	*	大顶堆: 左孩子，右孩子大小关系不确定。
 	*	s = adjust start index
-	*	m = length of array
+	*	m = length of arr
 	*/
-	public void heapify(int[]array, int s, int n){
+	public void heapify(int[]nums, int s, int n){
 		
 		int tmp, j;
 		
-		tmp = array[s];
+		tmp = nums[s];
 		
 		for(j = 2*s+1; j<=n; ) {
 			
 			//j<m 说明j 不是最后一个结点
-			if (j<n && array[j]<array[j+1])
+			if (j<n && nums[j]<nums[j+1])
 				j++;
 			
-			if (tmp >= array[j])
+			if (tmp >= nums[j])
 				break;
-//			swap(array, s, j);
+//			swap(arr, s, j	);
 			//始终用tmp 做比较，如果大于branch 则break 否则被branch最大值替换。继续下一层分支比较，tmp值为初始值
-			array[s] = array[j];
+			nums[s] = nums[j];
 		
 			s = j;
 			j = j * 2 + 1;
 		}
 		
-		array[s] = tmp;
+		nums[s] = tmp;
 	
 		
 	}
 	
-	public void heapifyRecur(int[]arr, int i, int n) {
+	public void heapifyRecur(int[]nums, int i, int n) {
 		int l = 2*i+1;
 		int r = 2*i+2;
 		int max = i; //initialize largest as root
-		if (l<n && arr[l]>arr[i])
+		if (l<n && nums[l]>nums[i])
 			max = l;
-		if (l<n && arr[r]>arr[i])
+		if (l<n && nums[r]>nums[i])
 			max = r;
 		if (max != i) {// if max is not root any longer
-			swap(arr, max, i);
+			swap(nums, max, i);
 			
 			// recursively heapify 
-			heapifyRecur(arr, max, n);
+			heapifyRecur(nums, max, n);
 		}
 			
-	}
-	public void dispalyInOrder(){
-		
-		for(int i=0; i<array.length;i++) {
-			
-			System.out.println(array[i]);
-		}
-		
-	}
-	public static void main(String[] args) {
-		
-		int[]array = new int[]{4,3,2,1};//9,1,5,8,3,7,4,6,2,11,10,11,12,13,14,15,112,1313, 232, 125,231
-		
-		HeapSort heapSort = new HeapSort(array);
-		heapSort.heapSorting();
-		heapSort.dispalyInOrder();
-	
-
 	}
 
 }

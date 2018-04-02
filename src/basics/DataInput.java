@@ -1,6 +1,6 @@
 package basics;
 
-// A class for data input methods
+// A class for key input methods
 // Chris Trathen October 2014
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

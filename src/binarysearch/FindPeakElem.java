@@ -4,8 +4,8 @@ package binarysearch;
  * Created by xu on 13/07/2017.
  */
 /*
-Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.
-The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.
+Given an input arr where num[i] ≠ num[i+1], find a peak element and return its index.
+The arr may contain multiple peaks, in that case return the index to any one of the peaks is fine.
 You may imagine that num[-1] = num[n] = -∞.
 
 */

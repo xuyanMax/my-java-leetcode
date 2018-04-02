@@ -6,12 +6,12 @@ package dp;
 /*
 416.
 
-Given a non-empty array containing only positive integers, find if the array can be partitioned into
+Given a non-empty arr containing only positive integers, find if the arr can be partitioned into
 two subsets such that the sum of elements in both subsets is equal.
 
 Note:
-Each of the array element will not exceed 100.
-The array size will not exceed 200.
+Each of the arr element will not exceed 100.
+The arr size will not exceed 200.
 
 Example 1:
 
@@ -19,7 +19,7 @@ Input: [1, 5, 11, 5]
 
 Output: true
 
-Explanation: The array can be partitioned as [1, 5, 5] and [11].
+Explanation: The arr can be partitioned as [1, 5, 5] and [11].
 
 Example 2:
 
@@ -27,7 +27,7 @@ Input: [1, 2, 3, 5]
 
 Output: false
 
-Explanation: The array cannot be partitioned into equal sum subsets.
+Explanation: The arr cannot be partitioned into equal sum subsets.
 
 */
 public class PartitionEqualSubsetsSum {

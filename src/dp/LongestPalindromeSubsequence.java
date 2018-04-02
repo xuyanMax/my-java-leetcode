@@ -2,7 +2,7 @@ package dp;
 
 //https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/LongestPalindromicSubsequence.java
 /**
- * Given a string find longest palindromic subsequence in this string.
+ * Given a string find longest palindromic SubSequence in this string.
  */
 public class LongestPalindromeSubsequence {
 
@@ -12,9 +12,9 @@ public class LongestPalindromeSubsequence {
 		
 	}
 	// bottom up dp 
-	// dp[i][j]: lgst palindromic substring of string str(i:j)
+	// dp[i][j]: lgst palindromic sub-sequence of string str(i:j)
 	// time complexity: O(n^2)
-	// space complexityl: O(n^2)
+	// space complexity: O(n^2)
 	public static int getLPS(String str){
 		int[][] dp = new int[str.length()][str.length()];
 		char[] chars = str.toCharArray();

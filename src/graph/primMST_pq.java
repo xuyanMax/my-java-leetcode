@@ -1,5 +1,6 @@
 package graph;
 
+import javax.jnlp.IntegrationService;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -11,91 +12,47 @@ import java.util.Scanner;
 // 未完待续
 public class primMST_pq {
 
-	public static void main(String[] args) {
+	public List<Edge<Integer>>prim(int[][]graph){
+        List<Edge<Integer>> res = new ArrayList<>();
+        // pq heap为存储尚未被探索的节点集合
+        PriorityQueue<Vertex<Integer>> pq = new PriorityQueue<>((a,b)->(a.getData()-b.getData()));
+        Map<Vertex<Integer>, Edge<Integer>> map = new HashMap<>();
+        Graph<Integer> GRAPH = new Graph<>(false);
 
-		Scanner cin = new Scanner(System.in);
-		while (cin.hasNext()) {
-			
-			primMST_pq ins = new primMST_pq();
-			
-			int n = cin.nextInt(); // number of vertices
-			int m = cin.nextInt(); // number of edges
-			
-			int[][] edges = new int[m][3];
-			// input format - src, dsr, weight
-			for (int i=0; i<m; i++) {
-				edges[i][0] = cin.nextInt();
-				edges[i][1] = cin.nextInt();
-				edges[i][2] = cin.nextInt();
-			}
-		
-			Map<Integer, Node> allVertices = new HashMap<>();
-			for (int[] row : edges) {
-				allVertices.put(row[0], ins.new Node(row[0]));
-				allVertices.put(row[1], ins.new Node(row[1]));
-			}
-			
-			// initialize priority queue
-			PriorityQueue<Node> pQueue = new PriorityQueue<>(allVertices.size(), ins.new Node());
-			
-			for (Node node : allVertices.values()) { // put all vertices into pQueue and set weight to INFINITY
-				pQueue.add(node);
-			}
-			Node startVertex = allVertices.values().iterator().next();
-			
-			pQueue.remove(startVertex);
-			startVertex.priority = 0;
-			pQueue.add(startVertex);
-			
-			while (!pQueue.isEmpty()) {
-				Node current = pQueue.poll();
-				
-				//for () // get adjacent nodes
-			}
-			
-		}
-		cin.close();
-	}
-	class Node implements Comparator<Node>{
-		int id;
-		int priority;
-		Node parent;
-		List<Edge> edges = new ArrayList<>();
-		List<Node> adjacentVertex = new ArrayList<>();
-		
-		Node(int val) {
-			id = val;
-			priority = Integer.MAX_VALUE;
-			parent = null;
-		}
-		Node(){
-			
-		}
-		
-		@Override
-		public int compare(Node a, Node b) {
-			return Integer.compare(a.priority, b.priority);
-		}
-	}
-	class Edge {
-		int weight;
-		Node src;
-		Node dst;
-		
-		public Edge(Node s, Node d, int w) {
-			src = s;
-			dst = d;
-			weight = w;
-		}
-	}
-	
-	public List<List<String>> getMST() {
-		
-		List<List<String>> result = new ArrayList<>();
-		
-		
-		return result;
-		
-	} 
+        for(int i=0; i<graph.length; i++){
+            for (int j=i+1; j<graph[0].length; j++){
+                if(graph[i][j] != 0)
+                    GRAPH.addEdge(i, j, graph[i][j]);
+            }
+        }
+        Vertex<Integer> start = GRAPH.getAllVertex().iterator().next();
+        pq.add(start);
+        boolean[] visited = new boolean[graph.length];
 
+        while (!pq.isEmpty()){
+
+            Vertex<Integer> curr = pq.poll();
+            visited[(int)curr.getID()] = true;
+
+            Edge<Integer> edge = map.get(curr);
+
+            if (edge != null)
+                res.add(edge);
+
+            for (Edge<Integer> e:curr.getEdges()){
+                Vertex<Integer> adj = e.getVertex1().equals(curr) ? e.getVertex2() : e.getVertex1();
+
+                if (visited[(int) adj.getID()])
+                    continue;
+
+                adj.setData(e.getWeight());
+                pq.add(adj);//pq中可能重复出现同一个Vertex with 不同的 data(priority)
+
+            }
+
+        }
+        return res;
+
+
+    }
 }

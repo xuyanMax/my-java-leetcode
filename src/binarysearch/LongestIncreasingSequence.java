@@ -90,7 +90,7 @@ nlogn solution
 
     static int LongestIncreasingSubsequenceLength(int A[], int size)
     {
-        // Add boundary case, when array size is one
+        // Add boundary case, when arr size is one
 
         int[] tailTable   = new int[size];
         int len; // always points empty slot

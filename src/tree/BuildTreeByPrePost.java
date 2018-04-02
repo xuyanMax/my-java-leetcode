@@ -31,8 +31,8 @@ public class BuildTreeByPrePost {
 		
 		if (left < right) return null;
 
-		// The first node in preorder traversal is root. So take the node at
-		// preIndex from preorder and make it root, and increment preIndex
+		// The first node in preOrder traversal is root. So take the node at
+		// preIndex from preOrder and make it root, and increment preIndex
 		AvlNode node = new AvlNode(PreIndex.index);
 		PreIndex.index++;
 		
@@ -41,7 +41,7 @@ public class BuildTreeByPrePost {
 		// difference to buildTree by pre/post-order and in-order.
 		int postIndex = search(post, left, right, pre[PreIndex.index]);
 		
-		// Use the index of element found in postorder to divide postorder array in
+		// Use the index of element found in preOrder to divide preOrder arr in
 		// two parts. Left subtree and right subtree
 		node.left = buildByPrePostUtil(pre, post, left, postIndex, PreIndex); // include post[postIndex] it self as the left tree
 		node.right = buildByPrePostUtil(pre, post, postIndex + 1, right - 1, PreIndex); // exclude the post[right-1] as the right tree.

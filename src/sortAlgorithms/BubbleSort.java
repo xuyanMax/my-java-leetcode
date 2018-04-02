@@ -1,4 +1,7 @@
 package sortAlgorithms;
+
+import org.junit.Test;
+
 /**
  * 
  * @author xu
@@ -12,8 +15,6 @@ package sortAlgorithms;
 
 public class BubbleSort {
 	
-	private int[] array;
-	
 	public void swap(int[]array, int a, int b) {
 		
 		int tmp = array[a];
@@ -21,62 +22,27 @@ public class BubbleSort {
 		array[b] = tmp;
 		
 	}
-	public BubbleSort(int[]array){
+	public void bubbleSorting(int[] arr){
 		
-		this.array = array;
-		
-	}
-	
-	public void bubbleSorting(){
-		
-		for (int i=0;i<array.length;i++) {
-			
-			for (int j=array.length-2; j>=i; j--){
-				
-				if (array[j] > array[j+1])
-					swap(array, j, j+1);
-			}
-		}
-	
-		
+		for (int i=0;i<arr.length;i++)
+			for (int j=arr.length-2; j>=i; j--)
+				if (arr[j] > arr[j+1])
+					swap(arr, j, j+1);
 	}
 
-	public void dispalyInOrder(){
-		
-		for(int i=0; i<array.length;i++) {
-			
-			System.out.println(array[i]);
-		}
-		
-	}
 //冒泡排序优化
-	public void optimizeBubbleSorting(){
+	public void optimizeBubbleSorting(int[] arr){
 		
 		boolean flag = true;
-		for (int i=0; i<array.length && flag; i++){
-			
+		for (int i=0; i<arr.length && flag; i++){
 			flag = false;
-			
-			for (int j=array.length-2; j>=i; j++){
-				
-				if (array[j] > array[j+1]){
-					
-					swap(array, j, j+1);
-					flag = true;//如果有数据交换, 
-					
+			for (int j=arr.length-2; j>=i; j++){
+				if (arr[j] > arr[j+1]){
+					swap(arr, j, j+1);
+					flag = true;//如果有数据交换,
 				}
 			}
 		}
-		
-	}
-	public static void main(String[] args) {
-		
-		int[]array = new int[]{9,1,5,8,3,7,4,6,2};
-		
-		BubbleSort bubbleSort = new BubbleSort(array);
-		bubbleSort.bubbleSorting();
-		bubbleSort.dispalyInOrder();
-
 	}
 
 }

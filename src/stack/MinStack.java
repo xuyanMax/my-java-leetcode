@@ -1,6 +1,6 @@
 package stack;
 /*
- * 
+ * 155.
  * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
  * 
  * push(x) -- Push element x onto stack.
@@ -10,10 +10,9 @@ package stack;
  * top() -- Get the top element.
  * 
  * getMin() -- Retrieve the minimum element in the stack.
- * 
- */
-/**
+
  * https://leetcode.com/problems/min-stack/#/description
+ *
  * The main idea is to keep the gap between the min value and the current value
  * 1.PUSH
  *    if the stack is empty first input x will set min to x and set current to be OL
@@ -30,11 +29,8 @@ public class MinStack {
 
 	Stack<Long> stack;
 	long min; //stores the gap between the real top value and the fake one
-	public static void main(String[] args) {
-		
 
-	}
-	 /** initialize your data structure here. */
+	 /** initialize your key structure here. */
     public MinStack() {
         this.stack = new Stack<>();
     }
@@ -50,7 +46,6 @@ public class MinStack {
         	
         }
     }
-    
     public void pop() {
         long pop = stack.pop();
         if (pop < 0){

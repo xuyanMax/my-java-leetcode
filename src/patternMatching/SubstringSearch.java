@@ -27,7 +27,7 @@ public class SubstringSearch {
 
 //		sbSearch.naiveSearch(text.toCharArray(), pattern.toCharArray());
 	}
-	// we pre-process pattern pattern and prepare an array lps[] that tell us count of characters to be skipped
+	// we pre-process pattern pattern and prepare an arr lps[] that tell us count of characters to be skipped
 	
 	public int[] computeLSP(char[] pattern) {
 		
@@ -75,8 +75,5 @@ public class SubstringSearch {
 			return i-j;
 		else return -1;
 	}
-
-	
-	
 
 }

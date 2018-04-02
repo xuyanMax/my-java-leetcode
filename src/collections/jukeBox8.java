@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-import zoo.Animal;
+
 /**
  * 
  * @author xu
@@ -163,17 +163,7 @@ public class jukeBox8 {
 			return this.getTitle().compareTo(o.getTitle());
 		}
 		
-		/**
-		 * wildcard 万用字符: <?> 
-		 */
-		// This method argument accepts an ArrayList of any Animal sub-type.
-		public <T extends Animal> void takeThing(ArrayList<T> list) {
-			
-		}
-		// this does the same thing as that above
-		public void takeThing2(ArrayList<? extends Animal> list) {
-			
-		}
+
 		
 	}
 	

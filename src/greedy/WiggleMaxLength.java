@@ -15,7 +15,7 @@ public class WiggleMaxLength {
         if (nums.length < 2)
             return nums.length;
         
-        // deal the array like [0,0,0,1,3,2,...] 
+        // deal the arr like [0,0,0,1,3,2,...]
         // equal values at the beginning
         int start = 1;
         while((start < nums.length) && (nums[start-1] == nums[start]) ){

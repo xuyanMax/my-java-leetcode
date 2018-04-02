@@ -49,7 +49,7 @@ public class CloneGraph_bfs_lookup {
         UndirectedGraphNode cloned = new UndirectedGraphNode(node.label);
 
         map.put(cloned.label, cloned);
-        //克隆node节点的相邻节点,而不是cloned.neighbors
+        //克隆NODE节点的相邻节点,而不是cloned.neighbors
         for (UndirectedGraphNode adj : node.neighbors)
             cloned.neighbors.add(dfs(adj));//不易理解
 

@@ -1,8 +1,4 @@
 package dp;
-
-/**
- * Created by xu on 05/09/2017.
- */
 /*
 5. Longest Palindromic Substring
 Given a string s, find the longest palindromic substring in s. You may assume that the maximum length
@@ -20,6 +16,10 @@ Example:
 Input: "cbbd"
 
 Output: "bb"
+
+详解:
+https://leetcode.com/problems/longest-palindromic-substring/solution/
+
 */
 public class LongestPalindromicSubstring {
 
@@ -31,10 +31,6 @@ public class LongestPalindromicSubstring {
         for (int i=s.length()-1; i>=0; i--) {
             for (int j=i; j<s.length(); j++) {
 
-                if (s.charAt(i) == s.charAt(j) && ((j - i) < 3 || dp[i+1][j-1]))
-                    dp[i][j] = true;
-                else
-                    dp[i][j] = false;
                 dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i) < 3 || dp[i+1][j-1]);
 
                 if (dp[i][j] && (ret == null || ret.length() < (j-i+1)) )

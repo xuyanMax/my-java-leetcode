@@ -6,9 +6,9 @@ package divide_conquer;
  * 
  * @author xu
  * 
- * Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+ * Find the contiguous subarray within an arr (containing at least one number) which has the largest sum.
 
-	For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+	For example, given the arr [-2,1,-3,4,-1,2,1,-5,4],
 	the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 	
 	If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
@@ -16,7 +16,7 @@ package divide_conquer;
  * https://leetcode.com/problems/maximum-subarray/#/description
  * https://discuss.leetcode.com/topic/426/how-to-solve-maximum-subarray-by-using-the-divide-and-conquer-approach/54
  * 
- * refer array package -> findMaxSubarr
+ * refer arr package -> findMaxSubarr
  * 
  */
 public class maxSubArray {
@@ -25,8 +25,6 @@ public class maxSubArray {
 		
 		int[] nums = new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 		System.out.println(maxSubArr(nums));
-		
-
 	}
 	
 	// use divide and conquer to solve such a question which can also be solved by DP

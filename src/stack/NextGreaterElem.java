@@ -13,7 +13,7 @@ public class NextGreaterElem {
 	 * 
 	 * example 9,8,7,4,3,2,1,6
 	 * use stack we keep a decreasing sub-sequence.
-	 * whenever while, we see a input x larger than stack.peek() we remove the it 
+	 * whenever while, we see a input x larger than stack.peek() we remove it
 	 * Then the next greater of those removed elements is x. Those still in the stack don't have next larger.
 	 * 
 	 * @findNums is a sub-sequence of @nums

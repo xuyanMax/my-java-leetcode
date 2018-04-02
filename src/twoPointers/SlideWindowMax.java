@@ -11,7 +11,7 @@ package twoPointers;
 	
 	Hint:
 	
-	How about using a data structure such as deque (double-ended queue)?
+	How about using a key structure such as deque (double-ended queue)?
 	The queue size need not be the same as the window’s size.
 	Remove redundant elements and the queue should store only elements that need to be considered.
  */

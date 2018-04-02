@@ -26,12 +26,12 @@ Explanation:
 
 There are 5 ways to assign symbols to make the sum of nums be target 3.
 Note:
-The length of the given array is positive and will not exceed 20.
-The sum of elements in the given array will not exceed 1000.
+The length of the given arr is positive and will not exceed 20.
+The sum of elements in the given arr will not exceed 1000.
 Your output answer is guaranteed to be fitted in a 32-bit integer.
 */
 public class TargetSumMemoize {
-    // use visit (preorder idea) and there will be overlaps of course,
+    // use visit (preOrder idea) and there will be overlaps of course,
     // so we use a memoization to record the intermediate results
     // key: "level->preSum"
     // label: number of possibilities
@@ -100,7 +100,7 @@ So, 2*P = target + sum(nums)
     public int helper(int[]nums, int S){
         int[] dp = new int[S+1];
         dp[0] = 1;//初始化
-
+        // dp[i][s] = dp[i-1][s] + dp[i][s-nums[i]]
         for (int num:nums) {
             for (int j=S;j>=num;j--) {
                 dp[j] += dp[j-num];
