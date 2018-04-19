@@ -41,11 +41,11 @@ public class Dijkstra_simple {
         	Vertex current = getMin(unSettledNodes);
         	settledNodes.add(current);	// open list
         	unSettledNodes.remove(current);// closed list
-        	
-        	List<Vertex> adjacentNodes = getNeighbors(current);
-        	for (Vertex v: adjacentNodes) {
-        			Relax(current, v);
-        	}
+
+			List<Vertex> adjacentNodes = getNeighbors(current);
+
+        	for (Vertex v: adjacentNodes) Relax(current, v);
+
         }
         
 	}

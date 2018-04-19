@@ -1,6 +1,7 @@
 package algorithm;
 
 public class BinarySearch {
+
     public static int binarySearchNextLarger (int lo, int hi, int key, int[] arr) {
 
         if (arr[hi] < key) return -1;

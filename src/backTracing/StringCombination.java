@@ -66,30 +66,28 @@ public class StringCombination {
 		return results;
 	}
 	
-	static void combinationUtil(List<String> results, char[] chars, int[] count, char[] result, int level, int pos){
+	static void combinationUtil(List<String> results, char[] chars, int[] count, char[] result, int ind, int pos){
 		// level indicates the depth of recursion， add the upper level's recursion result[]
-		addToList(results, result, level);
+		addToList(results, result, ind);
 
 		// difference to string permutation, which starts at i=0
-		for(int ipos=pos;ipos<chars.length;ipos++) {
-			if (count[ipos]==0)
+		for(int i=pos;i<chars.length;i++) {
+			if (count[i]==0)
 				continue;
 			
-			result[level] = chars[ipos];
-			count[ipos]--;
-			combinationUtil(results, chars, count, result, level+1, ipos); //level++ 会影响本层for循环的level值
-			count[ipos]++;
-			
+			result[ind] = chars[i];
+			count[i]--;
+			combinationUtil(results, chars, count, result, ind+1, i); //level++ 会影响本层for循环的level值
+			count[i]++;
 		}
 	}
-	static void addToList(List<String> results, char[] result,int level) {
+	static void addToList(List<String> results, char[] result,int ind) {
 		
 		StringBuilder tmp = new StringBuilder();
 		
 		// 如果不截止到level，会将字符全部输出。下一层递归得到的result[]也会输出，不合要求
-		for (int i=0;i<level;i++) { 
+		for (int i=0;i<ind;i++) {
 			tmp.append(result[i]);
-			
 		}
 		if (tmp.toString().length()!=0)
 			results.add(tmp.toString());

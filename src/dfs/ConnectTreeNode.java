@@ -2,8 +2,7 @@ package dfs;
 
 /**
  * Created by xu on 09/08/2017.
- */
-/*
+
 Populate each next pointer to point to its next right node. If there is no next right node,
 the next pointer should be set to NULL.
 

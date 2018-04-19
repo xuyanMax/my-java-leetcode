@@ -24,29 +24,6 @@ Output: [1, 3, 9]
 
 */
 public class FindLargestInEachRow {
-    public List<Integer> largestValues(TreeNode root) {
-        List<Integer> ret = new ArrayList<>();
-        if (root == null)
-            return ret;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-
-
-        while(!queue.isEmpty()) {
-            int level_count = queue.size();
-            int max = Integer.MIN_VALUE;
-            while (level_count-- > 0) {
-                TreeNode curr = queue.poll();
-                max = Math.max(max, curr.val);
-                if (curr.left != null) queue.add(curr.left);
-                if (curr.right != null) queue.add(curr.right);
-
-            }
-            ret.add(max);
-        }
-        return ret;
-    }
-
 
     /// visit pre-order idea
     // use depth to expand the result list size and update the max value in every level

@@ -11,7 +11,8 @@ import java.util.Set;
 
 /*
  * https://leetcode.com/problems/kill-process/#/description
- * Input: 
+ * 582.
+ *  Input:
 	pid =  [1, 3, 10, 5]
 	ppid = [3, 0, 5, 3] // parent pid
 	kill = 5 // kill 5 process and its children processes will also be killed.

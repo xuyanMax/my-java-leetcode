@@ -52,7 +52,7 @@ public class GraphTraversals {
 	public void DFS(Graph<Integer> graph) {
 		Set<Long> visited = new HashSet<Long>();
 		
-		 // Call the recursive helper function to print DFS traversal
+		 // Call the recursive dfs function to print DFS traversal
         // starting from all vertices one by one
         
 		for (Vertex<Integer> v : graph.getAllVertex()) 

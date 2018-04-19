@@ -6,19 +6,7 @@ import java.util.List;
 
 public class InorderTraversal {
 
-	public static void main(String[] args) {
-		StringBuffer str = new StringBuffer();
-
-        StringBuilder builder = new StringBuilder();
-
-        for (int i=0; i<str.length(); i++){
-            if (str.charAt(i) == ' '){
-                builder.append("%20");
-            }else
-                builder.append(str.charAt(i));
-        }
-	}
-	public List<Integer> solution(TreeNode root){
+	public List<Integer> sol(TreeNode root){
 		List<Integer> ret = new ArrayList<>();
 		if (root == null)
 			return ret;
@@ -39,6 +27,21 @@ public class InorderTraversal {
 			}
 		}
 		return ret;
+	}
+	public List<Integer> sol2(TreeNode root) {
+		List < Integer > res = new ArrayList < > ();
+		LinkedList <TreeNode> stack = new LinkedList <TreeNode> ();
+		TreeNode curr = root;
+		while (curr != null || !stack.isEmpty()) {
+			while (curr != null) {
+				stack.push(curr);
+				curr = curr.left;
+			}
+			curr = stack.pop();
+			res.add(curr.val);
+			curr = curr.right;
+		}
+		return res;
 	}
 	
 }

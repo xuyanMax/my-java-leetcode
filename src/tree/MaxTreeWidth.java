@@ -1,5 +1,7 @@
 package tree;
 
+import tree.AvlNode;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -32,16 +34,16 @@ public class MaxTreeWidth {
 	 * 
 	 * time complexity: O(n^2) in the worst case
 	 */
-	
-	/* helper function*/
+
+	/* dfs function*/
 	static int height (AvlNode root) {
-		
+
 		if (root == null) return 0;
 		if (root.left != null) return height(root.left) + 1;
 		if (root.right != null) return height(root.right) + 1;
-		
-		return Math.max(height(root.left), height(root.right)) + 1; 
-		
+
+		return Math.max(height(root.left), height(root.right)) + 1;
+
 	}
 	/* root: level 1, ... 
 	 * level is larger than or equal to 1

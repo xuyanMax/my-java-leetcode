@@ -68,7 +68,6 @@ public class Graph<T> {  // 范型类
 		if (allVertex.containsKey(id)) {
 			Vertex<T> tmp = allVertex.get(id);
 			tmp.setData(data);
-			
 		}
 	}
 	/**

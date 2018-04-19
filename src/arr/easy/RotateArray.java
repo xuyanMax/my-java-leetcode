@@ -50,7 +50,7 @@ public class RotateArray {
 		return arr;
 	}
 	/* reverse the arr like {1,2,3,4,5,6,7}->{7,6,5,4,3,2,1}->{5,6,7,}->{,1,2,3,4}
-	 *  helper function reverse
+	 *  dfs function reverse
 	 * 
 	 * */
 	static int[] solution2(int[] arr, int k) {

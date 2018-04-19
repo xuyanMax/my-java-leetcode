@@ -149,7 +149,8 @@ public class BinaryMinHeap<T> {
         int currentIndex = 0;
         size--;
 
-        // adjust the binary min heap
+        // adjust the binary min heap once
+        // put the NEW min on the top of heap
         while(true){
             int left = 2*currentIndex + 1;
             int right = 2*currentIndex + 2;
