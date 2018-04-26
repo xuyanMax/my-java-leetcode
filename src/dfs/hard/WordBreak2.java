@@ -28,7 +28,7 @@ public class WordBreak2 {
     public List<String> wordBreak_dfs(String str, List<String> wordDict) {
         return wordBreak_dfs_helper(str, wordDict);
     }
-    // top-down dp
+    // top-down dynamic
     public List<String> wordBreak_dfs_helper(String suffix, List<String> wordDict) {
         // condition check 1 - memoized
         if (maps.containsKey(suffix))

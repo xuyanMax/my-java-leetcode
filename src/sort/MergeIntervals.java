@@ -43,7 +43,7 @@ public class MergeIntervals {
 
     }
     public List<Interval> merge_2(List<Interval> intervals) {
-        // 参照start升序排列
+        // 参照end升序排列
         Collections.sort(intervals, (a,b)->(a.end - b.end));
 
         int end = intervals.get(0).end;

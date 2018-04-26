@@ -82,7 +82,7 @@ public class WildcardMatch {
 	public boolean isMatch_2d_method(String s, String p) {
 		int m = s.length(), n = p.length();
 		
-		// dp[i][j] denotes: string s(:i) matches p(:j) or not
+		// dynamic[i][j] denotes: string s(:i) matches p(:j) or not
 		boolean[][] dp = new boolean[m+1][n+1];
 		
 		dp[0][0] = true;// empty strings match each other perfectly
@@ -90,16 +90,16 @@ public class WildcardMatch {
 			dp[i][0] = false;
 		
 		for(int j=1; j<=n; j++) // string s empty matches pattern p must be "*", "**", ... 
-			if(p.charAt(j-1)=='*')// once current char p[j-1]!= '*' all the dp[0][j] afterwards are false
+			if(p.charAt(j-1)=='*')// once current char p[j-1]!= '*' all the dynamic[0][j] afterwards are false
 				dp[0][j] = true;
 			 else 
 				break;		
 		
 		/**
 		 * IF current char of pattern p is "*" for ex. abcc vs abc*
-		 *    dp[i][j] = dp[i-1][j] | dp[i][j-1] ( dp = s(:i-1)--p(:j) | s(:i)--p(:j-1) )
+		 *    dynamic[i][j] = dynamic[i-1][j] | dynamic[i][j-1] ( dynamic = s(:i-1)--p(:j) | s(:i)--p(:j-1) )
 		 * NOT
-		 *    dp[i][j] = ( dp[i-1][j-1]  &&( (p[j-1]=='?') | (s[i-1]==p[j-1])) )
+		 *    dynamic[i][j] = ( dynamic[i-1][j-1]  &&( (p[j-1]=='?') | (s[i-1]==p[j-1])) )
 		 * 	
 		 * 
 		 */

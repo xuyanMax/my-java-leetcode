@@ -3,7 +3,7 @@ package tree.easy;
 /**
  * Created by xu on 03/01/2018.
  */
-public class BuildBSTWithSortedArray {//build min depth bst
+public class BuildBSTWithSortedArray {//build min depth binarysearchtree
     public TreeNode buildTree(int[] arr){
         // 取有序数组的中间值作为root，这样可以得到高度最小的树
         if (arr == null || arr.length == 0) return null;

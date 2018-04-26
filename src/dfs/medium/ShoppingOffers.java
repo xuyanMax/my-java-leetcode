@@ -93,7 +93,7 @@ public class ShoppingOffers {
         return Math.min(result, noSpecial);
     }
 
-    // visit + dp
+    // visit + dynamic
     //  子问题 overlapping，记录中间值
     public int shoppingOffers_2(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
 

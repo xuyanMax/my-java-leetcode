@@ -28,17 +28,17 @@ import java.util.Scanner;
 */
 public class Net_170909_HeChang {
 /*
-dp[i][j]（永远有i > j）表示某一个人最近唱的音为第i个，另一个人最近唱的是第j个时最小的难度
+dynamic[i][j]（永远有i > j）表示某一个人最近唱的音为第i个，另一个人最近唱的是第j个时最小的难度
 由于只由一个人唱完肯定不是最优解。因此先在一个for循环内确定以下两种情况的"初值"
-dp[i][0]：第二个人唱第一个音，第一个人唱后面所有音
-dp[i][i-1]：第一个人唱最近的一个音，第二个人唱前面所有音
-dp[i][j]转移方程
+dynamic[i][0]：第二个人唱第一个音，第一个人唱后面所有音
+dynamic[i][i-1]：第一个人唱最近的一个音，第二个人唱前面所有音
+dynamic[i][j]转移方程
 每当交换唱歌次序，两人最近一次唱的音符一定是相邻的，所以底下分相邻和不相邻讨论：
-(1). 当j == i - 1，即交换唱歌次序，dp[i][i-1]时，表明第一个人上一个音可能在第k个音（0 <= k < i-1）,
+(1). 当j == i - 1，即交换唱歌次序，dynamic[i][i-1]时，表明第一个人上一个音可能在第k个音（0 <= k < i-1）,
 唱了最近的第i个，第二个人仍然留在第i-1个音。
-dp[i][i-1] = 对所有k求min(dp[i-1][k] + abs(arr[i] - arr[k]) ) 其中（0 <= k < i-1）
+dynamic[i][i-1] = 对所有k求min(dynamic[i-1][k] + abs(arr[i] - arr[k]) ) 其中（0 <= k < i-1）
 (2). 当j < i - 1，即不交换唱歌次序时，只可能由唱到i-1音符的人续唱
-dp[i][j] = dp[i-1][j] + abs(arr[i] - arr[i-1])
+dynamic[i][j] = dynamic[i-1][j] + abs(arr[i] - arr[i-1])
 最后求出所有dp[len-1][]里的最小值即为全局最优解
 
 答案参考
@@ -59,7 +59,7 @@ https://www.nowcoder.com/questionTerminal/fddf64d5757e41ec93f3ef0c0a10b891
                     int[][] dp = new int[n][n];
                     int[] acc = new int[n]; //相邻元素绝对值差值的累计和
 
-                    //从dp[1][0]开始，dp[1][0] = dp[0][0] + acc[1]-acc[0] = 0应该等于0
+                    //从dp[1][0]开始，dynamic[1][0] = dynamic[0][0] + acc[1]-acc[0] = 0应该等于0
                    // 因此dp[0][0] 被设置为 - Math.abs(arr[1]-arr[0]);
                     dp[0][0] = 0 - Math.abs(arr[1] - arr[0]);
                     for (int i=1; i<n; i++) { // 只考虑i>j的情况，即最后i永远先唱完

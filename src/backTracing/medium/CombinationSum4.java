@@ -31,7 +31,7 @@ What limitation we need to add to the question to allow negative numbers?
 * */
 public class CombinationSum4 {
 
-    // dp top-down
+    // dynamic top-down
     public int sol1(int[] nums, int target) {
         int[] dp = new int[target+1];
         Arrays.fill(dp, -1);
@@ -49,7 +49,7 @@ public class CombinationSum4 {
         dp[target] = res;
         return res;
     }
-    //dp bottom up
+    //dynamic bottom up
     public int sol2(int[]nums, int target) {
         int[] dp = new int[target+1];
         dp[0] = 1;

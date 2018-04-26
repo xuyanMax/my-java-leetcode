@@ -100,7 +100,7 @@ So, 2*P = target + sum(nums)
     public int helper(int[]nums, int S){
         int[] dp = new int[S+1];
         dp[0] = 1;//初始化
-        // dp[i][s] = dp[i-1][s] + dp[i][s-nums[i]]
+        // dynamic[i][s] = dynamic[i-1][s] + dynamic[i][s-nums[i]]
         for (int num:nums) {
             for (int j=S;j>=num;j--) {
                 dp[j] += dp[j-num];

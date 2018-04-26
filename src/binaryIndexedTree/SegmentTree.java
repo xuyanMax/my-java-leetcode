@@ -7,11 +7,11 @@ public class SegmentTree {
         int sum;
 
         public SegmentTreeNode(int start, int end) {
-            this.start = start;
-            this.end = end;
-            this.left = null;
-            this.right = null;
-            this.sum = 0;
+            this.start = start;// left index of the range
+            this.end = end;// right index
+            this.left = null; // left node
+            this.right = null;// right node
+            this.sum = 0;// sum of nums[start:end]
         }
     }
 
@@ -32,6 +32,7 @@ public class SegmentTree {
                 int mid = start  + (end - start) / 2;
                 ret.left = buildTree(nums, start, mid);
                 ret.right = buildTree(nums, mid + 1, end);
+                // 自底向上计算 sum
                 ret.sum = ret.left.sum + ret.right.sum;
             }
             return ret;
@@ -52,7 +53,8 @@ public class SegmentTree {
             } else {//右侧
                 update(root.right, pos, val);
             }
-            // 更新父节点的sum
+            // 前序遍历，逻辑在后
+            // update 更新父节点的sum
             root.sum = root.left.sum + root.right.sum;
         }
     }

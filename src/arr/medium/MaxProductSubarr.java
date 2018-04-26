@@ -19,7 +19,7 @@ public class MaxProductSubarr {
 
 	}
 	/**
-	 * require two dp[] tables to store both max_product_subarr and min_product_subarr ending with arr[i]
+	 * require two dynamic[] tables to store both max_product_subarr and min_product_subarr ending with arr[i]
 	 * loop through the arr[], and 
 	 */
 	static int solution(int[] arr) {
