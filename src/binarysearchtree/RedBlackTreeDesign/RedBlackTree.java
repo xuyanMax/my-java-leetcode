@@ -64,7 +64,7 @@ public class RedBlackTree <T extends Comparable<T>> {
         x.right = y;
         y.parent = x;
     }
-    /*update the numLeft & numRight affected by leftRotate
+    /*updateHighestHeightBtwLR the numLeft & numRight affected by leftRotate
     * FOUR cases:
     * 1. x.left == nil && x.right.left == nil
     * 2. x.left != nil && x.right.left == nil
@@ -133,7 +133,7 @@ public class RedBlackTree <T extends Comparable<T>> {
         while (x != nil) {
             y = x;
             if (compare(x.key, z.key) < 0) {
-                x.numLeft++; // update x's numLeft as z is less than z
+                x.numLeft++; // updateHighestHeightBtwLR x's numLeft as z is less than z
                 x = x.left;
             } else { // compare(z,x) >=0
                 x.numRight++;
@@ -412,7 +412,7 @@ public class RedBlackTree <T extends Comparable<T>> {
                         curr.numLeft--;
                 }
             }
-            /*update curr and currChild*/
+            /*updateHighestHeightBtwLR curr and currChild*/
             currChild = curr;
             curr = curr.parent;
         }

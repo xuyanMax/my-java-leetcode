@@ -43,7 +43,7 @@ public class MinimumAbsoluteDifference {
         if (pre != null) {
             Wrap.diff = Math.min(Wrap.diff, root.val - pre.val);
         }
-        // update the parent Node
+        // updateHighestHeightBtwLR the parent Node
 
         pre = root;
         helper(root.right, pre);

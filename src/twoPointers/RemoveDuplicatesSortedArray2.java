@@ -21,7 +21,7 @@ public class RemoveDuplicatesSortedArray2 {
 	// when duplicates are allowed at k times, we remain the first k terms as it is
     // and start from the k-th index and check if the element at the CURRENT-K position [index-k] is the
     // same as the new arriving element [i], if the same, skip to the next element,
-    // if not, update the CURRENT [index] position
+    // if not, updateHighestHeightBtwLR the CURRENT [index] position
     // as the new arriving one [i]
 	public int solution (int[] arr, int k) {
 		int left = k;

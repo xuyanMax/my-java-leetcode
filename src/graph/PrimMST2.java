@@ -69,7 +69,7 @@ public class PrimMST2 {
 			// add the picked vertex to mstSet
 			mstSet[u] = true;
 			
-			// consider u's adjacent nodes, update their parents and key value
+			// consider u's adjacent nodes, updateHighestHeightBtwLR their parents and key value
 			// only those not included in mst set && its edge value non-zero && its edge value < key value
 			for (int v=0; v<V; v++){
 				// 0 indicates impassable

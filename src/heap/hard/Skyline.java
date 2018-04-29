@@ -41,7 +41,7 @@ import java.util.*;
                 }
                 int cur = pq.peek(); // current max height;
 
-                // compare current max height with previous max height, update result and
+                // compare current max height with previous max height, updateHighestHeightBtwLR result and
                 // previous max height if necessary
                 if(prev != cur) {
                     result.add(new int[]{h[0], cur});

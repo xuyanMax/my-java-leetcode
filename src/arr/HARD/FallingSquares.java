@@ -21,8 +21,7 @@ by positions[0], positions[1], ..., positions[i].
 
 */
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class FallingSquares {
     /*
@@ -31,29 +30,29 @@ public class FallingSquares {
     * 复杂度O(n^2)
     * */
     public List<Integer> fallingSquares(int[][] positions) {
-        List<Interval> intervals = new ArrayList<>();
+        List<Interval> previousIntervals = new ArrayList<>();
         List<Integer> res = new ArrayList<>();
-        int maxHeight=0;
+        int maxHeightSoFar=0;
         for (int[]pos : positions) {
             int start = pos[0], end =  pos[0]+pos[1]-1;
             Interval curr = new Interval(start, end, pos[1]);
-            maxHeight = Math.max(maxHeight, getHeight(intervals, curr));
-            res.add(maxHeight);
+            maxHeightSoFar = Math.max(maxHeightSoFar, getMaxHeight(previousIntervals, curr));
+            res.add(maxHeightSoFar);
         }
         return res;
     }
 
-    public int getHeight(List<Interval> intervals, Interval curr){
+    public int getMaxHeight(List<Interval> intervals, Interval curr){
         int previousMaxHeight=0;
-        for (Interval interval:intervals){
+        for (Interval preInterval:intervals){
             // 无重叠的情况
-            if (interval.start > curr.end) continue;
-            if (interval.end < curr.start) continue;
-            previousMaxHeight = Math.max(previousMaxHeight, interval.height);
+            if (preInterval.start > curr.end) continue;
+            if (preInterval.end < curr.start) continue;
+            previousMaxHeight = Math.max(previousMaxHeight, preInterval.height);
         }
         curr.height += previousMaxHeight;
         intervals.add(curr);
-        return  curr.height;
+        return curr.height;
     }
     class Interval{
         int start, end, height;
@@ -61,6 +60,95 @@ public class FallingSquares {
             this.start = start;
             this.end = end;
             this.height = height;
+        }
+    }
+
+// solution 2
+/*
+Let qans[i] be the maximum height of the INTERVAL specified by positions[i].
+At the end, we'll return a running max of qans.
+
+For each square positions[i], the maximum height will get higher
+by the size of the square we already drop. Then, for any future squares that intersect
+the interval [left, right) (where left = positions[i][0],
+right = positions[i][0] + positions[i][1]),
+we'll updateHighestHeightBtwLR, the maximum height of that interval.
+*/
+    public List<Integer> fallingSquares2(int[][] positions) {
+        int[] intervalMax = new int[positions.length];
+        for (int i = 0; i < positions.length; i++) {
+            int left = positions[i][0];
+            int size = positions[i][1];
+            int right = left + size;
+            intervalMax[i] += size;//如果和[0:i-1]有重叠，那么intervalMax[i]的值已经累加过重叠squares，若无则为0
+
+            for (int j = i+1; j < positions.length; j++) {
+                int left2 = positions[j][0];
+                int size2 = positions[j][1];
+                int right2 = left2 + size2;
+                /*if (left2 < right && right2 > right
+                        || left2 < left && right2 > left
+                        || left2 > left && right2 < right)
+                */
+                if (left2 < right && left < right2) { //if two squares intersect
+                    intervalMax[j] = Math.max(intervalMax[j], intervalMax[i]);
+                }
+            }
+        }
+
+        List<Integer> ans = new ArrayList();
+        int cur = -1;
+        for (int x: intervalMax) {
+            cur = Math.max(cur, x);
+            ans.add(cur);
+        }
+        return ans;
+
+    }
+    // solution 3
+    // Brute Force with Coordinate Compression
+
+    int[] heights;
+    public List<Integer> fallingSquares3(int[][] positions) {
+        //Coordinate Compression
+        Set<Integer> coords = new HashSet();
+        for (int[] pos: positions) {
+            coords.add(pos[0]);
+            coords.add(pos[0] + pos[1] - 1);
+        }
+        List<Integer> sortedCoords = new ArrayList(coords);
+        Collections.sort(sortedCoords);
+
+        Map<Integer, Integer> index = new HashMap();
+        int t = 0;
+        for (int coord: sortedCoords) index.put(coord, t++);
+        // compression over
+
+        // t: how many compressed intervals
+        heights = new int[t];
+        int maxSoFar = 0;
+        List<Integer> ans = new ArrayList();
+
+        for (int[] pos: positions) {
+            int L = index.get(pos[0]);
+            int R = index.get(pos[0] + pos[1] - 1);
+            int h = queryHighestHeightBtwLR(L, R) + pos[1];
+            updateHighestHeightBtwLR(L, R, h);
+            maxSoFar = Math.max(maxSoFar, h);
+            ans.add(maxSoFar);
+        }
+        return ans;
+    }
+    public int queryHighestHeightBtwLR(int L, int R) {
+        int ans = 0;
+        for (int i = L; i <= R; i++) {
+            ans = Math.max(ans, heights[i]);
+        }
+        return ans;
+    }
+    public void updateHighestHeightBtwLR(int L, int R, int h) {
+        for (int i = L; i <= R; i++) {
+            heights[i] = Math.max(heights[i], h);
         }
     }
 }

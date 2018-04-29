@@ -1,4 +1,4 @@
-package graph;
+package graph.hard;
 //directed
 /*Example 1:
     Input: [[1,2], [1,3], [2,3]]

@@ -50,7 +50,7 @@ public class SuperUglyNumbers {
         }
         return min;
     }
-    // update index and to avoid duplicates
+    // updateHighestHeightBtwLR index and to avoid duplicates
     // for example, 6 = 2 * 3 both pointers should be incremented
     public void updateIndex (int[] index, int[] primes, int[] dp, int i) {
         for (int j=0; j<index.length; j++) {

@@ -19,7 +19,7 @@ public class FindMinArrowShots {
 		for (int i=1; i<points.length; i++) {
 			if (points[i][0] > currentEnd) { // if does not intersect, need one more arrow for next set of points
 				numOfArrow++; // add more arrows
-				currentEnd = points[i][1];// update current_end
+				currentEnd = points[i][1];// updateHighestHeightBtwLR current_end
 			}
 			else
 				continue;

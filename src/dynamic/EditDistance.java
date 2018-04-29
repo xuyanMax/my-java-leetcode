@@ -3,7 +3,7 @@ package dynamic;
  * Date 07/07/2014
  * @author Tushar Roy
  *
- * Given two strings how many minimum edits(update, delete or add) is needed to convert one string to another
+ * Given two strings how many minimum edits(updateHighestHeightBtwLR, delete or add) is needed to convert one string to another
  *
  * Time complexity is O(m*n)
  * Space complexity is O(m*n)

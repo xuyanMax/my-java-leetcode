@@ -51,9 +51,9 @@ public class Dijkstra_adj_naive {
 			
 		// set u visited
 			visited[u] = true;
-			// update neighbors' distance of u
+			// updateHighestHeightBtwLR neighbors' distance of u
 			for (int j=0; j<N; j++) {
-				// update the neighbor v only if it is not visited, there is an edge from u to v, and total weight
+				// updateHighestHeightBtwLR the neighbor v only if it is not visited, there is an edge from u to v, and total weight
 				// of path from src to v through u is smaller than current value of dist[v] (relaxing)
 				if (visited[j] == false && graph[u][j]!=0 && (dist[u] + graph[u][j]) < dist[j]) { // 0 indicates INFINITY 
 					dist[j] = dist[u] + graph[u][j];

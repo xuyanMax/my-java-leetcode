@@ -44,7 +44,7 @@ public class MaxSumSubRectangleNoLargerThanK {
 	        int[] dp = new int[ROW];
 
 	        for(int right = left; right < COL; right++){
-	            //update sums[] to include values in curr right col
+	            //updateHighestHeightBtwLR sums[] to include values in curr right col
 
 	            for(int i = 0; i < ROW; i++)
 	                dp[i] += matrix[i][right];

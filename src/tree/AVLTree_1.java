@@ -120,9 +120,9 @@ public class AVLTree_1 {
 		AvlNode newRoot = root.right;
 		newRoot.parent = root.parent;
 		
-		// update root's right branch
+		// updateHighestHeightBtwLR root's right branch
 		root.right = newRoot.left;
-		// update root's right branch's parent as itself
+		// updateHighestHeightBtwLR root's right branch's parent as itself
 		if(root.right != null)
 			root.right.parent = root; 
 		
@@ -141,7 +141,7 @@ public class AVLTree_1 {
 		root.height = height(root);
 		newRoot.height = height(newRoot);
 		
-		// update balance
+		// updateHighestHeightBtwLR balance
 		setBalance(root);
 		setBalance(newRoot);
 		// return new root

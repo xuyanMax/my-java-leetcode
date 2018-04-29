@@ -17,6 +17,9 @@ public class SegmentTree {
 
     SegmentTreeNode root = null;
 
+    // n leaf nodes代表nums中的每一个元素
+    // 2*n -1 nodes consisting segment tree - and is full binary tree
+    // so total nodes = 2*n - 1 (n = #leaves)
     public SegmentTree(int[] nums) {
         root = buildTree(nums, 0, nums.length-1);
     }
@@ -44,9 +47,9 @@ public class SegmentTree {
     }
 
     void update(SegmentTreeNode root, int pos, int val) {
-        if (root.start == root.end) {
+        if (root.start == root.end) {// if node is a leaf
             root.sum = val;
-        } else {
+        } else {// if node is not a leaf, recur for children
             int mid = root.start + (root.end - root.start) / 2;
             if (pos <= mid) {//更新的索引在mid左侧
                 update(root.left, pos, val);
@@ -54,7 +57,8 @@ public class SegmentTree {
                 update(root.right, pos, val);
             }
             // 前序遍历，逻辑在后
-            // update 更新父节点的sum
+            // use the result for children call to updateHighestHeightBtwLR this
+            // updateHighestHeightBtwLR 更新父节点的sum
             root.sum = root.left.sum + root.right.sum;
         }
     }

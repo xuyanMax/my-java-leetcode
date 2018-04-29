@@ -3,7 +3,7 @@ package DAG;
  * 
  * We calculate single source shortest distances in O(|V|+|E|), the idea is to use TOPOLOGICAL SORTING 
  * Once we find the topo order, we one by one process all vertices in topo order and 
- * for every vertex being processed, we update its adjacent nodes' distance by RELAXING the edge
+ * for every vertex being processed, we updateHighestHeightBtwLR its adjacent nodes' distance by RELAXING the edge
  *
  *  Time Complexity O(|V|+|E|)
  *  

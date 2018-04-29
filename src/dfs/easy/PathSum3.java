@@ -29,11 +29,11 @@ public class PathSum3 {
     public int dfs(TreeNode root, int presum, int target, Map<Integer, Integer> map) {
         if (root == null) return 0;
 
-        // update the prefix sum by adding the current node value;
+        // updateHighestHeightBtwLR the prefix sum by adding the current node value;
         presum += root.val;
         //get the number of paths, ENDED by this node
         int count = map.getOrDefault(presum - target, 0);
-        // update the map with current prefix sum, so the map is good to pass to next recursion
+        // updateHighestHeightBtwLR the map with current prefix sum, so the map is good to pass to next recursion
         map.put(presum, map.getOrDefault(presum, 0) + 1);
         // calculate the total number of paths
         // 1. ended by this node

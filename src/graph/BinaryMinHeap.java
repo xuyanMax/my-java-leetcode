@@ -71,7 +71,7 @@ public class BinaryMinHeap<T> {
             Node currentNode = allNodes.get(index);
 
             if (parentNode.weight > currentNode.weight) {
-                swap(parentNode,currentNode);// update heap index
+                swap(parentNode,currentNode);// updateHighestHeightBtwLR heap index
                 updatePositionMap(parentNode.key,currentNode.key,parentIndex,index);
                 index = parentIndex;
                 parentIndex = (parentIndex - 1) / 2;
@@ -145,7 +145,7 @@ public class BinaryMinHeap<T> {
 
         nodePosition.remove(minNode.key);// remove first
         nodePosition.remove(allNodes.get(0));// remove last (used to be last node but now first node)
-        nodePosition.put(allNodes.get(0).key, 0);// update index
+        nodePosition.put(allNodes.get(0).key, 0);// updateHighestHeightBtwLR index
         
         allNodes.remove(size);//remove last index
 

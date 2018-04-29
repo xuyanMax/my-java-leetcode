@@ -77,7 +77,7 @@ public class SmallestRange_Input_Array {
                 }
 
                 if (next[i] < n && nums[i][next[i]] < minVal) {
-                    minInd = i; // update index
+                    minInd = i; // updateHighestHeightBtwLR index
                     minVal = nums[i][next[i]];
                 }
                 if (next[i] < n && nums[i][next[i]] > maxVal) {//优化: 通过观察

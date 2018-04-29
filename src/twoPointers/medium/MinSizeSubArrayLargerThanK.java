@@ -42,7 +42,7 @@ public class MinSizeSubArrayLargerThanK {
 			
 			while (sum >= s) { // sum condition
 				
-				minLen = Math.min(minLen, right - left); // update minLen here is finding minimum
+				minLen = Math.min(minLen, right - left); // updateHighestHeightBtwLR minLen here is finding minimum
 				sum -= nums[left]; // increase left to MAKE it invalid
 				left++;
 				

@@ -1,5 +1,7 @@
 package graph;
 
+import UnionFind.DisjointSet;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

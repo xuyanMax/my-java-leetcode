@@ -44,7 +44,7 @@ public class LengthOfLongestSubstring {
 				j = Math.max(j, map.get(str[i])+1);//If the character is already in the hashmap, 
 													//then move the left pointer to the right of the same character last found
 			} 
-			map.put(str[i], i);// if map contains str[i], update to its latest index; if not, just store its place for the first time
+			map.put(str[i], i);// if map contains str[i], updateHighestHeightBtwLR to its latest index; if not, just store its place for the first time
 			maxLength = Math.max(maxLength, i-j+1);
 		}
 	
@@ -76,7 +76,7 @@ public class LengthOfLongestSubstring {
 	 * use HashSet to store unique characters.   
 	 * The idea is use a hash set to track the longest substring without repeating characters so far, 
 	 * use a fast pointer i to see if character i is in the hash set or not, if not, great, add it to the hash set, move i
-	 * forward and update the max length, otherwise, delete from the head by using a slow pointer j until we can put character i to the hash set.
+	 * forward and updateHighestHeightBtwLR the max length, otherwise, delete from the head by using a slow pointer j until we can put character i to the hash set.
 	 *
 	 *
 	 */

@@ -47,7 +47,7 @@ public class Triangle {
 	 * 
 	 * or better, since minPath[k+1][] would be useless after minPath[k][] is calculated (O(n^2)),
      * so we can simply set minPath[] to 1D arr.
-	 * and iteratively update minPath[]--> O(n) space complexity
+	 * and iteratively updateHighestHeightBtwLR minPath[]--> O(n) space complexity
 	 *
 	 * like 
 	 * for kth level

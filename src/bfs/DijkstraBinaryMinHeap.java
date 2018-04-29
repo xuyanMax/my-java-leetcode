@@ -64,7 +64,7 @@ import java.util.Map;
 			Vertex<Integer> currentVertex = (Vertex<Integer>) currentNode.key;
 //			Vertex<Integer> currentVertex = bMinHeap.extractMin(); 
 			
-			// update distance(src, currentVertex) <- currentNode.weight
+			// updateHighestHeightBtwLR distance(src, currentVertex) <- currentNode.weight
 			distances.put(currentVertex, currentNode.weight);
 			
 			for (Edge<Integer> edge : currentVertex.getEdges()) {

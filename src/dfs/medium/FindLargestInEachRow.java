@@ -26,7 +26,7 @@ Output: [1, 3, 9]
 public class FindLargestInEachRow {
 
     /// visit pre-order idea
-    // use depth to expand the result list size and update the max value in every level
+    // use depth to expand the result list size and updateHighestHeightBtwLR the max value in every level
     public List<Integer> largestValues_dfs(TreeNode root) {
         List<Integer> ret = new ArrayList<>();
         if (root == null)

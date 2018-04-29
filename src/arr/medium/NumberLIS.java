@@ -46,7 +46,7 @@ public class NumberLIS {
                     }
                 }
             }
-            // update
+            // updateHighestHeightBtwLR
             if (max_len < dp[i]) {
                 max_len = dp[i];
                 res_cnt = count[i];
