@@ -63,8 +63,10 @@ public class WordLadder {
             wordSet.add(str);
         Set<String> visited = new HashSet<>();
         Queue<String> queue = new LinkedList<>();
+
         queue.add(beginWord);
         visited.add(beginWord);
+
         int level = 0;
         while (!queue.isEmpty()){
             int size = queue.size();
@@ -76,7 +78,8 @@ public class WordLadder {
                 for (int i=0; i<curr.length(); i++) {
                     char[] chars = curr.toCharArray();
                     for (char c='a'; c<='z'; c++){
-                        if (c == chars[i]) continue;
+                        if (c == chars[i])
+                            continue;
                         chars[i] = c;//尝试26种变换curr字符串每一位26*n
                         //即，变换后的chars只有一位与curr字符串不同
                         //并在wordSet中查看是否存在，如果存在且unvisited，加入queue

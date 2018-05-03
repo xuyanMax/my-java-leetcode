@@ -8,28 +8,27 @@ public class LazySegmentTree {
     /*  si -> index of current node in segment tree
         ss and se -> Starting and ending indexes of elements for
                      which current nodes stores sum.
-        us and eu -> starting and ending indexes of updateHighestHeightBtwLR queryHighestHeightBtwLR
-        ue  -> ending index of updateHighestHeightBtwLR queryHighestHeightBtwLR
+        us and ue -> starting and ending indexes of updateHighestHeightBtwLR queryHighestHeightBtwLR
         diff -> which we need to add in the range us to ue */
     void updateRangeUtil(int si, int ss, int se, int us,
-                         int ue, int diff)
-    {
+                         int ue, int diff) {
+        
         // If lazy value is non-zero for current node of segment
         // tree, then there are some pending updates. So we need
         // to make sure that the pending updates are done before
         // making new updates. Because this value may be used by
         // parent after recursive calls (See last line of this
         // function)
-        if (lazy[si] != 0)
-        {
+
+        // 先处理 pending case if any happens to si
+        if (lazy[si] != 0) {
             // Make pending updates using value stored in lazy
             // nodes
             tree[si] += (se - ss + 1) * lazy[si];
 
             // checking if it is not leaf node because if
             // it is leaf node then we cannot go further
-            if (ss != se)
-            {
+            if (ss != se) {
                 // We can postpone updating children we don't
                 // need their new values now.
                 // Since we are not yet updating children of si,
@@ -43,32 +42,32 @@ public class LazySegmentTree {
             lazy[si] = 0;
         }
 
-        // out of range
+        // IF out of range, return
         if (ss > se || ss > ue || se < us)
             return;
 
-        // Current segment is fully in range
-        if (ss >= us && se <= ue)
-        {
+        // IF Current segment is fully in range
+        // 处理当前节点的diff更新，并设置子节点pending
+        if (ss >= us && se <= ue) {
             // Add the difference to current node
             tree[si] += (se - ss + 1) * diff;
 
             // same logic for checking leaf node or not
-            if (ss != se)
-            {
+            if (ss != se) {
                 // This is where we store values in lazy nodes,
-                // rather than updating the segment tree itelf
+                // rather than updating the segment tree itself
                 // Since we don't need these updated values now
                 // we postpone updates by storing values in lazy[]
                 lazy[si * 2 + 1] += diff;
                 lazy[si * 2 + 2] += diff;
             }
+            // return
             return;
         }
 
-        // If not completely in rang, but overlaps, recur for
+        // IF NOT completely in range, but overlaps, recur for
         // children,
-        int mid = (ss + se) / 2;
+        int mid = ss + (se - ss) / 2;
         updateRangeUtil(si * 2 + 1, ss, mid, us, ue, diff);
         updateRangeUtil(si * 2 + 2, mid + 1, se, us, ue, diff);
 
@@ -103,8 +102,7 @@ public class LazySegmentTree {
         // then there are some pending updates. So we need to
         // make sure that the pending updates are done before
         // processing the sub sum queryHighestHeightBtwLR
-        if (lazy[si] != 0)
-        {
+        if (lazy[si] != 0) {
             // Make pending updates to this node. Note that this
             // node represents sum of elements in arr[ss..se] and
             // all these elements must be increased by lazy[si]
@@ -146,8 +144,7 @@ public class LazySegmentTree {
 
     // Return sum of elements in range from index qs (queryHighestHeightBtwLR
     // start) to qe (queryHighestHeightBtwLR end).  It mainly uses getSumUtil()
-    int getSum(int n, int qs, int qe)
-    {
+    int getSum(int n, int qs, int qe) {
         // Check for erroneous input values
         if (qs < 0 || qe > n - 1 || qs > qe)
         {
@@ -161,8 +158,7 @@ public class LazySegmentTree {
     /* A recursive function that constructs Segment Tree for
       array[ss..se]. si is index of current node in segment
       tree st. */
-    void constructSTUtil(int arr[], int ss, int se, int si)
-    {
+    void constructSTUtil(int arr[], int ss, int se, int si) {
         // out of range as ss can never be greater than se
         if (ss > se)
             return;
@@ -196,8 +192,7 @@ public class LazySegmentTree {
 
 
     // Driver program to test above functions
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         int arr[] = {1, 3, 5, 7, 9, 11};
         int n = arr.length;
         LazySegmentTree tree = new LazySegmentTree();

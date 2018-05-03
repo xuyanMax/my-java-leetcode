@@ -69,7 +69,7 @@ public class SegmentTree2 {
         // If the input index is in range of this node, then updateHighestHeightBtwLR the
         // value of the node and its children
         // 当前范围内包含要改变数值的元素索引i，则当前元素 += diff
-        //不同与 segmentTree 第一种 实现方式
+        // 不同于 segmentTree 第一种 实现方式
         st[si] = st[si] + diff;
         if (se != ss) {
             int mid = getMid(ss, se);
