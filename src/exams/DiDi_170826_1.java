@@ -21,7 +21,7 @@ public class DiDi_170826_1 {
                 nums[i] = Integer.valueOf(nums_str[i]);
 
             //使用dp方法，解决
-            // dynamic[i]nums[i]结尾的数组时，最大子序列和
+            // dp[i]nums[i]结尾的数组时，最大子序列和
             int[] dp = new int[nums.length];
             dp[0] = nums[0];
 

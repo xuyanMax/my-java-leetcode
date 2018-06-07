@@ -33,7 +33,7 @@ Maximum amount of money the thief can rob = 4 + 5 = 9.
 // reference:https://discuss.leetcode.com/topic/39834/step-by-step-tackling-of-the-problem/67
 public class HouseRobber3 {
 /*
- 从题目可以看到一个，optimal substructure最优子结构存在，
+ 从题目可以看到一个，optimalsubstructure最优子结构存在，
  意思是：如果我们想知道从当前root开始能够获得的最大收益，那么我们也想知道从root的左、右节点能够获得的最大收益是多少。
  现在我们定义rob_naive(root)返回从root作为跟节点二叉树可以得到的最大收益
 
@@ -102,11 +102,11 @@ public class HouseRobber3 {
         int[] right = rob_greedy(root.right);
 
         int[] ret = new int[2];
-        // ret[0]:不包括root值
-        // ret[1]:包括root值
+        // ret[1]:不包括root值
+        // ret[0]:包括root值
         // 不包含root：包含左子节点／不包含的较大值 + 包含右子节点／不包含的较大值
         ret[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
-        ret[0] = root.val + left[0] + right[0];
+        ret[0] = root.val + left[1] + right[1];
 
         return ret;
     }

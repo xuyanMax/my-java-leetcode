@@ -28,8 +28,8 @@ public class ZuiXiHuanShuLie {
              int n = in.nextInt();
              int k = in.nextInt();
 
-             int[][] dp = new int[n + 1][k + 1]; // dynamic[i][j]:表示长度为i的数列，以结尾的
-             // dynamic[i][j] = sum(dynamic[i-1][m]) where m <= j || k%j!=0, m from 1:k
+             int[][] dp = new int[n + 1][k + 1]; // dp[i][j]:表示长度为i的数列，以结尾的
+             // dp[i][j] = sum(dp[i-1][m]) where m <= j || k%j!=0, m from 1:k
              //初始化设置，长度为1，结尾为1-k的个数为1个
              for (int i=1; i<=k ;i++)
                  dp[1][i] = 1;
@@ -53,8 +53,8 @@ public class ZuiXiHuanShuLie {
              int n = in.nextInt();
              int k = in.nextInt();
 
-             int[][] dp = new int[n + 1][k + 1]; // dynamic[i][j]:表示长度为i的数列，以结尾的
-             // dynamic[i][j] = sum(dynamic[i-1][m]) where m <= j || k%j!=0, m from 1:k
+             int[][] dp = new int[n + 1][k + 1]; // dp[i][j]:表示长度为i的数列，以结尾的
+             // dp[i][j] = sum(dp[i-1][m]) where m <= j || k%j!=0, m from 1:k
              //初始化设置，长度为1，结尾为1-k的个数为1个
              for (int i=1; i<=k ;i++)
                  dp[1][i] = 1;

@@ -16,7 +16,7 @@ package arr.easy;
  */
 public class MaxSumContinuousSubarray {
 
-    // dynamic[i] denotes the max sub arr that ends with nums[i]
+    // dp[i] denotes the max sub arr that ends with nums[i]
 	static int solution(int[] arr) {
 		int[] dp = new int[arr.length];
 		dp[0] = arr[0];

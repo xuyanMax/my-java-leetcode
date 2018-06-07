@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class OutOfBoundaryPaths {
 
     public int findPaths_bruteForce (int m, int n, int N, int i, int j) {
-        //到达边界外，返回1-一种方法
+        //到达边界外，返回1种方法
         if (i == m || j == n || i<0 || j<0)
             return 1;
         //仍在边界内，N==0，返回0
@@ -39,6 +39,7 @@ public class OutOfBoundaryPaths {
 
         if (i == m || j == n || i < 0 || j < 0)
             return 1;
+        // left steps check
         if (N == 0)
             return 0;
 
