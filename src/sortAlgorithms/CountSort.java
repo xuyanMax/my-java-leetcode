@@ -9,7 +9,8 @@ import java.util.Arrays;
  * where n is the NUMBER of elements in input arr and k is the RANGE of input.
  * <p>
  * points to be noted:
- * 1.Counting sort is efficient if the range of input key is not significantly greater than the number of objects to be sorted.
+ * 1.Counting sort is efficient if the range of input key is not significantly
+ * greater than the number of objects to be sorted.
  * Consider the situation where the input sequence is between range 1 to 10K and the key is 10, 5, 10K, 5K.
  * 2. It is not a comparison based sorting. It running time complexity is O(n) with space proportional to the range of key.
  * 3. It is often used as a sub-routine to another sorting algorithm like radix sort.
@@ -26,7 +27,6 @@ public class CountSort {
         // Create a count arr to store count of individual
         // characters and initialize count arr as 0
         int count[] = new int[256];
-        Arrays.fill(count, 0);
 
         // store count of each character
         for (int i = 0; i < n; ++i)
@@ -45,8 +45,7 @@ public class CountSort {
 
         // Copy the output arr to arr, so that arr now
         // contains sorted characters
-        for (int i = 0; i < n; ++i)
-            arr[i] = output[i];
+        System.arraycopy(output, 0, arr, 0, n);
     }
 
     // Driver method
