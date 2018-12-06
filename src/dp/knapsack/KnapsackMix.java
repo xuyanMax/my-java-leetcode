@@ -1,4 +1,4 @@
-package dp;
+package dp.knapsack;
 
 /**
  * Created by xu on 13/12/2017.

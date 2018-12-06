@@ -43,8 +43,8 @@ public class RedundantConnection {
     // union-find
     public int[] findRedundantConnection(int[][] edges) {
         int[] parents = new int[2001];
-        for (int i=0; i<parents.length; i++) parents[i] = i;
-        for (int[] edge:edges){
+        for (int i = 0; i < parents.length; i++) parents[i] = i;
+        for (int[] edge : edges) {
             int from = edge[0], to = edge[1];
             if (find(parents, from) == find(parents, to))
                 return edge;
@@ -54,7 +54,8 @@ public class RedundantConnection {
         }
         return new int[2];
     }
-    public int find(int[] parents, int f){
+
+    public int find(int[] parents, int f) {
         if (parents[f] != f)
             parents[f] = find(parents, parents[f]);
         return parents[f];

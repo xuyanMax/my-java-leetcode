@@ -3,12 +3,11 @@ package dp;
 import java.util.Arrays;
 
 //https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/CoinChangingMinimumCoin.java
+// Given a total and coins of certain denomination with INFINITY supply,
+// what is the minimum number of coins it takes to form this total.
+
 public class CoinChangeMinimumCoin {
 
-	public static void main(String[] args) {
-		int num = getMinCoins(new int[]{7,2,3,6}, 13);
-		System.out.println("\n"+num);
-	}
 	public int coinChange1d(int[] coins, int amount) {
 		if(coins==null || coins.length == 0) return -1;
 		if (amount == 0) return 0;
@@ -16,7 +15,6 @@ public class CoinChangeMinimumCoin {
 		Arrays.fill(dp, amount+1);
 
 		dp[0] = 0;
-
 
 		for (int i=0; i<coins.length; i++){
 			for (int j=1; j<=amount; j++){
@@ -78,7 +76,7 @@ public class CoinChangeMinimumCoin {
 		return dp[Total];
 	}
 	public static void printCoinCombination(int[] R, int[] coins){
-		
+
 		int start = R.length - 1;
 		if (R[start] == -1) {
 			System.out.println("No solution");

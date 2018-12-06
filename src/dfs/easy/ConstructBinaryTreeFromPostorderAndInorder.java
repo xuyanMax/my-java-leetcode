@@ -12,17 +12,18 @@ public class ConstructBinaryTreeFromPostorderAndInorder {
 
     // memoize hashmap <preOrder value, index>
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder==null ||  postorder == null || inorder.length == 0 || postorder.length==0)
+        if (inorder == null || postorder == null || inorder.length == 0 || postorder.length == 0)
             return null;
-        postIndex = new PostIndex(inorder.length-1);
+        postIndex = new PostIndex(inorder.length - 1);
 
         // preOrder[] value -> index
-         map = new HashMap();
-        for (int i=0; i<inorder.length; i++)
+        map = new HashMap();
+        for (int i = 0; i < inorder.length; i++)
             map.put(inorder[i], i);
-        return helper(postorder, inorder, 0, inorder.length-1);
+        return helper(postorder, inorder, 0, inorder.length - 1);
 
     }
+
     public TreeNode helper(int[] post, int[] in, int inLeft, int inRight) {
         if (inLeft > inRight)
             return null;
@@ -36,14 +37,15 @@ public class ConstructBinaryTreeFromPostorderAndInorder {
     //
 
 
-    class PostIndex{
+    class PostIndex {
         int index;
 
         public PostIndex(int index) {
             this.index = index;
         }
     }
-    class TreeNode{
+
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

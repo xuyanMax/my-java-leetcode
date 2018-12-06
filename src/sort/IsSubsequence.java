@@ -9,8 +9,8 @@ public class IsSubsequence {
         char[] schar = s.toCharArray();
         char[] tchar = t.toCharArray();
 
-        int i=0, j=0;// i, j分别指向t，s
-        int k = s.length()-1;
+        int i = 0, j = 0;// i, j分别指向t，s
+        int k = s.length() - 1;
         while (i < t.length() && j < s.length()) {
             if (tchar[i] == schar[j])
                 i++;
