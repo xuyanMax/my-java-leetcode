@@ -1,4 +1,4 @@
-package DAG;
+package dag;
 /**
  * 
  * We calculate single source shortest distances in O(|V|+|E|), the idea is to use TOPOLOGICAL SORTING 

@@ -1,4 +1,4 @@
-package UnionFind;
+package unionFind;
 //778. Swim in Rising Water
 public class SwimInRisingWater {
     class UF {

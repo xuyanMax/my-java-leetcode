@@ -1,4 +1,4 @@
-package UnionFind;
+package unionFind;
 
 import java.util.HashMap;
 import java.util.Map;

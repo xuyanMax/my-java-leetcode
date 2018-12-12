@@ -1,6 +1,6 @@
 package graph;
 
-import UnionFind.DisjointSet;
+import unionFind.DisjointSet;
 
 import java.util.ArrayList;
 import java.util.Collections;
