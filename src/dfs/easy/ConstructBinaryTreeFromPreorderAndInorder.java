@@ -52,29 +52,29 @@ public class ConstructBinaryTreeFromPreorderAndInorder {
         return helper_2(preorder, inorder, 0, 0, inorder.length - 1);
     }
 
-    public TreeNode helper_2(int[] pre, int[] in, int preIndex, int inLeft, int inRight) {
-        if (preIndex == pre.length || inRight == in.length)
+    public TreeNode helper_2(int[] pre, int[] in, int preIndex, int left, int right) {
+        if (preIndex == pre.length || right == in.length)
             return null;
 
         TreeNode node = new TreeNode(pre[preIndex]);
 
         int pos = 0;
-        for (int i = inLeft; i <= inRight; i++)
+        for (int i = left; i <= right; i++)
             if (in[i] == node.val) {
                 pos = i;
                 break;
             }
-        int diff = pos - inLeft + 1;
+        int diff = pos - left + 1;
 
-        node.left = helper_2(pre, in, preIndex + 1, inLeft, pos - 1);
-        node.right = helper_2(pre, in, diff + preIndex, pos + 1, inRight);
+        node.left = helper_2(pre, in, preIndex + 1, left, pos - 1);
+        node.right = helper_2(pre, in, diff + preIndex, pos + 1, right);
 
         return node;
 
     }
 
     //优化，创建一个 look-up hashmap，记录inorder[]数组内的
-    //http://articles.leetcode.com/construct-binary-tree-from-inorder-and-preorder-postorder-traversal
+    //http://articles.leetcode.com/construct-binary-tree-from-inorder-and-preorder-floorKey-traversal
     public TreeNode buildTree_with_memoize(int[] preorder, int[] inorder) {
         Map<Integer, Integer> inMap = new HashMap<Integer, Integer>();
 
