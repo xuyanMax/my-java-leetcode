@@ -3,6 +3,7 @@ package arr.medium;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 /*18. 4Sum
         Given an array S of n integers, are there elements a, b, c, and d in S
         such that a + b + c + d = target?
@@ -27,64 +28,67 @@ public class Four4Sum {
             return ret;
 
         Arrays.sort(nums);
-        int max = nums[len-1];
-        if (4*nums[0] > target | 4*max < target)
+        int max = nums[len - 1];
+        if (4 * nums[0] > target | 4 * max < target)
             return ret;
         int i, z;
-        for (i=0; i<len; i++) {
+        for (i = 0; i < len; i++) {
             z = nums[i];
-            if (i>0&&nums[i-1]==z)
+            if (i > 0 && nums[i - 1] == z)
                 continue;// avoid duplicates
-            if (z +  3*max<target)
-                continue;;// z is too small
-            if (4*z > target)
+            if (z + 3 * max < target)
+                continue;
+            ;// z is too small
+            if (4 * z > target)
                 break;// z is too large
-            if (4*z == target) {// z is the boundary
+            if (4 * z == target) {// z is the boundary
                 if (i + 3 < len && z == nums[i + 3])
                     ret.add(Arrays.asList(z, z, z, z));
                 break;
             }
-            threeSumForFourSum(ret, target-z, i+1, len-1, z, nums);
+            threeSumForFourSum(ret, target - z, i + 1, len - 1, z, nums);
 
         }
 
         return ret;
     }
+
     public void threeSumForFourSum(List<List<Integer>> fourSumList, int target,
-                                                  int low, int high, int z1, int[]nums) {
-        if (low+1>=high) {// low mid high
+                                   int low, int high, int z1, int[] nums) {
+        if (low + 1 >= high) {// low mid high
             return;
         }
         int max = nums[high];
-        if (3*max < target | 3*nums[low] > target)
+        if (3 * max < target | 3 * nums[low] > target)
             return;
         int i, z;
-        for (i=low;i<high-1;i++) {
+        for (i = low; i < high - 1; i++) {
             z = nums[low];
-            if (i>low && z == nums[i-1])
+            if (i > low && z == nums[i - 1])
                 continue;// avoid duplicates
-            if (z + 2*max<target)
+            if (z + 2 * max < target)
                 continue;// z too small
-            if (4*z>target)
+            if (4 * z > target)
                 break; // z too large
-            if (z*3 == target) { // z is the boundary
-                if (i+3<=high && z == nums[i+3])
+            if (z * 3 == target) { // z is the boundary
+                if (i + 3 <= high && z == nums[i + 3])
                     fourSumList.add(Arrays.asList(z1, z, z, z));
                 break;
             }
-            twoSumForFourSum(fourSumList, target-z, i+1, high, z1, z, nums);
+            twoSumForFourSum(fourSumList, target - z, i + 1, high, z1, z, nums);
         }
 
     }
-    public void twoSumForFourSum(List<List<Integer>>fourSumList, int target, int low, int high, int z1, int z2, int[] nums) {
+
+    public void twoSumForFourSum(List<List<Integer>> fourSumList, int target, int low, int high, int z1, int z2, int[] nums) {
 
         if (low >= high)
             return;
-        if (2*nums[high]<target | 2*nums[low]>target)
+        if (2 * nums[high] < target | 2 * nums[low] > target)
             return;
-        int i=low,j=high,sum,z;
-        while (i<j) {
-            sum = nums[i]+nums[j];
+        int i = low, j = high, sum, z;
+        while (i < j) {
+            sum = nums[i] + nums[j];
             if (sum < target)
                 i++;
             else if (sum > target)
@@ -96,7 +100,7 @@ public class Four4Sum {
                     i++;
 
                 z = nums[j];
-                while (i<j && z == nums[j]) // avoid duplicates nums[j]
+                while (i < j && z == nums[j]) // avoid duplicates nums[j]
                     j--;
             }
         }

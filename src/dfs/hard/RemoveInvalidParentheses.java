@@ -32,15 +32,13 @@ public class RemoveInvalidParentheses {
     However a cleverer idea is: reverse the string and reuse the code!
     Here is the final implement in Java.
 */
-
-
     public List<String> removeInvalidParentheses(String s) {
         List<String> ans = new ArrayList<>();
         remove(s, ans, 0, 0, new char[]{'(', ')'});
         return ans;
     }
 
-    public void remove(String s, List<String> ans, int last_i, int last_j,  char[] par) {
+    public void remove(String s, List<String> ans, int last_i, int last_j, char[] par) {
         for (int cnt = 0, i = last_i; i < s.length(); ++i) {
             if (s.charAt(i) == par[0]) cnt++;
             if (s.charAt(i) == par[1]) cnt--;
@@ -52,10 +50,13 @@ public class RemoveInvalidParentheses {
                 if (s.charAt(j) == par[1] // s[j] == ')' && 的第一个")"
                         && (j == last_j || s.charAt(j - 1) != par[1]))
                     remove(s.substring(0, j) + s.substring(j + 1, s.length()), ans, i, j, par);
-            return;// return in the middle when '(' is <= ')'
+            return; // return because the recursive calls would obtain a valid s'
         }
 
-        // the program goes here only if #'(' > #')'
+        // the program goes here only if #par[0] >= #par[1]
+        // two passes
+        // first pass, reverse and check again
+        // second pass, just save the result
         String reversed = new StringBuilder(s).reverse().toString();
         if (par[0] == '(') // finished left to right
             remove(reversed, ans, 0, 0, new char[]{')', '('});

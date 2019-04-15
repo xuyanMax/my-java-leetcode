@@ -7,12 +7,12 @@ import java.util.Map;
  * Created by xu on 28/12/2017.
  * 437. Path Sum III
  * You are given a binary tree in which each node contains an integer value.
- *
+ * <p>
  * Find the number of paths that sum to a given value.
- *
+ * <p>
  * The path does not need to start or end at the root or a leaf,
  * but it must go downwards (traveling only FROM parent nodes TO child nodes).
- *
+ * <p>
  * The tree has no more than 1,000 nodes and the values are in the range -1,000,000 to 1,000,000.
  */
 public class PathSum3 {
@@ -48,7 +48,8 @@ public class PathSum3 {
         //返回当前节点可能差生的所有paths
         return total;
     }
-    class TreeNode{
+
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

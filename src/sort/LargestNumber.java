@@ -14,14 +14,14 @@ Note: The result may be very large, so you need to return a string instead of an
 
 */
 public class LargestNumber {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        String a= "1";
+        String a = "1";
         String b = "312";
-        String[] strs = new String[]{"1","32","43","9"};
-        System.out.println((a+b).compareTo(b+a));
-        Arrays.sort(strs, (aa, bb)->-(aa+bb).compareTo(bb+aa));
-        for (String s:strs)
+        String[] strs = new String[]{"1", "32", "43", "9"};
+        System.out.println((a + b).compareTo(b + a));
+        Arrays.sort(strs, (aa, bb) -> -(aa + bb).compareTo(bb + aa));
+        for (String s : strs)
             System.out.println(s);
     }
 
@@ -30,17 +30,17 @@ public class LargestNumber {
     //因此 会将排在前面
     public String largestNumber(int[] nums) {
         String[] strings = new String[nums.length];
-        for (int i=0; i<nums.length; i++)
+        for (int i = 0; i < nums.length; i++)
             strings[i] = String.valueOf(nums[i]);
 
-        Arrays.sort(strings, (a,b)->( (b+a).compareTo(a+b)));//大的在前
+        Arrays.sort(strings, (a, b) -> ((b + a).compareTo(a + b)));//大的在前
 
         StringBuilder builder = new StringBuilder();
         //特例："0 0 0 0 0 0 0 0"
         //第一个字符串的第一个字符如果是'0'，返回"0"
-        if(strings[0].charAt(0) == '0')
+        if (strings[0].charAt(0) == '0')
             return "0";
-        for (String s:strings)
+        for (String s : strings)
             builder.append(s);
         return builder.toString();
     }

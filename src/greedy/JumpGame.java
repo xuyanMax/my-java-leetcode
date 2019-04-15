@@ -1,0 +1,50 @@
+package greedy;
+/*
+Given an arr of non-negative integers, you are initially positioned at the first index of the arr.
+
+Each element in the arr represents your maximum jump length at that position.
+
+Determine if you are able to reach the last index.
+
+For example:
+A = [2,3,1,1,4], return true.
+
+A = [3,2,1,0,4], return false.
+
+*/
+
+public class JumpGame {
+
+    public static void main(String[] args) {
+        System.out.println(jumpGame1(new int[]{2, 5, 0, 0}));
+        System.out.println(jumpGame1(new int[]{0, 1}));
+
+    }
+
+    public static boolean jumpGame1(int[] nums) {
+
+        int maxReachSoFar = 0;
+        int maxReachStartHere = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i <= maxReachSoFar) {
+                maxReachStartHere = i + nums[i];
+                maxReachSoFar = Math.max(maxReachStartHere, maxReachSoFar);
+            }
+
+        }
+        if (maxReachSoFar >= nums.length - 1)
+            return true;
+        else
+            return false;
+    }
+
+    public static boolean jumGame2(int[] nums, int n) {
+        int i = 0;
+        for (int reach = 0; i < n && i <= reach; ++i)
+            reach = Math.max(i + nums[i], reach);
+        return i >= n;
+    }
+
+
+}

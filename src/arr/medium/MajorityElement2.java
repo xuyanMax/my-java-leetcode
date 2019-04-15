@@ -12,14 +12,14 @@ The algorithm should run in linear time and in O(1) space.
 */
 public class MajorityElement2 {
     /*
-    * The essential concepts is you keep a counter for the majority number X.
-    * If you find a number Y that is not X, the current counter should deduce 1.
-    * The reason is that if there is 5 X and 4 Y, there would be one (5-4) more X than Y.
-    * This could be explained as “4 X being paired out by 4 Y”.
-    * And since the requirement is finding the majority for more than ceiling of [n/3],
-    * the answer would be less than or equal to two numbers.
-    * So we can modify the algorithm to maintain two counters for two majorities.
-    * */
+     * The essential concepts is you keep a counter for the majority number X.
+     * If you find a number Y that is not X, the current counter should deduce 1.
+     * The reason is that if there is 5 X and 4 Y, there would be one (5-4) more X than Y.
+     * This could be explained as “4 X being paired out by 4 Y”.
+     * And since the requirement is finding the majority for more than ceiling of [n/3],
+     * the answer would be less than or equal to two numbers.
+     * So we can modify the algorithm to maintain two counters for two majorities.
+     * */
     public List<Integer> majorityElement(int[] nums) {
         if (nums == null || nums.length == 0)
             return new ArrayList<Integer>();

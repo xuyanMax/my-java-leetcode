@@ -16,17 +16,17 @@ All integers are in the range of -2^28 to 2^28 - 1 and the result is guaranteed 
 public class Four4Sum2 {
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
         Map<Integer, Integer> maps = new HashMap<>();
-        for (int a:A){
-            for (int b:B) {
-                int sum = a+b;
+        for (int a : A) {
+            for (int b : B) {
+                int sum = a + b;
                 maps.put(sum, maps.getOrDefault(sum, 0) + 1);
             }
         }
         int ret = 0;
-        for (int c:C){
-            for (int d:D) {
-                int sum = c+d;
-                ret += maps.getOrDefault(-(c+d), 0);
+        for (int c : C) {
+            for (int d : D) {
+                int sum = c + d;
+                ret += maps.getOrDefault(-(c + d), 0);
             }
         }
         return ret;

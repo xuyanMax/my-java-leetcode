@@ -103,13 +103,9 @@
             int pivot;
 
             if (low < high) {
-
                 pivot = partition2(arr, low, high);
-
                 quickSorting(arr, low, pivot - 1);
-
                 quickSorting(arr, pivot + 1, high);
-
             }
         }
 
