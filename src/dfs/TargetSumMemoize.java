@@ -40,7 +40,8 @@ public class TargetSumMemoize {
             return 0;
         return dfs(nums, 0, 0, S, new HashMap<>());
     }
-    public int dfs(int[] nums, int level, int preSum, int S, Map<String, Integer> maps){
+
+    public int dfs(int[] nums, int level, int preSum, int S, Map<String, Integer> maps) {
         // create unique key for every unique node in each level
         String key = level + "->" + preSum;
 
@@ -58,52 +59,54 @@ public class TargetSumMemoize {
         // 以上为逻辑
         // 进入下一层二选一判断，
         int add = dfs(nums, level + 1, preSum + nums[level], S, maps);   // 左节点
-        int minus = dfs(nums, level + 1,preSum - nums[level], S, maps); // 右节点
+        int minus = dfs(nums, level + 1, preSum - nums[level], S, maps); // 右节点
 
         //记录从当前层，当前preSum，节点开始和为targetSum的个数
         maps.put(key, add + minus);
 
         //返回当前节点累计的 count 值当上一层
-        return add+minus;
+        return add + minus;
 
     }
-/*
-Recursion is slow, since its runtime is exponential
-改变原来的命题
-找到一个数组nums中的正数集合，剩余的数归入负数集合，使得他们的和是target
-P - N = target
 
-AND we know that
+    /*
+    Recursion is slow, since its runtime is exponential
+    改变原来的命题
+    找到一个数组nums中的正数集合，剩余的数归入负数集合，使得他们的和是target
+    P - N = target
 
-P + N = sum(nums)
+    AND we know that
 
-So, 2*P = target + sum(nums)
-      P = (target + sum(nums))/2;
-因此任务变成从数组中找到一个子集，使得和等于(target + sum(nums))/2（我们用动态规划来做）
+    P + N = sum(nums)
 
-* */
-    public int findTargetSumWays_dp(int[] nums, int target){
-        if(nums == null || nums.length == 0)
+    So, 2*P = target + sum(nums)
+          P = (target + sum(nums))/2;
+    因此任务变成从数组中找到一个子集，使得和等于(target + sum(nums))/2（我们用动态规划来做）
+
+    * */
+    public int findTargetSumWays_dp(int[] nums, int target) {
+        if (nums == null || nums.length == 0)
             return 0;
         int sum = 0;
-        for (int num:nums)
-            sum+=num;
+        for (int num : nums)
+            sum += num;
         if (sum < target)
             return 0;
-        if ((target + sum)%2 !=0 )
+        if ((target + sum) % 2 != 0)
             return 0;
         else
-            return helper(nums, (target + sum)/2);
+            return helper(nums, (target + sum) / 2);
 
 
     }
-    public int helper(int[]nums, int S){
-        int[] dp = new int[S+1];
+
+    public int helper(int[] nums, int S) {
+        int[] dp = new int[S + 1];
         dp[0] = 1;//初始化
         // dp[i][s] = dp[i-1][s] + dp[i][s-nums[i]]
-        for (int num:nums) {
-            for (int j=S;j>=num;j--) {
-                dp[j] += dp[j-num];
+        for (int num : nums) {
+            for (int j = S; j >= num; j--) {
+                dp[j] += dp[j - num];
             }
         }
         return dp[S];

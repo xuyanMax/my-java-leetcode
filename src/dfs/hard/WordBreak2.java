@@ -7,27 +7,28 @@ import java.util.Map;
 
 /**
  * Created by xu on 2017/6/8.
- 140. Word Break II
- Given a non-empty string s and a dictionary wordDict containing a list of non-empty words,
- add spaces in s to construct a sentence where each word is a valid dictionary word.
- You may assume the dictionary does not contain duplicate words.
-
- Return all such possible sentences.
-
- For example, given
- s = "catsanddog",
- dict = ["cat", "cats", "and", "sand", "dog"].
-
- A solution is ["cats and dog", "cat sand dog"].
-
+ * 140. Word Break II
+ * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words,
+ * add spaces in s to construct a sentence where each word is a valid dictionary word.
+ * You may assume the dictionary does not contain duplicate words.
+ * <p>
+ * Return all such possible sentences.
+ * <p>
+ * For example, given
+ * s = "catsanddog",
+ * dict = ["cat", "cats", "and", "sand", "dog"].
+ * <p>
+ * A solution is ["cats and dog", "cat sand dog"].
  */
 public class WordBreak2 {
 
     /* DFS + memoized to replace naive brute force */
     private Map<String, List<String>> maps = new HashMap<>();
+
     public List<String> wordBreak_dfs(String str, List<String> wordDict) {
         return wordBreak_dfs_helper(str, wordDict);
     }
+
     // top-down dp
     public List<String> wordBreak_dfs_helper(String suffix, List<String> wordDict) {
         // condition check 1 - memoized
@@ -48,7 +49,7 @@ public class WordBreak2 {
                 List<String> subList = wordBreak_dfs_helper(suffix.substring(word.length()), wordDict);
                 // append the returned sub-sentence
                 for (String str_sub : subList)
-                    ret.add(word + (str_sub.isEmpty()?"":" ") + str_sub);
+                    ret.add(word + (str_sub.isEmpty() ? "" : " ") + str_sub);
             }
         }
 

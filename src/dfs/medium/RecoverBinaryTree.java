@@ -25,9 +25,11 @@ public class RecoverBinaryTree {
         first.val = second.val;
         second.val = tmp;
     }
+
     private TreeNode first = null;
     private TreeNode second = null;
     private TreeNode pre = new TreeNode(Integer.MIN_VALUE);//中序遍历第-1个元素，保证比第零个元素数值小
+
     public void inorder(TreeNode root) {
         if (root == null) return;
         inorder(root.left);
@@ -45,7 +47,8 @@ public class RecoverBinaryTree {
         inorder(root.right);
 
     }
-    class TreeNode{
+
+    class TreeNode {
         int val;
         TreeNode left, right;
 

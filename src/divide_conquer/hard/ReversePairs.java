@@ -22,22 +22,23 @@ import java.util.Arrays;
 public class ReversePairs {
 
     public int reversePairs(int[] nums) {
-        return mergeSort(nums, 0, nums.length-1);
+        return mergeSort(nums, 0, nums.length - 1);
     }
-    private int mergeSort(int[] nums, int left, int right){
-        if(left>=right) return 0;
-        int mid = left + (right-left)/2;
-        int cnt = mergeSort(nums, left, mid) + mergeSort(nums, mid+1, right);
+
+    private int mergeSort(int[] nums, int left, int right) {
+        if (left >= right) return 0;
+        int mid = left + (right - left) / 2;
+        int cnt = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
 
         // two pointers i:left->mid; j:mid+1->right
         // 两指针分别指向两个subarray 双指针同时向一个方向移动
-        for(int i = left, j = mid+1; i<=mid; i++){
-            while(j<=right && nums[i]/2.0 > nums[j])
+        for (int i = left, j = mid + 1; i <= mid; i++) {
+            while (j <= right && nums[i] / 2.0 > nums[j])
                 j++;
-            cnt += j-(mid+1);
+            cnt += j - (mid + 1);
         }
         //排序
-        Arrays.sort(nums, left, right+1);
+        Arrays.sort(nums, left, right + 1);
         return cnt;
     }
 

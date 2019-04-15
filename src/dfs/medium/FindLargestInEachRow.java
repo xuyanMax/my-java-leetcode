@@ -35,13 +35,14 @@ public class FindLargestInEachRow {
         return ret;
 
     }
-    public void helper(List<Integer> ret, int depth, TreeNode root){
+
+    public void helper(List<Integer> ret, int depth, TreeNode root) {
         if (root == null)
             return;
         //首次到达 depth 层
         if (depth == ret.size()) {
             ret.add(root.val);
-        }else {
+        } else {
             ret.set(depth, Math.max(ret.get(depth), root.val));
         }
 
@@ -49,7 +50,8 @@ public class FindLargestInEachRow {
         helper(ret, depth + 1, root.right);
 
     }
-    class TreeNode{
+
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

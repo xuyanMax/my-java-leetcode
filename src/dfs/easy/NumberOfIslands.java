@@ -2,27 +2,27 @@ package dfs.easy;
 
 /**
  * Created by xu on 19/08/2017.
- 200. Number of Islands
-Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
-An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
-You may assume all four edges of the grid are all surrounded by water.
-
-Example 1:
-
-11110
-11010
-11000
-00000
-Answer: 1
-
-Example 2:
-
-11000
-11000
-00100
-00011
-Answer: 3
-*/
+ * 200. Number of Islands
+ * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
+ * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+ * You may assume all four edges of the grid are all surrounded by water.
+ * <p>
+ * Example 1:
+ * <p>
+ * 11110
+ * 11010
+ * 11000
+ * 00000
+ * Answer: 1
+ * <p>
+ * Example 2:
+ * <p>
+ * 11000
+ * 11000
+ * 00100
+ * 00011
+ * Answer: 3
+ */
 public class NumberOfIslands {
     // visit 遍历每一个grid cell
     // 对于标记为'1'的cell recursively  向周边四个方向 visit
@@ -33,8 +33,8 @@ public class NumberOfIslands {
         int islands = 0;
 
         //遍历每一个cell
-        for (int i=0; i<grid.length; i++) {
-            for (int j=0; j<grid[0].length; j++) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
                 //判断cell是否访问过
                 if (grid[i][j] == '1') {
                     dfs(grid, i, j);
@@ -45,6 +45,7 @@ public class NumberOfIslands {
 
         return islands;
     }
+
     public void dfs(char[][] grid, int x, int y) {
         //边界条件判断
         if (x < 0 || x >= grid.length || y < 0 || y > grid[0].length

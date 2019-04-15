@@ -2,33 +2,33 @@ package dfs;
 
 /**
  * Created by xu on 09/08/2017.
-
-Populate each next pointer to point to its next right node. If there is no next right node,
-the next pointer should be set to NULL.
-
-Initially, all next pointers are set to NULL.
-
-Note:
-
-You may only use constant extra space.
-You may assume that it is a perfect binary tree (ie, all leaves are at the same level,
-and every parent has two children).
-
-For example,
-Given the following perfect binary tree,
-         1
-       /  \
-      2    3
-     / \  / \
-    4  5  6  7
-
-After calling your function, the tree should look like:
-         1 -> NULL
-       /  \
-      2 -> 3 -> NULL
-     / \  / \
-    4->5->6->7 -> NULL
-*/
+ * <p>
+ * Populate each next pointer to point to its next right node. If there is no next right node,
+ * the next pointer should be set to NULL.
+ * <p>
+ * Initially, all next pointers are set to NULL.
+ * <p>
+ * Note:
+ * <p>
+ * You may only use constant extra space.
+ * You may assume that it is a perfect binary tree (ie, all leaves are at the same level,
+ * and every parent has two children).
+ * <p>
+ * For example,
+ * Given the following perfect binary tree,
+ * 1
+ * /  \
+ * 2    3
+ * / \  / \
+ * 4  5  6  7
+ * <p>
+ * After calling your function, the tree should look like:
+ * 1 -> NULL
+ * /  \
+ * 2 -> 3 -> NULL
+ * / \  / \
+ * 4->5->6->7 -> NULL
+ */
 public class ConnectTreeNode {
 
     //注意利用这是一个"完美树"的条件，即有左子树，就一定有右子树
@@ -38,13 +38,14 @@ public class ConnectTreeNode {
             return;
         helper(root.left, root.right);
     }
-    public void helper(TreeLinkNode a, TreeLinkNode b){
+
+    public void helper(TreeLinkNode a, TreeLinkNode b) {
 
         // 默认所有节点.next == null
         a.next = b;
 
         // a == null 没有必要检测
-        if ( a.left == null)
+        if (a.left == null)
             return;
 
         helper(a.left, a.right);
@@ -72,9 +73,11 @@ public class ConnectTreeNode {
             root = root.left;
         }
     }
-    class TreeLinkNode{
+
+    class TreeLinkNode {
         int val;
         TreeLinkNode left, right, next;
+
         TreeLinkNode(int v) {
             val = v;
             left = null;

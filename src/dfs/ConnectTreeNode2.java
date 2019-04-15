@@ -17,6 +17,7 @@ public class ConnectTreeNode2 {
         ConnectTreeNode2 inst = new ConnectTreeNode2();
         inst.test();
     }
+
     public void test() {
         TreeLinkNode a = new TreeLinkNode(0);
         TreeLinkNode b = a;
@@ -78,8 +79,7 @@ public class ConnectTreeNode2 {
                 if (curr.left != null) {
                     if (pre != null) {
                         pre.next = curr.left;
-                    }
-                    else {
+                    } else {
                         head = curr.left;
                     }
                     // 更新pre指向
@@ -90,8 +90,7 @@ public class ConnectTreeNode2 {
                     if (pre != null) {
                         pre.next = curr.right;
 //                        pre = pre.next;
-                    }
-                    else {
+                    } else {
                         head = curr.right;
 //                        pre = curr.right;
                     }
@@ -106,9 +105,10 @@ public class ConnectTreeNode2 {
         }
     }
 
-    class TreeLinkNode{
+    class TreeLinkNode {
         int val;
         TreeLinkNode left, right, next;
+
         TreeLinkNode(int v) {
             val = v;
             left = null;

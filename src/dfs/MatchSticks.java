@@ -36,11 +36,11 @@ public class MatchSticks {
     // S2. The problem is NP-Complete
     // Time complexity - O(4^N)
     public boolean makesquare(int[] nums) {
-        if (nums==null || nums.length==0 || nums.length<4)
+        if (nums == null || nums.length == 0 || nums.length < 4)
             return false;
 
         int sum = 0;
-        for (int num:nums) sum += num;
+        for (int num : nums) sum += num;
 
         if (sum % 4 != 0)
             return false;
@@ -50,9 +50,10 @@ public class MatchSticks {
         Arrays.sort(nums);
         reverseArray(nums);
 
-        return dfs(nums, sum/4, new int[4], 0);
+        return dfs(nums, sum / 4, new int[4], 0);
 
     }
+
     // sums[] 代表每个边的长度和
     public boolean dfs(int[] nums, int target, int[] sums, int depth) {
         //边界判断-使用全部的matchsticks
@@ -81,9 +82,10 @@ public class MatchSticks {
         // 如果上述四种主要情况及对应的自情况无解，则返回false
         return false;
     }
-    public void reverseArray(int[]nums) {
-        int left = 0, right = nums.length-1;
-        while (left<right) {
+
+    public void reverseArray(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
             int tmp = nums[right];
             nums[right] = nums[left];
             nums[left] = tmp;

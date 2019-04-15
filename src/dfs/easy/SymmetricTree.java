@@ -5,11 +5,12 @@ package dfs.easy;
  */
 public class SymmetricTree {
 
-    public boolean symmetricTree(TreeNode root){
+    public boolean symmetricTree(TreeNode root) {
         if (root == null)
             return true;
         return helper(root.left, root.right);
     }
+
     public boolean helper(TreeNode left, TreeNode right) {
 
         if (left == null || right == null)
@@ -18,7 +19,7 @@ public class SymmetricTree {
                 helper(left.right, right.left);
     }
 
-    class TreeNode{
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

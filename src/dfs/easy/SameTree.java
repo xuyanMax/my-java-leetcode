@@ -10,14 +10,15 @@ public class SameTree {
     boolean isSameTree(TreeNode rootA, TreeNode rootB) {
 
 
-        if (rootA==null || rootB==null ) return rootA == rootB;
+        if (rootA == null || rootB == null) return rootA == rootB;
 
         return (rootA.val == rootB.val)
                 && isSameTree(rootA.left, rootB.left)
                 && isSameTree(rootA.right, rootB.right);
 
     }
-    class TreeNode{
+
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -39,7 +40,7 @@ public class SameTree {
             TreeNode a = treeA.poll();
             TreeNode b = treeB.poll();
 
-            if (a==null && b==null)
+            if (a == null && b == null)
                 continue;
             //其中一个节点为null或者两个节点数值不等
             if (a == null || b == null || a.val != b.val)

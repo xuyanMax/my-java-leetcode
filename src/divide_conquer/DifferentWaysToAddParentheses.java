@@ -13,12 +13,12 @@ public class DifferentWaysToAddParentheses {
         List<Integer> ret = new LinkedList<Integer>();
 
         //拆分input
-        for (int i=0; i<input.length(); i++) {
+        for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '-' ||
                     input.charAt(i) == '*' ||
-                    input.charAt(i) == '+' ) {
+                    input.charAt(i) == '+') {
                 String part1 = input.substring(0, i);
-                String part2 = input.substring(i+1);
+                String part2 = input.substring(i + 1);
 
                 List<Integer> part1Ret = diffWaysToCompute(part1);
                 List<Integer> part2Ret = diffWaysToCompute(part2);
@@ -27,11 +27,14 @@ public class DifferentWaysToAddParentheses {
                     for (Integer p2 : part2Ret) {
                         int c = 0;
                         switch (input.charAt(i)) {
-                            case '+': c = p1+p2;
+                            case '+':
+                                c = p1 + p2;
                                 break;
-                            case '-': c = p1-p2;
+                            case '-':
+                                c = p1 - p2;
                                 break;
-                            case '*': c = p1*p2;
+                            case '*':
+                                c = p1 * p2;
                                 break;
                         }
                         ret.add(c);

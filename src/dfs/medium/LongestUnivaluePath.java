@@ -35,23 +35,25 @@ Output:
 
 public class LongestUnivaluePath {
     public int longestUnivaluePath(TreeNode root) {
-        int[]res = new int[1];
+        int[] res = new int[1];
         dfs(root, res);
         return res[0];
     }
+
     public int dfs(TreeNode root, int[] res) {
         if (root == null) return 0;
         //递归到叶子节点
-        int left = root.left!=null? dfs(root.left, res):0;
-        int right = root.right!=null? dfs(root.right, res):0;
+        int left = root.left != null ? dfs(root.left, res) : 0;
+        int right = root.right != null ? dfs(root.right, res) : 0;
 
         //从下向上对节点整合
-        int resLeft = (root.left!=null && root.val==root.left.val) ? 1+left : 0;
-        int resRight = (root.right!=null && root.val==root.right.val) ? 1+right : 0;
+        int resLeft = (root.left != null && root.val == root.left.val) ? 1 + left : 0;
+        int resRight = (root.right != null && root.val == root.right.val) ? 1 + right : 0;
         res[0] = Math.max(res[0], resLeft + resRight);
         return Math.max(resLeft, resRight);
     }
-    class TreeNode{
+
+    class TreeNode {
         TreeNode left, right;
         int val;
 
