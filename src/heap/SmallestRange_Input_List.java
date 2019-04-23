@@ -12,13 +12,13 @@ public class SmallestRange_Input_List {
     public int[] smallestRange_heap(List<List<Integer>> list) {
 
         PriorityQueue<int[]> minHeap = new PriorityQueue<>(
-                (a,b)->a[2]-b[2]); //int[]存储 i-j
+                (a, b) -> a[2] - b[2]); //int[]存储 i-j
         int max = Integer.MIN_VALUE;
         int range = Integer.MAX_VALUE;
 
         int start = -1, end = -1;
 
-        for (int i=0; i<list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             minHeap.add(new int[]{i, 0, list.get(i).get(0)});
             max = Math.max(max, list.get(i).get(0));
         }

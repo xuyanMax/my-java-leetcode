@@ -42,12 +42,12 @@ public class SmallestRange_Input_Array {
 
         int MIN_L = Integer.MAX_VALUE, MIN_R = Integer.MIN_VALUE;
 
-        for (List<Integer> num:nums) {
-            for (int i=0; i<num.size(); i++){
+        for (List<Integer> num : nums) {
+            for (int i = 0; i < num.size(); i++) {
 
             }
         }
-        return new int[]{1,2};
+        return new int[]{1, 2};
     }
 
     //O(n^2*k)
@@ -69,7 +69,7 @@ public class SmallestRange_Input_Array {
 
             //先更新，后计算
             //计算完了判断是否越界
-            for (int i=0; i<k; i++) {//遍历next[]指针
+            for (int i = 0; i < k; i++) {//遍历next[]指针
 
                 if (next[i] == n) { //如果指针指向了list[i]的边界：遍历完成
                     flag = true;
@@ -81,7 +81,7 @@ public class SmallestRange_Input_Array {
                     minVal = nums[i][next[i]];
                 }
                 if (next[i] < n && nums[i][next[i]] > maxVal) {//优化: 通过观察
-                                            // 加入的元素与maxVal比较，更新maxVal即可
+                    // 加入的元素与maxVal比较，更新maxVal即可
                     maxVal = nums[i][next[i]];
                 }
             }// for 结束
@@ -97,12 +97,13 @@ public class SmallestRange_Input_Array {
             }
 
         }
-        return new int[]{minRangeLeftVal,minRangeRightVal};
+        return new int[]{minRangeLeftVal, minRangeRightVal};
 
     }
+
     // heap O(n*log(m)): Heapify m elements requires O(logm) time.
     public int[] smallestRange_heap(int[][] nums) {
-        PriorityQueue<MinHeapNode> minHeap = new PriorityQueue<>((a,b)->(a.val - b.val));
+        PriorityQueue<MinHeapNode> minHeap = new PriorityQueue<>((a, b) -> (a.val - b.val));
 
         //全局变量双指针
         int start = -1; //最终窗口的左侧最小值
@@ -115,7 +116,7 @@ public class SmallestRange_Input_Array {
         boolean flag = false;
 
 
-        for(int i=0; i<nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             minHeap.add(new MinHeapNode(nums[i][0], i, 0));
             max = Math.max(end, nums[i][0]);//更新 max 值
         }
@@ -133,8 +134,8 @@ public class SmallestRange_Input_Array {
             if (currNode.pointer == nums[0].length)
                 break;
 
-            // 单个list没有遍历到最后
-            // 找到该list的下一个元素，并加入小顶堆
+                // 单个list没有遍历到最后
+                // 找到该list的下一个元素，并加入小顶堆
             else {
                 // 继续利用currNode ？？
                 currNode.pointer++;
@@ -168,12 +169,12 @@ public class SmallestRange_Input_Array {
 //        }
 
 
-        return new int[] {start, end};
+        return new int[]{start, end};
 
     }
 
 
-    class MinHeapNode{
+    class MinHeapNode {
         int val;
         int k; // index of lists
         int pointer; // index of the next element to be picked from list k

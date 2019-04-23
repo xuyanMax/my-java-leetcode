@@ -7,8 +7,10 @@ import java.util.PriorityQueue;
  * Created by xu on 2017/6/26.
  */
 public class FindMedian_Design {
-    /** initialize your key structure here. */
-    private PriorityQueue<Integer> small =new PriorityQueue<>(Collections.reverseOrder());
+    /**
+     * initialize your key structure here.
+     */
+    private PriorityQueue<Integer> small = new PriorityQueue<>(Collections.reverseOrder());
     private PriorityQueue<Integer> large = new PriorityQueue<>();
     boolean even = true;
 
@@ -25,7 +27,7 @@ public class FindMedian_Design {
     }
 
     public double findMedian() {
-        return large.size()==small.size() ? (large.peek()+small.peek())/2.0 : small.peek();
+        return large.size() == small.size() ? (large.peek() + small.peek()) / 2.0 : small.peek();
     }
 }
 /**
