@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8ad352a-9e6f-4786-85e5-cc3ec9212329" name="Default" comment="Categorize LeetCode's difficulty levels">
-      <change afterPath="$PROJECT_DIR$/src/dp/hard/DecodeWays.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/heap/hard/Find_K_PairsSmallestSum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bfs/medium/PerfectSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bfs/medium/PerfectSquares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/binarysearch/hard/FindMinInRotatedSortedArray2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binarysearch/hard/FindMinInRotatedSortedArray2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/binarysearch/hard/MedianTwoSortedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binarysearch/hard/MedianTwoSortedArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dfs/easy/FriendCircles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dfs/easy/FriendCircles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dfs/easy/IncreasingSubsequences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dfs/easy/IncreasingSubsequences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dfs/easy/MaxAreaIslands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dfs/easy/MaxAreaIslands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dfs/medium/WordSearch1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dfs/medium/WordSearch1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dp/medium/PerfectSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dp/medium/PerfectSquares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dp/medium/WordBreak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dp/medium/WordBreak.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/FindMedian_Design.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/FindMedian_Design.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/SmallestRange_Input_Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/SmallestRange_Input_Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/SmallestRange_Input_List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/SmallestRange_Input_List.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/SortCharsByFrequency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/SortCharsByFrequency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/easy/KthSmallest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/easy/KthSmallest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/hard/Find_K_ParisSmallestSum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/hard/Skyline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/hard/Skyline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/hard/SlidingWindowMaximum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/hard/SlidingWindowMaximum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heap/hard/SwimInRisingWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap/hard/SwimInRisingWater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hashtable/LRUCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hashtable/LRUCache.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,30 +37,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dp/hard/DecodeWays.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dp/medium/PerfectSquares.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bfs/medium/PerfectSquares.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
+            <state relative-caret-position="702">
               <caret line="42" column="15" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
             </state>
           </provider>
@@ -88,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dfs/medium/WordSearch1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+            <state relative-caret-position="720">
+              <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -97,17 +57,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dfs/hard/WordBreak2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
+            <state relative-caret-position="540">
               <caret line="35" column="34" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dp/medium/WordBreak.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+            <state relative-caret-position="518">
+              <caret line="77" column="1" lean-forward="true" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/hashtable/LRUCache.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+              <folding>
+                <element signature="e#1734#1735#0" expanded="true" />
+                <element signature="e#1768#1769#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hashtable/LRUCache_KV.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="29" column="32" selection-end-line="60" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -115,7 +97,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/lang/Math.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
+            <state relative-caret-position="22716">
               <caret line="1334" column="22" selection-start-line="1334" selection-start-column="22" selection-end-line="1334" selection-end-column="22" />
               <folding>
                 <element signature="e#52232#52233#0" expanded="true" />
@@ -165,7 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shuffleArray</find>
       <find>concurrent</find>
       <find>end</find>
       <find>key</find>
@@ -195,6 +176,7 @@
       <find>decodeway</find>
       <find>perfectS</find>
       <find>wordbreak</find>
+      <find>lru</find>
     </findStrings>
     <replaceStrings>
       <replace>listNode</replace>
@@ -213,7 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dfs/hard/RemoveInvalidParentheses.java" />
         <option value="$PROJECT_DIR$/src/dfs/hard/SwimmingRisingWater.java" />
         <option value="$PROJECT_DIR$/src/dfs/hard/WordBreak2.java" />
         <option value="$PROJECT_DIR$/src/dfs/medium/FindLargestInEachRow.java" />
@@ -264,6 +245,7 @@
         <option value="$PROJECT_DIR$/src/bfs/medium/PerfectSquares.java" />
         <option value="$PROJECT_DIR$/src/dfs/medium/WordSearch1.java" />
         <option value="$PROJECT_DIR$/src/dp/medium/WordBreak.java" />
+        <option value="$PROJECT_DIR$/src/hashtable/LRUCache.java" />
       </list>
     </option>
   </component>
@@ -278,10 +260,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="988" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="811" />
+    <option name="width" value="452" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -458,6 +441,12 @@
               <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
               <item name="leetcode" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="hashtable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="heap" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -513,8 +502,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -938,7 +927,8 @@
       <workItem from="1555291884825" duration="204000" />
       <workItem from="1555332761240" duration="1987000" />
       <workItem from="1555414921220" duration="2728000" />
-      <workItem from="1556024960632" duration="2545000" />
+      <workItem from="1556024960632" duration="3634000" />
+      <workItem from="1556112629459" duration="415000" />
     </task>
     <task id="LOCAL-00001" summary="Categorize LeetCode's difficulty levels">
       <created>1522638928126</created>
@@ -971,7 +961,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="983867000" />
+    <option name="totallyTimeSpent" value="985371000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -983,10 +973,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49315068" visible="true" weight="0.28683835" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49315068" visible="true" weight="0.2911302" />
       <window_info id="Structure" order="1" sideWeight="0.5068493" side_tool="true" weight="0.28683835" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -1004,7 +994,7 @@
       <window_info anchor="bottom" id="Event Log" internal_type="SLIDING" order="7" side_tool="true" type="SLIDING" weight="0.33986014" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32771084" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18888889" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.16385542" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.27878788" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297568" />
@@ -1145,20 +1135,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/dfs/ConnectTreeNode2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="29" column="5" selection-end-line="135" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dfs/DFS_graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="8" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dfs/KillProcesses.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
@@ -1463,6 +1439,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/dp/hard/DecodeWays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dp/medium/PerfectSquares.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bfs/medium/PerfectSquares.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="42" column="15" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dfs/medium/WordSearch1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dfs/hard/WordBreak2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22716">
+          <caret line="1334" column="22" selection-start-line="1334" selection-start-column="22" selection-end-line="1334" selection-end-column="22" />
+          <folding>
+            <element signature="e#52232#52233#0" expanded="true" />
+            <element signature="e#52271#52272#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/heap/hard/Skyline.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1484,59 +1509,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dp/hard/DecodeWays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="1334" column="22" selection-start-line="1334" selection-start-column="22" selection-end-line="1334" selection-end-column="22" />
-          <folding>
-            <element signature="e#52232#52233#0" expanded="true" />
-            <element signature="e#52271#52272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dp/medium/PerfectSquares.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bfs/medium/PerfectSquares.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="42" column="15" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dfs/medium/WordSearch1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dfs/hard/WordBreak2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dp/medium/WordBreak.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+        <state relative-caret-position="518">
+          <caret line="77" column="1" lean-forward="true" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hashtable/LRUCache_KV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="29" column="32" selection-end-line="60" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hashtable/LRUCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding>
+            <element signature="e#1734#1735#0" expanded="true" />
+            <element signature="e#1768#1769#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
