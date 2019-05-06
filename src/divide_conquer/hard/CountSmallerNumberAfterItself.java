@@ -104,8 +104,10 @@ public class CountSmallerNumberAfterItself {
         if (half > 0) {
             Index[] left = new Index[half];
             Index[] right = new Index[nums.length - half];
-            for (int i = 0; i < half; i++) left[i] = new Index(nums[i]);
-            for (int j = 0; j < right.length; j++) right[j] = new Index(nums[half + j]);
+            for (int i = 0; i < half; i++)
+                left[i] = new Index(nums[i]);
+            for (int j = 0; j < right.length; j++)
+                right[j] = new Index(nums[half + j]);
 
             Index[] retLeft = sort(left, smaller), retRight = sort(right, smaller);
 

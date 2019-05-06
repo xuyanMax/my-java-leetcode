@@ -56,7 +56,7 @@ public class LargestRectangularHistogram {
                 // tp: denotes the left index, with smallest height bar
                 // so we can compute the area by height * width
                 tp = s.pop();//以当前bar hist[tp]作为高度最低的bar，求面积
-                area_with_top = hist[tp] * (s.isEmpty()?i:i-s.peek()-1);
+                area_with_top = hist[tp] * (s.isEmpty() ? i : i - s.peek() - 1);
                 max_area = Math.max(max_area, area_with_top);
             }
         }
@@ -65,7 +65,7 @@ public class LargestRectangularHistogram {
         // 将堆中数据依次弹出，以每一个弹出的bar作为smallest bar 计算面积
         while (!s.isEmpty()) {
             tp = s.pop();
-            area_with_top = hist[tp] * (s.isEmpty()?i:i-s.peek()-1);
+            area_with_top = hist[tp] * (s.isEmpty() ? i : i - s.peek() - 1);
             max_area = Math.max(max_area, area_with_top);
         }
         return max_area;
