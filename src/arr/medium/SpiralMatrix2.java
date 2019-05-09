@@ -2,19 +2,19 @@ package arr.medium;
 
 /**
  * Created by xu on 2017/6/25.
-59. Spiral Matrix II
-Given an integer n, generate a square matrix filled with elements from 1 to n^2 in spiral order.
-
-For example,
-Given n = 3,
-
-You should return the following matrix:
-[
- [ 1, 2, 3 ],
- [ 8, 9, 4 ],
- [ 7, 6, 5 ]
-]
-*/
+ * 59. Spiral Matrix II
+ * Given an integer n, generate a square matrix filled with elements from 1 to n^2 in spiral order.
+ * <p>
+ * For example,
+ * Given n = 3,
+ * <p>
+ * You should return the following matrix:
+ * [
+ * [ 1, 2, 3 ],
+ * [ 8, 9, 4 ],
+ * [ 7, 6, 5 ]
+ * ]
+ */
 public class SpiralMatrix2 {
 /*
 
@@ -28,14 +28,14 @@ the row or col still exists to prevent duplicates.
         if (n < 1)
             return mat;
 
-        int top = 0, bottom = n-1, left = 0, right = n-1;
+        int top = 0, bottom = n - 1, left = 0, right = n - 1;
         int num = 1;
-        while (top<=bottom && left<=right) {
-            for (int i=left; i<=right; i++)
+        while (top <= bottom && left <= right) {
+            for (int i = left; i <= right; i++)
                 mat[top][i] = num++;
             top++;
 
-            for (int i=top; i<=bottom; i++)
+            for (int i = top; i <= bottom; i++)
                 mat[i][right] = num++;
             right--;
 

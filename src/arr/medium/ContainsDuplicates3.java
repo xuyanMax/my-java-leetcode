@@ -33,8 +33,10 @@ public class ContainsDuplicates3 {
 
      }
 /**
- * This problem requires to maintain a window of size k of the previous values that can be queried for value ranges.
- * The best key structure to do that is Binary Search Tree. As a result maintaining the tree of size k will
+ * This problem requires to maintain a window of size k of the previous values
+ * that can be queried for value ranges.
+ * The best key structure to do that is Binary Search Tree.
+ * As a result maintaining the tree of size k will
  * result in time complexity O(N lg K).
  *
  * In order to check if there exists any value of range abs(nums[i] - nums[j]) to

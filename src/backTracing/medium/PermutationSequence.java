@@ -52,7 +52,7 @@ public class PermutationSequence {
 
     // create a list of numbers to get their indices
     // list index: 0 1 2 3 4 ... n-1
-//		     key: 1 2 3 4 5 ... n
+    //	     key: 1 2 3 4 5 ... n
     public static List<Integer> setIndex(int n) {
         List<Integer> indexNum = new ArrayList<>();
         for (int i = 1; i <= n; i++)

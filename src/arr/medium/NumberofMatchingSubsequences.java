@@ -4,26 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 //792. Number of Matching Subsequences
-/*Given string S and a dictionary of words words,
-find the number of words[i] that is a subsequence of S.
 
-    Example :
-
-    Input:
-    S = "abcde"
-    words = ["a", "bb", "acd", "ace"]
-
-    Output: 3
-    Explanation: There are three words in words that are a subsequence of S: "a", "acd", "ace".
-
-    Note:
-    All words in words and S will only consists of lowercase letters.
-    The length of S will be in the range of [1, 50000].
-    The length of words will be in the range of [1, 5000].
-    The length of words[i] will be in the range of [1, 50].
-
-https://leetcode.com/problems/number-of-matching-subsequences/discuss/117634/Efficient-and-simple-go-through-words-in-parallel-with-explanation
-   */
+/**
+ * Given string S and a dictionary of words words,
+ * find the number of words[i] that is a subsequence of S.
+ * <p>
+ * Example :
+ * <p>
+ * Input:
+ * S = "abcde"
+ * words = ["a", "bb", "acd", "ace"]
+ * <p>
+ * Output: 3
+ * Explanation: There are three words in words that are a subsequence of S: "a", "acd", "ace".
+ * <p>
+ * Note:
+ * All words in words and S will only consists of lowercase letters.
+ * The length of S will be in the range of [1, 50000].
+ * The length of words will be in the range of [1, 5000].
+ * The length of words[i] will be in the range of [1, 50].
+ * <p>
+ * https://leetcode.com/problems/number-of-matching-subsequences/discuss/117634/Efficient-and-simple-go-through-words-in-parallel-with-explanation
+ */
 public class NumberofMatchingSubsequences {
     public int numMatchingSubseq(String S, String[] words) {
         List<Integer[]>[] waiting = new List[128];

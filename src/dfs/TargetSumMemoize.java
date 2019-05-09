@@ -5,31 +5,29 @@ import java.util.Map;
 
 /**
  * Created by xu on 06/08/2017.
+ * <p>
+ * You are given a list of non-negative integers, a1, a2, ..., an, and a target, S.
+ * Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
+ * <p>
+ * Find out how many ways to assign symbols to make sum of integers equal to target S.
+ * <p>
+ * Example 1:
+ * Input: nums is [1, 1, 1, 1, 1], S is 3.
+ * Output: 5
+ * Explanation:
+ * <p>
+ * -1+1+1+1+1 = 3
+ * +1-1+1+1+1 = 3
+ * +1+1-1+1+1 = 3
+ * +1+1+1-1+1 = 3
+ * +1+1+1+1-1 = 3
+ * <p>
+ * There are 5 ways to assign symbols to make the sum of nums be target 3.
+ * Note:
+ * The length of the given arr is positive and will not exceed 20.
+ * The sum of elements in the given arr will not exceed 1000.
+ * Your output answer is guaranteed to be fitted in a 32-bit integer.
  */
-/*
-
-You are given a list of non-negative integers, a1, a2, ..., an, and a target, S.
-Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
-
-Find out how many ways to assign symbols to make sum of integers equal to target S.
-
-Example 1:
-Input: nums is [1, 1, 1, 1, 1], S is 3.
-Output: 5
-Explanation:
-
--1+1+1+1+1 = 3
-+1-1+1+1+1 = 3
-+1+1-1+1+1 = 3
-+1+1+1-1+1 = 3
-+1+1+1+1-1 = 3
-
-There are 5 ways to assign symbols to make the sum of nums be target 3.
-Note:
-The length of the given arr is positive and will not exceed 20.
-The sum of elements in the given arr will not exceed 1000.
-Your output answer is guaranteed to be fitted in a 32-bit integer.
-*/
 public class TargetSumMemoize {
     // use visit (preOrder idea) and there will be overlaps of course,
     // so we use a memoization to record the intermediate results
@@ -69,21 +67,20 @@ public class TargetSumMemoize {
 
     }
 
-    /*
-    Recursion is slow, since its runtime is exponential
-    改变原来的命题
-    找到一个数组nums中的正数集合，剩余的数归入负数集合，使得他们的和是target
-    P - N = target
-
-    AND we know that
-
-    P + N = sum(nums)
-
-    So, 2*P = target + sum(nums)
-          P = (target + sum(nums))/2;
-    因此任务变成从数组中找到一个子集，使得和等于(target + sum(nums))/2（我们用动态规划来做）
-
-    * */
+    /**
+     * Recursion is slow, since its runtime is exponential
+     * 改变原来的命题
+     * 找到一个数组nums中的正数集合，剩余的数归入负数集合，使得他们的和是target
+     * P - N = target
+     * <p>
+     * AND we know that
+     * <p>
+     * P + N = sum(nums)
+     * <p>
+     * So, 2*P = target + sum(nums)
+     * P = (target + sum(nums))/2;
+     * 因此任务变成从数组中找到一个子集，使得和等于(target + sum(nums))/2（我们用动态规划来做）
+     */
     public int findTargetSumWays_dp(int[] nums, int target) {
         if (nums == null || nums.length == 0)
             return 0;
@@ -96,8 +93,6 @@ public class TargetSumMemoize {
             return 0;
         else
             return helper(nums, (target + sum) / 2);
-
-
     }
 
     public int helper(int[] nums, int S) {

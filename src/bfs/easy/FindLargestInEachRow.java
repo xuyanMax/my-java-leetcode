@@ -14,7 +14,7 @@ public class FindLargestInEachRow {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int level_count = queue.size();
             int max = Integer.MIN_VALUE;
             while (level_count-- > 0) {
@@ -28,7 +28,8 @@ public class FindLargestInEachRow {
         }
         return ret;
     }
-    class TreeNode{
+
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

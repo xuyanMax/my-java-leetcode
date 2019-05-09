@@ -27,6 +27,7 @@ public class PathSum3 {
     // pre-order
     // 自顶向下dp in HashMap
     public int dfs(TreeNode root, int presum, int target, Map<Integer, Integer> map) {
+
         if (root == null) return 0;
 
         // updateHighestHeightBtwLR the prefix sum by adding the current node value;

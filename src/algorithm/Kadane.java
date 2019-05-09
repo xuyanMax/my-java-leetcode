@@ -10,7 +10,7 @@ public class Kadane {
 
         int left = 0, right = 0, left_tmp = 0;
 
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
 
             max_end_here = max_end_here + nums[i];
 

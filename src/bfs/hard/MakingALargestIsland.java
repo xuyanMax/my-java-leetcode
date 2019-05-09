@@ -19,7 +19,7 @@ public class MakingALargestIsland {
                     ans = Math.max(ans, check(grid, r, c));
                     grid[r][c] = 0;// unmake it
                 }
-        return hasZero ? ans : N*N;
+        return hasZero ? ans : N * N;
     }
 
     public int check(int[][] grid, int r0, int c0) {
@@ -56,25 +56,25 @@ public class MakingALargestIsland {
         N = grid.length;
 
         int index = 2;
-        int[] area = new int[N*N + 2];
+        int[] area = new int[N * N + 2];
         for (int r = 0; r < N; ++r)
             for (int c = 0; c < N; ++c)
                 if (grid[r][c] == 1)
                     area[index] = dfs(r, c, index++);
 
         int ans = 0;
-        for (int x: area)
+        for (int x : area)
             ans = Math.max(ans, x);
         for (int r = 0; r < N; ++r)
             for (int c = 0; c < N; ++c)
                 if (grid[r][c] == 0) {
                     Set<Integer> seen = new HashSet();
-                    for (Integer move: neighbors(r, c))
+                    for (Integer move : neighbors(r, c))
                         if (grid[move / N][move % N] > 1)
                             seen.add(grid[move / N][move % N]);
 
                     int bns = 1;
-                    for (int i: seen) bns += area[i];
+                    for (int i : seen) bns += area[i];
                     ans = Math.max(ans, bns);
                 }
 
@@ -84,7 +84,7 @@ public class MakingALargestIsland {
     public int dfs(int r, int c, int index) {
         int ans = 1;
         grid[r][c] = index;
-        for (Integer move: neighbors(r, c)) {
+        for (Integer move : neighbors(r, c)) {
             if (grid[move / N][move % N] == 1) {
                 grid[move / N][move % N] = index;
                 ans += dfs(move / N, move % N, index);

@@ -5,12 +5,12 @@ import java.util.Arrays;
 /**
  * Created by xu on 16/09/2017.
  * 673.
- Given an unsorted array of integers, find the number of longest increasing subsequence.
-
- Example 1:
- Input: [1,3,5,4,7]
- Output: 2
- Explanation: The two longest increasing subsequence are [1, 3, 4, 7] and [1, 3, 5, 7].
+ * Given an unsorted array of integers, find the number of longest increasing subsequence.
+ * <p>
+ * Example 1:
+ * Input: [1,3,5,4,7]
+ * Output: 2
+ * Explanation: The two longest increasing subsequence are [1, 3, 4, 7] and [1, 3, 5, 7].
  */
 public class NumberLIS {
     // 声明两个数组来存储以当前元素为队尾的LIS的长度，和具有相同LIS长度的子序列个数
@@ -31,17 +31,17 @@ public class NumberLIS {
 
         //初始化
         Arrays.fill(dp, 1);
-        Arrays.fill(count,1);
+        Arrays.fill(count, 1);
 
-        int max_len = 1,res_cnt = 1; // 2,2,2,2,2
+        int max_len = 1, res_cnt = 1; // 2,2,2,2,2
 
-        for (int i=1; i<nums.length; i++) {
-            for (int j=0; j<i; j++) {
+        for (int i = 1; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
                 if (nums[i] > nums[j]) {
                     if (dp[i] < dp[j] + 1) {
                         dp[i] = dp[j] + 1;
                         count[i] = count[j];
-                    } else if (dp[i] == dp[j] + 1){
+                    } else if (dp[i] == dp[j] + 1) {
                         count[i] = count[i] + count[j];
                     }
                 }

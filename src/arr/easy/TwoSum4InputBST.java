@@ -35,7 +35,7 @@ import java.util.List;
  * <p>
  * Output: False
  */
-public class TwoSum4InputBST {
+public class  TwoSum4InputBST {
     class TreeNode {
         TreeNode left, right;
         int val;

@@ -27,7 +27,7 @@ public class SumRootLeafNumbers {
     //也可以选择不用wrapper, 直接修改int值也是可以通过测试的
     public IntWrapper wrapper = new IntWrapper(0);
 
-    public int sumNumbers(TreeNode root) {
+    public int sumNumbers1(TreeNode root) {
         if (root == null)
             return 0;
         List<Integer> list = new ArrayList<>();
@@ -53,14 +53,14 @@ public class SumRootLeafNumbers {
     }
 
     //第二种方法
-    public int sumNumbers_2(TreeNode root) {
+    public int sumNumbers2(TreeNode root) {
         if (root == null)
             return 0;
         return sum_helper(root, 0);
     }
 
     public int sum_helper(TreeNode root, int currSum) {
-        // 空节点推出条件
+        // 空节点退出条件
         if (root == null)
             return 0;
         // 叶子节点返回值
@@ -80,6 +80,7 @@ public class SumRootLeafNumbers {
     }
 
     public void dfs(TreeNode root, int sum) {
+
         if (root == null) return;
         if (root.left == null && root.right == null) {
             root.val = sum * 10 + root.val;

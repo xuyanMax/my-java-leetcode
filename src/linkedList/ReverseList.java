@@ -2,11 +2,6 @@ package linkedList;
 
 public class ReverseList {
 
-    public static void main(String[] args) {
-
-
-    }
-
     class listNode {
         int val;
         listNode next;
@@ -35,18 +30,17 @@ public class ReverseList {
             head.next = pre;
             pre = head;
             head = next;
-
         }
         return pre;
 
     }
 
-    public listNode reverveRecur(listNode head) {
+    public listNode reverseRecur(listNode head) {
         if (head == null || head.next == null)
             return head;
         listNode next = head.next;
 
-        listNode newHead = reverveRecur(next);
+        listNode newHead = reverseRecur(next);
         next.next = head;
         head.next = null;
 

@@ -2,6 +2,7 @@ package bfs.easy;
 
 import java.util.LinkedList;
 import java.util.Queue;
+
 /*
 * Given a binary tree, find its minimum depth.
 
@@ -40,8 +41,9 @@ public class MinDepthTree {
         }
         return depth;
     }
-    class TreeNode{
-        TreeNode left,right;
+
+    class TreeNode {
+        TreeNode left, right;
         int val;
 
         public TreeNode(int val) {

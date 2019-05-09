@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class FlattenBTLinkedList {
     // stack
-    public void flatten(TreeNode root){
+    public void flatten(TreeNode root) {
         LinkedList<TreeNode> stack = new LinkedList<>();
         TreeNode curr = root;
         while (curr != null || !stack.isEmpty()) {
@@ -22,7 +22,8 @@ public class FlattenBTLinkedList {
             curr = curr.right;
         }
     }
-    class TreeNode{
+
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

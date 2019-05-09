@@ -16,16 +16,16 @@ public class BTRightSideView {
             level = queue.size();
             int fix = level;
 
-            while  (level > 0) {
+            while (level > 0) {
                 TreeNode node = queue.poll();
                 //只添加每一层的第一个节点（bfs从右向左扫描）
                 if (fix == level)
                     ret.add(node.val);
 
-                if (node.right!=null) {
+                if (node.right != null) {
                     queue.add(node.right);
                 }
-                if (node.left!=null){
+                if (node.left != null) {
                     queue.add(node.left);
                 }
                 level--;
@@ -37,7 +37,7 @@ public class BTRightSideView {
     }
 
 
-    class TreeNode{
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

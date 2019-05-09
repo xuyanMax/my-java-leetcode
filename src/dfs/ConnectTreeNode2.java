@@ -2,16 +2,15 @@ package dfs;
 
 /**
  * Created by xu on 09/08/2017.
+ * <p>
+ * Follow up for problem "Populating Next Right Pointers in Each Node".
+ * <p>
+ * What if the given tree could be any binary tree? Would your previous solution still work?
+ * <p>
+ * Note:
+ * <p>
+ * You may only use CONSTANT extra space.
  */
-/*
-Follow up for problem "Populating Next Right Pointers in Each Node".
-
-What if the given tree could be any binary tree? Would your previous solution still work?
-
-Note:
-
-You may only use CONSTANT extra space.
-*/
 public class ConnectTreeNode2 {
     public static void main(String[] args) {
         ConnectTreeNode2 inst = new ConnectTreeNode2();

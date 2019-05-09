@@ -60,7 +60,7 @@ public class BFS_graph {
 					for (int neigh : adj[tmp]) {
 						if ( !visited[neigh] ) {
 							queue.add(neigh);
-							visited[neigh] = true;
+//							visited[neigh] = true;
 						}
 					}
 				

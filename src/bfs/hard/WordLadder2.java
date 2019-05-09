@@ -20,7 +20,7 @@ public class WordLadder2 {
         map = new HashMap<>();
         Map<String, Integer> ladders = new HashMap<>();
         //  初始化距离参数为无穷大，like dijkstra
-        for (String str:dict)
+        for (String str : dict)
             ladders.put(str, Integer.MAX_VALUE);
         int min = Integer.MAX_VALUE;
         Queue<String> queue = new LinkedList<String>();
@@ -33,10 +33,10 @@ public class WordLadder2 {
 
             if (nextStep > min) break;// bfs exit optimization
             // character iteration to find adjacent words
-            for (int i=0; i<curr.length(); i++) {
+            for (int i = 0; i < curr.length(); i++) {
                 char[] chars = curr.toCharArray();
-                for (char c='a'; c<='z'; c++){
-                    if(chars[i] == c)
+                for (char c = 'a'; c <= 'z'; c++) {
+                    if (chars[i] == c)
                         continue;
                     chars[i] = c;
                     String nstr = new String(chars);
@@ -72,9 +72,10 @@ public class WordLadder2 {
         backtrace(end, start, new ArrayList<>());
         return result;
     }
+
     // start最后添加进list，不断变更adj的指向
-    private void backtrace(String adj, String start, List<String> list){
-        if (start.equals(adj)){
+    private void backtrace(String adj, String start, List<String> list) {
+        if (start.equals(adj)) {
             list.add(0, start);
             result.add(new ArrayList<>(list));
             list.remove(0);// unmake it
@@ -83,7 +84,7 @@ public class WordLadder2 {
         list.add(0, adj);
         List<String> l = map.get(adj);
         if (l != null) {
-            for (String str:l)
+            for (String str : l)
                 backtrace(str, start, list);
         }
         // unmake it

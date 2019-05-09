@@ -7,21 +7,23 @@ import java.util.TreeSet;
  * Created by xu on 2017/6/8.
  */
 public class MinimumAbsoluteDifference {
-    class WrapInt{
+    class WrapInt {
         public int diff = Integer.MAX_VALUE;
     }
+
     class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
 
-        public TreeNode (int value){
+        public TreeNode(int value) {
             this.val = value;
             left = null;
             right = null;
 
         }
     }
+
     //========================================================================
     // 相邻节点的比较
     private WrapInt Wrap = new WrapInt();
@@ -32,7 +34,8 @@ public class MinimumAbsoluteDifference {
         return helper(root, pre);
 
     }
-    public int  helper (TreeNode root, TreeNode pre){
+
+    public int helper(TreeNode root, TreeNode pre) {
 
         if (root == null)
             return Wrap.diff;
@@ -66,6 +69,7 @@ public class MinimumAbsoluteDifference {
         return getMin(root);
 
     }
+
     public int getMin(TreeNode root) {
         if (root == null) return Wrap.diff;
 
@@ -96,7 +100,7 @@ public class MinimumAbsoluteDifference {
             if (curr != null) {
                 stack.push(curr);
                 curr = curr.left;
-            }else {
+            } else {
                 if (!stack.isEmpty()) {
                     curr = stack.pop();
 
@@ -113,9 +117,11 @@ public class MinimumAbsoluteDifference {
         return min;
 
     }
+
     // ==========================================================================================
     // use TreeSet + preOrder
     private TreeSet<Integer> set = new TreeSet<>();
+
     //Wrap.diff
     public int AnyOrder_TreeSet(TreeNode root) {
         if (root == null)
@@ -134,7 +140,6 @@ public class MinimumAbsoluteDifference {
         return Wrap.diff;
 
     }
-
 
 
 }
