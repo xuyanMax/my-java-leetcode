@@ -52,7 +52,7 @@ public class BestTimeToBuyAndSellStock2 {
 
     public int maxProfit2(int[] prices) {
         if (prices == null || prices.length == 0) return 0;
-        int tik0 = 0, tik1 = prices[0];
+        int tik0 = 0, tik1 = -prices[0];
         for (int i = 1; i < prices.length; i++) {
             int tmp = tik0;
             tik0 = Math.max(tik0, tik1 + prices[i]);

@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * Created by xu on 12/12/2017.
- *
- *
+ * <p>
+ * <p>
  * http://blog.csdn.net/insistgogo/article/details/11081025
  * http://blog.csdn.net/netown_ethereal/article/details/24411327
  * http://blog.csdn.net/stack_queue/article/details/53544109
@@ -20,13 +20,13 @@ public class KnapsackComplete {
     // 需要求解N*W个状态，每个状态求解时间-非constant, j/wgt[i]
     // 复杂度 O(N*V*sum(W/wgt[i]))
     // 空间O(n*W)
-    public int CompleteKnapsack(int[] val, int[]wgt, int[] count, int W, int n){
-        int[][]dp = new int[n+1][W+1];
-        for (int i=1; i<=n; i++) {//item i
-            for (int j=0; j<=W; j++) {// weight/cost of item i
-                int cnt = j/wgt[i-1];
-                for (int k=0; k<=cnt; k++) //对一个item 最多取 W/wgt[i]向下取整个
-                    dp[i][j] = Math.max(dp[i][j], dp[i-1][j - k* wgt[i-1]] + k*val[i-1]);// k = 0， = dp[i-1][j]
+    public int CompleteKnapsack(int[] val, int[] wgt, int[] count, int W, int n) {
+        int[][] dp = new int[n + 1][W + 1];
+        for (int i = 1; i <= n; i++) {//item i
+            for (int j = 0; j <= W; j++) {// weight/cost of item i
+                int cnt = j / wgt[i - 1];
+                for (int k = 0; k <= cnt; k++) //对一个item 最多取 W/wgt[i]向下取整个
+                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - k * wgt[i - 1]] + k * val[i - 1]);// k = 0， = dp[i-1][j]
             }
         }
         return dp[n][W];
@@ -43,11 +43,11 @@ public class KnapsackComplete {
         List<Integer> valList = Arrays.asList(val);
         List<Integer> wgtList = Arrays.asList(wgt);
 
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             int power = 1;
             while (power * wgt[i] <= W) {
-                valList.add(val[i]*power);
-                wgtList.add(wgt[i]*power);
+                valList.add(val[i] * power);
+                wgtList.add(wgt[i] * power);
                 power <<= 1;
             }
         }
@@ -56,16 +56,16 @@ public class KnapsackComplete {
         // 转为数组
         int[] valnew = new int[valList.size()];
         int[] wgtnew = new int[wgtList.size()];
-        for (int i=0; i<valList.size(); i++){
+        for (int i = 0; i < valList.size(); i++) {
             valnew[i] = valList.get(i);
             wgtnew[i] = wgtList.get(i);
         }
 
         // 0/1背包解法
-        int[] dp = new int[W+1];
-        for (int i=1; i<=valnew.length; i++)
-            for (int j=W; j>=wgtnew[i-1]; j--)
-                dp[j] = Math.max(dp[j], dp[j - wgtnew[i-1]] + valnew[i-1]);
+        int[] dp = new int[W + 1];
+        for (int i = 1; i <= valnew.length; i++)
+            for (int j = W; j >= wgtnew[i - 1]; j--)
+                dp[j] = Math.max(dp[j], dp[j - wgtnew[i - 1]] + valnew[i - 1]);
 
         return dp[W];
     }
@@ -83,27 +83,28 @@ public class KnapsackComplete {
 
     // 时间复杂度O(N*W)
     // 空间O(W)
-    public int optimalCompleteKnapsack(int[]val, int[]wgt, int W, int n) {
-        int[][] dp = new int[n+1][W+1];
+    public int optimalCompleteKnapsack(int[] val, int[] wgt, int W, int n) {
+        int[][] dp = new int[n + 1][W + 1];
 
-        for (int i=1; i<=n; i++)
-            for (int j=wgt[i-1]; j<=W; j++)//优化从wgt[i]起
-                dp[i][j] = Math.max(dp[i-1][j], dp[i][j - wgt[i-1]] + val[i-1]);
+        for (int i = 1; i <= n; i++)
+            for (int j = wgt[i - 1]; j <= W; j++)//优化从wgt[i]起
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - wgt[i - 1]] + val[i - 1]);
 
         return dp[n][W];
     }
 
     // dd大牛模版
 
-    public int algorithm(int[]val, int[]wgt, int W, int n) {
-        int[] dp = new int[W+1];
-        for (int i=1; i<=n; i++)
+    public int algorithm(int[] val, int[] wgt, int W, int n) {
+        int[] dp = new int[W + 1];
+        for (int i = 1; i <= n; i++)
             CompletePack(val, wgt, W, n, dp, i);
         return dp[W];
     }
-    public void CompletePack(int[]val, int[]wgt, int W, int n, int[]dp, int i){
-        for (int j=wgt[i-1]; j<=W; j++)
-            dp[j] = Math.max(dp[j], dp[j - wgt[i-1]] + val[i-1]);
+
+    public void CompletePack(int[] val, int[] wgt, int W, int n, int[] dp, int i) {
+        for (int j = wgt[i - 1]; j <= W; j++)
+            dp[j] = Math.max(dp[j], dp[j - wgt[i - 1]] + val[i - 1]);
     }
 
 }

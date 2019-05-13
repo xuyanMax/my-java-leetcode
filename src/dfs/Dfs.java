@@ -6,10 +6,10 @@ import java.util.LinkedList;
  * @author xu
  * http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/
  */
-public class DFS_graph {
+public class Dfs {
 
     public static void main(String[] args) {
-        DFS_graph instance = new DFS_graph();
+        Dfs instance = new Dfs();
         graph g = instance.new graph(4);
         g.addEdge(0, 1);
         g.addEdge(0, 2);

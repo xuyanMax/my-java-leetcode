@@ -41,7 +41,7 @@ public class StockBuySellKTransactions {
     // prices[j] - prices[m] + T[i-1][m]
 
     // maxDiff = max(maxDiff, T[i-1][j]-prices[j])
-    // not accepted by leetcode
+    // accepted by leetcode
 
     public static int maxProfitFastSolution(int[] prices, int K) {
 

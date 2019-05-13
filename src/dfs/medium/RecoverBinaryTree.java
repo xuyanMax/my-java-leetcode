@@ -2,16 +2,14 @@ package dfs.medium;
 
 /**
  * Created by xu on 28/12/2017.
+ * <p>
+ * Two elements of a binary search tree (BST) are swapped by mistake.
+ * <p>
+ * Recover the tree without changing its structure.
+ * <p>
+ * Note:
+ * A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
  */
-/*
-Two elements of a binary search tree (BST) are swapped by mistake.
-
-Recover the tree without changing its structure.
-
-Note:
-A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
-
-* */
 public class RecoverBinaryTree {
     //DFS中序遍历
     // [4,2,6,1,3,5,7] ->经过错误的交换后[4,2,3,1,6,5,7]

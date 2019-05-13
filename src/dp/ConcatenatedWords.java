@@ -31,12 +31,12 @@ The returned elements order does not matter.
 */
 public class ConcatenatedWords {
     /*solution is based on question 'Word Break'
-    * We iterate through each word and see if it can be formed by other words
-    *
-    * tips: a word can be only formed by those shorter than itself. Therefore we sort the words by length and
-    * apply word break technique to words before it (which are stored in @preDictionary)
-    * */
-    public List<String> findAllConcatenatedWordsInADict (String[] words) {
+     * We iterate through each word and see if it can be formed by other words
+     *
+     * tips: a word can be only formed by those shorter than itself. Therefore we sort the words by length and
+     * apply word break technique to words before it (which are stored in @preDictionary)
+     * */
+    public List<String> findAllConcatenatedWordsInADict(String[] words) {
 
         List<String> result = new ArrayList<>();
         Set<String> dic = new HashSet<>(); //used as a dictionary
@@ -44,13 +44,13 @@ public class ConcatenatedWords {
         Arrays.sort(words, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                return o1.length()-o2.length();
+                return o1.length() - o2.length();
             }
         });
 
-        for (String str:words) {
-            if (wordBreak(dic, str));//能分解，则不作为segment，添加到result list中
-                result.add(str);
+        for (String str : words) {
+            if (wordBreak(dic, str)) ;//能分解，则不作为segment，添加到result list中
+            result.add(str);
             // 不能分解，则添加到preDict中，作为一个segment
             dic.add(str);
         }
@@ -64,8 +64,8 @@ public class ConcatenatedWords {
 
         boolean[] dp = new boolean[word.length() + 1];
         dp[0] = true;
-        for (int i=1; i<=word.length(); i++) {
-            for (int j=0; j<i; j++) {
+        for (int i = 1; i <= word.length(); i++) {
+            for (int j = 0; j < i; j++) {
                 if (dp[j] && pre.contains(word.substring(j, i))) {
                     dp[i] = true;
                     break;

@@ -2,27 +2,26 @@ package dp;
 
 /**
  * Created by xu on 11/08/2017.
+ * <p>
+ * 70.
+ * <p>
+ * You are climbing a stair case. It takes n steps to reach to the top.
+ * Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+ * <p>
+ * Note: Given n will be a positive integer.
  */
-/*
-70.
-
-You are climbing a stair case. It takes n steps to reach to the top.
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-
-Note: Given n will be a positive integer.
-*/
 public class ClimbStairs {
 
     public int climbStairs(int n) {
-        int[] dp = new int[n+1];
+        int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = 1;
         dp[2] = 2;
 
-        for (int i=3; i<=n; i++) {
-            dp[i] = dp[i-2] + dp[i-1];
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 2] + dp[i - 1];
         }
-        return dp[n-1];
+        return dp[n - 1];
     }
 
     // fibonacci
@@ -42,7 +41,7 @@ public class ClimbStairs {
         int all_ways = 0;
 
         //从存在第三个stairs开始计算
-        for (int i=2; i<n; i++) {
+        for (int i = 2; i < n; i++) {
             all_ways = one_step_before + two_steps_before;
             two_steps_before = one_step_before;//两个stairs前的位置，现在仅一步之遥
             one_step_before = all_ways;

@@ -1,27 +1,26 @@
 package dp;
 
-/*
-5. Longest Palindromic Substring
-Given a string s, find the longest palindromic substring in s. You may assume that the maximum length
-of s is 1000.
-
-Example:
-
-Input: "babad"
-
-Output: "bab"
-
-Note: "aba" is also a valid answer.
-Example:
-
-Input: "cbbd"
-
-Output: "bb"
-
-详解:
-https://leetcode.com/problems/longest-palindromic-substring/solution/
-
-*/
+/**
+ * 5. Longest Palindromic Substring
+ * Given a string s, find the longest palindromic substring in s. You may assume that the maximum length
+ * of s is 1000.
+ * <p>
+ * Example:
+ * <p>
+ * Input: "babad"
+ * <p>
+ * Output: "bab"
+ * <p>
+ * Note: "aba" is also a valid answer.
+ * Example:
+ * <p>
+ * Input: "cbbd"
+ * <p>
+ * Output: "bb"
+ * <p>
+ * 详解:
+ * https://leetcode.com/problems/longest-palindromic-substring/solution/
+ */
 public class LongestPalindromicSubstring {
 
     public String longestPalindrome(String s) {
