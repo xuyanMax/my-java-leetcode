@@ -7,22 +7,20 @@ import java.util.Set;
 
 /**
  * Created by xu on 07/08/2017.
+ * <p>
+ * Given an integer arr, your task is to find all the different possible increasing subsequences
+ * of the given arr, and the length of an increasing subsequence should be at least 2 .
+ * <p>
+ * Example:
+ * Input: [4, 6, 7, 7]
+ * Output: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]
+ * Note:
+ * <p>
+ * The length of the given arr will not exceed 15.
+ * The range of integer in the given arr is [-100,100].
+ * The given arr may contain duplicates, and two equal integers should also be considered as a
+ * special case of increasing sequence.
  */
-/*
-Given an integer arr, your task is to find all the different possible increasing subsequences
-of the given arr, and the length of an increasing subsequence should be at least 2 .
-
-Example:
-Input: [4, 6, 7, 7]
-Output: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]
-Note:
-
-The length of the given arr will not exceed 15.
-The range of integer in the given arr is [-100,100].
-The given arr may contain duplicates, and two equal integers should also be considered as a
-special case of increasing sequence.
-
-*/
 public class IncreasingSubsequences {
     // 利用set来记录所有结果，保证无重复
     public List<List<Integer>> findSubsequences(int[] nums) {

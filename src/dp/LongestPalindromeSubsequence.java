@@ -46,8 +46,6 @@ public class LongestPalindromeSubsequence {
         int[] result = new int[dp[0][dp.length - 1]];
         int i = 0, j = dp[0][dp.length - 1];
         int k = 0;
-
-
     }
 
 

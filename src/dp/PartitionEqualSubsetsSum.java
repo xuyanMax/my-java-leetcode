@@ -2,34 +2,30 @@ package dp;
 
 /**
  * Created by xu on 11/08/2017.
+ * <p>
+ * Given a non-empty arr containing only positive integers, find if the arr can be partitioned into
+ * two subsets such that the sum of elements in both subsets is equal.
+ * <p>
+ * Note:
+ * Each of the arr element will not exceed 100.
+ * The arr size will not exceed 200.
+ * <p>
+ * Example 1:
+ * <p>
+ * Input: [1, 5, 11, 5]
+ * <p>
+ * Output: true
+ * <p>
+ * Explanation: The arr can be partitioned as [1, 5, 5] and [11].
+ * <p>
+ * Example 2:
+ * <p>
+ * Input: [1, 2, 3, 5]
+ * <p>
+ * Output: false
+ * <p>
+ * Explanation: The arr cannot be partitioned into equal sum subsets.
  */
-/*
-416.
-
-Given a non-empty arr containing only positive integers, find if the arr can be partitioned into
-two subsets such that the sum of elements in both subsets is equal.
-
-Note:
-Each of the arr element will not exceed 100.
-The arr size will not exceed 200.
-
-Example 1:
-
-Input: [1, 5, 11, 5]
-
-Output: true
-
-Explanation: The arr can be partitioned as [1, 5, 5] and [11].
-
-Example 2:
-
-Input: [1, 2, 3, 5]
-
-Output: false
-
-Explanation: The arr cannot be partitioned into equal sum subsets.
-
-*/
 public class PartitionEqualSubsetsSum {
 
     // 这个问题的实质是0/1背包问题，即该集合内，是否存在一些数字的和为指定的target值

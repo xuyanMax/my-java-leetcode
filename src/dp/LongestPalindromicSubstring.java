@@ -27,18 +27,23 @@ public class LongestPalindromicSubstring {
         if (s == null || s.length() == 0)
             return null;
         boolean[][] dp = new boolean[s.length()][s.length()];
-        String ret = "";
+        //dp初始化
+        for (int i = 0; i < s.length(); i++)
+            dp[i][i] = true;
+        for (int i = 0; i < s.length() - 1; i++)
+            dp[i][i + 1] = s.charAt(i) == s.charAt(i + 1);
+        int maxLen = 1;
+        int start = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
             for (int j = i; j < s.length(); j++) {
-
                 dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i) < 3 || dp[i + 1][j - 1]);
-
-                if (dp[i][j] && (ret == null || ret.length() < (j - i + 1)))
-                    ret = s.substring(i, j + 1);
-
+                if (dp[i][j] && (maxLen < (j - i + 1))) {
+                    start = i;
+                    maxLen = j - i + 1;
+                }
             }
         }
-        return ret;
+        return s.substring(start, maxLen + 1);
     }
 
     // https://leetcode.com/problems/longest-palindromic-substring/solution/#approach-3-dynamic-programming-accepted

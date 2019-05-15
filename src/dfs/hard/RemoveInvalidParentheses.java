@@ -19,7 +19,7 @@ public class RemoveInvalidParentheses {
      * To make the prefix valid, we need to remove a ‘)’. The problem is: which one?
      * The answer is any one in the prefix. However, if we remove any one,
      * we will generate duplicate results, for example: s = ()), we can remove s[1] or s[2]
-     * but the result is the same (). Thus, we restrict ourselves to remove the first ) in a series of consecutive )s.
+     * but the result is the same (). Thus, we restrict ourselves to remove the first ) in a series of consecutive ).
      * <p>
      * After the removal, the prefix is then valid. We then call the function
      * recursively to solve the rest of the string.

@@ -4,19 +4,19 @@ import java.util.Arrays;
 
 public class MaximumRectangle {
 
-    /**
-     * height means from top to this position, there are how many ‘1’
-     * left means at current position, what is the index of left bound of the rectangle with height[j].
-     * 0 means at this position, no rectangle. (现在这个矩形的左边的下标)
-     * right means the right bound index of this rectangle. ‘n’ means no rectangle.
-     * <p>
-     * height[row][col]记录的是(row, col)这个坐标为底座的直方图柱子的高度, 如果这个点是'0', 那么高度当然是0了
-     * left[row][col]记录的是(row, col)这个坐标点对应的height可以延申到的最左边的位置
-     * right[row][col]记录的是(row, col)这个坐标点对应的height可以延申到的最右边的位置+1
-     *
-     * @param matrix
-     * @return
-     */
+/**
+ * height means from top to this position, there are how many ‘1’
+ * left means at current position, what is the index of left bound of the rectangle with height[j].
+ * 0 means at this position, no rectangle. (现在这个矩形的左边的下标)
+ * right means the right bound index of this rectangle. ‘n’ means no rectangle.
+ * <p>
+ * height[row][col]记录的是(row, col)这个坐标为底座的直方图柱子的高度, 如果这个点是'0', 那么高度当然是0了
+ * left[row][col]记录的是(row, col)这个坐标点对应的height可以延申到的最左边的位置
+ * right[row][col]记录的是(row, col)这个坐标点对应的height可以延申到的最右边的位置+1
+ *
+ * @param matrix
+ * @return
+ */
     public int sol(char[][] matrix) {
         if (matrix == null || matrix.length == 0) return 0;
         int n = matrix[0].length, m = matrix.length;

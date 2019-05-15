@@ -9,7 +9,7 @@ import java.util.Set;
  * @Version 1.0
  */
 public class LongestSubStringWithoutRepeatingCharacters {
-    // two pointers
+    // two pointers + set
     public int lengthOfLongestSubstring(String s) {
         int left = 0, right = 0;
         int max = 0;
