@@ -31,13 +31,13 @@ import java.util.Map;
  */
 // reference:https://discuss.leetcode.com/topic/39834/step-by-step-tackling-of-the-problem/67
 public class HouseRobber3 {
-/*
- 从题目可以看到一个，optimalsubstructure最优子结构存在，
- 意思是：如果我们想知道从当前root开始能够获得的最大收益，那么我们也想知道从root的左、右节点能够获得的最大收益是多少。
- 现在我们定义rob_naive(root)返回从root作为跟节点二叉树可以得到的最大收益
-
- 想要构建root解，需要通过从root的的子问题的解开始。
-*/
+    /**
+     * 从题目可以看到一个，optimal substructure最优子结构存在，
+     * 意思是：如果我们想知道从当前root开始能够获得的最大收益，那么我们也想知道从root的左、右节点能够获得的最大收益是多少。
+     * 现在我们定义rob_naive(root)返回从root作为跟节点二叉树可以得到的最大收益
+     * <p>
+     * 想要构建root解，需要通过从root的的子问题的解开始。
+     */
 
 // 对于递归问题，两个要素如下
 // 1-递归边界条件：空节点
@@ -46,7 +46,6 @@ public class HouseRobber3 {
 //                                        ,
 //                                rob_naive(root.left) + rob_naive(root.right))
 //
-
     public int rob_naive(TreeNode root) {
         if (root == null)
             return 0;

@@ -21,9 +21,7 @@ public class MergeKLists_PQ {
 
         if (lists == null || lists.size() == 0) return null;
 
-        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.size(), (a, b) -> (
-                a.val - b.val)
-        );
+        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.size(), Comparator.comparingInt(ListNode::getVal));
 
         ListNode dummy = new ListNode(0);
         ListNode point = dummy;
@@ -49,6 +47,10 @@ public class MergeKLists_PQ {
         public ListNode(int key) {
             val = key;
             next = null;
+        }
+
+        public int getVal() {
+            return val;
         }
     }
 }

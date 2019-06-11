@@ -12,7 +12,7 @@ public class Kadane {
 
         for (int i = 0; i < n; i++) {
 
-            max_end_here = max_end_here + nums[i];
+            max_end_here += nums[i];
 
             if (max_so_far < max_end_here) {
                 max_so_far = max_end_here;

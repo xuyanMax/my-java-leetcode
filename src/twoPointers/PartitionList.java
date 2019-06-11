@@ -20,10 +20,10 @@ public class PartitionList {
 		
 
 	}
-	class listNode{
+	class ListNode{
 		int val;
-		listNode next;
-		listNode(int v) {
+		ListNode next;
+		ListNode(int v) {
 			val = v;
 			next = null;
 		}
@@ -35,12 +35,12 @@ public class PartitionList {
 	 * Finally, attach these two lists and set the second list's end's next as null to avoid cyclic  
 	 * @return newHead1
 	 */
-	public listNode solution(listNode head, int k) {
+	public ListNode solution(ListNode head, int k) {
 		PartitionList pl = new PartitionList();
-		listNode newHead1 = pl.new listNode(911);
-		listNode newHead2 = pl.new listNode(918);
+		ListNode newHead1 = pl.new ListNode(911);
+		ListNode newHead2 = pl.new ListNode(918);
 		
-		listNode pointer1 = newHead1, pointer2 = newHead2;
+		ListNode pointer1 = newHead1, pointer2 = newHead2;
 		
 		while (head != null) {
 			if (head.val < k) {

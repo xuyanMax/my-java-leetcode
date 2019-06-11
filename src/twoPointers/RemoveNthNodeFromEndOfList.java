@@ -21,17 +21,17 @@ public class RemoveNthNodeFromEndOfList {
 
 
 	}
-	class listNode {
+	class ListNode {
 		    int val;
-		    listNode next;
-		    listNode(int x) { val = x; next = null;}
+		    ListNode next;
+		    ListNode(int x) { val = x; next = null;}
 		  }
-	public static listNode solution (listNode head, int n) {
+	public static ListNode solution (ListNode head, int n) {
 		
 		RemoveNthNodeFromEndOfList instance = new RemoveNthNodeFromEndOfList();
-		listNode newHead = instance.new listNode(918);
+		ListNode newHead = instance.new ListNode(918);
 		newHead.next = head;
-		listNode fast = newHead, slow = newHead;
+		ListNode fast = newHead, slow = newHead;
 		
 		while (fast.next != null) {
 			if (n <= 0) {

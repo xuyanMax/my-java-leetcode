@@ -38,13 +38,16 @@ public class PartitionEqualSubsetsSum {
     //  1. 如果不选择nums[i], 则dp[i][j] = dp[i-1][j], meaning the first i-1 elements would make j or not
     //  2. 如果选择nums[i], 则dp[i][j] = dp[i-1][j-nums[i]], meaning first i-1 elements would make j-nums[i] or not
     public boolean canPartition_knapsack(int[] nums) {
-        if (nums == null || nums.length == 0)
+        if (nums == null || nums.length == 0) {
             return false;
+        }
         int sum = 0;
-        for (int num : nums)
+        for (int num : nums) {
             sum += num;
-        if (sum % 2 != 0)
+        }
+        if (sum % 2 != 0) {
             return false;
+        }
 
         int target = sum / 2;
         boolean[][] dp = new boolean[nums.length + 1][target + 1];
@@ -53,21 +56,24 @@ public class PartitionEqualSubsetsSum {
         dp[0][0] = true;
 
         //从 0 个数中选择组合为i（1:n），false
-        for (int i = 1; i <= target; i++)
+        for (int i = 1; i <= target; i++) {
             dp[0][i] = false;
+        }
 
         // 从前i个数中选择组合的和为0，true，一个都不选
-        for (int i = 1; i <= nums.length; i++)
+        for (int i = 1; i <= nums.length; i++) {
             dp[i][0] = true;
+        }
 
         //填写dp 表格
         for (int i = 1; i < nums.length; i++) {
-            for (int j = 1; j < target; j++) {
+            for (int j = nums[i - 1]; j < target; j++) {
 
-                if (j >= nums[i - 1]) //注意；[i-1]为对应的元素索引
+                if (j >= nums[i - 1]) {//注意；[i-1]为对应的元素索引
                     dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
-                else
+                } else {
                     dp[i][j] = dp[i - 1][j];
+                }
             }
         }
         return dp[nums.length][target];

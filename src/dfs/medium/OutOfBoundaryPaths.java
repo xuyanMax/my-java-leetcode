@@ -51,7 +51,6 @@ public class OutOfBoundaryPaths {
         memo[i][j][N] =
                 ((findPaths_bruteForce_memoize(m, n, N - 1, i - 1, j, memo)
                         + findPaths_bruteForce_memoize(m, n, N - 1, i + 1, j, memo)) % M
-
                         + (findPaths_bruteForce_memoize(m, n, N - 1, i, j + 1, memo)
                         + findPaths_bruteForce_memoize(m, n, N - 1, i, j - 1, memo)) % M
                 ) % M;

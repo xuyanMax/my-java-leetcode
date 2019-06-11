@@ -37,7 +37,6 @@ public class ConvertSortedListToBST {
      * 时间复杂度: nlgn
      * 主定理
      * F(N) = 2*F(n/2) + n/2 => F(n)=nlgn
-     *
      */
     public TreeNode sortedListToBST(ListNode head) {
         if (head == null) {

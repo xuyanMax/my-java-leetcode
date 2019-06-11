@@ -61,14 +61,16 @@ public class ShoppingOffers {
             List<Integer> AOffer = list;
             boolean validOffer = true; //通过判断 offer中每一项的个数是否超出needs每一项个数的要求，来判断真假
 
-            // 每一个offer 下 遍历 needs
+            // 每一个offer下遍历 needs
             for (int item = 0; item < needs.size(); item++) {
                 int remain = needs.get(item) - AOffer.get(item);
                 // 更新 needs
                 needs.set(item, remain);
                 //如果offer中有超出needs数量
-                if (validOffer && remain < 0)
+                if (validOffer && remain < 0) {
                     validOffer = false;
+                    break;
+                }
             }
 
             if (validOffer) {  //只有是validOffer, 才进一步递归
@@ -77,9 +79,11 @@ public class ShoppingOffers {
             }
 
             //dfs unmake
-            for (int item = 0; item < needs.size(); item++) {
-                int remain = needs.get(item) + AOffer.get(item);
-                needs.set(item, remain);
+            if (validOffer) {
+                for (int item = 0; item < needs.size(); item++) {
+                    int remain = needs.get(item) + AOffer.get(item);
+                    needs.set(item, remain);
+                }
             }
         }
         // 如果不使用特殊卷
@@ -110,8 +114,9 @@ public class ShoppingOffers {
 
         // 不使用special 所需花费的费用
         int lowestPrice = 0;
-        for (int i = 0; i < needs.size(); i++)
+        for (int i = 0; i < needs.size(); i++) {
             lowestPrice += needs.get(i) * price.get(i);
+        }
 
         //遍历每一个可能的offer
         for (List<Integer> offer : special) {
@@ -134,7 +139,7 @@ public class ShoppingOffers {
                         dfs(price, special, copyneeds, map) // 这里传入copyneeds
                                 + offer.get(offer.size() - 1));
         }
-        // 在当前层，所有可能的情况全部遍历完成后，才进行dp的记录
+        // 在当前层，所有可能的情况全部遍历完成后，记录
         map.put(hashKey, lowestPrice);
         return lowestPrice;
     }

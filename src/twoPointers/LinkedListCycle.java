@@ -12,10 +12,10 @@ package twoPointers;
  */
 public class LinkedListCycle {
 	
-	class listNode {
+	class ListNode {
 		int val;
-		listNode next;
-		listNode(int key) {
+		ListNode next;
+		ListNode(int key) {
 			val =  key;
 			next = null;
 		}
@@ -30,13 +30,13 @@ public class LinkedListCycle {
     // when fast catches slow, it runs two times of distance than that of slow.
     // a+b+c+b = 2(a+b) => a = c
     // thus, head pointer moves when it meets with slow pointer in the node where the cycle begins
-	public static listNode solution (listNode head) { 
-		listNode slow = head, fast = head;
+	public static ListNode solution (ListNode head) {
+		ListNode slow = head, fast = head;
 		while (fast.next != null && fast.next.next != null) {
 			fast = fast.next.next;
 			slow = slow.next;
 			if (fast == slow) {
-				listNode newHead = head;
+				ListNode newHead = head;
 				while (newHead != slow) {
 					slow = slow.next;
 					newHead = newHead.next;

@@ -11,7 +11,7 @@ package dfs.medium;
  * A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
  */
 public class RecoverBinaryTree {
-    //DFS中序遍历
+    // DFS中序遍历
     // [4,2,6,1,3,5,7] ->经过错误的交换后[4,2,3,1,6,5,7]
     //错误交换后，中序遍历{1,2,6,4,5,3,7}
     //规律是，第一个需要交换的节点为6，因此6>4，第二个需要交换的节点是3，因为3比5要小

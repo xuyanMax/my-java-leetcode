@@ -4,7 +4,7 @@ import java.util.TreeSet;
 
 /**
  * 363. Max Sum of Rectangle No Larger Than K
- * Given a non-empty 2D matrix matrix and an integer k, find the max sum of a rectangle in the matrix
+ * Given a non-empty 2D matrix and an integer k, find the max sum of a rectangle in the matrix
  * such that its sum is no larger than k.
  * <p>
  * Example:
@@ -25,11 +25,6 @@ import java.util.TreeSet;
  */
 public class MaxSumSubRectangleNoLargerThanK {
 
-    public static void main(String[] args) {
-
-
-    }
-
     public int maxSumSubmatrix(int[][] matrix, int k) {
         //2D Kadane algorithm + 1D MaxSumSubarrayNoMoreThanK
         //2D subarray sum solution
@@ -47,7 +42,6 @@ public class MaxSumSubRectangleNoLargerThanK {
 
             for (int right = left; right < COL; right++) {
                 //updateHighestHeightBtwLR sums[] to include values in curr right col
-
                 for (int i = 0; i < ROW; i++)
                     dp[i] += matrix[i][right];
 

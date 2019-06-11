@@ -2,17 +2,17 @@ package linkedList;
 
 public class ReverseList {
 
-    class listNode {
+    class ListNode {
         int val;
-        listNode next;
+        ListNode next;
 
-        public listNode(int key) {
+        public ListNode(int key) {
             val = key;
             next = null;
         }
     }
 
-    public listNode reverse(listNode head) {
+    public ListNode reverse(ListNode head) {
 
         // head->1->2->3->null
         // 1 head -> null
@@ -24,9 +24,9 @@ public class ReverseList {
         // null 3->2->1->head->null
         // head pre
         // return pre
-        listNode pre = null;
+        ListNode pre = null;
         while (head != null) {
-            listNode next = head.next;
+            ListNode next = head.next;
             head.next = pre;
             pre = head;
             head = next;
@@ -35,12 +35,12 @@ public class ReverseList {
 
     }
 
-    public listNode reverseRecur(listNode head) {
+    public ListNode reverseRecur(ListNode head) {
         if (head == null || head.next == null)
             return head;
-        listNode next = head.next;
+        ListNode next = head.next;
 
-        listNode newHead = reverseRecur(next);
+        ListNode newHead = reverseRecur(next);
         next.next = head;
         head.next = null;
 
@@ -54,14 +54,14 @@ public class ReverseList {
      * @return
      * @input head, null
      */
-    public listNode reverserRecur2(listNode head, listNode pre) {
+    public ListNode reverserRecur2(ListNode head, ListNode pre) {
         if (head == null || head.next == null)
             return head;
         else {
-            listNode next = head.next;
+            ListNode next = head.next;
             head.next = pre;
 
-            listNode newHead = reverserRecur2(next, head);
+            ListNode newHead = reverserRecur2(next, head);
 
             return newHead;
         }

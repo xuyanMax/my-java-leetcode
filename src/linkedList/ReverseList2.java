@@ -2,19 +2,18 @@ package linkedList;
 
 /**
  * Created by xu on 2017/6/1.
- *
+ * <p>
  * Reverse a linked list from position m to n. Do it in-place and in one-pass.
-
-     For example:
-     Given 1->2->3->4->5->NULL, m = 2 and n = 4,
-
-     return 1->4->3->2->5->NULL.
- *
+ * <p>
+ * For example:
+ * Given 1->2->3->4->5->NULL, m = 2 and n = 4,
+ * <p>
+ * return 1->4->3->2->5->NULL.
  */
 
 public class ReverseList2 {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ReverseList2 inst = new ReverseList2();
 
         ListNode head = inst.new ListNode(1);
@@ -35,15 +34,16 @@ public class ReverseList2 {
         p6.next = p7;
         p7.next = p8;
         p8.next = null;
-        ListNode newHead = inst.reverse(head,2,4);
+        ListNode newHead = inst.reverse(head, 2, 4);
         inst.displayList(newHead);
     }
+
     public ListNode reverse(ListNode head, int m, int n) {
-        if(head == null) return null;
+        if (head == null) return null;
         ListNode dummy = new ListNode(0); // create a dummy node to mark the head of this list
         dummy.next = head;
         ListNode pre = dummy; // make a pointer pre as a marker for the node before reversing
-        for(int i = 0; i<m-1; i++) pre = pre.next;
+        for (int i = 0; i < m - 1; i++) pre = pre.next;
 
         ListNode start = pre.next; // a pointer to the beginning of a sub-list that will be reversed
         ListNode then = start.next; // a pointer to a node that will be reversed
@@ -51,8 +51,7 @@ public class ReverseList2 {
         // 1 - 2 -3 - 4 - 5 ; m=2; n =4 ---> pre = 1, start = 2, then = 3
         // dummy-> 1 -> 2 -> 3 -> 4 -> 5
 
-        for(int i=0; i<n-m; i++)
-        {
+        for (int i = 0; i < n - m; i++) {
             start.next = then.next;
 
 //            displayList(pre); // 1->2->4->5->6->7->8->9->null; 1->3->2->5->6->7->8->9->null
@@ -93,18 +92,20 @@ public class ReverseList2 {
     class ListNode {
         int val;
         ListNode next;
+
         public ListNode(int x) {
             this.val = x;
             this.next = null;
         }
     }
-    public void displayList(ListNode head){
+
+    public void displayList(ListNode head) {
         StringBuilder str = new StringBuilder();
         while (head != null) {
-            str.append(head.val+"->");
+            str.append(head.val + "->");
             head = head.next;
         }
         str.append("null");
-       System.out.println(str.toString());
+        System.out.println(str.toString());
     }
 }

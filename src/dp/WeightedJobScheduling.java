@@ -76,13 +76,7 @@ public class WeightedJobScheduling {
                 }
             }
         }
-        int max = Integer.MIN_VALUE;
-        for (int n : dp) {
-            System.out.println(n);
-            if (n > max)
-                max = n;
-        }
-        return max;
+        return Arrays.stream(dp).max().getAsInt();
     }
 
 }
