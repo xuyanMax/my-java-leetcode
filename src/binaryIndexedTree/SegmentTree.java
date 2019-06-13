@@ -1,5 +1,8 @@
 package binaryIndexedTree;
-/*https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/*/
+
+/**
+ * https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+ */
 public class SegmentTree {
     class SegmentTreeNode {
         int start, end;
@@ -21,7 +24,7 @@ public class SegmentTree {
     // 2*n -1 nodes consisting segment tree - and is full binary tree
     // so total nodes = 2*n - 1 (n = #leaves)
     public SegmentTree(int[] nums) {
-        root = buildTree(nums, 0, nums.length-1);
+        root = buildTree(nums, 0, nums.length - 1);
     }
 
     private SegmentTreeNode buildTree(int[] nums, int start, int end) {
@@ -32,7 +35,7 @@ public class SegmentTree {
             if (start == end) {
                 ret.sum = nums[start];
             } else {
-                int mid = start  + (end - start) / 2;
+                int mid = start + (end - start) / 2;
                 ret.left = buildTree(nums, start, mid);
                 ret.right = buildTree(nums, mid + 1, end);
                 // 自底向上计算 sum
@@ -74,10 +77,10 @@ public class SegmentTree {
             int mid = root.start + (root.end - root.start) / 2;
             if (end <= mid) {
                 return sumRange(root.left, start, end);
-            } else if (start >= mid+1) {
+            } else if (start >= mid + 1) {
                 return sumRange(root.right, start, end);
-            }  else {
-                return sumRange(root.right, mid+1, end) + sumRange(root.left, start, mid);
+            } else {
+                return sumRange(root.right, mid + 1, end) + sumRange(root.left, start, mid);
             }
         }
     }

@@ -1,4 +1,5 @@
 package binaryIndexedTree;
+
 //https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/
 public class LazySegmentTree {
     final int MAX = 1000;        // Max tree size
@@ -12,7 +13,7 @@ public class LazySegmentTree {
         diff -> which we need to add in the range us to ue */
     void updateRangeUtil(int si, int ss, int se, int us,
                          int ue, int diff) {
-        
+
         // If lazy value is non-zero for current node of segment
         // tree, then there are some pending updates. So we need
         // to make sure that the pending updates are done before
@@ -81,7 +82,7 @@ public class LazySegmentTree {
     /*  us and eu -> starting and ending indexes of updateHighestHeightBtwLR queryHighestHeightBtwLR
         ue  -> ending index of updateHighestHeightBtwLR queryHighestHeightBtwLR
         diff -> which we need to add in the range us to ue */
-    void updateRange(int n, int us, int ue, int diff)  {
+    void updateRange(int n, int us, int ue, int diff) {
         updateRangeUtil(0, 0, n - 1, us, ue, diff);
     }
 
@@ -96,8 +97,7 @@ public class LazySegmentTree {
                      i.e., tree[si]
         qs & qe  --> Starting and ending indexes of queryHighestHeightBtwLR
                      range */
-    int getSumUtil(int ss, int se, int qs, int qe, int si)
-    {
+    int getSumUtil(int ss, int se, int qs, int qe, int si) {
         // If lazy flag is set for current node of segment tree,
         // then there are some pending updates. So we need to
         // make sure that the pending updates are done before
@@ -110,8 +110,7 @@ public class LazySegmentTree {
 
             // checking if it is not leaf node because if
             // it is leaf node then we cannot go further
-            if (ss != se)
-            {
+            if (ss != se) {
                 // Since we are not yet updating children os si,
                 // we need to set lazy values for the children
                 lazy[si * 2 + 1] += lazy[si];
@@ -146,8 +145,7 @@ public class LazySegmentTree {
     // start) to qe (queryHighestHeightBtwLR end).  It mainly uses getSumUtil()
     int getSum(int n, int qs, int qe) {
         // Check for erroneous input values
-        if (qs < 0 || qe > n - 1 || qs > qe)
-        {
+        if (qs < 0 || qe > n - 1 || qs > qe) {
             System.out.println("Invalid Input");
             return -1;
         }
@@ -165,8 +163,7 @@ public class LazySegmentTree {
 
         /* If there is one element in array, store it in
          current node of segment tree and return */
-        if (ss == se)
-        {
+        if (ss == se) {
             tree[si] = arr[ss];
             return;
         }
@@ -184,8 +181,7 @@ public class LazySegmentTree {
     /* Function to construct segment tree from given array.
        This function allocates memory for segment tree and
        calls constructSTUtil() to fill the allocated memory */
-    void constructST(int arr[], int n)
-    {
+    void constructST(int arr[], int n) {
         // Fill the allocated memory st
         constructSTUtil(arr, 0, n - 1, 0);
     }

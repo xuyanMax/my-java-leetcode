@@ -6,18 +6,18 @@ import java.util.*;
 
 /**
  * 773. Sliding Puzzle
- *
+ * <p>
  * On a 2x3 board, there are 5 tiles represented by the integers 1 through 5, and an empty square represented by 0.
- *
+ * <p>
  * A move consists of choosing 0 and a 4-directionally adjacent number and swapping it.
- *
+ * <p>
  * The state of the board is solved if and only if the board is [[1,2,3],[4,5,0]].
- *
+ * <p>
  * Given a puzzle board, return the least number of moves required so that the state of the board is solved.
  * If it is impossible for the state of the board to be solved, return -1.
- *
+ * <p>
  * Examples:
- *
+ * <p>
  * Input: board = [[1,2,3],[4,0,5]]
  * Output: 1
  * Explanation: Swap the 0 and the 5 in one move.
@@ -37,7 +37,7 @@ import java.util.*;
  * Input: board = [[3,2,4],[1,5,0]]
  * Output: 14
  * Note:
- *
+ * <p>
  * board will be a 2 x 3 array as described above.
  * board[i][j] will be a permutation of [0, 1, 2, 3, 4, 5].
  */
@@ -57,20 +57,28 @@ public class SlidingPuzzles {
             // loop used to control search breadth.
             for (int sz = q.size(); sz > 0; --sz) {
                 String str = q.poll();
-                if (str.equals(target)) { return ans; } // found target.
+                if (str.equals(target)) {// found target.
+                    return ans;
+                }
                 int i = str.indexOf('0'); // locate '0'
-                int[] d = { 1, -1, 3, -3 }; // potential swap displacements.
+                int[] d = {1, -1, 3, -3}; // potential swap displacements.
                 for (int k = 0; k < 4; ++k) { // traverse all options.
                     int j = i + d[k]; // potential swap index.
                     // conditional used to avoid invalid swaps.
-                    if (j < 0 || j > 5 || i == 2 && j == 3 || i == 3 && j == 2) { continue; }
+                    if (j < 0 || j > 5 || i == 2 && j == 3 || i == 3 && j == 2) {
+                        continue;
+                    }
                     char[] ch = str.toCharArray();
+
                     // swap ch[i] and ch[j].
                     char tmp = ch[i];
                     ch[i] = ch[j];
                     ch[j] = tmp;
+
                     s = String.valueOf(ch); // a new candidate state.
-                    if (seen.add(s)) { q.offer(s); } //Avoid duplicate.
+                    if (seen.add(s)) {//Avoid duplicate.
+                        q.offer(s);
+                    }
                 }
             }
             ++ans; // finished a round of Breadth Search, plus 1.
