@@ -59,7 +59,7 @@ public class SegmentTree {
             } else {//右侧
                 update(root.right, pos, val);
             }
-            // 前序遍历，逻辑在后
+            // 后序遍历，逻辑在后
             // use the result for children call to updateHighestHeightBtwLR this
             // updateHighestHeightBtwLR 更新父节点的sum
             root.sum = root.left.sum + root.right.sum;

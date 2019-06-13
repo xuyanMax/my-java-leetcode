@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0db84ca7-b105-4938-83b7-1e6b475f1859" name="Default Changelist" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bfs/medium/SlidingPuzzles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bfs/medium/SlidingPuzzles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/binaryIndexedTree/LazySegmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binaryIndexedTree/LazySegmentTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/binaryIndexedTree/hard/CountSmallerNumberAfterItself.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binaryIndexedTree/hard/CountSmallerNumberAfterItself.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/binaryIndexedTree/hard/FallingSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binaryIndexedTree/hard/FallingSquares.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/binaryIndexedTree/hard/RangeSumQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binaryIndexedTree/hard/RangeSumQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/binaryIndexedTree/hard/ReversePairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/binaryIndexedTree/hard/ReversePairs.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/hard/RangeSumQuery.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+            <state relative-caret-position="1061">
+              <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
               <folding>
                 <element signature="e#1034#1035#0" expanded="true" />
                 <element signature="e#1092#1093#0" expanded="true" />
@@ -72,15 +66,6 @@
                 <element signature="e#2262#2263#0" expanded="true" />
                 <element signature="e#2305#2306#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/divide_conquer/hard/CountRangeSum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-439">
-              <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -114,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/LazySegmentTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            <state relative-caret-position="2826">
+              <caret line="159" column="7" selection-end-line="216" />
             </state>
           </provider>
         </entry>
@@ -123,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            <state relative-caret-position="656">
+              <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -132,17 +117,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1092">
-              <caret line="57" column="7" selection-end-line="155" />
+            <state relative-caret-position="510">
+              <caret line="146" column="50" lean-forward="true" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/binarysearch/hard/FindMinInRotatedSortedArray2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="25" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/binarysearch/hard/MedianTwoSortedArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="29" column="13" selection-end-line="74" />
+            <state relative-caret-position="165">
+              <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -237,13 +231,13 @@
         <option value="$PROJECT_DIR$/src/bfs/BinaryMinHeap.java" />
         <option value="$PROJECT_DIR$/src/bfs/Graph.java" />
         <option value="$PROJECT_DIR$/src/bfs/medium/SlidingPuzzles.java" />
-        <option value="$PROJECT_DIR$/src/binaryIndexedTree/LazySegmentTree.java" />
-        <option value="$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree.java" />
         <option value="$PROJECT_DIR$/src/binaryIndexedTree/hard/FallingSquares.java" />
         <option value="$PROJECT_DIR$/src/binaryIndexedTree/hard/ReversePairs.java" />
         <option value="$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree2.java" />
         <option value="$PROJECT_DIR$/src/binaryIndexedTree/hard/CountSmallerNumberAfterItself.java" />
         <option value="$PROJECT_DIR$/src/binaryIndexedTree/hard/RangeSumQuery.java" />
+        <option value="$PROJECT_DIR$/src/binaryIndexedTree/LazySegmentTree.java" />
+        <option value="$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree.java" />
       </list>
     </option>
   </component>
@@ -562,7 +556,7 @@
       <workItem from="1560204139264" duration="830000" />
       <workItem from="1560244866291" duration="16747000" />
       <workItem from="1560374664226" duration="3379000" />
-      <workItem from="1560419298050" duration="8807000" />
+      <workItem from="1560419298050" duration="10026000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1557753955852</created>
@@ -575,7 +569,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91144000" />
+    <option name="totallyTimeSpent" value="92363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -971,20 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/binarysearch/hard/FindMinInRotatedSortedArray2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/binarysearch/hard/MedianTwoSortedArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="29" column="13" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/divide_conquer/hard/CountRangeSum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-439">
@@ -1021,31 +1001,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/LazySegmentTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/hard/FallingSquares.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-480">
           <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1092">
-          <caret line="57" column="7" selection-end-line="155" />
         </state>
       </provider>
     </entry>
@@ -1059,10 +1018,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/LazySegmentTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2826">
+          <caret line="159" column="7" selection-end-line="216" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/hard/RangeSumQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+        <state relative-caret-position="1061">
+          <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
           <folding>
             <element signature="e#1034#1035#0" expanded="true" />
             <element signature="e#1092#1093#0" expanded="true" />
@@ -1071,6 +1037,34 @@
             <element signature="e#2262#2263#0" expanded="true" />
             <element signature="e#2305#2306#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/binaryIndexedTree/SegmentTree2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="146" column="50" lean-forward="true" selection-start-line="146" selection-start-column="50" selection-end-line="146" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/binarysearch/hard/FindMinInRotatedSortedArray2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/binarysearch/hard/MedianTwoSortedArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
         </state>
       </provider>
     </entry>

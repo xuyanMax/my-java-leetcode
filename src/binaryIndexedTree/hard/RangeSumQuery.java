@@ -61,6 +61,7 @@ public class RangeSumQuery {
     }
     //后续遍历
     void update(SegmentTreeNode root, int pos, int val) {
+
         if (root.start == root.end) {
             root.sum = val;
         } else {

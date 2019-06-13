@@ -6,11 +6,13 @@ public class LazySegmentTree {
     int tree[] = new int[MAX];  // To store segment tree
     int lazy[] = new int[MAX];  // To store pending updates
 
-    /*  si -> index of current node in segment tree
-        ss and se -> Starting and ending indexes of elements for
-                     which current nodes stores sum.
-        us and ue -> starting and ending indexes of updateHighestHeightBtwLR queryHighestHeightBtwLR
-        diff -> which we need to add in the range us to ue */
+    /**
+     * si -> index of current node in segment tree
+     * ss and se -> Starting and ending indexes of elements for
+     * which current nodes stores sum.
+     * us and ue -> starting and ending indexes of updateHighestHeightBtwLR queryHighestHeightBtwLR
+     * diff -> which we need to add in the range us to ue
+     */
     void updateRangeUtil(int si, int ss, int se, int us,
                          int ue, int diff) {
 
@@ -86,17 +88,19 @@ public class LazySegmentTree {
         updateRangeUtil(0, 0, n - 1, us, ue, diff);
     }
 
-    /*  A recursive function to get the sum of values in given
-        range of the array. The following are parameters for
-        this function.
-        si --> Index of current node in the segment tree.
-               Initially 0 is passed as root is always at'
-               index 0
-        ss & se  --> Starting and ending indexes of the
-                     segment represented by current node,
-                     i.e., tree[si]
-        qs & qe  --> Starting and ending indexes of queryHighestHeightBtwLR
-                     range */
+    /**
+     * A recursive function to get the sum of values in given
+     * range of the array. The following are parameters for
+     * this function.
+     * si --> Index of current node in the segment tree.
+     * Initially 0 is passed as root is always at'
+     * index 0
+     * ss & se  --> Starting and ending indexes of the
+     * segment represented by current node,
+     * i.e., tree[si]
+     * qs & qe  --> Starting and ending indexes of queryHighestHeightBtwLR
+     * range
+     */
     int getSumUtil(int ss, int se, int qs, int qe, int si) {
         // If lazy flag is set for current node of segment tree,
         // then there are some pending updates. So we need to
@@ -153,9 +157,11 @@ public class LazySegmentTree {
         return getSumUtil(0, n - 1, qs, qe, 0);
     }
 
-    /* A recursive function that constructs Segment Tree for
-      array[ss..se]. si is index of current node in segment
-      tree st. */
+    /**
+     * A recursive function that constructs Segment Tree for
+     * array[ss..se]. si is index of current node in segment
+     * tree st.
+     */
     void constructSTUtil(int arr[], int ss, int se, int si) {
         // out of range as ss can never be greater than se
         if (ss > se)
