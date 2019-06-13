@@ -62,6 +62,7 @@ public class SwapNodesInPairs {
             ListNode second = pointer.next.next;
 
             first.next = second.next;
+
             System.out.println(displayList(pointer));
             System.out.println(displayList(first));
             System.out.println(displayList(second));

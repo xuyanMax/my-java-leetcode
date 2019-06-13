@@ -41,12 +41,19 @@ public class CombinationSum1 {
         return result;
 	    }
 	    
-    private static void combinationSumUtil(List<List<Integer>> result, List<Integer> cur, int candidates[], int target, int left){
+    private static void combinationSumUtil(List<List<Integer>> result,
+										   List<Integer> cur,
+										   int candidates[],
+										   int target,
+										   int left){
     	
-    	if (target < 0) return;
+    	if (target < 0) {
+    		return;
+		}
     	
-    	else if(target == 0)
+    	else if(target == 0) {
     		result.add(new ArrayList<Integer>(cur));
+		}
     	
     	else {
   

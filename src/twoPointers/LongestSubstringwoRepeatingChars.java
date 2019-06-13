@@ -4,9 +4,4 @@ package twoPointers;
 
 public class LongestSubstringwoRepeatingChars {
 
-	public static void main(String[] args) {
-		
-
-	}
-
 }

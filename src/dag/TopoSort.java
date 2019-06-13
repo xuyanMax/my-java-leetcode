@@ -43,14 +43,11 @@ public class TopoSort {
             for (int q = 1; q <= number_of_nodes; q++)
                 num_indegree[k] += adjacency_matrix[q][k];
 
-            if (num_indegree[k] == 0)
+            if (num_indegree[k] == 0) {
                 stack.push(k);
+            }
         }
         //判断source是否在栈顶
-
-
-        for (int i = 1; i <= number_of_nodes; i++)
-            System.out.println(num_indegree[i]);
 
         while (!stack.isEmpty()) {
             curr = stack.peek();
@@ -60,8 +57,9 @@ public class TopoSort {
             for (int i = 1; i <= number_of_nodes; i++) {
 
                 if (adjacency_matrix[curr][i] == 1) {
-                    if (--num_indegree[i] == 0)
+                    if (--num_indegree[i] == 0) {
                         stack.push(i);
+                    }
                     //重新开始匹配
                 }
             }

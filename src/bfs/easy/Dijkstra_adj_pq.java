@@ -31,7 +31,7 @@ public class Dijkstra_adj_pq {
 
     private int dist[];
     private Set<Integer> visited;
-    private PriorityQueue<Node> pQueue = new PriorityQueue<>((a, b)->(a.wgt-b.wgt));
+    private PriorityQueue<Node> pQueue = new PriorityQueue<>((a, b) -> (a.wgt - b.wgt));
     private int num_vert;
     private int[][] adj;
 
@@ -76,7 +76,7 @@ public class Dijkstra_adj_pq {
         this.num_vert = num;
         dist = new int[num_vert + 1];
         visited = new HashSet<Integer>();
-        pQueue = new PriorityQueue<Node>(num_vert, new Node());
+        pQueue = new PriorityQueue<Node>(num_vert, Comparator.comparingInt(Node::getWgt));
         adj = new int[num_vert + 1][num_vert + 1];
         System.out.println("Constructor done");
 
@@ -145,6 +145,10 @@ public class Dijkstra_adj_pq {
         public Node(int n, int weight) {
             val = n;
             wgt = weight;
+        }
+
+        public int getWgt() {
+            return wgt;
         }
 
         @Override

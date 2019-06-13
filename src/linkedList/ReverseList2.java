@@ -43,7 +43,10 @@ public class ReverseList2 {
         ListNode dummy = new ListNode(0); // create a dummy node to mark the head of this list
         dummy.next = head;
         ListNode pre = dummy; // make a pointer pre as a marker for the node before reversing
-        for (int i = 0; i < m - 1; i++) pre = pre.next;
+
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
+        }
 
         ListNode start = pre.next; // a pointer to the beginning of a sub-list that will be reversed
         ListNode then = start.next; // a pointer to a node that will be reversed
@@ -61,11 +64,11 @@ public class ReverseList2 {
 //            displayList(then);// 3->4->5->6->7->8->9->null;4->5->6->7->8->9->null
             then.next = pre.next;
 
-            displayList(pre);//1->2->4->5->6->7->8->9->null;1->3->2->5->6->7->8->9->null
+//            displayList(pre);//1->2->4->5->6->7->8->9->null;1->3->2->5->6->7->8->9->null
 
-            displayList(start);//2->4->5->6->7->8->9->null; 2->5->6->7->8->9->null
+//            displayList(start);//2->4->5->6->7->8->9->null; 2->5->6->7->8->9->null
 
-            displayList(then);//3->2->4->5->6->7->8->9->null;4->3->2->5->6->7->8->9->null
+//            displayList(then);//3->2->4->5->6->7->8->9->null;4->3->2->5->6->7->8->9->null
 
             pre.next = then;
 

@@ -45,9 +45,6 @@ public class RotateList {
         return head;
     }
 
-    /*
-     *
-     */
     public ListNode sol2(ListNode head, int k) {
         if (head == null || k == 0)
             return head;

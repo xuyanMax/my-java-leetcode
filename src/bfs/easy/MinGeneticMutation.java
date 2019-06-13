@@ -6,29 +6,30 @@ import java.util.Deque;
 import java.util.HashSet;
 import java.util.Set;
 
-//433. Minimum Genetic Mutation
-/*Example 1:
-
-        start: "AACCGGTT"
-        end:   "AACCGGTA"
-        bank: ["AACCGGTA"]
-
-        return: 1
-Example 2:
-
-        start: "AACCGGTT"
-        end:   "AAACGGTA"
-        bank: ["AACCGGTA", "AACCGCTA", "AAACGGTA"]
-
-        return: 2
-Example 3:
-
-        start: "AAAAACCC"
-        end:   "AACCCCCC"
-        bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
-
-        return: 3
-        */
+/**
+ * 433. Minimum Genetic Mutation
+ * Example 1:
+ * <p>
+ * start: "AACCGGTT"
+ * end:   "AACCGGTA"
+ * bank: ["AACCGGTA"]
+ * <p>
+ * return: 1
+ * Example 2:
+ * <p>
+ * start: "AACCGGTT"
+ * end:   "AAACGGTA"
+ * bank: ["AACCGGTA", "AACCGCTA", "AAACGGTA"]
+ * <p>
+ * return: 2
+ * Example 3:
+ * <p>
+ * start: "AAAAACCC"
+ * end:   "AACCCCCC"
+ * bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
+ * <p>
+ * return: 3
+ */
 public class MinGeneticMutation {
     private char[] CHAR = new char[]{'A', 'T', 'C', 'G'};
 

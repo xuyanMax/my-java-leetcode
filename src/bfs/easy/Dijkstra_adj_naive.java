@@ -76,7 +76,6 @@ public class Dijkstra_adj_naive {
     public void printSolution(int[] dist) {
         System.out.println("Vertex\t\tDistance from source");
         for (int i = 0; i < dist.length; i++) {
-
             System.out.println(i + "\t\t" + dist[i]);
         }
     }

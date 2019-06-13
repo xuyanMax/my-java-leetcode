@@ -48,10 +48,9 @@ public class QuickSort {
             while (low < high && arr[high] >= pivotKey)
                 high--;
             swap(arr, low, high);
-            //arr[high] = arr[low];
+//            arr[high] = arr[low];
 
-
-            //				arr[low]=arr[high];
+//            arr[low] = arr[high];
 
         }
         //			arr[low] = pivotKey;
@@ -76,12 +75,14 @@ public class QuickSort {
         return low;
     }
 
-    /* This function takes last element as pivot,
-    places the pivot element at its correct
-    position in sorted arr, and places all
-    smaller (smaller than pivot) to left of
-    pivot and all greater elements to right
-    of pivot */
+    /**
+     * This function takes last element as pivot,
+     * places the pivot element at its correct
+     * position in sorted arr, and places all
+     * smaller (smaller than pivot) to left of
+     * pivot and all greater elements to right
+     * of pivot
+     */
     public int partition3(int[] arr, int low, int high) {
 
         // pivot element to be placed at right position
@@ -145,7 +146,7 @@ public class QuickSort {
             pivot = partition(arr, low, high);
 
             // If left part is smaller, then recur for left
-            // part and handle righ t part iteratively
+            // part and handle right part iteratively
             if (pivot - low < high - pivot) {
                 quickSorting3(arr, low, pivot - 1);
                 low = pivot + 1;
