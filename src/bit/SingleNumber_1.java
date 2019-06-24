@@ -22,14 +22,12 @@ public class SingleNumber_1 {
         int x, sum;
 
         // Iterate through every bit
-        for (int i = 0; i < 32; i++)
-        {
+        for (int i = 0; i < 32; i++) {
             // Find sum of set bits at ith position in all
             // arr elements
             sum = 0;
             x = (1 << i);
-            for (int j=0; j< arr.length; j++ )
-            {
+            for (int j = 0; j < arr.length; j++) {
                 if ((arr[j] & x) == 1)
                     sum++;
             }

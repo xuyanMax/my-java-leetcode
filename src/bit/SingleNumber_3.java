@@ -2,25 +2,23 @@ package bit;
 
 /**
  * Created by xu on 2017/5/30.
+ * <p>
+ * Given an arr of numbers nums, in which exactly two elements appear only once and all the other elements appear
+ * exactly twice. Find the two elements that appear only once.
+ * <p>
+ * For example:
+ * <p>
+ * Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].
  */
-
-/*
-Given an arr of numbers nums, in which exactly two elements appear only once and all the other elements appear
-exactly twice. Find the two elements that appear only once.
-
-For example:
-
-Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].
-*/
 
 
 public class SingleNumber_3 {
 
-     public static void main(String[] args){
-         System.out.println(Integer.toBinaryString(0x5));
-         System.out.println(Integer.toBinaryString(0x3));
-         System.out.println(Integer.toBinaryString(-0x6 & 0x6));
-     }
+    public static void main(String[] args) {
+        System.out.println(Integer.toBinaryString(0x5));
+        System.out.println(Integer.toBinaryString(0x3));
+        System.out.println(Integer.toBinaryString(-0x6 & 0x6));
+    }
 
     public int[] sol(int[] nums) {
         // pass 1 get XOR of the two numbers we need to find

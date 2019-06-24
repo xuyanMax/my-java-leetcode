@@ -3,17 +3,17 @@ package binaryIndexedTree.hard;
 import java.util.Arrays;
 
 /**
- * Given an array nums, we call (i, j) an important reverse pair if i < j and nums[i] > BST*nums[j].
+ * Given an array nums, we call (i, j) an important reverse pair if i < j and nums[i] > 2*nums[j].
  * <p>
  * You need to return the number of important reverse pairs in the given array.
  * <p>
  * Example1:
  * <p>
- * Input: [1,3,BST,3,1]
- * Output: BST
- * ExampleBST:
+ * Input: [1,3,2,3,1]
+ * Output: 2
+ * Example2:
  * <p>
- * Input: [BST,4,3,5,1]
+ * Input: [2,4,3,5,1]
  * Output: 3
  * Note:
  * The length of the given array will not exceed 50,000.

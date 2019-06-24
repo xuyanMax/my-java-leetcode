@@ -12,7 +12,7 @@ public class FindMaximumXOR {
         int mask = 0;
         int max = 0;
 
-        for (int i=30; i>=0; i--) { //31/30都可以，因此第 2^31 -1 = 2147483647
+        for (int i = 30; i >= 0; i--) { //31/30都可以，因此第 2^31 -1 = 2147483647
 
             Set<Integer> set = new HashSet<>();
             mask |= 1 << i; // 1000-1100-1110-1111....
@@ -22,7 +22,7 @@ public class FindMaximumXOR {
             // set.contains(candidate ^ leftPartNum) false
             // 如下程序试图将每一位依次设为1，如果在set中的整数中该位存在0和1。
             // 当将所有
-            for (int num:nums) {
+            for (int num : nums) {
                 int leftPartNum = mask & num;
                 set.add(leftPartNum);
             }

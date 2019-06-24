@@ -2,31 +2,26 @@ package bit;
 
 /**
  * Created by xu on 2017/5/29.
- */
-
-/*
-    Given an arr of integers, every element appears 3 times except for one,
-    which appears exactly once. Find that single one.
-
-
+ * <p>
+ * Given an arr of integers, every element appears 3 times except for one,
+ * which appears exactly once. Find that single one.
  */
 public class SingleNumber_2 {
-/*
-
-references:
-
-https://discuss.leetcode.com/topic/2031/challenge-me-thx/107
-
-one two
-0   0
-1   0
-0   1
-------
-0   0
-
-one = (one ^ A[i]) & ~two
-two = (two ^ A[i]) & ~one
- */
+    /**
+     * references:
+     * <p>
+     * https://discuss.leetcode.com/topic/2031/challenge-me-thx/107
+     * <p>
+     * one two
+     * 0   0
+     * 1   0
+     * 0   1
+     * ------
+     * 0   0
+     * <p>
+     * one = (one ^ A[i]) & ~two
+     * two = (two ^ A[i]) & ~one
+     */
 
     public int sol1(int[] A) {
         int ones = 0, twos = 0;
@@ -45,12 +40,12 @@ two = (two ^ A[i]) & ~one
         int result = 0;
 
         // iterate through every bit of 32-bit number
-        for (int i=0; i<32; i++) {
+        for (int i = 0; i < 32; i++) {
             // Find sum of set bits at ith position in all
             // arr element
             int sum = 0;
             int mask = 1 << i;
-            for (int j=0; j<A.length; j++) {
+            for (int j = 0; j < A.length; j++) {
                 if ((mask & A[j]) == 1)
                     sum++;
             }

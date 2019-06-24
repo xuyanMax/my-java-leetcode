@@ -4,11 +4,9 @@ import java.util.*;
 
 /**
  * Created by xu on 08/07/2017.
- */
-
-/**
+ *
  * Given a set of intervals, for each of the interval i, check if there exists an interval j whose start point
- * is bigger than or equal to the end point of the interval i, which can be called that j is on the "right" of i.
+ * is BIGGER THAN OR EQUAL to the end point of the interval i, which can be called that j is on the "right" of i.
  *
  * For any interval i, you need to store the minimum interval j's index, which means that the interval j has the
  * minimum start point to build the "right" relationship for interval i. If the interval j doesn't exist, store -1
@@ -31,6 +29,7 @@ import java.util.*;
  * Explanation: There is no satisfied "right" interval for [3,4].
  * For [2,3], the interval [3,4] has minimum-"right" start point;
  * For [1,2], the interval [2,3] has minimum-"right" start point.
+ *
  * Example 3:
  * Input: [ [1,4], [2,3], [3,4] ]
  *
@@ -41,11 +40,11 @@ import java.util.*;
  */
 public class FindRightInterval {
 
-    /*
-    1. Sort starts
-    2. for each Interval's end, use binary search to find the start of next right Interval
-    3、to get the original index, we need a map
-    */
+    /**
+     * 1. Sort starts
+     * 2. for each Interval's end, use binary search to find the start of next right Interval
+     * 3、to get the original index, we need a map
+     */
     public int[] findRightInterval(Interval[] intervals) {
         int[] res = new int[intervals.length];
 
@@ -65,7 +64,8 @@ public class FindRightInterval {
             int start = bs(starts, end);
             if (start < end) {  // 没有比end大的start值；tips：不能用start == -1，如果测试数据中start等于-1，则错误
                 res[i] = -1;
-            } else res[i] = maps.get(start);
+            } else
+                res[i] = maps.get(start);
 
         }
 
@@ -87,9 +87,9 @@ public class FindRightInterval {
         return list.get(low);
     }
 
-/*
- TreeMap
-*/
+    /**
+     * TreeMap
+     */
 
     public int[] findRightInterval_TREEMAP(Interval[] intervals) {
         TreeMap<Integer, Integer> maps = new TreeMap<>();

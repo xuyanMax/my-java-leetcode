@@ -5,10 +5,10 @@ import java.util.Iterator;
 
 /**
  * Created by xu on 2017/6/25.
- *
+ * <p>
  * reference - https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/code/BST.java
  */
-public class BSTree <T extends Comparable<T>> implements Iterable<T>{
+public class BSTree<T extends Comparable<T>> implements Iterable<T> {
     private Node<T> root;
     private Comparator<T> comparator;
 
@@ -22,21 +22,24 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
         this.root = null;
         this.comparator = comparator;
     }
+
     public int compare(T x, T y) {
         if (comparator == null)
             return x.compareTo(y);
         else
             return comparator.compare(x, y);
     }
-/*****************************************************
- *
- *            SEARCH
- *
- ******************************************************/
+
+    /*****************************************************
+     *
+     *            SEARCH
+     *
+     ******************************************************/
     public boolean search(T toSearch) {
         return search(root, toSearch);
     }
-    public boolean search(Node<T>root, T toSearch) {
+
+    public boolean search(Node<T> root, T toSearch) {
         if (root == null)
             return false;
         else {
@@ -48,9 +51,11 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
                 return search(root.right, toSearch);
         }
     }
-    public Node<T> find (T toBeFound) {
+
+    public Node<T> find(T toBeFound) {
         return find(this.root, toBeFound);
     }
+
     public Node<T> find(Node<T> root, T toBeFound) {
         Node<T> p = root;
         if (p == null)
@@ -67,15 +72,17 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
         }
         return null;
     }
-/*****************************************************
- *
- *            INSERT
- *
- ******************************************************/
-    public void insert (T data){
+
+    /*****************************************************
+     *
+     *            INSERT
+     *
+     ******************************************************/
+    public void insert(T data) {
         root = insert(root, data);
     }
-    public Node<T> insert(Node<T> root, T toBeInsert){
+
+    public Node<T> insert(Node<T> root, T toBeInsert) {
         if (root == null) {
             return new Node(toBeInsert);
         }
@@ -96,19 +103,22 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
             p.left = child;
 
         return root;
-    };
-/*****************************************************
- *
- *            SUCCESSOR
- *
- ******************************************************/
+    }
+
+    ;
+
+    /*****************************************************
+     *
+     *            SUCCESSOR
+     *
+     ******************************************************/
     public Node<T> successor(T toBeFound) {
         Node<T> x = find(this.root, toBeFound);
 
         // here we have the Node<T>(toBeFound) as p
         if (x.right != null) {
             return TreeMin(x.right);
-        }else {
+        } else {
             Node<T> y = x.parent;
             while (y != null && x == y.right) {
                 x = y;
@@ -118,11 +128,12 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
         }
 
     }
-/*****************************************************
- *
- *            DELETE
- *
- ******************************************************/
+
+    /*****************************************************
+     *
+     *            DELETE
+     *
+     ******************************************************/
     public void delete(T toDelete) {
         Node<T> z = find(this.root, toDelete);
         if (z.left == null)
@@ -142,20 +153,22 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
             y.left.parent = y;
         }
     }
+
     /*油温题*/
     public void transplant(T u, T v) {
         Node<T> U = find(u);
         Node<T> V = find(v);
-        transplant(U,V);
+        transplant(U, V);
 
     }
-/*****************************************************
- *
- *            TRANSPLANT
- *
- ******************************************************/
 
-    public void transplant(Node<T> U, Node<T>V) {
+    /*****************************************************
+     *
+     *            TRANSPLANT
+     *
+     ******************************************************/
+
+    public void transplant(Node<T> U, Node<T> V) {
         if (U.parent == null)
             this.root = V;
         else if (U == U.parent.left)
@@ -174,6 +187,7 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
 
         return p;
     }
+
     public Node<T> TreeMin(Node<T> x) {
         Node<T> p = find(this.root, x.data);
         while (p.left != null)
@@ -181,59 +195,67 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
 
         return p;
     }
+
     @Override
     public Iterator<T> iterator() {
         return null;
     }
-/*************************************************
- *
- *            TRAVERSAL
- *
- **************************************************/
-    public void preOrder(){
+
+    /*************************************************
+     *
+     *            TRAVERSAL
+     *
+     **************************************************/
+    public void preOrder() {
         preHelper(this.root);
     }
+
     public void preHelper(Node<T> root) {
         if (root == null)
             return;
-        System.out.println(root.data+" ");
+        System.out.println(root.data + " ");
         preHelper(root.left);
         preHelper(root.right);
     }
-/*************************************************
- *
- *            MISC
- *
- **************************************************/
+
+    /*************************************************
+     *
+     *            MISC
+     *
+     **************************************************/
 
     public int height() {
         return height(this.root);
     }
+
     public int height(Node<T> root) {
         if (root == null)
             return 0;
         return Math.max(height(root.left), height(root.right)) + 1;
     }
+
     public int width() {
         int max = 0;
-        for (int i=0; i<=height(); i++) {
+        for (int i = 0; i <= height(); i++) {
             int tmp = width(root, i);
             max = Math.max(max, tmp);
         }
         return max;
     }
+
     public int width(Node<T> p, int depth) {
         if (p == null)
             return 0;
         else if (depth == 0)
             return 1;
-        else return width(p.left, depth - 1) + width(p.right, depth-1);
+        else return width(p.left, depth - 1) + width(p.right, depth - 1);
     }
-/*************************************************
- *
- *            toString
- *
- **************************************************/
+
+    /*************************************************
+     *
+     *            toString
+     *
+     **************************************************/
 
     @Override
     public String toString() {
@@ -248,12 +270,12 @@ public class BSTree <T extends Comparable<T>> implements Iterable<T>{
  *            the Node class
  *
  ******************************************************/
-class Node <T>{
+class Node<T> {
     public Node<T> left, right;
     public Node<T> parent;
     public T data;
 
-    public Node (T data) {
+    public Node(T data) {
         this.data = data;
         this.left = null;
         this.right = null;
@@ -269,8 +291,7 @@ class Node <T>{
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return data.toString();
     }
 

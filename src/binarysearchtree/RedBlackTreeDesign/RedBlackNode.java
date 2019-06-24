@@ -21,7 +21,7 @@ public class RedBlackNode<T extends Comparable<T>> {
     public int numLeft;
 
     public RedBlackNode() {
-        this.color =  BLACK;
+        this.color = BLACK;
         numLeft = 0;
         numRight = 0;
         parent = null;
