@@ -18,18 +18,17 @@ public class Net_170812_1 {
 
             if (d <= x)//手中钱无法付1天房租
                 System.out.println(days);
-             //手中有水果
-            else{
-                if (d/x >= f) {// 能通过现有的水果活下去 f 天
+                //手中有水果
+            else {
+                if (d / x >= f) {// 能通过现有的水果活下去 f 天
                     days += f;
-                    d -= x*f; //剩下的钱
-                }
-                else {//手里的钱支部不起房租f天
+                    d -= x * f; //剩下的钱
+                } else {//手里的钱支部不起房租f天
                     days = d / x;
                     System.out.println(days);
                     return;
                 }
-                days += d / (x+p);
+                days += d / (x + p);
                 System.out.println(days);
             }
 

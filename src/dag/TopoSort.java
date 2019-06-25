@@ -1,14 +1,16 @@
 package dag;
 
+import java.util.ArrayDeque;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class TopoSort {
-    private Stack<Integer> stack;
+
+    private ArrayDeque<Integer> stack;
 
     public TopoSort() {
-        stack = new Stack<Integer>();
+        stack = new ArrayDeque<>();
     }
 
     public int[] topological(int adjacency_matrix[][]) throws NullPointerException {
@@ -20,6 +22,7 @@ public class TopoSort {
 
         //将所有入度为0的入栈
         int[] num_indegree = new int[number_of_nodes + 1];
+
         /**
          *  GIVEN: m rows * n columns
          *  create a 2-d arr with an extra space
@@ -33,8 +36,6 @@ public class TopoSort {
          * v5 	.	.	.	.	.
          *  for(int row=1; row<=m; row++)
          *  	for(int col=1; col<=n; col++)
-         *
-         *
          */
 
 

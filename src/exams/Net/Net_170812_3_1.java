@@ -14,16 +14,16 @@ public class Net_170812_3_1 {
 
             Wrapper wrapper = new Wrapper(0);
 
-            helper (n,0, k, 1, wrapper);
+            helper(n, 0, k, 1, wrapper);
 
             System.out.println(wrapper.count % 1000000007);
         }
     }
 
-    public static void helper(int n, int depth, int k, int ele, Wrapper wrapper){
+    public static void helper(int n, int depth, int k, int ele, Wrapper wrapper) {
         //边界判断
-        if(depth == n-1) {
-            for (int j=1; j<=k; j++) {
+        if (depth == n - 1) {
+            for (int j = 1; j <= k; j++) {
                 if ((ele % j) != 0 || ele <= j) {
                     wrapper.count++;
                 }
@@ -31,14 +31,15 @@ public class Net_170812_3_1 {
             return;
         }
 
-        for (int j=1; j<=k; j++) {
+        for (int j = 1; j <= k; j++) {
             if ((ele % j) != 0 || ele <= j) {
                 helper(n, depth + 1, k, j, wrapper);
             }
         }
 
     }
-    static class Wrapper{
+
+    static class Wrapper {
         int count = 0;
 
         public Wrapper(int count) {

@@ -19,14 +19,13 @@ public class Souhu_170917_1 {
                 nums[i] = in.nextInt();
                 sum += nums[i];
             }
-            int left = 0, right = n-1;
+            int left = 0, right = n - 1;
 
             while (left < right) {
-                if (nums[left] == nums[right]){
+                if (nums[left] == nums[right]) {
                     left++;
                     right--;
-                }
-                else if (nums[left] > nums[right]){
+                } else if (nums[left] > nums[right]) {
                     sum += nums[right];
                     right--;
                 } else {
@@ -38,7 +37,8 @@ public class Souhu_170917_1 {
             System.out.println(sum);
         }
     }
-    public static void pass_30_p(){
+
+    public static void pass_30_p() {
         Scanner in = new Scanner(System.in);
         while (in.hasNextInt()) {//注意while处理多个case
             int n = in.nextInt();
@@ -49,14 +49,13 @@ public class Souhu_170917_1 {
                 nums[i] = in.nextInt();
                 sum += nums[i];
             }
-            int left = 0, right = n-1;
+            int left = 0, right = n - 1;
 
             while (left < right) {
-                if (nums[left] == nums[right]){
+                if (nums[left] == nums[right]) {
                     left++;
                     right--;
-                }
-                else if (nums[left] > nums[right]){
+                } else if (nums[left] > nums[right]) {
                     sum += nums[right];
                     right--;
                 } else {
@@ -69,7 +68,8 @@ public class Souhu_170917_1 {
         }
 
     }
-    public static void pass_10_p(){
+
+    public static void pass_10_p() {
         Scanner in = new Scanner(System.in);
         Map<Integer, Integer> map;
         while (in.hasNextInt()) {//注意while处理多个case
@@ -78,7 +78,7 @@ public class Souhu_170917_1 {
             map = new HashMap<>();
 
             int sum = 0;
-            for(int i=0; i<n; i++) {
+            for (int i = 0; i < n; i++) {
                 nums[i] = in.nextInt();
                 sum += nums[i];
                 if (map.containsKey(nums[i]))
@@ -88,7 +88,7 @@ public class Souhu_170917_1 {
 //                map.put(nums[i],  map.getOrDefault(nums[i], 0) + 1);
             }
 
-            for(Map.Entry<Integer, Integer> entry: map.entrySet()) {
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
                 if (entry.getValue() % 2 != 0)
                     sum += entry.getValue();
             }

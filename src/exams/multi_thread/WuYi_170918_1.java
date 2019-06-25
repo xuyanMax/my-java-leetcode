@@ -9,10 +9,10 @@ public class WuYi_170918_1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         while (in.hasNext()) {//注意while处理多个case
-           String[] input = new String[2];
+            String[] input = new String[2];
 
-           for (int i=0; i<2; i++)
-               input[i] = in.next();
+            for (int i = 0; i < 2; i++)
+                input[i] = in.next();
 
             Thread[] t = new Thread[3];
 
@@ -25,9 +25,9 @@ public class WuYi_170918_1 {
 
     }
 
-
 }
-class Input extends Thread{
+
+class Input extends Thread {
     public static String[] str;
     public int fromInd;
     public int ind;
@@ -38,8 +38,9 @@ class Input extends Thread{
     public Input(String[] str) {
         this.str = str;
     }
-    synchronized public void CountNumber(){
-        while (i <2 && (ind = str[i++].indexOf("u51_1018", fromInd)) != -1){
+
+    synchronized public void CountNumber() {
+        while (i < 2 && (ind = str[i++].indexOf("u51_1018", fromInd)) != -1) {
             count++;
             fromInd = ind + "u51_1018".length();
         }

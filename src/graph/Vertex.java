@@ -9,7 +9,7 @@ public class Vertex<T> {
     private List<Edge<T>> edges = new ArrayList<>();
     private List<Vertex<T>> adjacentVertex = new ArrayList<>();
 
-    Vertex (long id) {
+    Vertex(long id) {
         this.id = id;
     }
 
@@ -20,21 +20,24 @@ public class Vertex<T> {
     public T getData() {
         return data;
     }
+
     public List<Edge<T>> getEdges() {
         return edges;
     }
 
-    public void setData (T data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public void addAdjacentVertex (Edge<T> e, Vertex<T> v) {
+    public void addAdjacentVertex(Edge<T> e, Vertex<T> v) {
         edges.add(e);
         adjacentVertex.add(v);
     }
+
     public List<Vertex<T>> getAdjacentVertex() {
         return adjacentVertex;
     }
+
     @Override
     public String toString() {
         return String.valueOf(id);

@@ -40,9 +40,9 @@ public class BSTree<T extends Comparable<T>> implements Iterable<T> {
     }
 
     public boolean search(Node<T> root, T toSearch) {
-        if (root == null)
+        if (root == null) {
             return false;
-        else {
+        } else {
             if (compare(root.data, toSearch) == 0)
                 return true;
             else if (compare(root.data, toSearch) > 0)
@@ -52,6 +52,11 @@ public class BSTree<T extends Comparable<T>> implements Iterable<T> {
         }
     }
 
+    /**
+     * return found Node
+     * @param toBeFound
+     * @return
+     */
     public Node<T> find(T toBeFound) {
         return find(this.root, toBeFound);
     }
@@ -64,7 +69,6 @@ public class BSTree<T extends Comparable<T>> implements Iterable<T> {
         while (p != null) {
             if (compare(p.data, toBeFound) == 0) {
                 return p;
-
             } else if (compare(p.data, toBeFound) > 0) {
                 p = p.left;
             } else

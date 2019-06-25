@@ -10,6 +10,5 @@ public class BSTreeDriveTest {
          for(Integer n : a) bst.insert(n);
          bst.delete(1);
          bst.preOrder();
-
      }
 }

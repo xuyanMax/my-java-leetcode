@@ -15,9 +15,10 @@ public class Sohu_170917_1 {
             System.out.println(res);
         }
     }
+
     public static String simplifyPath(String path) {
         Deque<String> stack = new LinkedList<>();
-        Set<String> skip = new HashSet<>(Arrays.asList("..",".",""));
+        Set<String> skip = new HashSet<>(Arrays.asList("..", ".", ""));
         for (String dir : path.split("/")) {
             if (dir.equals("..") && !stack.isEmpty())
                 stack.pop();

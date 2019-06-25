@@ -19,14 +19,14 @@ public class DiDi_0910_1 {
             int num = 0;
             int findCount = 0;
 
-            while(findCount < n) {
+            while (findCount < n) {
                 int i = ++num;
-                while (i%2 == 0)
-                    i/=2;
-                while(i%3 == 0)
-                    i/=3;
-                while (i%5 == 0)
-                    i/=5;
+                while (i % 2 == 0)
+                    i /= 2;
+                while (i % 3 == 0)
+                    i /= 3;
+                while (i % 5 == 0)
+                    i /= 5;
                 if (i == 1)
                     findCount++;
             }

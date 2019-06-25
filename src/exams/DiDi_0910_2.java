@@ -15,12 +15,12 @@ public class DiDi_0910_2 {
             int n = in.nextInt();
             int[] data = new int[n];
 
-            for(int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
                 data[i] = in.nextInt();
 
             Map<Integer, Integer> map = new HashMap<>();
 
-            for (int d:data){
+            for (int d : data) {
                 if (d <= n) {
                     if (map.containsKey(d))
                         map.put(d, map.get(d) + 1);
@@ -30,9 +30,9 @@ public class DiDi_0910_2 {
             }
 
             int count = 0;
-            for (Map.Entry<Integer, Integer> entry: map.entrySet()) {
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
                 int key = entry.getKey();
-                if (key == 0){
+                if (key == 0) {
                     count++;
                     continue;
                 }

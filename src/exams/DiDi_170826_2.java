@@ -1,4 +1,5 @@
 package exams;
+
 import java.util.PriorityQueue;
 
 import java.util.Scanner;
@@ -19,16 +20,16 @@ public class DiDi_170826_2 {
             int[] nums = new int[nums_str.length];
 
             //字符数组转整形数组
-            for (int i=0; i<nums.length; i++)
+            for (int i = 0; i < nums.length; i++)
                 nums[i] = Integer.valueOf(nums_str[i]);
 
             //输入K
             int K = in.nextInt();
 
             //利用堆
-            PriorityQueue<Integer> pqueue = new PriorityQueue<>((a,b)->(a-b));
+            PriorityQueue<Integer> pqueue = new PriorityQueue<>((a, b) -> (a - b));
 
-            for (int i=0; i<nums.length; i++) {
+            for (int i = 0; i < nums.length; i++) {
                 pqueue.add(nums[i]);
                 if (i >= K)
                     pqueue.poll();

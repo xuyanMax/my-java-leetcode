@@ -42,6 +42,7 @@ public class KruskalMST2 {
         mst2.getMST();
 
     }
+
     int V, E; // #vertices, #edges
     Edge[] edges;
 
@@ -51,10 +52,11 @@ public class KruskalMST2 {
         E = e;
         edges = new Edge[E];
 
-        for (int i=0; i<E; i++)
+        for (int i = 0; i < E; i++)
             edges[i] = new Edge();
 
     }
+
     // Find set of an element i and use path compression as well
     public int find(disJoint[] ds, int i) {
         if (ds[i].parent != i)
@@ -62,24 +64,25 @@ public class KruskalMST2 {
 
         return ds[i].parent;
     }
+
     // do union to two sets of x and y using union by rank
-    public void union(disJoint[]ds, int x, int y) {
+    public void union(disJoint[] ds, int x, int y) {
         int xroot = ds[x].parent;
         int yroot = ds[y].parent;
 
         if (ds[xroot].rank <= ds[yroot].rank) {
             ds[xroot].parent = yroot;
             ds[yroot].rank = (ds[xroot].rank == ds[yroot].rank) ? ds[yroot].rank + 1 : ds[yroot].rank;
-        }
-        else
+        } else
             ds[yroot].parent = xroot;
 
     }
+
     public void getMST() {
         // 最小权重生成树
 
         Edge[] mst = new Edge[V];
-        for (int i=0; i<V; i++)
+        for (int i = 0; i < V; i++)
             mst[i] = new Edge();
 
         int count = 0;//An index variable, used for mst[]
@@ -94,7 +97,7 @@ public class KruskalMST2 {
         disJoint[] ds = new disJoint[V];
 
         // make #V set
-        for (i=0; i<V; i++) {
+        for (i = 0; i < V; i++) {
             ds[i] = new disJoint();
             ds[i].rank = 0;
             ds[i].parent = i;
@@ -120,25 +123,27 @@ public class KruskalMST2 {
         }
         int total_weight = 0;
 
-        for (i=0; i<count; i++) {//输出 count 个 边
+        for (i = 0; i < count; i++) {//输出 count 个 边
             Edge edge = mst[i];
             System.out.println(edge.src + " -> " + edge.dst + " : " + edge.weight);
             total_weight += edge.weight;
         }
-        System.out.println("Minimum weight: "+total_weight);
+        System.out.println("Minimum weight: " + total_weight);
     }
 
 
-    class Edge implements Comparator<Edge>{
+    class Edge implements Comparator<Edge> {
 
         int src, dst, weight;
+
         @Override
         public int compare(Edge e1, Edge e2) {
-            return e1.weight-e2.weight;
+            return e1.weight - e2.weight;
         }
 
     }
-    class disJoint{
+
+    class disJoint {
         int parent, rank;
 
     }

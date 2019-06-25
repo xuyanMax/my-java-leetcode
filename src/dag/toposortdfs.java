@@ -13,10 +13,7 @@ package dag;
 import graph.Graph;
 import graph.Vertex;
 
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 public class toposortdfs<T> {
 
@@ -41,9 +38,9 @@ public class toposortdfs<T> {
 
     public Deque<Vertex<T>> TopoSort(Graph<T> graph) {
 
-        Set<Vertex<T>> visited = new HashSet<Vertex<T>>();
+        Set<Vertex<T>> visited = new HashSet<>();
+        Deque<Vertex<T>> queue = new ArrayDeque<>();
 
-        Deque<Vertex<T>> queue = new LinkedList<Vertex<T>>();
         for (Vertex<T> vet : graph.getAllVertex()) {
             if (!visited.contains(vet))
                 TopoSortUtil(vet, queue, visited);
@@ -63,7 +60,6 @@ public class toposortdfs<T> {
                 TopoSortUtil(vertex, queue, visited);
             else continue;
         }
-
     }
 
 }

@@ -18,14 +18,7 @@ package divide_conquer;
  */
 public class maxSubArray {
 
-    public static void main(String[] args) {
-
-        int[] nums = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println(maxSubArr(nums));
-    }
-
     // use divide and conquer to solve such a question which can also be solved by DP
-
     public static int maxSubArr(int[] nums) {
         if (nums.length == 0)
             return 0;
@@ -43,16 +36,21 @@ public class maxSubArray {
         int rightSum = nums[mid + 1];
 
         int tmp = 0;
+
         for (int i = mid; i >= left; i--) {
             tmp += nums[i];
-            if (tmp > leftSum) leftSum = tmp;
+            if (tmp > leftSum) {
+                leftSum = tmp;
+            }
         }
 
         tmp = 0;
 
         for (int i = mid + 1; i <= right; i++) {
             tmp += nums[i];
-            if (tmp > rightSum) rightSum = tmp;
+            if (tmp > rightSum) {
+                rightSum = tmp;
+            }
 
         }
         // leftSum  + rightSum: the max sum including the mid and expanding outwards

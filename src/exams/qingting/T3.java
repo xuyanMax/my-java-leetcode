@@ -5,7 +5,7 @@ package exams.qingting;
  */
 public class T3 {
     // 将链表L0, L1, L2, L3, ..., LN 重新排序成L0,LN,L1,LN-1,.....
-    class ListNode{
+    class ListNode {
         int val;
         ListNode next;
 

@@ -18,11 +18,11 @@ public class Net_170812_2 {
             int[] ret = new int[n];// 返回结果
 
             // 录入 x 坐标
-            for (int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
                 data[0][i] = in.nextInt();
 
             // 录入 y 坐标
-            for (int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
                 data[1][i] = in.nextInt();
 
             // 按横坐标生序排序

@@ -1,10 +1,7 @@
 package graph;
 
 /**
- *
  * Edge
- *
- *
  */
 public class Edge<T> {
     private boolean isDirected = false;
@@ -12,25 +9,26 @@ public class Edge<T> {
     private Vertex<T> vertex2;
     private int weight;
 
-    public Edge(Vertex<T>v1, Vertex<T>v2) {
+    public Edge(Vertex<T> v1, Vertex<T> v2) {
         this.vertex1 = v1;
         this.vertex2 = v2;
     }
 
-    public Edge (Vertex<T>v1, Vertex<T>v2, boolean isDirected, int weight) {
-        this.isDirected =isDirected;
+    public Edge(Vertex<T> v1, Vertex<T> v2, boolean isDirected, int weight) {
+        this.isDirected = isDirected;
         this.vertex1 = v1;
         this.vertex2 = v2;
         this.weight = weight;
-
     }
-    public Vertex<T> getVertex1(){
+
+    public Vertex<T> getVertex1() {
         return vertex1;
     }
 
-    public Vertex<T> getVertex2(){
+    public Vertex<T> getVertex2() {
         return vertex2;
     }
+
     public boolean isDirected() {
         return isDirected;
     }
@@ -41,7 +39,7 @@ public class Edge<T> {
 
     @Override
 
-    public boolean equals (Object obj) {
+    public boolean equals(Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
@@ -65,10 +63,8 @@ public class Edge<T> {
 
     @Override
 
-    public String toString () {
-        return "Edge[isDirected=" +isDirected + ", vertex1=" + vertex1 +", "
-                + "vertex2=" + vertex2+", weight="+weight+"]";
+    public String toString() {
+        return "Edge[isDirected=" + isDirected + ", vertex1=" + vertex1 + ", "
+                + "vertex2=" + vertex2 + ", weight=" + weight + "]";
     }
-
-
 }

@@ -17,7 +17,7 @@ public class Net_170812_3_2 {
             Map<String, Integer> map = new HashMap<>();
 
 
-            int count = helper (n,0, k, 1, map);
+            int count = helper(n, 0, k, 1, map);
 
             System.out.println(count % 1000000007);
 //            System.out.println(wrapper.count % 1000000007);
@@ -25,7 +25,7 @@ public class Net_170812_3_2 {
     }
 
     // visit + cache
-    public static int helper(int n, int depth, int k, int ele, Map<String, Integer>map){
+    public static int helper(int n, int depth, int k, int ele, Map<String, Integer> map) {
 
         //利用cache 避免重复运算
         String key = depth + "->" + ele;
@@ -35,10 +35,10 @@ public class Net_170812_3_2 {
 
         //边界判断
         int val = 0;
-        if(depth == n-1) {
-            for (int j=1; j<=k; j++) {
+        if (depth == n - 1) {
+            for (int j = 1; j <= k; j++) {
                 if ((ele % j) != 0 || ele <= j) {
-                   val++;
+                    val++;
                 }
             }
             return val;
@@ -46,10 +46,10 @@ public class Net_170812_3_2 {
 
         // visit
         int count = 0;
-        for (int j=1; j<=k; j++) {
+        for (int j = 1; j <= k; j++) {
             if ((ele % j) != 0 || ele <= j) {
-                 val = helper(n, depth + 1, k, j, map);
-                 count += val;
+                val = helper(n, depth + 1, k, j, map);
+                count += val;
             }
         }
         // 存储val值
