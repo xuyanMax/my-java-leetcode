@@ -80,8 +80,8 @@ public class BellmanFordShortestPath {
             }
         }
 
-        // Step 3: check for negative-weight cycles.  The above
-        // step guarantees shortest distances if graph doesn't
+        // Step 3: check for negative-weight cycles.
+        // The above step guarantees shortest distances if graph doesn't
         // contain negative weight cycle. If we get a shorter
         //  path, then there is a cycle
         for (Edge<Integer> edge : graph.getAllEdges()) {

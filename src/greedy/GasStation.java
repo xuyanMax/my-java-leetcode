@@ -4,11 +4,6 @@ package greedy;
 // https://discuss.leetcode.com/topic/1344/share-some-of-my-ideas/57
 public class GasStation {
 
-    public static void main(String[] args) {
-
-
-    }
-
     /**
      * 1, if sum of gas is more than sum of cost, then there must be a solution.
      * And the question guaranteed that the solution is unique(The first one I found is the right one).
@@ -30,7 +25,6 @@ public class GasStation {
                 tank = 0;
             }
         }
-
 //		if (tank < 0)
         if (gasSum < costSum)
             return -1;

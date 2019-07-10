@@ -5,20 +5,26 @@ package graph;
  * <p>
  * http://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/
  * time complextiy O(V^2)
+ *
+ *
+ * In computer science, Prim's (also known as Jarník's) algorithm is a greedy algorithm that
+ * finds a minimum spanning tree for a weighted undirected graph.
+ * This means it finds a subset of the edges that forms a tree that includes every vertex,
+ * where the total weight of all the edges in the tree is minimized
  */
 public class PrimMST2 {
 
     private static int V;
 
     public static void main(String[] args) {
-	      /* Let us create the following graph
-		        2    3
-		     (0)--(1)--(2)
-		     |    / \   |
-		     6| 8/   \5 |7
-		     | /      \ |
-		     (3)-------(4)
-		          9          */
+        /** Let us create the following graph
+         2    3
+         (0)--(1)--(2)
+         |    / \   |
+         6| 8/   \5 |7
+         | /      \ |
+         (3)-------(4)
+         9          */
         int[][] graph = new int[][]{{0, 2, 0, 6, 0}, {2, 0, 3, 8, 5}, {0, 3, 0, 0, 7}, {6, 8, 0, 0, 9}, {0, 5, 7, 9, 0}};
         PrimMST2 primMST2 = new PrimMST2(graph.length);
         primMST2.primMST(graph);
@@ -27,21 +33,6 @@ public class PrimMST2 {
 
     public PrimMST2(int size) {
         V = size;
-    }
-
-    public int minKey(int[] key, Boolean[] mstSet) {
-        int min = Integer.MAX_VALUE;
-        int minIndex = -1;
-
-        // find the vertex with minimum key and not included in MST
-        for (int v = 0; v < V; v++) {
-            if (key[v] < min && mstSet[v] == false) {
-                min = key[v];
-                minIndex = v;
-
-            }
-        }
-        return minIndex;
     }
 
     // construct and print mst for a graph represented by adjacency list
@@ -82,6 +73,20 @@ public class PrimMST2 {
             }
         }
         print(parent, graph, V);
+    }
+
+    public int minKey(int[] key, Boolean[] mstSet) {
+        int min = Integer.MAX_VALUE;
+        int minIndex = -1;
+
+        // find the vertex with minimum key and not included in MST
+        for (int v = 0; v < V; v++) {
+            if (key[v] < min && mstSet[v] == false) {
+                min = key[v];
+                minIndex = v;
+            }
+        }
+        return minIndex;
     }
 
     // print the constructed mst stored in parent

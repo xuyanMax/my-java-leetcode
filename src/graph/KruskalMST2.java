@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 // this version we use simple val structure to implement the Kruskals' algorithm
-
-
 // http://www.geeksforgeeks.org/greedy-algorithms-set-2-kruskals-minimum-spanning-tree-mst/
 public class KruskalMST2 {
 
@@ -90,7 +88,7 @@ public class KruskalMST2 {
 
         // sort all edges in non descending order
         // if we are not allowed to change the given mst2, we can create a copy of the given edges
-        Arrays.sort(edges, new Edge());
+        Arrays.sort(edges, Comparator.comparingInt(Edge::getWeight));
 
         // create as many disjoint sets as the number of vertices
         // set its rank 0; set it parent itself
@@ -105,16 +103,15 @@ public class KruskalMST2 {
 
         // minimum spanning tree contains at most V-1 edges
         i = 0; // index used to pick next edge
-
         while (count < V - 1) {// E == V - 1是最少边
             //依次挑选最小的边
-            Edge curEdge = new Edge();
-            curEdge = edges[i++];
+            Edge curEdge = edges[i++];
 
             int xroot = find(ds, curEdge.src);
             int yroot = find(ds, curEdge.dst);
-
-            if (xroot != yroot) {// if including this edges does not introduce cycle, add it; otherwise go to next edges
+            // if including this edges does not introduce cycle, add it;
+            // otherwise go to next edges
+            if (xroot != yroot) {
 
                 mst[count++] = curEdge;
 
@@ -141,11 +138,13 @@ public class KruskalMST2 {
             return e1.weight - e2.weight;
         }
 
+        public int getWeight() {
+            return weight;
+        }
     }
 
     class disJoint {
         int parent, rank;
-
     }
 
 

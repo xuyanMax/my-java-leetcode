@@ -11,10 +11,10 @@ public class IsSubsequence {
     public static void main(String[] args) {
         System.out.println(solution2("axc", "ahbgdc"));
 
-//System.out.println(solution2("leeeeetcode", "yyyyylyyyyyyyyyyyyyyyyyyyyyyeyyyyyyyyyyyyyyyyyyyeyeyeyeyyyyyyyyyyycy0ydyeyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"));
-//"", "avb"
-//"asd", ""
-//"", "asda"
+        //System.out.println(solution2("leeeeetcode", "yyyyylyyyyyyyyyyyyyyyyyyyyyyeyyyyyyyyyyyyyyyyyyyeyeyeyeyyyyyyyyyyycy0ydyeyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"));
+        //"", "avb"
+        //"asd", ""
+        //"", "asda"
     }
 
     public static boolean solution(String s, String t) {
@@ -45,31 +45,16 @@ public class IsSubsequence {
             dp[0][i] = true;
 
         for (int i = 1; i <= s.length(); i++)
-            for (int j = 1; j <= t.length(); j++) {
-
+            for (int j = i + 1; j <= t.length(); j++) {
                 if (j >= i) {
-                    //
-                    dp[i][j] = dp[i - 1][j] || (dp[i - 1][j - 1] && s.charAt(i - 1) == t.charAt(j - 1));
+                    dp[i][j] = dp[i - 1][j]
+                            || (dp[i - 1][j - 1]
+                            && s.charAt(i - 1) == t.charAt(j - 1));
                     continue;
-                } else
-                    dp[i][j] = false;
-
-
+                }
             }
 
-        diplay2dArray(dp);
         return dp[s.length()][t.length()];
-    }
-
-    public static void diplay2dArray(boolean[][] data) {
-
-        for (boolean[] row : data) {
-            for (boolean t : row) {
-                System.out.print(t + " ");
-            }
-            System.out.println("");
-        }
-
     }
 
     // indexOf
@@ -80,13 +65,11 @@ public class IsSubsequence {
         for (int i = 0; i < s.length(); i++) {
             char tempChar = s.charAt(i);
             prev = t.indexOf(tempChar, prev);
-
-            if (prev == -1)
+            if (prev == -1) {
                 return false;
-
+            }
             prev++;
         }
-
         return true;
     }
 

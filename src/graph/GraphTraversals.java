@@ -43,7 +43,6 @@ public class GraphTraversals {
             if (!visited.contains(vet.getID()))
                 DFSUtil(vet, visited);
         }
-
     }
 
 

@@ -1,22 +1,40 @@
 package greedy;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
+/**
+ * Given an array of non-negative integers, you are initially positioned at the first index of the array.
+ * <p>
+ * Each element in the array represents your MAXIMUM jump length at that position.
+ * <p>
+ * Your goal is to reach the last index in the minimum number of jumps.
+ * <p>
+ * Example:
+ * <p>
+ * Input: [2,3,1,1,4]
+ * Output: 2
+ * Explanation: The minimum number of jumps to reach the last index is 2.
+ * Jump 1 step from index 0 to 1, then 3 steps to the last index.
+ * Note:
+ * <p>
+ * You can assume that you can always reach the last index.
+ */
 public class JumpGame2 {
 
     public static void main(String[] args) {
         JumpGame2 jg = new JumpGame2();
-        jg.jump2(new int[]{1, 2, 3, 1, 1});
+//        jg.jump2(new int[]{1, 2, 3, 1, 1});
         System.out.println(jg.jump(new int[]{1, 2, 3, 1, 1, 2, 1}));
-
     }
 
     // Your goal is to reach the last index in the minimum number of jumps.
     // for-loop inside while-loop iteratively find out the longest distance reachable in current position
     // and then take the longest reachable one in current position as the next bounding edge of the next iteration
     public int jump(int[] nums) {
-        int next_dst = 0;
+        int next_dst_sofar = 0;
         int lng_dst_sofar = 0;
 
         int currPos = 0;
@@ -24,16 +42,17 @@ public class JumpGame2 {
         while (lng_dst_sofar < nums.length - 1) {
             // longest reachable one as the bounding edge
             // i:current position
-            for (; currPos <= lng_dst_sofar; currPos++)
-                if ((currPos + nums[currPos]) > next_dst)
-                    next_dst = currPos + nums[currPos];
+            for (; currPos <= lng_dst_sofar; currPos++) {
+                if ((currPos + nums[currPos]) > next_dst_sofar) {
+                    next_dst_sofar = currPos + nums[currPos];
+                }
+            }
 
-            if (next_dst > lng_dst_sofar) {
-                lng_dst_sofar = next_dst;
+            if (next_dst_sofar > lng_dst_sofar) {
+                lng_dst_sofar = next_dst_sofar;
                 min_step++;
-            } else // unable to reach beyond the longest distance
+            } else // unable to reach beyond the longest distance so far
                 return -1;
-
         }
 
         return min_step;
@@ -74,5 +93,38 @@ public class JumpGame2 {
 
         System.out.println(step);
         return step;
+    }
+
+    /**
+     * Cannot pass the last test case in that it is too big a data
+     * @param nums
+     * @return
+     */
+    public int jumpBFS(int[] nums) {
+        // store index of number
+        if (nums.length == 1) {
+            return 0;
+        }
+        Deque<Integer> queue = new ArrayDeque<>();
+        queue.add(0);
+        boolean[] visited = new boolean[nums.length];
+        int cnt = 0;
+        boolean found = false;
+        while (!queue.isEmpty() && !found) {
+            int size = queue.size();
+            while (size-- > 0) {
+                int curr = queue.poll();
+                visited[curr] = true;
+                for (int i = 1; i <= nums[curr] && i + curr < nums.length && !visited[i + curr]; i++) {
+                    queue.add(i + curr);
+                    if (i + curr == nums.length - 1) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            cnt++;
+        }
+        return cnt;
     }
 }

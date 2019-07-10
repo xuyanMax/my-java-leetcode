@@ -20,6 +20,8 @@ import java.util.*;
 public class IntervalPartition {
 
     /**
+     * https://algorithmsandme.com/interval-partitioning-problem/
+     *
      * 1. Sort all lectures based on start time in ascending order.
      * 2. Number of initial classrooms = 0
      * 3. While lecture to be scheduled:
@@ -57,9 +59,8 @@ public class IntervalPartition {
     }
 
 
-    }
-
     class Interval {
+        int id;
         int start;
         int end;
 
@@ -70,8 +71,91 @@ public class IntervalPartition {
         public int getEnd() {
             return end;
         }
+
+        public Interval(int id, int start, int end) {
+            this.id = id;
+            this.start = start;
+            this.end = end;
+        }
     }
 
-    public IntervalPartition() {
+    public int sol2(Interval[] intervals) {
+        // sort intervals by interval start time
+        Arrays.sort(intervals, Comparator.comparingInt(Interval::getStart));
+
+        // sort rooms by earliest finishing time
+        PriorityQueue<Room> pq = new PriorityQueue<>(Comparator.comparingInt(p->p.getRoomLastFinishedTime()));
+
+        List<Room> rooms = new ArrayList<>();
+        Room room = new Room();
+        room.addLecture(intervals[0]);
+        pq.add(room);
+
+        for (int i=0; i<intervals.length; i++) {
+            Interval Ii = intervals[i];
+            Room r = pq.peek();
+            if (r.getRoomLastFinishedTime() > Ii.getStart()) {
+                // create a new room
+                Room anotherRoom = new Room();
+                anotherRoom.addLecture(Ii);
+                pq.add(anotherRoom);
+                rooms.add(anotherRoom);
+            } else {
+                r.addLecture(Ii);
+                // force pq to reorder the Room, necessary step
+                pq.poll();
+                pq.add(r);
+            }
+        }
+        for (Room r : rooms) {
+            System.out.println(r);
+        }
+        return rooms.size();
+    }
+
+
+
+}
+
+class Room {
+    private static int count;
+    List<IntervalPartition.Interval> lectures;
+    private int roomLastFinishedTime;
+    private int roomId;
+
+    public Room() {
+        this.lectures = new ArrayList<>();
+        this.roomId = count++;
+    }
+
+    // the newly added lecture should start later than the latest finished lecture in this Room
+    public void addLecture(IntervalPartition.Interval interval) {
+        lectures.add(interval);
+        roomLastFinishedTime = interval.getEnd();
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public List<IntervalPartition.Interval> getLectures() {
+        return lectures;
+    }
+
+    public int getRoomLastFinishedTime() {
+        return roomLastFinishedTime;
+    }
+
+    public int getRoomId() {
+        return roomId;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "lectures=" + lectures +
+                ", roomLastFinishedTime=" + roomLastFinishedTime +
+                ", roomId=" + roomId +
+                '}';
     }
 }

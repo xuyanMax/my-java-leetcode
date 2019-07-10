@@ -78,4 +78,35 @@ public class LongestPalindromicSubstring {
         R--;
         return R - L + 1;
     }
+
+    // bottom up dp
+    // dp[i][j]: lgst palindromic sub-sequence of string str(i:j)
+    // time complexity: O(n^2)
+    // space complexity: O(n^2)
+    public static int getLPS(String str) {
+        int[][] dp = new int[str.length()][str.length()];
+        char[] chars = str.toCharArray();
+
+        // initialize dp[][] with substr-length 1 as 1
+        // one char is a length 1 palindrome
+
+        for (int i = 0; i < str.length(); i++)
+            dp[i][i] = 1;
+
+        for (int L = 2; L <= str.length(); L++) {
+            for (int i = 0; i < str.length() - L + 1; i++) {
+                int j = i + L - 1;
+                if (L == 2 && chars[i] == chars[j]) {
+                    dp[i][j] = 2;
+                } else if (chars[i] == chars[j]) {
+                    dp[i][j] = 2 + dp[i + 1][j - 1];
+                } else {
+                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[0][str.length() - 1];
+
+    }
+
 }

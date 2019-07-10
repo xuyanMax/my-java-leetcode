@@ -18,8 +18,6 @@ public class LongestCommonSubstring {
         String str2 = "abcdf";
         int result = lcs.lcsDP(str1.toCharArray(), str2.toCharArray());
         System.out.println(result);
-
-
     }
 
     // recursive

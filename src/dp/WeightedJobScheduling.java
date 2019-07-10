@@ -3,7 +3,13 @@ package dp;
 import java.util.Arrays;
 import java.util.Comparator;
 
-
+/**
+ * The Weighted Interval Scheduling problem is strictly more general version,
+ * in which each interval has a certain weight, and we want to accept a set of maximum weight.
+ * The input is a set of time-intervals, where each interval has a weight.
+ * The output is a subset of non-overlapping intervals.
+ * Our objective is to maximize the sum of the weights in the subset.
+ */
 public class WeightedJobScheduling {
 
     public static void main(String[] args) {
@@ -31,20 +37,24 @@ public class WeightedJobScheduling {
             this.end = e;
             this.profit = p;
         }
-    }
 
-    class FinishTimeComparator implements Comparator<Job> {
-        @Override
-        public int compare(Job j1, Job j2) {
-            if (j1.end <= j2.end)
-                return -1;
-            else
-                return 1;
+        public int getStart() {
+            return start;
+        }
 
+        public int getEnd() {
+            return end;
+        }
+
+        public int getProfit() {
+            return profit;
         }
     }
 
     /**
+     *
+     * top-down dp
+     *
      * Time complexity: O(n^2)
      * <p>
      * if (jobs don't overlap)
@@ -63,9 +73,9 @@ public class WeightedJobScheduling {
      * @return
      */
     public int MaxProfit(Job[] jobs) {
-        FinishTimeComparator comparator = new FinishTimeComparator();
+
         int[] dp = new int[jobs.length];
-        Arrays.sort(jobs, comparator);
+        Arrays.sort(jobs, Comparator.comparingInt(Job::getEnd));
 
         dp[0] = jobs[0].profit;
         for (int i = 1; i < dp.length; i++) {

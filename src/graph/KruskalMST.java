@@ -58,15 +58,14 @@ public class KruskalMST {//最小生成树
         List<Edge<Integer>> allEdges = graph.getAllEdges();
 
         // sort all edges in non-descending order
-        Collections.sort(allEdges, new EdgeComparator());
+        Collections.sort(allEdges, Comparator.comparingInt(Edge::getWeight));
         DisjointSet dSet = new DisjointSet();
 
         // create as many sets as the number of vertices
-
         for (Vertex<Integer> vertex : graph.getAllVertex())
             dSet.makeSet(vertex.getID());
 
-        List<Edge<Integer>> mst = new ArrayList<Edge<Integer>>();
+        List<Edge<Integer>> res_mst = new ArrayList<Edge<Integer>>();
 
         for (Edge<Integer> e : allEdges) {
             long root1 = dSet.findSet(e.getVertex1().getID());
@@ -74,12 +73,12 @@ public class KruskalMST {//最小生成树
             if (root1 == root2)
                 continue;
             else {
-                mst.add(e);
+                res_mst.add(e);
                 dSet.union(root1, root2);
             }
 
         }
-        return mst;
+        return res_mst;
 
     }
 

@@ -21,7 +21,7 @@ import java.util.Set;
  * W = W + profit[2] = 4;
  */
 
-public class IPO_TwoPriorityQueues {
+public class IPO {
 
     public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {
         /** Store the projects' Capital and Profit by increasing order w.r.t Capital

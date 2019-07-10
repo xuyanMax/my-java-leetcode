@@ -9,13 +9,12 @@ import java.util.Random;
 
 /**
  * Created by xu on 25/08/2017.
+ * <p>
+ * A linked list is given such that each node contains an additional random pointer
+ * which could point to any node in the list or null.
+ * <p>
+ * Return a deep copy of the list.
  */
-/*
-A linked list is given such that each node contains an additional random pointer
-which could point to any node in the list or null.
-
-Return a deep copy of the list.
-*/
 public class CopyListWithRandomPointer {
 
     public RandomListNode copyRandomList(RandomListNode head) {
@@ -82,6 +81,7 @@ public class CopyListWithRandomPointer {
         return node;
 
     }
+
     //优化的算法，不需要额外的存储空间
     public RandomListNode copyRandomList_opt(RandomListNode head) {
 
@@ -119,7 +119,7 @@ public class CopyListWithRandomPointer {
         // 加入copy_p.next
         // copy_p.next首先触碰到null
         // 最后还有处理pointer.next = null
-        while(copy_pointer.next != null) {
+        while (copy_pointer.next != null) {
             pointer.next = pointer.next.next;
             pointer = pointer.next;// pointer 指针交替重新链接原链表和新建的copy链表
             //第一次迭代 pointer 1--2--2'--3--3'--4--4'
@@ -133,14 +133,15 @@ public class CopyListWithRandomPointer {
             copy_pointer = copy_pointer.next;
         }
         //处理
-        pointer.next = pointer.next.next;
+        pointer.next = pointer.next.next;//null
         return newHead;
     }
 
 
-    class RandomListNode{
+    class RandomListNode {
         int label;
         RandomListNode next, random;
+
         public RandomListNode(int label) {
             this.label = label;
         }

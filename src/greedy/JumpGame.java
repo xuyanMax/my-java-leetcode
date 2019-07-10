@@ -18,7 +18,6 @@ public class JumpGame {
     public static void main(String[] args) {
         System.out.println(jumpGame1(new int[]{2, 5, 0, 0}));
         System.out.println(jumpGame1(new int[]{0, 1}));
-
     }
 
     public static boolean jumpGame1(int[] nums) {
@@ -26,12 +25,11 @@ public class JumpGame {
         int maxReachSoFar = 0;
         int maxReachStartHere = 0;
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length && maxReachSoFar < nums.length-1; i++) {
             if (i <= maxReachSoFar) {
                 maxReachStartHere = i + nums[i];
                 maxReachSoFar = Math.max(maxReachStartHere, maxReachSoFar);
             }
-
         }
         if (maxReachSoFar >= nums.length - 1)
             return true;

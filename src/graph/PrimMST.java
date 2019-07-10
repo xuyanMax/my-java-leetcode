@@ -45,51 +45,47 @@ public class PrimMST {
         List<Edge<Integer>> result = new ArrayList<>();
 
         //	binary heap + map val structure
-        BinaryMinHeap<Vertex<Integer>> minHeap = new BinaryMinHeap<>();
+        BinaryMinHeap<Vertex<Integer>> dists = new BinaryMinHeap<>();
 
-        //	map of vertex to edge which gave minimum weight to this vertex.
+        //	map of vertex to edge which gave min cost to this vertex.
         Map<Vertex<Integer>, Edge<Integer>> vertexToEdge = new HashMap<>();
 
         for (Vertex<Integer> vertex : graph.getAllVertex()) {
-            minHeap.add(Integer.MAX_VALUE, vertex);
+            dists.add(Integer.MAX_VALUE, vertex);
         }
 
         // start mst from any random vertex
         Vertex<Integer> startVertex = graph.getAllVertex().iterator().next();
 
         //for the start vertex decrease the value in heap + map to 0
-        minHeap.decrease(startVertex, 0);
+        dists.decrease(startVertex, 0);
 
-        //
-        while (!minHeap.empty()) {
+        while (!dists.empty()) {
 
-            Vertex<Integer> current = minHeap.extractMin();
+            Vertex<Integer> curr = dists.extractMin();
 
             // get the corresponding edge for this vertex if present and add it to final result.
             // This edge wont be present for first vertex.
-            Edge<Integer> spanningTree = vertexToEdge.get(current);
+            Edge<Integer> spanningTree = vertexToEdge.get(curr);
             if (spanningTree != null)
                 result.add(spanningTree);
 
 
             // iterate through all the adjacent vertices
-            for (Edge<Integer> edge : current.getEdges()) {
-
-                Vertex<Integer> adjacent = getVertexForEdge(current, edge);// Vertex<Integer> adjacent = edge.getVertex2();
+            for (Edge<Integer> edge : curr.getEdges()) {
+                Vertex<Integer> adj = getVertexForEdge(curr, edge);
 
                 //check if adjacent vertex exist in heap + map and weight attached
-                //	with this vertex is greater than this edge weight
+                //with this vertex is greater than this edge weight
 
-                if (minHeap.containsData(adjacent) && minHeap.getWeight(adjacent) > edge.getWeight()) {
+                if (dists.containsData(adj) && dists.getWeight(adj) > edge.getWeight()) {
                     //decrease the value of adjacent vertex to this edge weight.
-                    minHeap.decrease(adjacent, edge.getWeight());
+                    dists.decrease(adj, edge.getWeight());
                     //add vertex->edge mapping in the graph.
-                    vertexToEdge.put(adjacent, edge);
+                    vertexToEdge.put(adj, edge);
                 }
             }
         }
-
-
         return result;
     }
 
