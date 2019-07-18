@@ -1,24 +1,24 @@
 package tree;
 
 /**
- * Date 07/07/2014 
+ * Date 07/07/2014
+ *
  * @author tusroy
- * 
+ * <p>
  * Youtube link - https://youtu.be/bmaeYtlO2OE
  * Youtube link - https://youtu.be/_SiwrPXG9-g
  * Youtube link - https://youtu.be/NA8B84DZYSA
- *
  */
-class NodeRef{
+class NodeRef {
     Node node;
 }
 
-enum Color{
+enum Color {
     RED,
     BLACK
 }
 
-class Node{
+class Node {
     Node left;
     Node right;
     Node parent;
@@ -29,8 +29,8 @@ class Node{
     int height;
     int size;
     Color color;
-    
-    public static Node newNode(int data){
+
+    public static Node newNode(int data) {
         Node n = new Node();
         n.left = null;
         n.right = null;
@@ -43,53 +43,53 @@ class Node{
         n.balance = 0;
         return n;
     }
-  
+
 }
 
 public class BinaryTree {
-	
-    public Node addNode(int data, Node head){
-    	// two pointers technique
-    	// @tempHead: return as head of the Binary Tree
-    	// @prev: 
+
+    public Node addNode(int data, Node head) {
+        // two pointers technique
+        // @tempHead: return as head of the Binary Tree
+        // @prev:
         Node tempHead = head;
         Node nodeToBeInserted = Node.newNode(data);
-        if(head == null){
+        if (head == null) {
             head = nodeToBeInserted;
             return head;
         }
         Node prev = null;
-        while(head != null){
+        while (head != null) {
             prev = head;
-            if(head.data < data){
+            if (head.data < data) {
                 head = head.right;
-            }else{
+            } else {
                 head = head.left;
             }
         }
-        if(prev.data < data){
+        if (prev.data < data) {
             prev.right = nodeToBeInserted;
-        }else{
+        } else {
             prev.left = nodeToBeInserted;
         }
         return tempHead;
     }
-    
-    class IntegerRef{
+
+    class IntegerRef {
         int height;
     }
-    
-    public int height(Node root){
-        if(root == null){
+
+    public int height(Node root) {
+        if (root == null) {
             return -1;//-1
         }
-        int leftHeight  = height(root.left);
+        int leftHeight = height(root.left);
         int rightHeight = height(root.right);
 
         return Math.max(leftHeight, rightHeight) + 1;
     }
-    
-    public static void main(String args[]){
+
+    public static void main(String args[]) {
         BinaryTree bt = new BinaryTree();
         Node head = null;
         head = bt.addNode(10, head);
@@ -101,7 +101,7 @@ public class BinaryTree {
         head = bt.addNode(-1, head);
         head = bt.addNode(21, head);
         System.out.println(bt.height(head));
-        
+
     }
 }
 

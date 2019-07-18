@@ -18,10 +18,10 @@ public class OptimalDivision {
         if (nums.length == 1)
             return String.valueOf(nums[0]);
         if (nums.length == 2)
-            return String.valueOf(nums[0]+"/"+nums[1]);
+            return String.valueOf(nums[0] + "/" + nums[1]);
         String ret = nums[0] + "/(" + nums[1];
 
-        for (int i=2;i<nums.length; i++)
+        for (int i = 2; i < nums.length; i++)
             ret = ret + "/" + nums[i];
         ret = ret + ")";
         return ret;

@@ -4,23 +4,22 @@ import java.util.LinkedList;
 
 /**
  * Created by xu on 05/09/2017.
+ * <p>
+ * Implement a basic calculator to evaluate a simple expression string.
+ * <p>
+ * The expression string may contain open ( and closing parentheses ), the plus + or minus sign -,
+ * non-negative integers and empty spaces .
+ * <p>
+ * You may assume that the given expression is always valid.
+ * <p>
+ * Some examples:
+ * "1 + 1" = 2
+ * " 2-1 + 2 " = 3
+ * "(1+(4+5+2)-3)+(6+8)" = 23
+ * Note: Do not use the eval built-in library function.
  */
-/*
-Implement a basic calculator to evaluate a simple expression string.
 
-The expression string may contain open ( and closing parentheses ), the plus + or minus sign -,
-non-negative integers and empty spaces .
-
-You may assume that the given expression is always valid.
-
-Some examples:
-"1 + 1" = 2
-" 2-1 + 2 " = 3
-"(1+(4+5+2)-3)+(6+8)" = 23
-Note: Do not use the eval built-in library function.
-*/
-
-/*
+/**
 可能遇到的情况如下
 1、digit '123'
     继续累加
@@ -59,15 +58,11 @@ public class Calculator1 {
                 result += sign * num;
                 num = 0;
                 sign = 1;
-            }
-
-            else if (c == '-') {
+            } else if (c == '-') {
                 result += sign * num;
                 num = 0;
                 sign = -1;
-            }
-
-            else if (c == '(') {
+            } else if (c == '(') {
                 // we push the result first and then sign
                 stack.push(result);
                 stack.push(sign);
@@ -75,14 +70,11 @@ public class Calculator1 {
                 result = 0;
                 num = 0;
                 sign = 1;
-            }
-            else if (c == ')') {
+            } else if (c == ')') {
                 result += sign * num;
                 num = 0;
-
                 result *= stack.pop(); //和sign相乘
                 result += stack.pop(); //和()前的result相运算
-
             }
 
         }

@@ -8,14 +8,14 @@ package string;
 // or more than two CONTINUOUS 'L' (late).
 
 
-
 public class StudentAttendanceRecord_1 {
 
     public boolean checkRecord(String s) {
         return !s.matches(".*LLL.*|.*A.*A.*");
     }
+
     public boolean checkRecord_2(String s) {
-        if(s.contains("LLL") || s.indexOf("A") != s.lastIndexOf("A"))
+        if (s.contains("LLL") || s.indexOf("A") != s.lastIndexOf("A"))
             return false;
         return true;
     }

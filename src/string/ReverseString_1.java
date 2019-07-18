@@ -8,7 +8,7 @@ public class ReverseString_1 {
 
     public String reverseWords(String s) {
         char[] chars = s.toCharArray();
-        for (int i=0; i<s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             if (chars[i] != ' ') {
                 int j = i + 1;
                 while (j < s.length() && chars[j] != ' ')
@@ -23,7 +23,8 @@ public class ReverseString_1 {
         return String.valueOf(chars);
 //        return new String(chars);
     }
-    public void reverse(char[]chars, int left, int right) {
+
+    public void reverse(char[] chars, int left, int right) {
         while (left < right) {
             char tmp = chars[left];
             chars[left] = chars[right];
@@ -43,7 +44,7 @@ public class ReverseString_1 {
         String[] strs = s.split(" ");
         StringBuilder sb = new StringBuilder();
         String space = "";
-        for(String str: strs){
+        for (String str : strs) {
             sb.append(space);
             sb.append(reverse(str));
             space = " ";
@@ -51,10 +52,10 @@ public class ReverseString_1 {
         return sb.toString();
     }
 
-    String reverse(String str){
+    String reverse(String str) {
         char[] sc = str.toCharArray();
         int s = 0, e = sc.length - 1;
-        while(s < e){
+        while (s < e) {
             char t = sc[s];
             sc[s] = sc[e];
             sc[e] = t;

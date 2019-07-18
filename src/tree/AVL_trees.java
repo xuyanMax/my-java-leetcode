@@ -10,7 +10,6 @@ public class AVL_trees {
     protected AvlNode root; // the root node
 
 /***************************** Core Functions ************************************/
-
     /**
      * Add a new element with key "k" into the tree.
      *

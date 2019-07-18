@@ -17,5 +17,6 @@ public class test {
         System.out.println(brackets.indexOf("(") + "， " + brackets.indexOf("（"));
         System.out.println(brackets2.indexOf("(") + "， " + brackets2.indexOf("（"));
 
+        
     }
 }

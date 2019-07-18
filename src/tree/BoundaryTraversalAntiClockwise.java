@@ -53,13 +53,11 @@ public class BoundaryTraversalAntiClockwise {
                 printBoundaryLeft(root.right);
             }
             // root.left == null && root.right == null
-//			if (root.left == null && root.right == null) // do nothing to leaves			                             
-
-
+//			if (root.left == null && root.right == null) // do nothing to leaves
         }
     }
 
-    // A function to print all left boundary nodes, except a leaf node.
+    // A function to print all right boundary nodes, except a leaf node.
     // Print the nodes in TOP DOWN manner
     static void printBoundaryRight(AvlNode root) {
         if (root == null)

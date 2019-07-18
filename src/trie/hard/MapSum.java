@@ -63,9 +63,9 @@ public class MapSum {
     TrieNode root;
 
     /**
-     * @map: 记录之前key对应的value值，用于更新key对应的新value
      * @param key
      * @param val
+     * @map: 记录之前key对应的value值，用于更新key对应的新value
      */
     public void insert(String key, int val) {
         //update each nodes
@@ -96,7 +96,7 @@ public class MapSum {
 
     class TrieNode {
         Map<Character, TrieNode> children = new HashMap();
-//        TrieNode[] child = new TrieNode[26];
+        //        TrieNode[] child = new TrieNode[26];
         int score;
     }
 }
