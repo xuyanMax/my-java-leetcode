@@ -20,17 +20,13 @@ public class LinkedListCycle {
 			next = null;
 		}
 	}
-	public static void main(String[] args) {
-		
 
-	}
-	
-    // two pointers 
-    // fast pointer increases by 2 and slow increases by 1.
-    // when fast catches slow, it runs two times of distance than that of slow.
-    // a+b+c+b = 2(a+b) => a = c
-    // thus, head pointer moves when it meets with slow pointer in the node where the cycle begins
-	public static ListNode solution (ListNode head) {
+	// two pointers
+	// fast pointer increases by 2 and slow increases by 1.
+	// when fast catches slow, it runs two times of distance than that of slow.
+	// a+b+c+b = 2(a+b) => a = c
+	// thus, head pointer moves when it meets with slow pointer in the node where the cycle begins
+	public static ListNode solution(ListNode head) {
 		ListNode slow = head, fast = head;
 		while (fast.next != null && fast.next.next != null) {
 			fast = fast.next.next;
@@ -42,11 +38,11 @@ public class LinkedListCycle {
 					newHead = newHead.next;
 				}
 				return slow;
-			}	
+			}
 		}
 		return null;
-				
-				
+
+
 	}
 
 }

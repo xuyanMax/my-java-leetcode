@@ -30,34 +30,37 @@ public class ReplaceWord {
         TrieNode root = buildTrie(dict);
         return replace(sentence.split(" "), root);
     }
-    public String replace(String[] tokens, final TrieNode root){
+
+    public String replace(String[] tokens, final TrieNode root) {
         StringBuilder builder = new StringBuilder();
-        for (String str:tokens)
+        for (String str : tokens)
             builder.append(compareAndGet(str, root)).append(" ");
         //移除" "
-        builder.deleteCharAt(builder.length()-1);
+        builder.deleteCharAt(builder.length() - 1);
         return builder.toString();
     }
-    public String compareAndGet(String str, TrieNode root){
+
+    public String compareAndGet(String str, TrieNode root) {
         StringBuilder builder = new StringBuilder();
         TrieNode curr = root;
-        for (char c:str.toCharArray()){
+        for (char c : str.toCharArray()) {
             builder.append(c);
             if (curr.children[c - 'a'] != null) {
                 if (curr.children[c - 'a'].isWord)
                     return builder.toString();
                 curr = curr.children[c - 'a'];
-            }else
+            } else
                 return str; //返回原来的str
 
         }
         return str;//Trie: str是root中某词的前缀，因此返回str
     }
-    public TrieNode buildTrie(List<String> dict){
+
+    public TrieNode buildTrie(List<String> dict) {
         TrieNode root = new TrieNode(' ');
-        for (String str:dict){
+        for (String str : dict) {
             TrieNode curr = root;
-            for (char c: str.toCharArray()){
+            for (char c : str.toCharArray()) {
                 if (curr.children[c - 'a'] == null)
                     curr.children[c - 'a'] = new TrieNode(c);
                 curr = curr.children[c - 'a'];
@@ -68,7 +71,8 @@ public class ReplaceWord {
     }
 
 }
-class TrieNode{
+
+class TrieNode {
     char val;
     TrieNode[] children;
     boolean isWord;
@@ -76,6 +80,6 @@ class TrieNode{
     public TrieNode(char val) {
         this.val = val;
         this.children = new TrieNode[26];
-        this.isWord =false;
+        this.isWord = false;
     }
 }

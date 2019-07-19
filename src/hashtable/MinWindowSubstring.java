@@ -6,7 +6,8 @@ import java.util.LinkedList;
  * 
  * @author xu
  * 
- * Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+ * Given a string S and a string T, find the minimum window in S
+ * which will contain all the characters in T in complexity O(n).
 
 	For example,
 	S = "ADOBECODEBANC"
@@ -27,9 +28,6 @@ public class MinWindowSubstring {
 		int[] nums = new int[]{2,3,1,2,4,3};
 		System.out.println(minWindow("ADOBECODEBANC", "ABC"));
         LinkedList<String> list = new LinkedList<>();
-
-
-
     }
 	
 	/*

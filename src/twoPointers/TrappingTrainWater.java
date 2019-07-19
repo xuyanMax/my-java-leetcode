@@ -14,10 +14,6 @@ package twoPointers;
  */
 public class TrappingTrainWater {
 
-    public static void main(String[] args) {
-
-
-    }
     // two pointers left, right
     // keep track of maximum height from both forward direction and backward direction,
     // call them leftMax and rightMax.

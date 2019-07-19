@@ -20,7 +20,6 @@ public class MinimumAbsoluteDifference {
             this.val = value;
             left = null;
             right = null;
-
         }
     }
 
@@ -32,7 +31,6 @@ public class MinimumAbsoluteDifference {
     public int getMinimumDifferenceBTW_Two_adjacent_nods(TreeNode root) {
         TreeNode pre = null;
         return helper(root, pre);
-
     }
 
     public int helper(TreeNode root, TreeNode pre) {
@@ -138,8 +136,5 @@ public class MinimumAbsoluteDifference {
         AnyOrder_TreeSet(root.left);
         AnyOrder_TreeSet(root.right);
         return Wrap.diff;
-
     }
-
-
 }

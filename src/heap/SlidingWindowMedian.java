@@ -10,7 +10,11 @@ import java.util.Queue;
  */
 
 /**
- * Given an arr nums, there is a sliding window of size k which is moving from the very left of the arr to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Your job is to output the median arr for each window in the original arr.
+ * Given an arr nums, there is a sliding window of size k which is moving
+ * from the very left of the arr to the very right.
+ * <p>
+ * You can only see the k numbers in the window. Each time the sliding window moves right by one position.
+ * Your job is to output the median arr for each window in the original arr.
  * <p>
  * For example,
  * Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.
@@ -61,9 +65,7 @@ public class SlidingWindowMedian {
             small.add(toAdded);
         else
             large.add(toAdded);
-
         reBalance();
-
     }
 
     public void remove(int toRemove) {

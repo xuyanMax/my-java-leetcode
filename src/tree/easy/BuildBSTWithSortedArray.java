@@ -30,7 +30,6 @@ public class BuildBSTWithSortedArray {//build min depth binarysearchtree
         int val;
         TreeNode left;
         TreeNode right;
-
         TreeNode(int x) {
             val = x;
         }

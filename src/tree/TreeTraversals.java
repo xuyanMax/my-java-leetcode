@@ -30,12 +30,11 @@ public class TreeTraversals {
     /**
      * Iterative method
      */
-    public void inorderItr(Node root) {
+    public void inOrderItr(Node root) {
         Deque<Node> stack = new LinkedList<Node>();
         Node node = root;
         while (true) {
             if (node != null) {
-
                 stack.addFirst(node);
                 node = node.left;
             } else {

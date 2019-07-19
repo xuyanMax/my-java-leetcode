@@ -76,24 +76,20 @@ public class TreeTraversalLevelByLevel {
         int levelCount = 1;
         int CurrentCount = 0;
         while (!queue.isEmpty()) {
-
+            levelCount = queue.size();
             while (levelCount > 0) {
                 root = queue.poll();
                 System.out.print(root.data + " ");
                 if (root.left != null) {
                     queue.add(root.left);
-
-                    CurrentCount++;
                 }
                 if (root.right != null) {
                     queue.add(root.right);
-                    CurrentCount++;
                 }
                 levelCount--;
             }
             System.out.println("");
-            levelCount = CurrentCount;
-            CurrentCount = 0;
+
         }
 
     }

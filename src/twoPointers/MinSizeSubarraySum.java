@@ -2,18 +2,17 @@ package twoPointers;
 
 /**
  * Created by xu on 18/08/2017.
+ * <p>
+ * Given an arr of n positive integers and a positive integer s,
+ * find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
+ * <p>
+ * For example, given the arr [2,3,1,2,4,3] and s = 7,
+ * the subarray [4,3] has the minimal length under the problem constraint.
+ * <p>
+ * More practice:
+ * If you have figured out the O(n) solution,
+ * try coding another solution of which the time complexity is O(n log n).
  */
-/*
-Given an arr of n positive integers and a positive integer s,
-find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
-
-For example, given the arr [2,3,1,2,4,3] and s = 7,
-the subarray [4,3] has the minimal length under the problem constraint.
-
-More practice:
-If you have figured out the O(n) solution,
-try coding another solution of which the time complexity is O(n log n).
-*/
 public class MinSizeSubarraySum {
     //新建一个sums[]数组，存储前i项和，数组呈现递增趋势
     // 双指针，第一个指针start_ind从索引 0 开始 扫面直到sums.length-1,第二个指针始终指向sums.length-1
@@ -25,10 +24,10 @@ public class MinSizeSubarraySum {
         int[] sums = new int[nums.length + 1];
         int max_len = Integer.MAX_VALUE;
 
-        for (int i=1; i<sums.length; i++)
-            sums[i] = sums[i-1] + nums[i-1];
+        for (int i = 1; i < sums.length; i++)
+            sums[i] = sums[i - 1] + nums[i - 1];
 
-        for (int start_ind=0; start_ind<nums.length; start_ind++){
+        for (int start_ind = 0; start_ind < nums.length; start_ind++) {
 
             int end_ind = bs_larger(nums, sums[start_ind] + target, start_ind + 1, nums.length);
 
@@ -41,12 +40,13 @@ public class MinSizeSubarraySum {
         return max_len == Integer.MAX_VALUE ? 0 : max_len;
 
     }
-    public int bs_larger(int[]nums, int target, int left, int right) {
+
+    public int bs_larger(int[] nums, int target, int left, int right) {
         // target 大于nums所在范围最大值
         if (nums[right] < target)
             return -1;
         while (left < right) {
-            int mid = left + (right - left)/2;
+            int mid = left + (right - left) / 2;
             if (nums[mid] < target)
                 left = mid + 1;
             else

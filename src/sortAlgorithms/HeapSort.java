@@ -53,28 +53,22 @@ public class HeapSort {
     public void heapify(int[] nums, int s, int n) {
 
         int tmp, j;
-
         tmp = nums[s];
-
         for (j = 2 * s + 1; j <= n; ) {
 
             //j<m 说明j 不是最后一个结点
             if (j < n && nums[j] < nums[j + 1])
                 j++;
-
             if (tmp >= nums[j])
                 break;
 //			swap(arr, s, j	);
             //始终用tmp 做比较，如果大于branch 则break 否则被branch最大值替换。继续下一层分支比较，tmp值为初始值
             nums[s] = nums[j];
-
             s = j;
             j = j * 2 + 1;
         }
         //不用swap，则需要下面一行
         nums[s] = tmp;
-
-
     }
 
     public void heapifyRecur(int[] nums, int i, int n) {
@@ -87,7 +81,6 @@ public class HeapSort {
             max = r;
         if (max != i) {// if max is not root any longer
             swap(nums, max, i);
-
             // recursively heapify
             heapifyRecur(nums, max, n);
         }
