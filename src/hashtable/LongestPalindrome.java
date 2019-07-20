@@ -27,11 +27,6 @@ import java.util.Set;
  */
 public class LongestPalindrome {
 
-    public static void main(String[] args) {
-
-
-    }
-
     static int solution(String s) {
         Set<Character> set = new HashSet<>();
         int count = 0;
@@ -43,15 +38,12 @@ public class LongestPalindrome {
                 set.remove(c);
             } else
                 set.add(c);
-
         }
         //如果最终所有字符没有全部成对，那么存在一个或多个单独出现的字符，随便加一个字符在中间即可
         // ab**X**ba
         if (!set.isEmpty()) return count * 2 + 1;
         else
             return count * 2;
-
-
     }
 
 }
