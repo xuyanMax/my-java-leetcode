@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.Arrays;
+
 /**
  * Created by xu on 11/08/2017.
  * <p>
@@ -41,10 +43,8 @@ public class PartitionEqualSubsetsSum {
         if (nums == null || nums.length == 0) {
             return false;
         }
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
+        Arrays.sort(nums);
+        int sum = Arrays.stream(nums).reduce(Integer::sum).getAsInt();
         if (sum % 2 != 0) {
             return false;
         }
@@ -54,7 +54,6 @@ public class PartitionEqualSubsetsSum {
 
         //初始化两个边界部分
         dp[0][0] = true;
-
         //从 0 个数中选择组合为i（1:n），false
         for (int i = 1; i <= target; i++) {
             dp[0][i] = false;
@@ -68,7 +67,6 @@ public class PartitionEqualSubsetsSum {
         //填写dp 表格
         for (int i = 1; i < nums.length; i++) {
             for (int j = nums[i - 1]; j < target; j++) {
-
                 if (j >= nums[i - 1]) {//注意；[i-1]为对应的元素索引
                     dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
                 } else {
@@ -77,7 +75,25 @@ public class PartitionEqualSubsetsSum {
             }
         }
         return dp[nums.length][target];
+    }
 
+    public boolean solution1d(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+        int sum = Arrays.stream(nums).sum();
+        if (sum % 2 != 0) {
+            return false;
+        }
+        boolean dp[] = new boolean[sum / 2 + 1];
+        dp[0] = true;
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = dp.length; j >= nums[i]; j--) {
+                dp[j] = dp[j - nums[i]] || dp[j];
+            }
+        }
+        return dp[sum / 2];
     }
 
     // （cache） + visit

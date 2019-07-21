@@ -26,16 +26,13 @@ public class EditDistance {
         EditDistance ed = new EditDistance();
         int resultNum = ed.bottomUpDP(str1.toCharArray(), str2.toCharArray());
         System.out.print(resultNum);
-
     }
 
     public int bottomUpDP(char[] str1, char[] str2) {
         int dp[][] = new int[str1.length + 1][str2.length + 1];
 
-        //initialize border
         for (int i = 0; i < dp.length; i++)
             dp[i][0] = i;
-
         for (int j = 0; j < dp[0].length; j++)
             dp[0][j] = j;
 
@@ -49,29 +46,17 @@ public class EditDistance {
                     dp[i][j] = 1 + minOfTree(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
 
             }
-
-        displayDPTable(dp);
         printActualEdits(str1, str2, dp);
         return dp[str1.length][str2.length];
     }
 
     public int minOfTree(int a, int b, int c) {
-        int aLargerOne = Math.min(a, b);
-        return Math.min(aLargerOne, c);
-    }
-
-    public void displayDPTable(int[][] dp) {
-        for (int i = 1; i < dp.length; i++) {
-            for (int j = 1; j < dp[0].length; j++)
-                System.out.print(String.format("%4d", dp[i][j]));
-            System.out.println("");
-        }
+        return Math.min(Math.min(a, b), c);
     }
 
     /**
      * Prints the actual edits which needs to be done.
      */
-
     public void printActualEdits(char[] str1, char[] str2, int[][] dp) {
         int i = str1.length;
         int j = str2.length;

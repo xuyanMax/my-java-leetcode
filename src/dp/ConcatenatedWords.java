@@ -40,16 +40,15 @@ public class ConcatenatedWords {
         List<String> result = new ArrayList<>();
         Set<String> dic = new HashSet<>(); //used as a dictionary
 
-        Arrays.sort(words, (a, b) -> (a.length() - b.length()));
+        Arrays.sort(words, Comparator.comparingInt(String::length));
 
         for (String str : words) {
             if (wordBreak(dic, str)) {//能分解，则不作为segment，添加到result list中
                 result.add(str);
             }
-            // 不能分解，则添加到preDict中，作为一个segment
+            // 能或者不能分解，都添加到preDict中，作为一个segment
             dic.add(str);
         }
-
         return result;
     }
 
@@ -58,7 +57,7 @@ public class ConcatenatedWords {
             return false;
 
         boolean[] dp = new boolean[word.length() + 1];
-        dp[0] = true;
+        dp[0] = true; // empty string
         for (int i = 1; i <= word.length(); i++) {
             for (int j = 0; j < i; j++) {
                 if (dp[j] && pre.contains(word.substring(j, i))) {

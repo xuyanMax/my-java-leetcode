@@ -46,12 +46,7 @@ public class LongestCommonSubstring {
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
             }
-
-        for (int[] row : dp) {
-            for (int num : row)
-                System.out.print(num + " ");
-            System.out.println("");
-        }
+        
         printActualLCS(dp, str1, str2);
 
         /* L[m][n] contains length of LCS for X[0..n-1] and Y[0..m-1] */

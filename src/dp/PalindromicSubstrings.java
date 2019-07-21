@@ -4,7 +4,7 @@ package dp;
  * Created by xu on 06/09/2017.
  * <p>
  * 647. Palindromic Substrings
- * Given a string, your task is to count how many palindromic substrings in this string.
+ * Given a string, your task is to COUNT how many palindromic substrings in this string.
  * <p>
  * The substrings with different start indexes or end indexes are counted as different substrings
  * even they consist of same characters.
@@ -28,7 +28,7 @@ public class PalindromicSubstrings {
 ///https://leetcode.com/problems/longest-palindromic-substring/solution/#approach-3-dynamic-programming-accepted
 
 
-    private int count = 0;
+    private int COUNT = 0;
 
     public int countSubstrings(String s) {
         if (s == null || s.length() == 0) return 0;
@@ -38,12 +38,12 @@ public class PalindromicSubstrings {
             extendPalindrome(s, i, i + 1); // even length
         }
 
-        return count;
+        return COUNT;
     }
 
     private void extendPalindrome(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            count++;
+            COUNT++;
             left--;
             right++;
         }
