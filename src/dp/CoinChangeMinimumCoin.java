@@ -15,12 +15,10 @@ public class CoinChangeMinimumCoin {
         Arrays.fill(dp, amount + 1);
 
         dp[0] = 0;
-
+        Arrays.sort(coins);
         for (int i = 0; i < coins.length; i++) {
-            for (int j = 1; j <= amount; j++) {
-                if (j >= coins[i]) {
-                    dp[j] = Math.min(dp[j - coins[i]] + 1, dp[j]);
-                }
+            for (int j = coins[i]; j <= amount; j++) {
+                dp[j] = Math.min(dp[j - coins[i]] + 1, dp[j]);
             }
         }
         return dp[amount] > amount ? -1 : dp[amount];
@@ -37,12 +35,13 @@ public class CoinChangeMinimumCoin {
             dp[0][i] = amount + 1;
         //归零很重要
         dp[0][0] = 0;
-        for (int i = 0; i < coins.length; i++) {
+        Arrays.sort(coins);
+        for (int i = 1; i <= coins.length; i++) {
             for (int j = 1; j <= amount; j++) {
-                if (j >= coins[i]) {// i+1包含很重要
-                    dp[i + 1][j] = Math.min(dp[i + 1][j - coins[i]] + 1, dp[i][j]);
+                if (j >= coins[i - 1]) {//
+                    dp[i][j] = Math.min(dp[i][j - coins[i - 1]] + 1, dp[i - 1][j]);
                 } else {
-                    dp[i + 1][j] = dp[i][j];//很重要
+                    dp[i][j] = dp[i - 1][j];//很重要
                 }
             }
         }

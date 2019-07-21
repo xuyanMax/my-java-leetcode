@@ -60,10 +60,8 @@ public class CoinChangeNumOfWays {
 
         Arrays.sort(coins);
         for (int i = 0; i < coins.length; i++) {
-            for (int j = 1; j <= N; j++) {
-                if (j >= coins[i]) {
-                    dp[j] += dp[j - coins[i]];
-                }
+            for (int j = coins[i]; j <= N; j++) {
+                dp[j] += dp[j - coins[i]];
             }
         }
         return dp[N];

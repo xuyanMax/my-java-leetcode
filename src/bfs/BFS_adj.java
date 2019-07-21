@@ -14,7 +14,6 @@ public class BFS_adj {
         int m = in.nextInt();// edges
         int[][] adj = new int[n][n];
 //             Arrays.fill(adj, Integer.MAX_VALUE);
-
         int src = in.nextInt();
         int dest = in.nextInt();
         // m 是往返的联通的路线
