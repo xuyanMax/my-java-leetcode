@@ -67,12 +67,10 @@ public class BoundaryTraversalAntiClockwise {
             if (root.right != null) {
                 System.out.println(root.key);
                 printBoundaryRight(root.right);
-
             } else if (root.left != null) { // (root.left==null && root.right != null)
                 System.out.println(root.key);
                 printBoundaryRight(root.right);
             }
-
         }
     }
 

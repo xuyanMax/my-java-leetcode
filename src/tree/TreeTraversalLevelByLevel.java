@@ -55,16 +55,13 @@ public class TreeTraversalLevelByLevel {
                     queue.add(root.left);
                 if (root.right != null)
                     queue.add(root.right);
-
             } else {
                 if (!queue.isEmpty()) {
                     queue.add(null);
                     System.out.println("");
                 }
             }
-
         }
-
     }
 
     /**
@@ -89,9 +86,7 @@ public class TreeTraversalLevelByLevel {
                 levelCount--;
             }
             System.out.println("");
-
         }
-
     }
 
     public void levelByLevelOneQueueUsingCountImproved(Node root) {

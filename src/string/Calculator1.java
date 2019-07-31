@@ -20,28 +20,25 @@ import java.util.LinkedList;
  */
 
 /**
-可能遇到的情况如下
-1、digit '123'
-    继续累加
-2、'+'
-    加号前的num结束，加号前的result += sign * num (sign 是+号前的符号未知)
-    归零num
-3、'-'
-   同上
-4、'('
-    将(前的result加入栈中，再将(前的sign值加入栈中，并重置result = 0, num = 0, sign = 1;
-5、')'
-    首先计算()内的result值 result += sign * num;
-    再从栈中依次取出sign 和 previous result
-    最后更新result = result * sign
-           result += previous result + result;
-最后一个元素需要单独处理
-1、')'不需要处理，num归零
-2、数字：需要单独处理，result += sign * num;
-
-
-
-*/
+ * 可能遇到的情况如下
+ * 1、digit '123'
+ * 继续累加
+ * 2、'+'
+ * 加号前的num结束，加号前的result += sign * num (sign 是+号前的符号未知)
+ * 归零num
+ * 3、'-'
+ * 同上
+ * 4、'('
+ * 将(前的result加入栈中，再将(前的sign值加入栈中，并重置result = 0, num = 0, sign = 1;
+ * 5、')'
+ * 首先计算()内的result值 result += sign * num;
+ * 再从栈中依次取出sign 和 previous result
+ * 最后更新result = result * sign
+ * result += previous result + result;
+ * 最后一个元素需要单独处理
+ * 1、')'不需要处理，num归零
+ * 2、数字：需要单独处理，result += sign * num;
+ */
 public class Calculator1 {
     public int calculate(String s) {
         if (s == null || s.length() == 0)

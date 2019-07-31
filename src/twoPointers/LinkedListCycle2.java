@@ -10,7 +10,7 @@ package twoPointers;
 
  * https://leetcode.com/problems/linked-list-cycle-ii/#/description
  */
-public class LinkedListCycle {
+public class LinkedListCycle2 {
 	
 	class ListNode {
 		int val;
