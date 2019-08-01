@@ -38,13 +38,50 @@ package linkedList;
  * 1-2-3-7-8-11-12-9-10-4-5-6-NULL
  */
 public class FlattenAMultilevelDoublyLinkedList {
-    class ListNode {
-        int val;
-        ListNode next;
+    class Node {
+        public int val;
+        public Node prev;
+        public Node next;
+        public Node child;
 
-        public ListNode(int key) {
-            val = key;
-            next = null;
+        public Node() {
         }
+
+        public Node(int _val, Node _prev, Node _next, Node _child) {
+            val = _val;
+            prev = _prev;
+            next = _next;
+            child = _child;
+        }
+    }
+
+    public Node flatten(Node head) {
+        if(head == null) return null;
+        Node p = head;
+
+        while (p != null) {
+            if (p.child == null) {
+//                p.next = head;
+//                p.next.prev = p;
+//                p = p.next;
+//                head = head.next;
+                p = p.next;
+            } else {
+                Node tmp = p.child;
+                // find tail of child chain
+                while (tmp.next != null)
+                    tmp = tmp.next;
+                // connect tail with p.next
+                tmp.next = p.next;
+                if (p.next != null)
+                    p.next.prev = p;
+                // connect p with child and reset child
+                p.next = p.child;
+                p.child = null;
+                p.next.prev = p;
+                p = p.next;
+            }
+        }
+        return head;
     }
 }
