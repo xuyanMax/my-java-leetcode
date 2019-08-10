@@ -1,4 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class test {
     public static void main(String[] args) {
@@ -18,5 +22,54 @@ public class test {
         System.out.println(brackets2.indexOf("(") + "， " + brackets2.indexOf("（"));
 
         
+    }
+
+    class thd extends Thread{
+        public ThreadLocal<String> threadLocal;
+
+        public thd(ThreadLocal<String> threadLocal) {
+            this.threadLocal = threadLocal;
+        }
+        public String get(){
+            return threadLocal.get();
+        }
+        public void set(String str) {
+            threadLocal.set(str);
+        }
+    }
+    class aqs extends AbstractQueuedSynchronizer{
+        protected aqs() {
+            super();
+        }
+
+        @Override
+        protected boolean tryAcquire(int arg) {
+            return super.tryAcquire(arg);
+        }
+
+        @Override
+        protected boolean tryRelease(int arg) {
+            return super.tryRelease(arg);
+        }
+
+        @Override
+        protected int tryAcquireShared(int arg) {
+            return super.tryAcquireShared(arg);
+        }
+
+        @Override
+        protected boolean tryReleaseShared(int arg) {
+            return super.tryReleaseShared(arg);
+        }
+
+        @Override
+        protected boolean isHeldExclusively() {
+            return super.isHeldExclusively();
+        }
+
+        @Override
+        public String toString() {
+            return super.toString();
+        }
     }
 }

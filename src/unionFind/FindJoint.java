@@ -70,7 +70,6 @@ public class FindJoint {
             System.out.println(ans - 1);
         }
     }
-
     public static int find(int x) {
         int r = x;
         while (r != pre[r]) {

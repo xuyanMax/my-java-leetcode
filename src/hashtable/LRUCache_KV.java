@@ -26,6 +26,7 @@ public class LRUCache_KV<K, V> {
     public LRUCache_KV(int cacheSize) {
         this.cacheSize = cacheSize;
         int capacity = (int) Math.ceil(cacheSize / hashLoadFactory) + 1;
+
         map = new LinkedHashMap<K, V>(capacity, hashLoadFactory, true) {
             private static final long serialVersionUID = 1;
 

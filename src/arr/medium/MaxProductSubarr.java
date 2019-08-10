@@ -15,7 +15,6 @@ public class MaxProductSubarr {
     public static void main(String[] args) {
         int[] arr = new int[]{2, 3, -2, 4, -3,};
         System.out.println(solution(arr));
-
     }
 
     /**

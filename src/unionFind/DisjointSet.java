@@ -57,6 +57,7 @@ public class DisjointSet { //并查集
 
     // combine two sets to 1 by rank
     // return true if data1 and data2 are in different set before union else false
+    //路径压缩的加权
     public boolean union(long data1, long data2) {
         Node nodeA = maps.get(data1);
         Node nodeB = maps.get(data2);
@@ -74,7 +75,7 @@ public class DisjointSet { //并查集
             parentA.rank = (parentA.rank == parentB.rank) ? parentA.rank + 1 : parentA.rank;
 
         } else
-            parentB.parent = parentA;
+            parentA.parent = parentB;
 
         return true;
 
