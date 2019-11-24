@@ -1,6 +1,7 @@
 package hashtable;
 //205. Isomorphic Strings
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,10 +26,9 @@ public class IsomorphicStrings {
 
         int[] ss = new int[256];
         int[] tt = new int[256];
-        for (int i = 0; i < s.length(); i++) {
-            ss[i] = -1;
-            tt[i] = -1;
-        }
+        Arrays.fill(ss, -1);
+        Arrays.fill(tt, -1);
+
         for (int i = 0; i < s.length(); i++) {
             if (ss[s.charAt(i)] != tt[t.charAt(i)])
                 return false;

@@ -25,7 +25,7 @@ import java.util.Set;
  * Explanation:
  * One longest palindrome that can be built is "dccaccd", whose length is 7.
  */
-public class LongestPalindrome {
+public class BuildLongestPalindrome {
 
     static int solution(String s) {
         Set<Character> set = new HashSet<>();
@@ -33,17 +33,15 @@ public class LongestPalindrome {
         // count the number of char pairs
         // ab****ba
         for (char c : s.toCharArray()) {
-            if (set.contains(c)) {
+            if (!set.add(c)) {
                 count++;
                 set.remove(c);
-            } else
-                set.add(c);
+            }
         }
         //如果最终所有字符没有全部成对，那么存在一个或多个单独出现的字符，随便加一个字符在中间即可
         // ab**X**ba
         if (!set.isEmpty()) return count * 2 + 1;
-        else
-            return count * 2;
+        else return count * 2;
     }
 
 }

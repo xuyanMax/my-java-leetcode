@@ -52,9 +52,7 @@ public class KillProcesses {
         ppid.add(8);
         ppid.add(0);
         List<Integer> result = kp.killProcess(pid, ppid, 10);
-        for (Integer n : result)
-            System.out.println(n);
-
+        result.stream().forEach(System.out::println);
     }
 
     /* Use hash map to iteratively complete the mapping verification
@@ -73,10 +71,9 @@ public class KillProcesses {
             int val = pid.get(index);
             while (maps.get(val) != 0) {
                 if (maps.get(val) == kill) { // 找到，不论映射几次，只添加第一次映射的pid
-                    ret.add(pid.get(index));
+                    ret.add(val);
                     break; // 跳到下一个pid
                 }
-
                 val = maps.get(val);
             }
         }
@@ -84,7 +81,9 @@ public class KillProcesses {
     }
     /* DFS
      * Store parent pid 's process tree as an adjacent list
-     * Kill process will act as the root process and we continually add its children and children's children to a queue
+     * Kill process will act as the root process and we continually add its children
+     * and children's children to a queue
+     *
      * (TO FIND children, the parent process will be popped out )
      * until the queue is empty.
      * */
@@ -97,16 +96,13 @@ public class KillProcesses {
             maps.get(ppid.get(i)).add(pid.get(i));
         }
         List<Integer> ret = new ArrayList<>();
-
         Queue<Integer> queue = new LinkedList<>();
         queue.add(kill);
 
         while (!queue.isEmpty()) {
             int curr = queue.poll();
             ret.add(curr);
-            if (maps.get(curr) != null)
-                queue.addAll(maps.get(curr));
-            else continue;
+            if (maps.get(curr) != null) queue.addAll(maps.get(curr));
         }
         return ret;
     }

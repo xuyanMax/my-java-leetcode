@@ -33,7 +33,7 @@ public class CountCompleteBinaryTreeNodes {
             // is a full tree of height h-1. So we take 2^(h) -1 nodes + 1 root node + RECURSIVELY the number of nodes on the
             // right subtree
 
-            // if no (height(root.right) = =h-2), then the last node on the last tree row is in the left subtree.
+            // if no (height(root.right) == h-2), then the last node on the last tree row is in the left subtree.
             // and the right subtree is a full tree of height h-2. So we take 2^(h-1) - 1 nodes + 1 root node +
             // RECURSIVELY the number of nodes on the left subtree.
             if (height(root.right) == h - 1) {

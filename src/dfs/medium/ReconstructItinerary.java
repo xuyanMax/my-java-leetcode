@@ -10,8 +10,10 @@ import java.util.*;
  * Thus, the itinerary must begin with JFK.
  * <p>
  * Note:
- * If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order
- * when read as a single string. For example, the itinerary ["JFK", "LGA"] has a smaller lexical order than
+ * If there are multiple valid itineraries, you should return the itinerary that
+ * has the smallest lexical order
+ * when read as a single string. For example, the itinerary ["JFK", "LGA"]
+ * has a smaller lexical order than
  * ["JFK", "LGB"].
  * All airports are represented by three capital letters (IATA code).
  * You may assume all tickets form at least one valid itinerary.
@@ -24,7 +26,8 @@ import java.util.*;
  * tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
  * Return ["JFK","ATL","JFK","SFO","ATL","SFO"].
  * <p>
- * Another possible reconstruction is ["JFK","SFO","ATL","J77FK","ATL","SFO"]. But it is larger in lexical order.
+ * Another possible reconstruction is ["JFK","SFO","ATL","J77FK","ATL","SFO"].
+ * But it is larger in lexical order.
  */
 public class ReconstructItinerary {
 

@@ -84,11 +84,8 @@ public class BinarySearch {
             else if (arr[mid] > key)
                 return binarySearchRec_helper(arr, left, mid - 1, key);
             else return mid;
-
         }
-
         return -1;
-
     }
 
     // iterative 数组中返回仅小于key的值

@@ -24,8 +24,6 @@ public class GroupAnagram {
 
             map.get(keyStr).add(str);
         }
-
         return new ArrayList<List<String>>(map.values());
-
     }
 }

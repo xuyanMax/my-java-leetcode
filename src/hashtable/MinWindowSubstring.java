@@ -17,7 +17,8 @@ import java.util.LinkedList;
 	Note:
 	If there is no such window in S that covers all characters in T, return the empty string "".
 	
-	If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
+	If there are multiple such windows, you are guaranteed that there will always be only one unique
+	minimum window in S.
 	
 	https://leetcode.com/problems/minimum-window-substring/#/description
 	https://discuss.leetcode.com/topic/30941/here-is-a-10-line-template-that-can-solve-most-substring-problems/52
@@ -49,18 +50,17 @@ public class MinWindowSubstring {
 		
 		int[] maps = new int [256];
 		//添加T 字符记录
-		for (char c : T.toCharArray()) 
-			maps[c]++;
+		for (char c : T.toCharArray()) maps[c]++;
 		
 		int left = 0, right = 0, minLeft = 0, minLen = Integer.MAX_VALUE;
 		int count = T.length();
 		while (right < S.length()) {
+
 			if (maps[S.charAt(right)] > 0) 
 				count--;
 			
-			maps[S.charAt(right)]--;
-			right++;
-			
+			maps[S.charAt(right++)]--;
+
 			while (count == 0) {
 				if (right - left < minLen) {
 					minLen = right - left;
@@ -77,7 +77,5 @@ public class MinWindowSubstring {
 			
 		}
 		return minLen == Integer.MAX_VALUE?  "" : S.substring(minLeft, minLeft + minLen);
-		
 	}
-	  
 }

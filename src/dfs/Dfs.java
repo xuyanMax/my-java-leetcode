@@ -19,7 +19,6 @@ public class Dfs {
         g.addEdge(3, 3);
         g.addEdge(3, 1);
         g.DFS();
-
     }
 
     class graph {
@@ -53,7 +52,6 @@ public class Dfs {
                 if (!visited[i])
                     DFSUtil(i, visited);
             }
-
         }
 
         void DFSUtil(int u, boolean[] visited) {
@@ -67,5 +65,4 @@ public class Dfs {
             }
         }
     }
-
 }

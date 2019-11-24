@@ -92,14 +92,14 @@ public class FindRightInterval {
      */
 
     public int[] findRightInterval_TREEMAP(Interval[] intervals) {
-        TreeMap<Integer, Integer> maps = new TreeMap<>();
+        TreeMap<Integer, Integer> tMaps = new TreeMap<>();
         for (int i = 0; i < intervals.length; i++) {
-            maps.put(intervals[i].start, i);
+            tMaps.put(intervals[i].start, i);
         }
         int[] ret = new int[intervals.length];
         for (int i = 0; i < intervals.length; i++) {
-            Integer key = maps.ceilingKey(intervals[i].end);
-            ret[i] = key == null ? -1 : maps.get(key);
+            Integer key = tMaps.ceilingKey(intervals[i].end);
+            ret[i] = key == null ? -1 : tMaps.get(key);
         }
         return ret;
     }

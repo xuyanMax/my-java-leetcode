@@ -31,21 +31,22 @@ public class CopyListWithRandomPointer {
 
         while (!queue.isEmpty()) {
             RandomListNode curr = queue.poll();
+            // deal with next and random just like left and right child
+            // next
             if (curr.next != null) {
                 if (!map.containsKey(curr.next.label)) {
                     queue.add(curr.next);
                     map.put(curr.next.label, new RandomListNode(curr.next.label));
-
                 }
                 map.get(curr.label).next = map.get(curr.next.label);
             }
+            //random
             if (curr.random != null) {
                 if (!map.containsKey(curr.random.label)) {
                     queue.add(curr.random);
                     map.put(curr.random.label, new RandomListNode(curr.random.label));
                 }
                 map.get(curr.label).random = map.get(curr.random.label);
-
             }
         }
         return newHead;

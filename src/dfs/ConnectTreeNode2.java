@@ -60,7 +60,6 @@ public class ConnectTreeNode2 {
             // 不加这一句，for example {1,2}
             // tmp.next将永远指向2，最后会无限循环，导致TLE
             tmp.next = null;
-
         }
     }
 
@@ -84,7 +83,6 @@ public class ConnectTreeNode2 {
                     // 更新pre指向
                     pre = curr.left;
                 }
-
                 if (curr.right != null) {
                     if (pre != null) {
                         pre.next = curr.right;

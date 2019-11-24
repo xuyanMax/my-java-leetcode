@@ -58,7 +58,6 @@ public class HouseRobber3 {
             rootedVal += rob_naive(root.right.left) + rob_naive(root.right.right);
 
         return Math.max(rootedVal, rob_naive(root.left) + rob_naive(root.right));
-
     }
 
     // 第一种方法使用了"最优子结构"的思想，但是没有过多考虑"子结构重叠"的问题

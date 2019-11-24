@@ -56,7 +56,6 @@ public class ConnectTreeNode {
     // 层序遍历
     public void connect_iter(TreeLinkNode root) {
         while (root != null) {
-
             //提取每一层的最左侧节点
             TreeLinkNode curr = root;
             //只要该节点不是空，且存在子节点

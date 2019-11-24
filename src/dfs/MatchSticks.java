@@ -29,11 +29,12 @@ import java.util.Collections;
  */
 public class MatchSticks {
 
-    // It is a partition problem, the partition problem is to decide whether a given multiset S of positive
-    // integers can be partitioned into two subsets S1 and S2 such that the sum of the numbers is S1 equals that of
-    // S2. The problem is NP-Complete
+    // It is a partition problem, the partition problem is to decide
+    // whether a given multiset S of positive
+    // integers can be partitioned into two subsets S1 and S2 such that the
+    // sum of the numbers is S1 equals that of S2. The problem is NP-Complete
     // Time complexity - O(4^N)
-    public boolean makesquare(int[] nums) {
+    public boolean makeSquare(int[] nums) {
         if (nums == null || nums.length == 0 || nums.length < 4)
             return false;
 
@@ -45,10 +46,8 @@ public class MatchSticks {
         //通过倒排nums，可以起到优化的作用，加快排除不可能的情况
         //逆序不可以使用以下方法，最好手动实现，先调用顺排，再手动逆序
 //        Arrays.sort(nums, Collections.reverse());
-        Arrays.sort(nums);
-        reverseArray(nums);
+        Arrays.sort(nums);reverseArray(nums);
         return dfs(nums, sum / 4, new int[4], 0);
-
     }
 
     // sums[] 代表每个边的长度和
@@ -72,9 +71,8 @@ public class MatchSticks {
             // 使用条件判断来对应 boolean递归方法
             if (dfs(nums, target, sidesSum, depth + 1))
                 return true;
-
+            // unmake
             sidesSum[side] -= nums[depth];
-
         }
         // 如果上述四种主要情况及对应的自情况无解，则返回false
         return false;
