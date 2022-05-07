@@ -30,7 +30,7 @@ import java.util.Map;
 public class StringCombination {
 
     public static void main(String[] args) {
-
+        System.out.println("asas");
         combination("zabc");
     }
 

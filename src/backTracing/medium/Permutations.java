@@ -52,7 +52,6 @@ public class Permutations {
                 continue; // element already exists, skip
 
             aList.add(nums[i]);
-
             backtrack(lists, aList, nums);
 
             aList.remove(aList.size() - 1);

@@ -31,7 +31,6 @@ public class Three3Sum {
         List<List<Integer>> res = new ArrayList<>();
 
         Arrays.sort(nums);//对arrays 排序
-
         for (int i = 0; i < nums.length - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1])
                 continue;//避免出现重复，因为第一次将-nums[i]作为target, i之后的所有可能组合都被找到，因此如果相同，必会出现重复

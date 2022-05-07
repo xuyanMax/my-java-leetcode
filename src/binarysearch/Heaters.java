@@ -40,6 +40,8 @@ public class Heaters {
         System.out.println(~7);
         System.out.println(Integer.toBinaryString(~7));// 11111111111111111111111111111000
         System.out.println(~(-7));
+        Integer a = null;
+        System.out.println(a);
     }
 
     public int findRadius(int[] houses, int[] heaters) {

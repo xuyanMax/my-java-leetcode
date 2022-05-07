@@ -9,11 +9,16 @@ import java.util.LinkedHashSet;
  * @Version 1.0
  */
 public class LFUCache {
-    HashMap<Integer, Integer> vals;
-    HashMap<Integer, Integer> counts;
-    HashMap<Integer, LinkedHashSet<Integer>> lists;
+
+    //key->val 一对一
+    HashMap<Integer, Integer> keyToVal;
+    //key->freq 一对一
+    HashMap<Integer, Integer> keyToFreq;
+    //freq->keys 是一对多的关系
+    //LinkedHashSet: 链表和哈希集合的结合体，具备O(1)的的访问和删除元素的能力，同时具备链表记录插入数据的时序性特点
+    HashMap<Integer, LinkedHashSet<Integer>> freqToKeys;
     int capacity;
-    int min = -1;
+    int minFreq = -1;
 
     /**
      * 测试 put(1) put(2) put(3), get(1), get(2), get(3)
@@ -22,51 +27,111 @@ public class LFUCache {
      */
     public LFUCache(int capacity) {
         this.capacity = capacity;
-        vals = new HashMap<>();
-        counts = new HashMap<>();
-        lists = new HashMap<>();
-        lists.put(1, new LinkedHashSet<>());
+        keyToVal = new HashMap<>();
+        keyToFreq = new HashMap<>();
+        freqToKeys = new HashMap<>();
+        freqToKeys.put(1, new LinkedHashSet<>());
     }
 
     public int get(int key) {
-        if (!vals.containsKey(key))
+        if (!keyToVal.containsKey(key))
             return -1;
 
-        int count = counts.get(key);
-        counts.put(key, count + 1);
+        int count = keyToFreq.get(key);
+        keyToFreq.put(key, count + 1);
 
         //update
-        lists.get(count).remove(key);
-        if (count == min && lists.get(count).size() == 0)
-            min++;
+        freqToKeys.get(count).remove(key);
+        if (count == minFreq && freqToKeys.get(count).size() == 0)
+            minFreq++;
 
-        if (!lists.containsKey(count + 1))
-            lists.put(count + 1, new LinkedHashSet<>());
+        if (!freqToKeys.containsKey(count + 1))
+            freqToKeys.put(count + 1, new LinkedHashSet<>());
 
         //reinsert
-        lists.get(count + 1).add(key);
-        return vals.get(key);
+        freqToKeys.get(count + 1).add(key);
+        return keyToVal.get(key);
+    }
+
+    public int get_(int key) {
+        if (!keyToFreq.containsKey(key))
+            return -1;
+        increaseFreq(key);
+        return keyToVal.get(key);
+    }
+
+    public void put_(int key, int val) {
+        if (keyToVal.containsKey(key)) {
+            keyToVal.put(key, val);
+            increaseFreq(key);
+            return;
+        }
+
+        //判断是否满员
+        if (capacity == keyToVal.size()) {
+            removeMinFreqKey();
+
+        }
+        //无论如何都要插入
+        keyToVal.put(key, val);
+        keyToFreq.put(key, 1);
+        freqToKeys.put(1, new LinkedHashSet<>());
+        freqToKeys.get(1).add(key);
+
+        this.minFreq = 1;
+    }
+
+    public void increaseFreq(int key) {
+        int keyFreq = keyToFreq.get(key);
+        //在三个哈希表中 - 移除旧key对应的frequency
+        freqToKeys.get(keyFreq).remove(key);
+        keyToFreq.put(key, keyFreq + 1);
+        freqToKeys.putIfAbsent(keyFreq + 1, new LinkedHashSet<>());
+        freqToKeys.get(keyFreq + 1).add(key);
+
+        if (freqToKeys.get(keyFreq).isEmpty()) {
+            freqToKeys.remove(keyFreq);
+
+            if (keyFreq == this.minFreq) {
+                this.minFreq++;
+            }
+        }
+    }
+
+    public void removeMinFreqKey() {
+        //更新三个哈希表，一个哈希链表
+        LinkedHashSet<Integer> minFreqList = freqToKeys.get(minFreq);
+        Integer deletedKey = minFreqList.iterator().next();
+
+        minFreqList.remove(deletedKey);
+        if (minFreqList.isEmpty()) {
+            freqToKeys.remove(minFreq);
+        }
+
+        keyToVal.remove(deletedKey);
+        keyToFreq.remove(deletedKey);
+//        minFreq++;
     }
 
     public void put(int key, int value) {
         if (capacity <= 0)
             return;
         // not first time being inserted
-        if (vals.containsKey(key)) {
-            vals.put(key, value);
+        if (keyToVal.containsKey(key)) {
+            keyToVal.put(key, value);
             get(key);
             return;
         }
         // capacity overflow
-        if (vals.size() >= capacity) {
-            int evit = lists.get(min).iterator().next();
-            lists.get(min).remove(evit);
-            vals.remove(evit);
+        if (keyToVal.size() >= capacity) {
+            int evit = freqToKeys.get(minFreq).iterator().next();
+            freqToKeys.get(minFreq).remove(evit);
+            keyToVal.remove(evit);
         }
         // first time being inserted
-        vals.put(key, value);
-        counts.put(key, 1);
-        min = 1;
-        lists.get(1).add(key);
+        keyToVal.put(key, value);
+        keyToFreq.put(key, 1);
+        minFreq = 1;
+        freqToKeys.get(1).add(key);
     }
 }

@@ -63,5 +63,4 @@ public class InsertionSort {
     public void swap(int[] arr, int a, int b) {
 
     }
-
 }

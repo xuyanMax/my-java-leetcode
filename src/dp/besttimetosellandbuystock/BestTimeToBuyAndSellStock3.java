@@ -20,7 +20,7 @@ public class BestTimeToBuyAndSellStock3 {
             ti20 = Math.max(ti20, ti21 + prices[i]);
             ti21 = Math.max(ti21, ti10 - prices[i]);
             ti10 = Math.max(ti10, ti11 + prices[i]);
-            ti11 = Math.max(ti11, 0 - prices[i]);
+            ti11 = Math.max(ti11, -prices[i]);
         }
         return ti20;
     }

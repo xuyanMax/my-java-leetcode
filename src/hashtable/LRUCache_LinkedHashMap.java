@@ -18,12 +18,12 @@ import java.util.Map;
  * @param <K>
  * @param <V>
  */
-public class LRUCache_KV<K, V> {
+public class LRUCache_LinkedHashMap<K, V> {
     private static final float hashLoadFactory = 0.75f;
     private LinkedHashMap<K, V> map;
     private int cacheSize;
 
-    public LRUCache_KV(int cacheSize) {
+    public LRUCache_LinkedHashMap(int cacheSize) {
         this.cacheSize = cacheSize;
         int capacity = (int) Math.ceil(cacheSize / hashLoadFactory) + 1;
 
@@ -32,7 +32,7 @@ public class LRUCache_KV<K, V> {
 
             @Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
-                return size() > LRUCache_KV.this.cacheSize;
+                return size() > LRUCache_LinkedHashMap.this.cacheSize;
             }
         };
     }

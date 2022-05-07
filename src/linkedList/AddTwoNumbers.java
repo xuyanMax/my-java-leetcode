@@ -1,5 +1,8 @@
 package linkedList;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 /**
  * @author xu
  * <p>
@@ -28,7 +31,6 @@ public class AddTwoNumbers {
     }
 
     public ListNode addTwo(ListNode l1, ListNode l2) {
-
         int sum = 0;
         int carry = 0;
 
