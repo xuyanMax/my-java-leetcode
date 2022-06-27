@@ -9,6 +9,8 @@ public class SelectSort {
         int min;
         for (int i = 0; i < arr.length - 1; i++) {
             min = i;
+            // find the minimal element from i+1:end
+            // and put it at the current position i
             for (int j = i + 1; j < arr.length; j++)
                 if (arr[min] > arr[j]) //从小到大排序
                     min = j;

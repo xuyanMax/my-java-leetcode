@@ -21,7 +21,6 @@ public class UglyNumbers_2 {
 
             dp[i] = minOfThree(dp[t2] * 2, dp[t3] * 3, dp[t5] * 5); // find the minimum
 
-            // updateHighestHeightBtwLR pointers to the next larger ugly number
             if (dp[i] == dp[t2] * 2) t2++;
             if (dp[i] == dp[t3] * 3) t3++;
             if (dp[i] == dp[t5] * 5) t5++;

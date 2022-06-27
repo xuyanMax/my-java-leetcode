@@ -63,12 +63,9 @@ public class MergeSort {
 
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) { //稳定性，两个元素相等，则将处在前面的序列的元素保存在结果序列的前面，这样保证了稳定性
-                nums[k] = L[i];
-                i++;
-
+                nums[k] = L[i++];
             } else {
-                nums[k] = R[j];
-                j++;
+                nums[k] = R[j++];
             }
             k++;
         }

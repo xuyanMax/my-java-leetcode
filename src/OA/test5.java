@@ -1,10 +1,9 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer;
-import java.util.concurrent.locks.ReentrantLock;
+package OA;
 
-public class test {
+import java.util.Arrays;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+
+public class test5 {
     public static void main(String[] args) {
         String s = "闫旭";
         System.out.println(s.substring(0, 2));

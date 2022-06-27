@@ -48,10 +48,10 @@ public class MaxSumContinuousSubarray {
 	// optimize the above algorithm: We compare maxSoFar and maxEndHere only if maxEndHere is larger than 0
 	public int KadaneAlgorithm2(int[] nums, int n) {
 		int max_so_far = 0, max_end_here = 0;
-		for (int i=0; i<n; i++) {
-			max_end_here = max_end_here + nums[i];
+		for (int i = 0; i < n; i++) {
+			max_end_here += nums[i];
 			if (max_end_here < 0)
-				max_end_here = 0 ;
+				max_end_here = 0;
 			else {
 				if (max_end_here > max_so_far)
 					max_so_far = max_end_here;
@@ -60,6 +60,4 @@ public class MaxSumContinuousSubarray {
 		return max_so_far;
 	}
 
-	
-	
 }

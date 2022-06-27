@@ -53,11 +53,11 @@ public class Twitter {
     private static int timeStamp = 0;
 
     // easy to find if user exist
-    private Map<Integer, User> userMap;
+    private final Map<Integer, User> userMap;
 
     // Tweet link to next Tweet so that we can save a lot of time
     // when we execute getNewsFeed(userId)
-    private class Tweet {
+    static class Tweet {
         public int id;
         public int time;
         public Tweet next;
@@ -71,7 +71,7 @@ public class Twitter {
 
 
     // OO design so User can follow, unfollow and post itself
-    public class User {
+    static class User {
         public int id;
         public Set<Integer> followed;
         public Tweet tweet_head;
@@ -105,7 +105,7 @@ public class Twitter {
      * Initialize your data structure here.
      */
     public Twitter() {
-        userMap = new HashMap<Integer, User>();
+        userMap = new HashMap<>();
     }
 
     /**
@@ -123,7 +123,7 @@ public class Twitter {
     // Best part of this.
     // first get all tweets lists from one user including itself and all people it followed.
     // Second add all head-tweets into a max heap. Every time we poll a tweet with
-    // largest time stamp from the heap, then we add its next tweet into the heap.
+    // the large st time stamp from the heap, then we add its next tweet into the heap.
     // So after adding all heads we only need to add 9 tweets at most into this
     // heap before we get the 10 most recent tweet.
     public List<Integer> getNewsFeed(int userId) {
@@ -134,7 +134,7 @@ public class Twitter {
         }
 
         Set<Integer> users = userMap.get(userId).followed;
-        PriorityQueue<Tweet> q = new PriorityQueue<Tweet>(users.size(), (a, b) -> (b.time - a.time));
+        PriorityQueue<Tweet> q = new PriorityQueue<>(users.size(), (a, b) -> (b.time - a.time));
         // 将每个followed user 的首个tweet加入pq
         for (int user : users) {
             Tweet t = userMap.get(user).tweet_head;

@@ -89,7 +89,7 @@ public class MinimumAbsoluteDifference {
     // curr: 中序遍历中的当前节点
     // pre:中序遍历中curr节点的前一节点
     // 因此可以不用Math.abs()
-    public int inordeItr(TreeNode root) {
+    public int inOrderItr(TreeNode root) {
         TreeNode pre = null, curr = root;
         LinkedList<TreeNode> stack = new LinkedList<>();
         int min = Integer.MAX_VALUE;

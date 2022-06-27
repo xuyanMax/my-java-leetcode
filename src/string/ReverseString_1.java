@@ -40,18 +40,6 @@ public class ReverseString_1 {
     }
 
 
-    public String reverseWords_2(String s) {
-        String[] strs = s.split(" ");
-        StringBuilder sb = new StringBuilder();
-        String space = "";
-        for (String str : strs) {
-            sb.append(space);
-            sb.append(reverse(str));
-            space = " ";
-        }
-        return sb.toString();
-    }
-
     String reverse(String str) {
         char[] sc = str.toCharArray();
         int s = 0, e = sc.length - 1;
@@ -64,4 +52,18 @@ public class ReverseString_1 {
         }
         return new String(sc);
     }
+
+
+    public String reverseWords_2(String s) {
+        String[] strs = s.split(" ");
+        StringBuilder sb = new StringBuilder();
+        String space = "";
+        for (String str : strs) {
+            sb.append(space);
+            sb.append(reverse(str));
+            space = " ";
+        }
+        return sb.toString();
+    }
+
 }

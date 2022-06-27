@@ -36,9 +36,6 @@ public class MaxTreeWidth {
     static int height(AvlNode root) {
 
         if (root == null) return 0;
-        if (root.left != null) return height(root.left) + 1;
-        if (root.right != null) return height(root.right) + 1;
-
         return Math.max(height(root.left), height(root.right)) + 1;
 
     }

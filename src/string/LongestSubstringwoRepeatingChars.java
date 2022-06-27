@@ -51,6 +51,7 @@ public class LongestSubstringwoRepeatingChars {
         return maxLength;
     }
 
+    // two pointers, fast and slow
     static int getLength2(char[] str) {
 
         Set<Character> set = new HashSet<Character>();
@@ -58,8 +59,7 @@ public class LongestSubstringwoRepeatingChars {
         int j = 0;
         for (int i = 0; i < str.length; i++) {
             if (set.add(str[i])) {
-                if (set.size() > max)
-                    max = set.size();
+                max = set.size() > max ? set.size() : max;
             } else {
                 while (str[j] != str[i]) {
                     set.remove(str[j]);
@@ -86,7 +86,6 @@ public class LongestSubstringwoRepeatingChars {
                 i++;
                 max = Math.max(max, set.size());
             } else {
-
                 set.remove(str[j]);
                 j++;
             }

@@ -14,7 +14,6 @@ package sortAlgorithms;
 public class BubbleSort {
 
     public void swap(int[] array, int a, int b) {
-
         int tmp = array[a];
         array[a] = array[b];
         array[b] = tmp;
@@ -30,7 +29,7 @@ public class BubbleSort {
     }
 
     //冒泡排序优化
-    public void optimizeBubbleSorting(int[] arr) {
+    public void optimizedBubbleSorting(int[] arr) {
 
         boolean flag = true;
         for (int i = 0; i < arr.length && flag; i++) {

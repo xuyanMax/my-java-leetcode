@@ -14,10 +14,10 @@ import java.util.List;
  * best and average O(n), worst O(n^2)
  * <p>
  * why O(n^2) in worst case
- * i.e. when all elements at allocated to the same bucket. Since individual buckets are sorted using another algorithm,
+ * i.e. when all elements are allocated to the same bucket. Since individual buckets are sorted using another algorithm,
  * if only a single bucket needs to be sorted, bucket sort will take on the complexity of the inner sorting algorithm.
  * This is why bucket sort is only useful when the input is uniformly distributed in a range.
- * This way they will not end up in tihe same bucket.
+ * This way they will not end up in the same bucket.
  * <p>
  * space: O(n)
  * http://javarevisited.blogspot.com/2017/01/bucket-sort-in-java-with-example.html

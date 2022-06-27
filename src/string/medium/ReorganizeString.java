@@ -30,8 +30,7 @@ public class ReorganizeString {
         int max = 0;
         int maxI = 0;
         for (char c : S.toCharArray()) {
-            counts[c - 'a']++;
-            if (counts[c - 'a'] > max) {
+            if (++counts[c - 'a'] > max) {
                 max = counts[c - 'a'];
                 maxI = c - 'a';
             }
@@ -49,6 +48,7 @@ public class ReorganizeString {
         }
         for (int j = 0; j < 26; j++) {
             while (counts[j]-- > 0) {
+                //continue put elements to i if it doesn't reach end
                 if (i >= S.length()) {
                     i = 1;
                 }

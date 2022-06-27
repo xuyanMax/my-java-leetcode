@@ -1,9 +1,6 @@
 package dfs.hard;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by xu on 2017/6/8.
@@ -59,5 +56,95 @@ public class WordBreak2 {
         return ret;
     }
 
+    /*********************************************************************************/
+    /**** similar solution to WordBreak, without memo its runtime will be bad.**/
+    int[] memo;
+    static Set<String> dict;
+    static LinkedList<String> ret;
+    static LinkedList<String> concatenation;
+
+    public static List<String> wordBreak_(String s, List<String> wordDict) {
+        //int[] memo;
+        dict = new HashSet<>(wordDict);
+        ret = new LinkedList<>();
+        concatenation = new LinkedList<>();
+        backtrace_(s, 0);
+        return ret;
+    }
+
+    //排列组合，返回值void
+    //回溯算法框架
+    public static void backtrace_(String str, int pos) {
+        if (pos == str.length()) {
+            ret.add(String.join(" ", concatenation));
+            return;
+        }
+
+        for (int j = pos + 1; j <= str.length(); j++) {
+            String substr = str.substring(pos, j);
+            if (dict.contains(substr)) {
+                concatenation.addLast(substr);
+                backtrace_(str, j);
+                concatenation.removeLast();
+            }
+        }
+    }
+
+    public static List<String> wordBreak_DP(String s, List<String> wordDict) {
+        //int[] memo;
+        dict = new HashSet<>(wordDict);
+        cachMap = new HashMap<>();
+        return dp__(s, 0);
+    }
+
+    static Map<String, List<String>> cachMap;
+    static List<String>[] cachLists;
+    //返回用wordDict构成s[i:]的所有可能性
+    // results[i:] = results[i:j]*排列组合*results[j:]
+    public static List<String> dp__(String str, int pos) {
+
+        List<String> ret = new LinkedList<>();
+
+        if (pos == str.length()) {
+            ret.add("");
+            return ret;
+        }
+
+        if (cachMap.containsKey(str.substring(pos))) {
+            return cachMap.get(str.substring(pos));
+        }
+
+        for (int j = pos + 1; j <= str.length(); j++) {
+            String substr = str.substring(pos, j);
+            if (dict.contains(substr)) {
+                // 找到一个单词匹配 s[j:)
+                List<String> subList = dp__(str, j);
+                // 构成 s[i+len..] 的所有组合加上 prefix
+                // 就是构成构成 s[i] 的所有组合
+                for (String s:subList) {
+                    if (s.isEmpty())
+                        ret.add(substr);
+                    else
+                        ret.add(substr + " " + s) ;
+                }
+            }
+        }
+        cachMap.put(str.substring(pos), ret);
+        return ret;
+    }
+
+    public static void main(String[] args) {
+        String s = "catsanddog";
+        List<String> wordDict = new LinkedList<>();
+        wordDict.add("cats");
+        wordDict.add("sand");
+        wordDict.add("dog");
+        wordDict.add("and");
+        wordDict.add("cat");
+        wordDict.add("og");
+
+        System.out.println(wordBreak_(s, wordDict));
+        System.out.println(wordBreak_DP(s, wordDict));
+    }
 
 }

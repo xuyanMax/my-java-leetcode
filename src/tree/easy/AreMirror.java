@@ -9,11 +9,11 @@ import tree.AvlNode;
  */
 public class AreMirror {
 
-    static boolean areMirr(AvlNode rootA, AvlNode rootB) {
+    static boolean areMirror(AvlNode rootA, AvlNode rootB) {
         if (rootA == null || rootB == null)
             return rootA == rootB;
         if (rootA.key == rootB.key)
-            return areMirr(rootA.right, rootB.left) && areMirr(rootA.left, rootB.right);
+            return areMirror(rootA.right, rootB.left) && areMirror(rootA.left, rootB.right);
 
         return false;
 

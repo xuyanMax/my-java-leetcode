@@ -3,6 +3,7 @@ package algorithm;
 import java.util.stream.LongStream;
 
 public class Fibonacci {
+    
     public long fab1(int n) {
         return n == 1 ? 1 : n * fab1(n - 1);
     }

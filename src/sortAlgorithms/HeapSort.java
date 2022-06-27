@@ -56,7 +56,7 @@ public class HeapSort {
         tmp = nums[s];
         for (j = 2 * s + 1; j <= n; ) {
 
-            //j<m 说明j 不是最后一个结点
+            //j<m 说明j不是最后一个结点
             if (j < n && nums[j] < nums[j + 1])
                 j++;
             if (tmp >= nums[j])

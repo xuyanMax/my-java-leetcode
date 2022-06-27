@@ -1,4 +1,4 @@
-package algorithm;
+package OA;
 
 public class test {
     public static void main(String[] args) {

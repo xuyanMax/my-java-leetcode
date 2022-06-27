@@ -68,25 +68,19 @@ public class BinarySearchTree {
         if (root == null)
             return null;
         else {
-            if (root.data < val)
-                return search(root.right, val);
-            else if (root.data > val)
-                return search(root.left, val);
+            if (root.data < val) return search(root.right, val);
+            else if (root.data > val) return search(root.left, val);
             else return root;
         }
     }
 
     // iterative
-
     public Node searchItr(Node root, int val) {
 
-        if (root == null)
-            return null;
+        if (root == null) return null;
         while (root != null) {
-            if (root.data == val)
-                return root;
-            else if (root.data < val)
-                root = root.right;
+            if (root.data == val) return root;
+            else if (root.data < val) root = root.right;
             else root = root.left;
         }
         return root;

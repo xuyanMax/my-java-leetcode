@@ -14,7 +14,7 @@ public class LIS {
     // TLE
     // O(2^n) size of recursion tree 2^n
     // O(n^2) memo arr size n*n
-    // taken or nottaken
+    // taken or not-taken
     public int lengthOfLIS_dfs(int[] nums) {
         return dfs(nums, Integer.MIN_VALUE, 0);
     }

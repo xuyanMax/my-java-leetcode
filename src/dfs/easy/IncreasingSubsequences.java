@@ -46,7 +46,7 @@ public class IncreasingSubsequences {
         }
 
         for (int pos = depth; pos < nums.length; pos++) {
-            // 如果result为空，直接加入；或者呈递增趋势
+            // 如果result为空，直接加入||或者呈递增趋势
             if (result.size() == 0 || nums[pos] >= result.get(result.size() - 1)) {
                 result.add(nums[pos]);
                 dfs(results, result, pos + 1, nums);

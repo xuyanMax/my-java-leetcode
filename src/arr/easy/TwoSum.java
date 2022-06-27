@@ -37,7 +37,6 @@ public class TwoSum {
         for (int i = 0; i < arr.length; i++) {
             if (hash.containsKey(target - arr[i]))
                 return new int[]{i, hash.get(target - arr[i])};
-
             hash.put(arr[i], i);
         }
         return new int[]{};

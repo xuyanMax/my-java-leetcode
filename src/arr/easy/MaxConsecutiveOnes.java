@@ -14,7 +14,7 @@ package arr.easy;
 public class MaxConsecutiveOnes {
 
     // 时间复杂度O(n)
-    //额外空间复杂读O(n)
+    // 额外空间复杂读O(n)
     public int findMaxConsecutiveOnes(int[] nums) {
         int[] dp = new int[nums.length];//以i为结尾的最长连续1个数
         dp[0] = nums[0];
