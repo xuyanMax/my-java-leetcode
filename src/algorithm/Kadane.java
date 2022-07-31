@@ -2,7 +2,7 @@ package algorithm;
 
 public class Kadane {
     // keep indices of the range
-    // 两个参数 max_so_far and max_end_here. 一个代表至今为止最大的连续字串， 一个代表以此截止的最大字串
+    // 两个参数 max_so_far and max_end_here. 一个代表至今为止最大的连续字符串， 一个代表以此截止的最大字串
     // left and right pointer : right pointer 每当max_so_far 更新时候，更新。
     // left pointer 更新需要借助变量 left_tmp, 每当 max_end_here < 0, 更新left_tmp = i + 1
     public static void kadaneAlgorithm3(int[] nums, int n) {

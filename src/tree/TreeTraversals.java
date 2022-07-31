@@ -2,8 +2,6 @@ package tree;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.DelayQueue;
 
 /**
  * Youtube link - https://youtu.be/nzmtCFNae9k
@@ -29,7 +27,6 @@ public class TreeTraversals {
                 root = root.left;
             } else {
                 if (queue.isEmpty()) break;
-                ;
                 root = queue.pollFirst();
                 System.out.println(root.data);
                 root = root.right;
@@ -43,6 +40,7 @@ public class TreeTraversals {
         queue.addFirst(curr);
         while (!queue.isEmpty()) {
             curr = queue.pollFirst();
+            System.out.println(curr.data);
             if (curr.right != null) queue.addFirst(curr.left);
             if (curr.left != null) queue.addFirst(curr.right);
         }

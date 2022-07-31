@@ -52,12 +52,9 @@ public class StringPermutation {
             counts[index] = entry.getValue();
             index++;
         }
-        List<String> resultList = new ArrayList<>();
-
-        // n: index of the to be built string [0-input.length-1]
-        int n = 0;
+        // ind: index of the to be built string [0-input.length-1]
         char[] result = new char[input.length];
-        permuteUtil(resultList, chars, counts, n, result);
+        permuteUtil(results, chars, counts, 0, result);
 
         return results;
 
@@ -69,7 +66,7 @@ public class StringPermutation {
             resultList.add(new String(result));
             return;// 退出递归，返回上一层
         }
-
+        // permutation starts from index = 0
         for (int i = 0; i < chars.length; i++) {
             if (counts[i] != 0) {
                 counts[i]--;

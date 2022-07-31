@@ -1,26 +1,27 @@
+/*
 package dfs.easy;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
+*/
 /**
  * Created by xu on 10/08/2017.
+ * <p>
+ * 199.
+ * Given a binary tree, imagine yourself standing on the right side of it,
+ * return the values of the nodes you can see ordered from top to bottom.
+ * <p>
+ * For example:
+ * Given the following binary tree,
+ * 1            <---
+ * /   \
+ * 2     3         <---
+ * \     \
+ * 5     4       <---
+ * You should return [1, 3, 4].
+ *//*
 
-199.
-Given a binary tree, imagine yourself standing on the right side of it,
-return the values of the nodes you can see ordered from top to bottom.
-
-For example:
-Given the following binary tree,
-   1            <---
- /   \
-2     3         <---
- \     \
-  5     4       <---
-You should return [1, 3, 4].
-*/
 public class BinaryTreeFromRightSideView {
 
 
@@ -34,7 +35,8 @@ public class BinaryTreeFromRightSideView {
         return ret;
 
     }
-    public void helper_right(TreeNode root, List<Integer> result, int depth){
+
+    public void helper_right(TreeNode root, List<Integer> result, int depth) {
         //结束条件
         if (root == null)
             return;
@@ -47,7 +49,10 @@ public class BinaryTreeFromRightSideView {
         helper_right(root.left, result, depth + 1);
 
     }
-    /*如果是从left side view，那么只需要用前序遍历的思想即可*/
+
+    */
+/*如果是从left side view，那么只需要用前序遍历的思想即可*//*
+
     public void helper_left(TreeNode root, List<Integer> result, int depth) {
         //结束条件
         if (root == null)
@@ -62,7 +67,7 @@ public class BinaryTreeFromRightSideView {
     }
 
 
-    class TreeNode{
+    class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -72,3 +77,4 @@ public class BinaryTreeFromRightSideView {
         }
     }
 }
+*/

@@ -40,54 +40,26 @@ public class LFUCache {
         int count = keyToFreq.get(key);
         keyToFreq.put(key, count + 1);
 
-        //update
+        //update linkedhashset
         freqToKeys.get(count).remove(key);
         if (count == minFreq && freqToKeys.get(count).size() == 0)
             minFreq++;
 
         if (!freqToKeys.containsKey(count + 1))
             freqToKeys.put(count + 1, new LinkedHashSet<>());
-
-        //reinsert
         freqToKeys.get(count + 1).add(key);
+
         return keyToVal.get(key);
-    }
-
-    public int get_(int key) {
-        if (!keyToFreq.containsKey(key))
-            return -1;
-        increaseFreq(key);
-        return keyToVal.get(key);
-    }
-
-    public void put_(int key, int val) {
-        if (keyToVal.containsKey(key)) {
-            keyToVal.put(key, val);
-            increaseFreq(key);
-            return;
-        }
-
-        //判断是否满员
-        if (capacity == keyToVal.size()) {
-            removeMinFreqKey();
-
-        }
-        //无论如何都要插入
-        keyToVal.put(key, val);
-        keyToFreq.put(key, 1);
-        freqToKeys.put(1, new LinkedHashSet<>());
-        freqToKeys.get(1).add(key);
-
-        this.minFreq = 1;
     }
 
     public void increaseFreq(int key) {
         int keyFreq = keyToFreq.get(key);
         //在三个哈希表中 - 移除旧key对应的frequency
         freqToKeys.get(keyFreq).remove(key);
-        keyToFreq.put(key, keyFreq + 1);
         freqToKeys.putIfAbsent(keyFreq + 1, new LinkedHashSet<>());
         freqToKeys.get(keyFreq + 1).add(key);
+
+        keyToFreq.put(key, keyFreq + 1);
 
         if (freqToKeys.get(keyFreq).isEmpty()) {
             freqToKeys.remove(keyFreq);
@@ -96,21 +68,6 @@ public class LFUCache {
                 this.minFreq++;
             }
         }
-    }
-
-    public void removeMinFreqKey() {
-        //更新三个哈希表，一个哈希链表
-        LinkedHashSet<Integer> minFreqList = freqToKeys.get(minFreq);
-        Integer deletedKey = minFreqList.iterator().next();
-
-        minFreqList.remove(deletedKey);
-        if (minFreqList.isEmpty()) {
-            freqToKeys.remove(minFreq);
-        }
-
-        keyToVal.remove(deletedKey);
-        keyToFreq.remove(deletedKey);
-//        minFreq++;
     }
 
     public void put(int key, int value) {
@@ -133,5 +90,19 @@ public class LFUCache {
         keyToFreq.put(key, 1);
         minFreq = 1;
         freqToKeys.get(1).add(key);
+    }
+    public void removeMinFreqKey() {
+        //更新三个哈希表，一个哈希链表
+        LinkedHashSet<Integer> minFreqList = freqToKeys.get(minFreq);
+        Integer deletedKey = minFreqList.iterator().next();
+
+        minFreqList.remove(deletedKey);
+        if (minFreqList.isEmpty()) {
+            freqToKeys.remove(minFreq);
+        }
+
+        keyToVal.remove(deletedKey);
+        keyToFreq.remove(deletedKey);
+//        minFreq++;
     }
 }

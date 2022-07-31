@@ -1,8 +1,5 @@
 package string;
 
-import com.sun.tools.corba.se.idl.InterfaceGen;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,7 +8,7 @@ import java.util.List;
 /**
  * Created by xu on 08/09/2017.
  * Given a list of 24-hour clock time points in "Hour:Minutes" format, find the minimum minutes difference between any two time points in the list.
- * Example 1:
+ * Example cla1:
  * Input: ["23:59","00:00"]
  * Output: 1
  * Note:

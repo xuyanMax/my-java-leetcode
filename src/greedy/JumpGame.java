@@ -23,18 +23,16 @@ public class JumpGame {
     public static boolean jumpGame1(int[] nums) {
 
         int maxReachSoFar = 0;
-        int maxReachStartHere = 0;
 
-        for (int i = 0; i < nums.length && maxReachSoFar < nums.length-1; i++) {
+        // O(n) time complexity
+        for (int i = 0; i < nums.length && maxReachSoFar < nums.length - 1; i++) {
             if (i <= maxReachSoFar) {
-                maxReachStartHere = i + nums[i];
-                maxReachSoFar = Math.max(maxReachStartHere, maxReachSoFar);
+                maxReachSoFar = Math.max(i + nums[i], maxReachSoFar);
+                if (maxReachSoFar >= nums.length - 1)
+                    return true;
             }
         }
-        if (maxReachSoFar >= nums.length - 1)
-            return true;
-        else
-            return false;
+        return false;
     }
 
     public static boolean jumGame2(int[] nums, int n) {

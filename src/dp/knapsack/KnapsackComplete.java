@@ -26,7 +26,7 @@ public class KnapsackComplete {
             for (int j = 0; j <= W; j++) {// weight/cost of item i
                 int cnt = j / wgt[i - 1];
                 for (int k = 0; k <= cnt; k++) //对一个item 最多取 W/wgt[i]向下取整个
-                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - k * wgt[i - 1]] + k * val[i - 1]);// k = 0， = dp[i-1][j]
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - k * wgt[i - 1]] + k * val[i - 1]);// k = 0， = dp[i-1][j]
             }
         }
         return dp[n][W];

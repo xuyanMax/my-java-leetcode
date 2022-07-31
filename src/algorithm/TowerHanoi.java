@@ -40,7 +40,8 @@ public class TowerHanoi {
      * 3. hanoiUtil(N-1, tmp, start, end): move N-1 disks from tmp to end
      */
     static void hanoiUtil(int num, String start, String tmp, String dest) {
-        if (num == 1) System.out.println("Move disk from " + start + " to " + dest);
+        if (num == 1)
+            System.out.println("Move disk from " + start + " to " + dest);
         else {
             hanoiUtil(num - 1, start, dest, tmp);
             hanoiUtil(1, start, tmp, dest);

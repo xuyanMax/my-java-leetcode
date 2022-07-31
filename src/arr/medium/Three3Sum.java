@@ -25,12 +25,15 @@ public class Three3Sum {
     /*
      run through all indices of a possible first element of a triplet.
      For each possible first element, we make a standard bi-directional 2Sum sweep of the remaining part of the arr.
-     Also we want to skip equal elements to avoid duplicates in the answer without making a set or smth like that.
+     Also, we want to skip equal elements to avoid duplicates in the answer without making a set or something like that.
     */
     public List<List<Integer>> solution(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
 
+        //nlgn
         Arrays.sort(nums);//对arrays 排序
+
+        //n^2
         for (int i = 0; i < nums.length - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1])
                 continue;//避免出现重复，因为第一次将-nums[i]作为target, i之后的所有可能组合都被找到，因此如果相同，必会出现重复
@@ -43,15 +46,15 @@ public class Three3Sum {
 
                     res.add(Arrays.asList(nums[i], nums[left++], nums[right--]));
 
-                    while (left < right && nums[left] == nums[left - 1])
+                    while (nums[left] == nums[left + 1] && left + 1 < right)
                         left++;//跳过相同的结果
-                    while (left < right && nums[right] == nums[right + 1])
+                    while (nums[right] == nums[right - 1] && left < right - 1)
                         right--;//跳过相同的结果
 
                     left++;
                     right--;
                 } else if (nums[left] + nums[right] > target) right--;
-                else left++;
+                else left++;//若小于targer, 左指针动
             }
         }
         return res;

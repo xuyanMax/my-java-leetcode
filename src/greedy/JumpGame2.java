@@ -39,14 +39,13 @@ public class JumpGame2 {
 
         int currPos = 0;
         int min_step = 0;
+        //every while iteration is worth of 1 step.
         while (lng_dst_sofar < nums.length - 1) {
             // longest reachable one as the bounding edge
             // i:current position
-            for (; currPos <= lng_dst_sofar; currPos++) {
-                if ((currPos + nums[currPos]) > next_dst_sofar) {
-                    next_dst_sofar = currPos + nums[currPos];
-                }
-            }
+            for (; currPos <= lng_dst_sofar; currPos++)
+                next_dst_sofar = Math.max(currPos + nums[currPos], next_dst_sofar);
+
 
             if (next_dst_sofar > lng_dst_sofar) {
                 lng_dst_sofar = next_dst_sofar;
@@ -97,6 +96,7 @@ public class JumpGame2 {
 
     /**
      * Cannot pass the last test case in that it is too big a data
+     *
      * @param nums
      * @return
      */

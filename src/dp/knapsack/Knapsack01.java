@@ -1,15 +1,12 @@
 package dp.knapsack;
 
-import java.lang.ref.SoftReference;
-import java.util.HashMap;
-
 /**
  * Date 04/04/2014
  *
  * @author Tushar Roy
  * <p>
  * 0/1 Knapsack Problem - Given items of certain weights/values and maximum allowed weight
- * how to pick items to pick items from this set to maximize sum of value of items such that
+ * how to pick items from this set to maximize sum of value of items such that
  * sum of weights is less than or equal to maximum allowed weight.
  * <p>
  * 每一种item数量就一个
@@ -20,10 +17,6 @@ import java.util.HashMap;
  * http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/
  */
 public class Knapsack01 {
-
-    public static void main(String[] args) {
-        HashMap map = new HashMap();
-    }
 
     //空间复杂度 O(N*M)
     public int solution(int[] val, int[] wt, int W) {
@@ -42,7 +35,7 @@ public class Knapsack01 {
         int[] dp = new int[W + 1];
         int M = val.length;
         for (int i = 1; i <= W; i++)
-            for (int j = M; j >= wt[i - 1]; i--)
+            for (int j = M; j >= wt[i - 1]; j--)
                 dp[j] = Math.max(dp[j], dp[j - wt[i - 1]] + val[i - 1]);
         return dp[W]; //输出最优解
     }

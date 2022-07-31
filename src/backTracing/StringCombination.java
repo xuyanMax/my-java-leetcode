@@ -30,19 +30,13 @@ import java.util.Map;
 public class StringCombination {
 
     public static void main(String[] args) {
-        System.out.println("asas");
-        combination("zabc");
+        System.out.println("zabc");
+        combination("zabcc");
     }
 
     static List<String> combination(String str) {
         Map<Character, Integer> countMap = new HashMap<Character, Integer>();
         for (char c : str.toCharArray()) {
-
-            countMap.compute(c, (key, val) -> {
-                if (val == null)
-                    return 1;
-                else return val + 1;
-            });
 
             countMap.put(c, 1 + countMap.getOrDefault(c, 0));
         }
@@ -53,6 +47,7 @@ public class StringCombination {
         for (Map.Entry<Character, Integer> entry : countMap.entrySet()) {
             chars[index] = entry.getKey();
             count[index] = entry.getValue();
+            System.out.println(entry.getKey() + "," + entry.getValue());
             index++;
         }
 
@@ -61,38 +56,36 @@ public class StringCombination {
 
         int level = 0;    // index of the result arr
         int pos = 0;    // pos index, indicates available characters are from the pos index to the n-1.
-        combinationUtil(results, chars, count, result, level, pos);
+        combinationUtil(results, chars, count, new ArrayList<>(), level, pos);
         System.out.println(results);
         return results;
     }
 
-    static void combinationUtil(List<String> results, char[] chars, int[] count, char[] result, int ind, int pos) {
+    static void combinationUtil(List<String> results, char[] chars, int[] count, ArrayList<Character> aList, int index, int pos) {
         // level indicates the depth of recursion， add the upper level's recursion result[]
-        addToList(results, result, ind);
+        if (index < chars.length)
+            addToList(results, aList, index);
+        else return;
 
         // difference to string permutation, which starts at i=0
-        for (int i = pos; i < chars.length; i++) {
-            if (count[i] == 0)
+        for (int p = pos; p < chars.length; p++) {
+            if (count[p] == 0)
                 continue;
 
-            result[ind] = chars[i];
-            count[i]--;
-            combinationUtil(results, chars, count, result, ind + 1, i); //level++ 会影响本层for循环的level值
-            count[i]++;
+            aList.add(chars[p]);
+            count[p]--;
+            combinationUtil(results, chars, count, aList, index + 1, p); //level++ 会影响本层for循环的level值
+            count[p]++;
+            aList.remove(aList.size() - 1);
         }
     }
 
-    static void addToList(List<String> results, char[] result, int ind) {
+    static void addToList(List<String> results, ArrayList<Character> aList, int ind) {
 
-        StringBuilder tmp = new StringBuilder();
-
-        // 如果不截止到level，会将字符全部输出。下一层递归得到的result[]也会输出，不合要求
-        for (int i = 0; i < ind; i++) {
-            tmp.append(result[i]);
-        }
-        if (tmp.toString().length() != 0)
-            results.add(tmp.toString());
-
+        StringBuilder sb = new StringBuilder();
+        for (Character c : aList)
+            sb.append(c);
+        results.add(sb.toString());
     }
 
 }

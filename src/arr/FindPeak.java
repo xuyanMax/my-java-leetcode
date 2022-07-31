@@ -1,13 +1,14 @@
 package arr;
+
 public class FindPeak {
 
     public static void main(String[] args) {
 
         int[][] problem = new int[][]{{0, 0, 9, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 8, 9},
                 {0, 2, 0, 0, 0, 0, 0}, {0, 3, 0, 0, 0, 0, 0}, {0, 5, 0, 0, 0, 0, 0}, {0, 4, 7, 0, 0, 0, 0}};
-        int a =1;
-        int b =-1;
-        System.out.println(~a+1);
+        int a = 1;
+        int b = -1;
+        System.out.println(~a + 1);
     }
 
     static int findPeakSolution(int[][] problem, int left, int right) {

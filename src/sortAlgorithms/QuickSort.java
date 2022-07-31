@@ -40,7 +40,7 @@ public class QuickSort {
         int pivot;
 
         if (low < high) {
-            pivot = partition2(arr, low, high);
+            pivot = partition3(arr, low, high);
             quickSorting(arr, low, pivot - 1);
             quickSorting(arr, pivot + 1, high);
         }
@@ -68,7 +68,7 @@ public class QuickSort {
     /*
      * median-of-three
      */
-    public int partition2(int[] arr, int low, int high) {
+    public int median_of_three(int[] arr, int low, int high) {
 
         int pivotKey;
         int m = (low + high) / 2;
