@@ -41,16 +41,16 @@ public class TopKFrequent {
         List<Integer>[] listArr = new List[max + 1];
 
         for (Map.Entry<Integer, Integer> entry : maps.entrySet()) {
-            if (listArr[entry.getValue()] == null) {
+            if (listArr[entry.getValue()] == null)
                 listArr[entry.getValue()] = new ArrayList<>();
-            }
+
             listArr[entry.getValue()].add(entry.getKey());
 
         }
-        for (int i = listArr.length - 1; i >= 1 && result.size() < k; i--) {
+        for (int i = listArr.length - 1; i >= 1 && result.size() < k; i--)
             if (listArr[i] != null)
                 result.addAll(listArr[i]);
-        }
+
 
         return result.subList(0, k);
 //		return result;
