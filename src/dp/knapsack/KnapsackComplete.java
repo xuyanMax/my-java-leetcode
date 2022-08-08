@@ -18,6 +18,7 @@ public class KnapsackComplete {
 
     // dp[i][j] = max(dp[i-1][j], dp[i-1][j-k*wgt[i]] + k*val[i]) k in [0:W/wgt[i]]
     // 需要求解N*W个状态，每个状态求解时间-非constant, j/wgt[i]
+    // 求这个背包至多能装多大价值的物品？
     // 复杂度 O(N*V*sum(W/wgt[i]))
     // 空间O(n*W)
     public int CompleteKnapsack(int[] val, int[] wgt, int[] count, int W, int n) {
@@ -37,6 +38,7 @@ public class KnapsackComplete {
     // 拆分,利用"二进制思想"：把第i个item拆分为多个item，wgt为wgt[i]*2^k, val=val[i]*2^i
     // 拆分可靠性：不管最后选择了几件第i个item，其和总可以表达成若个2^k件物品之和。
     // 算法复杂度 O(Nnew*W), Nnew = sum(lg(W/wgt[i]))
+    // 求这个背包至多能装多大价值的物品？
     public int CompleteKnapsack2(Integer[] val, Integer[] wgt, int W, int n) {
 
         // 拆分item
@@ -74,12 +76,14 @@ public class KnapsackComplete {
     //这是最优解 O(NW)
     // dp[i][j] = max(dp[i-1][j], dp[i][j-wgt[i]] + val[i]);
     // 循环方式：顺序循环（O(n)空间解）
-    // 完全背包，不限次数，与0/1背包
+    // 完全背包，不限次数，与0/1背包  
     // dp[i][j] = max(dp[i-1][j], dp[i][j - wgt[i]] + val[i])
     // 这里的dp[i][j - wgt[i] + val[i]]而不是dp[i-1][...]
     // 原因是，0/1背包中，dp[i][j]的状态是由dp[i-1][j-wgt[i]]推出来的，即为了保证每个物品只选一次，保证在"考虑选择物品i"策略时，
-    // 依据绝无可能选入物品i的子结果dp[i-1][j-wgt[i]]。然而，完全背包，不限制个数，则"考虑选择物品i"这种策略时，需要考虑"可能入选了物品i"的字结果
+    // 依据绝无可能选入物品i的子结果dp[i-1][j-wgt[i]]。
+    // 然而，完全背包，不限制个数，则"考虑选择物品i"这种策略时，需要考虑"可能入选了物品i"的子结果
     // dp[i][j - wgt[i]]，因此必须采用j = wgt[i]:W的顺序循环
+    // 求这个背包至多能装多大价值的物品？
 
     // 时间复杂度O(N*W)
     // 空间O(W)
@@ -91,6 +95,20 @@ public class KnapsackComplete {
                 dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - wgt[i - 1]] + val[i - 1]);
 
         return dp[n][W];
+    }
+
+    //若背包恰好装满，求至多能装多大价值的物品？
+    public int optimal_CompleteKnapsack_2(int[] val, int[] weight, int W) {
+        int[] dp = new int[W + 1];
+        Arrays.fill(dp, Integer.MIN_VALUE);
+        dp[0] = 0;
+        for (int i = 1; i < val.length; i++)
+            for (int j = weight[i]; j <= W; j++)
+                dp[j] = Math.max(dp[j], dp[j - weight[i]] + val[i]);
+        // dp[W]小于零代表，无法得到恰好沾满背包的最大值解
+        return dp[W] > 0 ? dp[W] : 0;
+
+
     }
 
     // dd大牛模版

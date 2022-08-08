@@ -1,5 +1,7 @@
 package dp.knapsack;
 
+import java.util.Arrays;
+
 /**
  * Date 04/04/2014
  *
@@ -31,13 +33,35 @@ public class Knapsack01 {
     }
 
     // 空间复杂度O(W)
+
+    /**
+     * 状态定义：dp1[i]表示不考虑背包是否装满，在容量为i的情况下，最多装多大价值的物品。
+     * 状态转移：遍历所有的物品，要么选择当前物品，要么不选，取价值最大的，并且通过这种方式跟新所有情况的状态。
+     * 即dp1[j]=Math.max(dp1[j−v[i]]+w[i],dp1[j])
+     *
+     * @return
+     */
     public int solution2(int[] val, int[] wt, int W) {
         int[] dp = new int[W + 1];
         int M = val.length;
-        for (int i = 1; i <= W; i++)
-            for (int j = M; j >= wt[i - 1]; j--)
+        for (int i = 1; i <= M; i++)
+            for (int j = W; j >= wt[i - 1]; j--)
                 dp[j] = Math.max(dp[j], dp[j - wt[i - 1]] + val[i - 1]);
         return dp[W]; //输出最优解
+    }
+
+    /**
+     * 状态定义：dp2[i]表示背包恰好装满时，在容量为i的情况下，最多装多大价值的物品。
+     * 状态初始化：将背包容量为0的情况设置价值为0，其它情况设置为最小的Integer型整数，表示不可达状态。后续所有的状态都需要从为0的状态转移过去。
+     */
+    public int solution_(int[] weight, int[] val, int W) {
+        int[] dp = new int[W + 1];
+        Arrays.fill(dp, Integer.MIN_VALUE);
+        dp[0] = 0;
+        for (int i = 1; i <= weight.length; i++)
+            for (int j = W; j >= weight[i]; j--)
+                dp[j] = Math.max(dp[j], dp[j - weight[i]] + val[i]);
+        return dp[W];
     }
 
     //dd大牛模版
@@ -54,5 +78,6 @@ public class Knapsack01 {
         for (int j = W; j >= wgt[i - 1]; j--)
             dp[j] = Math.max(dp[j], dp[j - wgt[i - 1]] + val[i - 1]);
     }
+
 
 }
