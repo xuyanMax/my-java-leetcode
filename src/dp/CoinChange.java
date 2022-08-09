@@ -63,7 +63,7 @@ public class CoinChange {
         Arrays.fill(dp, amount + 1);
 
         dp[0] = 0;
-        Arrays.sort(coins);
+        //Arrays.sort(coins);
         for (int i = 0; i < dp.length; i++)
             for (int j = coins[i]; j <= amount; j++)
                 dp[j] = Math.min(dp[j - coins[i]] + 1, dp[j]);
