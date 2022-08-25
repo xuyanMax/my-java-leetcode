@@ -60,7 +60,6 @@ public class SortCharsByFrequency {
 
     public static void main(String[] args) {
         System.out.println(frequencySort("treestsasdf"));
-
     }
 
     public static String frequencySort(String s) {

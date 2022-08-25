@@ -12,7 +12,8 @@ import java.util.List;
  * The other solution finds all placements of queens on board.
  * <p>
  * <p>
- * Time complexity  - O(N!) T(N) = N*(T(N-1) + O(1))
+ * Time complexity  - O(N!)
+ * T(N) = N*(T(N-1) + O(1))
  * Space complexity - O(N*N)
  * <p>
  * <p>
@@ -35,11 +36,13 @@ public class NQueens {
     public static void main(String[] args) {
 
         NQueens nQueens = new NQueens();
+        // initialize N queens as there are only N in any N*N Matrix
         Position[] positions = nQueens.solveNQueenOneSolution(4);
+        // iterate over queens positions
         Arrays.stream(positions).forEach(position -> System.out.println(position.row + " " + position.col));
 
-        List<List<String>> results = nQueens.solveNQueens(8);
-        System.out.println(results);
+        List<List<String>> results = nQueens.solveNQueens(4);
+        results.forEach(e -> System.out.println(e));
     }
 
     public Position[] solveNQueenOneSolution(int N) {
@@ -82,8 +85,7 @@ public class NQueens {
                 positions[row] = new Position(row, col);
 
                 /* recur (occur repeatedly) to the rest of queens */
-                if (solveNQueenOneSolutionUtil(N, row + 1, positions))
-                    return true;
+                if (solveNQueenOneSolutionUtil(N, row + 1, positions)) return true;
             }
         }
         /* if queen cannot be placed in any col in this row, then return false*/
@@ -94,45 +96,55 @@ public class NQueens {
     public List<List<String>> solveNQueens(int N) {
         List<List<String>> results = new ArrayList<>();
         Position[] positions = new Position[N];
-        solve(0, positions, results, N);
+        // start from first row = 0
+        solveNQueens_solve(0, positions, results, N);
 
         return results;
     }
 
-    public void solve(int row, Position[] positions, List<List<String>> results, int N) {
-        if (N == row) {
-            StringBuilder buff = new StringBuilder();
+    public void solveNQueens_solve(int ROW, Position[] positions, List<List<String>> results, int N) {
+
+        if (N == ROW) {
+            StringBuilder builder = new StringBuilder();
             List<String> oneResult = new ArrayList<>();
 
             for (Position p : positions) {
                 for (int col = 0; col < N; col++) {
                     if (p.col == col)
-                        buff.append("Q");
+                        builder.append("Q");
                     else
-                        buff.append(".");
+                        builder.append(".");
+
+                    oneResult.add(builder.toString());
+                    builder = new StringBuilder();
                 }
-                oneResult.add(buff.toString());
-                buff = new StringBuilder();
+                System.out.println(oneResult);
             }
             results.add(oneResult);
             return;
 
         }
-
+        // for a particular ROW and compare column and diagonals
+        // if delta(col, ROW) equals, same diagonal1;
+        // if sum(col, ROW) equals, same diagonal2.
         for (int col = 0; col < N; col++) {
             boolean isSafe = true;
-            for (int queen = 0; queen < row; queen++) {
-                if (positions[queen].col == col || positions[queen].row + positions[queen].col == col + row || positions[queen].row - positions[queen].col == row - col) {
+            // checking rows 0:ROW
+            for (int queen = 0; queen < ROW; queen++) {
+                if (positions[queen].col == col ||
+                        positions[queen].row + positions[queen].col == col + ROW ||
+                        positions[queen].row - positions[queen].col == ROW - col) {
                     isSafe = false;
                     break;
                 }
 
             }
             if (isSafe) {
-                positions[row] = new Position(row, col); // positions[row] will be overwritten.
-                solve(row + 1, positions, results, N);
-            }//else un        make it
+                positions[ROW] = new Position(ROW, col); // positions[ROW] will be overwritten.
+                solveNQueens_solve(ROW + 1, positions, results, N);
+            }//else unmake it
         }
     }
+
 
 }

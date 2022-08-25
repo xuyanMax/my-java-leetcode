@@ -54,13 +54,14 @@ public class Knapsack01 {
      * 状态定义：dp2[i]表示背包恰好装满时，在容量为i的情况下，最多装多大价值的物品。
      * 状态初始化：将背包容量为0的情况设置价值为0，其它情况设置为最小的Integer型整数，表示不可达状态。后续所有的状态都需要从为0的状态转移过去。
      */
-    public int solution_(int[] weight, int[] val, int W) {
+    public int solution_exact(int[] weight, int[] val, int W) {
         int[] dp = new int[W + 1];
+        //初始化不同 - 恰好装满和不强调恰好装满，区别在初始化。如果装不满，那么初始值设置为不可达，负无穷。
         Arrays.fill(dp, Integer.MIN_VALUE);
         dp[0] = 0;
         for (int i = 1; i <= weight.length; i++)
             for (int j = W; j >= weight[i]; j--)
-                dp[j] = Math.max(dp[j], dp[j - weight[i]] + val[i]);
+                dp[j] = Math.max(dp[j], dp[j - weight[i - 1]] + val[i - 1]);
         return dp[W];
     }
 

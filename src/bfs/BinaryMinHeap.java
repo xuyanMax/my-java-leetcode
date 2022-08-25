@@ -81,6 +81,11 @@ public class BinaryMinHeap<T> {
         }
     }
 
+    public int parentIndex(int index) {
+        return index / 2;
+
+    }
+
     /**
      * Get the heap min without extracting the key
      */
