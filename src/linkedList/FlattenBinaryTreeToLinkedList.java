@@ -15,16 +15,16 @@ package linkedList;
  * Favorite
  *
  * Share
- * Given a binary tree, flatten it to a linked list in-place.
+ * Given a binary graph.tree, flatten it to a linked list in-place.
  *
- * For example, given the following tree:
+ * For example, given the following graph.tree:
  *
  *     1
  *    / \
  *   2   5
  *  / \   \
  * 3   4   6
- * The flattened tree should look like:
+ * The flattened graph.tree should look like:
  *
  * 1
  *  \

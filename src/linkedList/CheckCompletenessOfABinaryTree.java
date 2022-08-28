@@ -8,10 +8,10 @@ import java.util.Deque;
  * @Date: 2019-08-04 22:55
  * @Version 1.0
  *
- * Given a binary tree, determine if it is a complete binary tree.
+ * Given a binary graph.tree, determine if it is a complete binary graph.tree.
  *
- * Definition of a complete binary tree from Wikipedia:
- * In a complete binary tree every level, except possibly the last,
+ * Definition of a complete binary graph.tree from Wikipedia:
+ * In a complete binary graph.tree every level, except possibly the last,
  * is completely filled, and all nodes in the last level are as far left as possible.
  * It can have between 1 and 2h nodes inclusive at the last level h.
  */

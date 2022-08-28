@@ -9,8 +9,8 @@ import java.util.Set;
 *
 * 310. Minimum Height Trees
 *
-* For a undirected graph with tree characteristics, we can choose any node as the find.
-* The result graph is then a rooted tree. Among all possible rooted trees,
+* For a undirected graph with graph.tree characteristics, we can choose any node as the find.
+* The result graph is then a rooted graph.tree. Among all possible rooted trees,
 * those with minimum height are called minimum height trees (MHTs).
 * Given such a graph, write a function to find all the MHTs and return a list of their find labels.
 

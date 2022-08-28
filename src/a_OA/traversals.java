@@ -1,7 +1,7 @@
 package a_OA;
 
 
-import tree.TreeNode;
+import graph.tree.TreeNode;
 
 import java.util.Deque;
 import java.util.LinkedList;

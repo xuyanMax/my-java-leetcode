@@ -8,9 +8,9 @@ package graph;
  *
  *
  * In computer science, Prim's (also known as Jarník's) algorithm is a greedy algorithm that
- * finds a minimum spanning tree for a weighted undirected graph.
- * This means it finds a subset of the edges that forms a tree that includes every vertex,
- * where the total weight of all the edges in the tree is minimized
+ * finds a minimum spanning graph.tree for a weighted undirected graph.
+ * This means it finds a subset of the edges that forms a graph.tree that includes every vertex,
+ * where the total weight of all the edges in the graph.tree is minimized
  */
 public class PrimMST2 {
 

@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class CoinChange {
 
     // 递归算法求解
-    //dfs(amount) - 代表当前的目标金额是amount，至少需要dfs(amount)个硬币凑出该金额
+    //graph.tree.dfs(amount) - 代表当前的目标金额是amount，至少需要dfs(amount)个硬币凑出该金额
     //时间复杂度 O(n^k * k); n=amount
     public int dfs_bruteforce(int[] coins, int amount) {
         if (amount == 0) return 0;

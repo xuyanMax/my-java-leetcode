@@ -17,7 +17,7 @@ import java.util.Map;
  * decreaseKey - O(logn)
  * getKeyWeight - O(1)
  * <p>
- * It is a combination of binary heap and hash map
+ * It is a combination of binary arr.heap and hash map
  */
 public class BinaryMinHeap<T> {
 
@@ -49,14 +49,14 @@ public class BinaryMinHeap<T> {
     }
 
     /**
-     * Checks whether the key exists in heap or not
+     * Checks whether the key exists in arr.heap or not
      */
     public boolean containsData(T key) {
         return nodePosition.containsKey(key);
     }
 
     /**
-     * Add key and its weight to the heap
+     * Add key and its weight to the arr.heap
      */
     public void add(int weight, T key) {
         Node node = new Node(weight, key);
@@ -72,7 +72,7 @@ public class BinaryMinHeap<T> {
             Node currentNode = allNodes.get(index);
 
             if (parentNode.weight > currentNode.weight) {
-                swap(parentNode, currentNode);// updateHighestHeightBtwLR heap index
+                swap(parentNode, currentNode);// updateHighestHeightBtwLR arr.heap index
                 updatePositionMap(parentNode.key, currentNode.key, parentIndex, index);
                 index = parentIndex;
                 parentIndex = (parentIndex - 1) / 2;
@@ -83,14 +83,14 @@ public class BinaryMinHeap<T> {
     }
 
     /**
-     * Get the heap min without extracting the key
+     * Get the arr.heap min without extracting the key
      */
     public T min() {
         return allNodes.get(0).key;
     }
 
     /**
-     * Checks with heap is empty or not
+     * Checks with arr.heap is empty or not
      */
     public boolean empty() {
         return allNodes.size() == 0;
@@ -131,7 +131,7 @@ public class BinaryMinHeap<T> {
     }
 
     /**
-     * Returns the min val of the heap
+     * Returns the min val of the arr.heap
      */
     public Node extractMinNode() {
         int size = allNodes.size() - 1;
@@ -153,7 +153,7 @@ public class BinaryMinHeap<T> {
         int currentIndex = 0;
         size--;
 
-        // adjust the binary min heap
+        // adjust the binary min arr.heap
         while (true) {
             int left = 2 * currentIndex + 1;
             int right = 2 * currentIndex + 2;
@@ -177,7 +177,7 @@ public class BinaryMinHeap<T> {
     }
 
     /**
-     * Extract min value key from the heap
+     * Extract min value key from the arr.heap
      */
     public T extractMin() {
         Node node = extractMinNode();

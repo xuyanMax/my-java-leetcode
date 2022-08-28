@@ -122,10 +122,10 @@ public class Twitter {
 
     // Best part of this.
     // first get all tweets lists from one user including itself and all people it followed.
-    // Second add all head-tweets into a max heap. Every time we poll a tweet with
-    // the large st time stamp from the heap, then we add its next tweet into the heap.
+    // Second add all head-tweets into a max arr.heap. Every time we poll a tweet with
+    // the large st time stamp from the arr.heap, then we add its next tweet into the arr.heap.
     // So after adding all heads we only need to add 9 tweets at most into this
-    // heap before we get the 10 most recent tweet.
+    // arr.heap before we get the 10 most recent tweet.
     public List<Integer> getNewsFeed(int userId) {
         List<Integer> res = new LinkedList<>();
 

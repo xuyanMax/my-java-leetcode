@@ -1,11 +1,8 @@
 package hashtable;
 
-import sortAlgorithms.RadixSort;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Created by xu on 25/08/2017.

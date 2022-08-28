@@ -6,9 +6,9 @@ import java.util.ArrayDeque;
  * 链接：https://www.nowcoder.com/questionTerminal/e08819cfdeb34985a8de9c4e6562e724?orderByHotValue=1&questionTypes=000100&difficulty=00010&page=2&onlyReference=false
  * 来源：牛客网
  * <p>
- * [编程题]minimum-depth-of-binary-tree
+ * [编程题]minimum-depth-of-binary-graph.tree
  * 热度指数：97418时间限制：1秒空间限制：32768K
- * Given a binary tree, find its minimum depth.
+ * Given a binary graph.tree, find its minimum depth.
  * The minimum depth is the number of nodes along the shortest path
  * from the root node down to the nearest leaf node.
  */

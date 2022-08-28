@@ -16,7 +16,7 @@ public class VerifyPreorderSerialization {
 	 * 1、non-null node provides two outdegree and one indegree except root
 	 * 2、null node provides one indegree and 0 outdegree.
 	 * 
-	 * As we are building this binary tree, we record the difference between outdegree and indegree (diff = out - in).
+	 * As we are building this binary graph.tree, we record the difference between outdegree and indegree (diff = out - in).
 	 * When the next node comes, we first decrease diff by 1 (indegree); if the node is non-null, add diff by 2 (two outdegrees).
 	 * 
 	 * If the serialization is correct, the diff will be non-negative, otherwise invalid.

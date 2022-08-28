@@ -79,7 +79,7 @@ public class SuperUglyNumbers {
         return dp[n-1];
     }
     /*==============================OPTIMIZED==========================================*/
-    // heap
+    // arr.heap
 
     public int nthSuperUglyNumber_heap(int n, int[] primes) {
         PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>() {

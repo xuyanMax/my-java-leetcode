@@ -41,7 +41,7 @@ public class KruskalMST {//最小生成树
                     edge.getVertex2().getID() + " : " + edge.getWeight());
             sum += edge.getWeight();
         }
-        System.out.println("Minimum spanning tree weight " + sum);
+        System.out.println("Minimum spanning graph.tree weight " + sum);
     }
 
     public class EdgeComparator implements Comparator<Edge<Integer>> {

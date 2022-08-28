@@ -101,7 +101,7 @@ public class KruskalMST2 {
             ds[i].parent = i;
         }
 
-        // minimum spanning tree contains at most V-1 edges
+        // minimum spanning graph.tree contains at most V-1 edges
         i = 0; // index used to pick next edge
         while (count < V - 1) {// E == V - 1是最少边
             //依次挑选最小的边

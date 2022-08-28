@@ -4,7 +4,7 @@ public class SnowFlake {
     /**
      * 起始的时间戳
      */
-    private final static long START_STMP = 1480166465631L;
+    private final static long START_STAMP = 1480166465631L;
 
     /**
      * 每一部分占用的位数
@@ -42,7 +42,7 @@ public class SnowFlake {
         this.datacenterId = datacenterId;
         this.machineId = machineId;
     }
-    
+
     /**
      * 产生下一个ID
      *
@@ -68,7 +68,7 @@ public class SnowFlake {
 
         lastStmp = currStmp;
 
-        return (currStmp - START_STMP) << TIMESTMP_LEFT //时间戳部分
+        return (currStmp - START_STAMP) << TIMESTMP_LEFT //时间戳部分
                 | datacenterId << DATACENTER_LEFT       //数据中心部分
                 | machineId << MACHINE_LEFT             //机器标识部分
                 | sequence;                             //序列号部分
@@ -90,10 +90,11 @@ public class SnowFlake {
         SnowFlake snowFlake = new SnowFlake(2, 3);
 
         System.out.println(SnowFlake.MAX_DATACENTER_NUM);
+
         System.out.println(-1L ^ (-1L << 4));
-//        for (int i = 0; i < (1 << 12); i++) {
-//            System.out.println(snowFlake.nextId());
-//        }
+        for (int i = 0; i < (1 << 12); i++) {
+            System.out.println(snowFlake.nextId());
+        }
 
     }
 }

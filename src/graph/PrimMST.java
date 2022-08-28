@@ -44,7 +44,7 @@ public class PrimMST {
         //stores final result
         List<Edge<Integer>> result = new ArrayList<>();
 
-        //	binary heap + map val structure
+        //	binary arr.heap + map val structure
         BinaryMinHeap<Vertex<Integer>> dists = new BinaryMinHeap<>();
 
         //	map of vertex to edge which gave min cost to this vertex.
@@ -57,7 +57,7 @@ public class PrimMST {
         // start mst from any random vertex
         Vertex<Integer> startVertex = graph.getAllVertex().iterator().next();
 
-        //for the start vertex decrease the value in heap + map to 0
+        //for the start vertex decrease the value in arr.heap + map to 0
         dists.decrease(startVertex, 0);
 
         while (!dists.empty()) {
@@ -75,7 +75,7 @@ public class PrimMST {
             for (Edge<Integer> edge : curr.getEdges()) {
                 Vertex<Integer> adj = getVertexForEdge(curr, edge);
 
-                //check if adjacent vertex exist in heap + map and weight attached
+                //check if adjacent vertex exist in arr.heap + map and weight attached
                 //with this vertex is greater than this edge weight
 
                 if (dists.containsData(adj) && dists.getWeight(adj) > edge.getWeight()) {

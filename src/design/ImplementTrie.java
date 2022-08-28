@@ -9,7 +9,7 @@ public class ImplementTrie {
 
     class TrieNode {
         public boolean isWord;
-        public TrieNode[] children = new TrieNode[26];// 链表的形式存储sub-tree
+        public TrieNode[] children = new TrieNode[26];// 链表的形式存储sub-graph.tree
 
         public TrieNode() {
         }
