@@ -99,6 +99,7 @@ public class MinPhysicalStrengthPath {
             if (d > dist[src][dest]) continue;
             if (src == m - 1 && dest == n - 1) return d;
 
+
             for (int[] edge : getAdj(heights, src, dest)) {
                 int nX = edge[0], nY = edge[1];
                 int newDist = Math.max(dist[src][dest], Math.abs(heights[nX][nY] - heights[src][dest]));
