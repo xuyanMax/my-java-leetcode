@@ -32,7 +32,7 @@ public class SlidingWindowMedian {
 
     /*****************************************************
      *
-     *            PRIORITY QUEUES
+     *            PRIORITY QUEUES: need rebalance after each Add and Remove operations.
      *
      ******************************************************/
     Queue<Integer> small = new PriorityQueue<>(Collections.reverseOrder());// smaller part descending order
@@ -61,10 +61,14 @@ public class SlidingWindowMedian {
     }
 
     public void add(int toAdded) {
-        if (toAdded < getMedian()) // toAdded should lie in small
+        // toAdded should lie in small
+        if (toAdded < getMedian()) {
             small.add(toAdded);
-        else
+        } else {
             large.add(toAdded);
+        }
+
+        // re-balance in case nums are added to only one queuee
         reBalance();
     }
 
@@ -73,13 +77,13 @@ public class SlidingWindowMedian {
             small.remove(toRemove);
         else
             large.remove(toRemove);
-
+        // when remove an element from smaller queue, we need re-balance the size
         reBalance();
 
     }
 
     public void reBalance() {
-        // re-balance the two queues
+        // re-balance the two queues, making sure either they are equal size or smaller is 1 size over than larger.
         if (small.size() < large.size())
             small.add(large.poll());
         else if (small.size() - large.size() > 1)
