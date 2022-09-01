@@ -19,6 +19,8 @@ import java.util.PriorityQueue;
  */
 public class medianSlidingWindow {
 
+    //TreeSet or PQ
+    // TreeSet<Integer> asc_larger = new TreeSet<>();
     PriorityQueue<Integer> desc_smaller = new PriorityQueue<>(Collections.reverseOrder());
     PriorityQueue<Integer> asc_larger = new PriorityQueue<>();
 

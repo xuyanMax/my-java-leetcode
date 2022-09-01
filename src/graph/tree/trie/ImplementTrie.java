@@ -32,7 +32,7 @@ public class ImplementTrie {
             head = head.children[c - 'a'];
         }
         // after we loop through the input string, the Node we left off on is marked as a 'word' that allows
-        // our Trie to to know which words exist in our dictionary
+        // our Trie know which words exist in our dictionary
         head.isWord = true;
     }
 

@@ -25,7 +25,7 @@ public class Four4Sum2 {
         for (int c : C) {
             for (int d : D) {
                 int sum = c + d;
-                ret += maps.getOrDefault(-(c + d), 0);
+                ret += maps.getOrDefault(-sum, 0);
             }
         }
         return ret;

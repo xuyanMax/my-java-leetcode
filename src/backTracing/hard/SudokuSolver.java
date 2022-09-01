@@ -38,30 +38,12 @@ public class SudokuSolver {
 
     }
 
-    static void printCharArr(char[][] board) {
-        for (char[] char1d : board) {
-            for (char c : char1d)
-                System.out.print(c);
-            System.out.println("");
-        }
-    }
-
     // algorithm
     static void solveSudoku(char[][] board) {
 
         if (board == null || board.length == 0)
             return;
         solve(board);
-    }
-
-    /* This function finds an entry in grid that is still unassigned*/
-    static boolean findUnassignedLocation(int[][] board) {
-
-        for (int i = 0; i < board.length; i++)
-            for (int j = 0; j < board[0].length; j++)
-                if (board[i][j] == 0)
-                    return true;
-        return false;
     }
 
     static boolean solve(char[][] board) {
@@ -95,5 +77,15 @@ public class SudokuSolver {
 
         return true;
     }
+
+
+    static void printCharArr(char[][] board) {
+        for (char[] char1d : board) {
+            for (char c : char1d)
+                System.out.print(c);
+            System.out.println("");
+        }
+    }
+
 
 }

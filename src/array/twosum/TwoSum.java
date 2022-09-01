@@ -1,6 +1,6 @@
 package array.twosum;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -30,15 +30,17 @@ public class TwoSum {
 
     /*
      * O(n) time complexity
+     * return indices
      *
      * */
     public int[] hash_sol(int[] arr, int target) {
-        Map<Integer, Integer> hash = new Hashtable<>();
+        Map<Integer, Integer> index = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
-            if (hash.containsKey(target - arr[i]))
-                return new int[]{i, hash.get(target - arr[i])};
-            hash.put(arr[i], i);
+            if (index.containsKey(target - arr[i]) && i != index.get(target - arr[i]))
+                return new int[]{i, index.get(target - arr[i])};
+            index.put(arr[i], i);
         }
-        return new int[]{};
+        return new int[]{-1, -1};
     }
+
 }

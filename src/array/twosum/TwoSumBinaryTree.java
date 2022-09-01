@@ -12,12 +12,12 @@ import java.util.List;
  * return true if there exist two elements in the BST such that their sum is equal to the given target.
  * <p>
  * Example 1:
- * Input:
- * 5
- * / \
- * 3   6
- * / \   \
- * 2   4   7
+     * Input:
+         *  5
+         * / \
+         * 3   6
+         * / \   \
+         * 2   4   7
  * <p>
  * Target = 9
  * <p>
@@ -34,7 +34,7 @@ import java.util.List;
  * <p>
  * Output: False
  */
-public class  TwoSum4InputBST {
+public class TwoSumBinaryTree {
     class TreeNode {
         TreeNode left, right;
         int val;
@@ -55,11 +55,13 @@ public class  TwoSum4InputBST {
         set = new HashSet<>();
         return dfs(root, k);
     }
-
+    //前序遍历
     public boolean dfs(TreeNode root, int k) {
         if (root == null) return false;
         if (set.contains(k - root.val)) return true;
+
         set.add(root.val);
+
         return dfs(root.left, k) || dfs(root.right, k);
     }
 
