@@ -1,4 +1,4 @@
-package graph.tree.dfs.hard;
+package graph.tree.dfs.islands;
 //827. Making A Large Island
 
 import javafx.util.Pair;

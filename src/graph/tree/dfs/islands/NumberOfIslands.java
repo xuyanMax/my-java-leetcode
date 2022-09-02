@@ -1,4 +1,4 @@
-package graph.tree.dfs.easy;
+package graph.tree.dfs.islands;
 
 /**
  * Created by xu on 19/08/2017.
@@ -45,7 +45,8 @@ public class NumberOfIslands {
 
         return islands;
     }
-
+    // 为什么每次遇到岛屿，都要用 DFS 算法把岛屿「淹了」呢？主要是为了省事，避免维护visited数组
+    // 从 (x,y) 开始，将与之相邻的陆地都变成海水
     public void dfs(char[][] grid, int x, int y) {
         //边界条件判断
         if (x < 0 || x >= grid.length || y < 0 || y > grid[0].length
@@ -53,6 +54,7 @@ public class NumberOfIslands {
             return;
 
         // 标记访问信息:visited
+        // 将 (x, y) 变成海水
         grid[x][y] = '0';
 
         // 向四个方向探索

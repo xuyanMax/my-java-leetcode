@@ -1,4 +1,4 @@
-package graph.tree.dfs.easy;
+package graph.tree.dfs.islands;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -12,20 +12,28 @@ public class MaxAreaIslands {
         for (int i = 0; i < grid.length; i++)
             for (int j = 0; j < grid[0].length; j++)
                 if (grid[i][j] == 1)
-                    max_area = Math.max(max_area, AreaOfIsland(grid, i, j));
+                    max_area = Math.max(max_area, dfs(grid, i, j));
         return max_area;
     }
 
-    public int AreaOfIsland(int[][] grid, int i, int j) {
-        if (i >= 0 && i < grid.length && j >= 0 && j < grid[0].length && grid[i][j] == 1) {
-            grid[i][j] = 0;
-            return 1 +
-                    AreaOfIsland(grid, i + 1, j) +
-                    AreaOfIsland(grid, i - 1, j) +
-                    AreaOfIsland(grid, i, j - 1) +
-                    AreaOfIsland(grid, i, j + 1);
+    public int dfs(int[][] grid, int i, int j) {
+
+        int m = grid.length, n = grid[0].length;
+        if (i < 0 || j < 0 || i >= m || j >= n) {
+            // 超出索引边界
+            return 0;
         }
-        return 0;
+        if (grid[i][j] == 0) {
+            // 已经是海水了
+            return 0;
+        }
+        // 将 (i, j) 变成海水
+        grid[i][j] = 0;
+
+        return dfs(grid, i + 1, j)
+                + dfs(grid, i, j + 1)
+                + dfs(grid, i - 1, j)
+                + dfs(grid, i, j - 1) + 1;
     }
 
     // graph.tree.bfs
