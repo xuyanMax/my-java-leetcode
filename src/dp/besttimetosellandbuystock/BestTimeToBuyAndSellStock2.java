@@ -49,7 +49,7 @@ public class BestTimeToBuyAndSellStock2 {
      * @return
      */
 
-    public int maxProfit2(int[] prices) {
+    public static int maxProfit_K_is_infinity(int[] prices) {
         if (prices == null || prices.length == 0) return 0;
         int tik0 = 0, tik1 = -prices[0];
         for (int i = 1; i < prices.length; i++) {

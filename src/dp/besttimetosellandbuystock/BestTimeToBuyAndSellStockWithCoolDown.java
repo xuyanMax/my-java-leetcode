@@ -5,7 +5,7 @@ package dp.besttimetosellandbuystock;
  * Buy MANY transactions but you cant buy on ith day if you sell on i-1 day
  */
 public class BestTimeToBuyAndSellStockWithCoolDown {
-    public int maxProfit(int[] prices) {
+    public int maxProfit_k_is_inf_with_cooldown(int[] prices) {
         if (prices == null || prices.length == 0) return 0;
         // tik0_pre
         // updateHighestHeightBtwLR tik0_pre
