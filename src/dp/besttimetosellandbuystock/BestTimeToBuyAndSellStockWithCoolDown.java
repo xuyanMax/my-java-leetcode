@@ -6,7 +6,8 @@ package dp.besttimetosellandbuystock;
  */
 public class BestTimeToBuyAndSellStockWithCoolDown {
     public int maxProfit_k_is_inf_with_cooldown(int[] prices) {
-        if (prices == null || prices.length == 0) return 0;
+        if (prices == null || prices.length == 0)
+            return 0;
         // tik0_pre
         // updateHighestHeightBtwLR tik0_pre
         int tik0 = 0, tik1 = -prices[0], tik0_pre = 0;

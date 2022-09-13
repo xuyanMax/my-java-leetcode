@@ -43,7 +43,6 @@ public class TokenBucket {
             totalTokens -= numTokens;
             return numTokens;
         }
-
         return -1;
 
     }
@@ -54,6 +53,7 @@ public class TokenBucket {
         Thread.sleep(450);
         System.out.println(tb.acquireToken(3));//expect 3
         System.out.println(tb.acquireToken(4)); // expect 2 as the max is 5
+        System.out.println(tb.acquireToken(0)); // expect 0 as the max is 5
         Thread.sleep(200);
         System.out.println(tb.acquireToken(2));//expect 2
         System.out.println(tb.acquireToken(1));//expect 0
