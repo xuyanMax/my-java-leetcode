@@ -20,7 +20,6 @@ public class UF {
             parents[i] = i;
             size[i] = 1;
         }
-
     }
 
     //用size数组记录树的重量（节点个数），目的是让union后的树拥有平衡性，防止树结构退化为链表，影响操作效率

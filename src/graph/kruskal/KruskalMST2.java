@@ -1,4 +1,4 @@
-package graph;
+package graph.kruskal;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -56,7 +56,7 @@ public class KruskalMST2 {
     }
 
     // Find set of an element i and use path compression as well
-    public int find(disJoint[] ds, int i) {
+    public int find(DisjointSet[] ds, int i) {
         if (ds[i].parent != i)
             ds[i].parent = find(ds, ds[i].parent); // path compression
 
@@ -64,7 +64,7 @@ public class KruskalMST2 {
     }
 
     // do union to two sets of x and y using union by rank
-    public void union(disJoint[] ds, int x, int y) {
+    public void union(DisjointSet[] ds, int x, int y) {
         int xroot = ds[x].parent;
         int yroot = ds[y].parent;
 
@@ -92,11 +92,11 @@ public class KruskalMST2 {
 
         // create as many disjoint sets as the number of vertices
         // set its rank 0; set it parent itself
-        disJoint[] ds = new disJoint[V];
+        DisjointSet[] ds = new DisjointSet[V];
 
         // make #V set
         for (i = 0; i < V; i++) {
-            ds[i] = new disJoint();
+            ds[i] = new DisjointSet();
             ds[i].rank = 0;
             ds[i].parent = i;
         }
@@ -143,7 +143,7 @@ public class KruskalMST2 {
         }
     }
 
-    class disJoint {
+    class DisjointSet {
         int parent, rank;
     }
 

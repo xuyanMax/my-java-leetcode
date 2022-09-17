@@ -1,5 +1,8 @@
-package graph;
+package graph.kruskal;
 
+import graph.Edge;
+import graph.Graph;
+import graph.Vertex;
 import unionFind.DisjointSet;
 
 import java.util.ArrayList;
@@ -54,6 +57,13 @@ public class KruskalMST {//最小生成树
         }
     }
 
+    /**
+     * 将所有边按照权重从小到大排序，从权重最小的边开始遍历，如果这条边和mst中的其它边不会形成环，则这条边是最小生成树的一部分，
+     * 将它加入mst集合；否则，这条边不是最小生成树的一部分，不要把它加入mst集合。
+     *
+     * @param graph
+     * @return
+     */
     public List<Edge<Integer>> getMST(Graph<Integer> graph) {
         List<Edge<Integer>> allEdges = graph.getAllEdges();
 
@@ -68,15 +78,15 @@ public class KruskalMST {//最小生成树
         List<Edge<Integer>> res_mst = new ArrayList<Edge<Integer>>();
 
         for (Edge<Integer> e : allEdges) {
-            long root1 = dSet.findSet(e.getVertex1().getID());
-            long root2 = dSet.findSet(e.getVertex2().getID());
-            if (root1 == root2)
+
+            if (dSet.connected(e.getVertex1().getID(), e.getVertex2().getID()))
                 continue;
             else {
+                // add to mst
                 res_mst.add(e);
-                dSet.union(root1, root2);
+                //union
+                dSet.union(dSet.findSet(e.getVertex1().getID()), dSet.findSet(e.getVertex2().getID()));
             }
-
         }
         return res_mst;
 

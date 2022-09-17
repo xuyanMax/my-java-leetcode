@@ -86,6 +86,12 @@ public class DisjointSet { //并查集
         return findSet(maps.get(data)).val;
     }
 
+    public boolean connected(long id1, long id2) {
+        Node n1 = findSet(maps.get(id1));
+        Node n2 = findSet(maps.get(id2));
+        return n1 == n2;
+    }
+
     // find the representative of its set recursively and
     // do path compression as well (make the parent of the nodes along the path to representative as the representative)
     private Node findSet(Node node) {
