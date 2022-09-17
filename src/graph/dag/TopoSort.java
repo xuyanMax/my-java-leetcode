@@ -11,14 +11,13 @@ public class TopoSort {
     }
 
     public int[] topological(int adjacency_matrix[][]) throws NullPointerException {
-        int number_of_nodes = adjacency_matrix[0].length - 1;
-        int[] topological_sort = new int[number_of_nodes + 1];
-        int pos = 1;
+        int numNodes = adjacency_matrix[0].length - 1;
+        int[] topoPath = new int[numNodes + 1];
+        int pos = 1, count = 0;
         int curr;
 
-
         //将所有入度为0的入栈
-        int[] num_indegree = new int[number_of_nodes + 1];
+        int[] indegree = new int[numNodes + 1];
 
         /**
          *  GIVEN: m rows * n columns
@@ -36,33 +35,32 @@ public class TopoSort {
          */
 
 
-        for (int k = 1; k <= number_of_nodes; k++) {
-
-            for (int q = 1; q <= number_of_nodes; q++)
-                num_indegree[k] += adjacency_matrix[q][k];
-
-            if (num_indegree[k] == 0) {
-                stack.push(k);
-            }
+        for (int k = 1; k <= numNodes; k++) {
+            for (int q = 1; q <= numNodes; q++)
+                indegree[k] += adjacency_matrix[q][k];
+            if (indegree[k] == 0)
+                stack.addFirst(k);
         }
         //判断source是否在栈顶
         while (!stack.isEmpty()) {
             curr = stack.peek();
 
-            topological_sort[pos++] = stack.pop();
+            topoPath[pos++] = stack.removeFirst();
 
-            for (int i = 1; i <= number_of_nodes; i++) {
-
+            for (int i = 1; i <= numNodes; i++) {
                 if (adjacency_matrix[curr][i] == 1) {
-                    if (--num_indegree[i] == 0) {
-                        stack.push(i);
-                    }
-                    //重新开始匹配
+                    if (--indegree[i] == 0)
+                        stack.addFirst(i);
                 }
             }
 
         }
-        return topological_sort;
+
+        if (count != numNodes)
+            // 存在环，拓扑排序不存在
+            return new int[]{};
+
+        return topoPath;
     }
 
     public static void main(String... arg) {
@@ -152,12 +150,12 @@ public class TopoSort {
         // 后序代码位置
         onPath[s] = false;
     }
-    /**2.判断是否成环，如果是则返回环包含的节点**/
 
     /**
+     * 2. 判断是否成环，如果是则返回环包含的节点
      * 3. 拓扑排序，顺序输出成环包含的节点
+     * 只需要修改traverse方法即可
      **/
-    // 只需要修改traverse方法即可
     int[] topo_dfs_path(int num_nodes, int[][] prerequisites) {
         List<Integer>[] graph = buildGraph(num_nodes, prerequisites);
 
@@ -179,7 +177,7 @@ public class TopoSort {
     }
 
     List<Integer> postorder = new ArrayList<>();
-
+    //只要图中无环，那么我们就调用 traverse_dfs_topo_path 函数对图进行 DFS 遍历，记录后序遍历结果，最后把后序遍历结果反转，作为最终的答案。
     void traverse_dfs_topo_path(List<Integer>[] graph, int s) {
         // 代码见上文
         if (onPath[s])
