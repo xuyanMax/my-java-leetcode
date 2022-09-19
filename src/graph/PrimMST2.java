@@ -27,7 +27,7 @@ public class PrimMST2 {
          9          */
         int[][] graph = new int[][]{{0, 2, 0, 6, 0}, {2, 0, 3, 8, 5}, {0, 3, 0, 0, 7}, {6, 8, 0, 0, 9}, {0, 5, 7, 9, 0}};
         PrimMST2 primMST2 = new PrimMST2(graph.length);
-        primMST2.primMST(graph);
+        primMST2.primMST2(graph);
 
     }
 
@@ -36,7 +36,7 @@ public class PrimMST2 {
     }
 
     // construct and print mst for a graph represented by adjacency list
-    public void primMST(int[][] graph) {
+    public void primMST2(int[][] graph) {
         //存储 已经建成的mst
         int[] parent = new int[V];
         //代表  key value 是否已经包含在mst内
