@@ -12,7 +12,7 @@ public class NumArray {
         //nums 3 5 2
         //presum 0 3 8 10
         for (int i = 1; i < presum.length; i++)
-            presum[i] = presum[i - 1] + nums[i];
+            presum[i] = presum[i - 1] + nums[i - 1];
     }
 
     public int sumRange(int left, int right) {

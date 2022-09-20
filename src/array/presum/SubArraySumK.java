@@ -38,8 +38,7 @@ public class SubArraySumK {
         for (int j = 0; j < nums.length; j++) {
             presum_j += nums[j];
             presum_i = presum_j - k;
-            if (presum.containsKey(presum_i))
-                cnt += presum.get(presum_i);
+            cnt += presum.getOrDefault(presum_i, 0);
             presum.put(presum_j, presum.getOrDefault(presum_j, 0) + 1);
         }
         return cnt;
