@@ -29,49 +29,48 @@ The best way is to split it into [7,2,5] and [10,8],
 where the largest sum among the two subarrays is only 18.
 * */
 public class SplitArrayLargestSum {
-/*
-*
-#The answer is between maximum value of input array numbers and sum of those numbers.
+    /*
+    *
+    #The answer is between maximum value of input array numbers and sum of those numbers.
 
-Use binary search to approach the correct answer. We have l = max number of array;
-r = sum of all numbers in the array;Every time we do mid = (l + r) / 2;
-Use greedy to narrow down left and right boundaries in binary search.
-3.1 Cut the array from left.
-3.2 Try our best to make sure that the sum of numbers between each two cuts (inclusive) is
-    large enough but still less than mid.
-3.3 We’ll end up with two results: either we can divide the array into more than m subarrays or we cannot.
+    Use binary search to approach the correct answer. We have l = max number of array;
+    r = sum of all numbers in the array;Every time we do mid = (l + r) / 2;
+    Use greedy to narrow down left and right boundaries in binary search.
+    3.1 Cut the array from left.
+    3.2 Try our best to make sure that the sum of numbers between each two cuts (inclusive) is
+        large enough but still less than mid.
+    3.3 We’ll end up with two results: either we can divide the array into more than m subarrays or we cannot.
 
-    If we can, it means that the mid value we pick is too SMALL because we’ve already tried
-    our best to make sure each part holds as many non-negative numbers as we can but we still have numbers left.
-    So, it is impossible to cut the array into m parts and make sure each parts is no larger than mid.
-    We should INCREASE mid. This leads to l = mid + 1;
+        If we can, it means that the mid value we pick is too SMALL because we’ve already tried
+        our best to make sure each part holds as many non-negative numbers as we can but we still have numbers left.
+        So, it is impossible to cut the array into m parts and make sure each parts is no larger than mid.
+        We should INCREASE mid. This leads to l = mid + 1;
 
-    If we can’t, it is either we successfully divide the array into m parts and
-    the sum of each part is less than mid, or we used up all numbers before we reach m.
-    Both of them mean that we should LOWER mid because we need to find the minimum one. This leads to r = mid - 1;
-    * */
+        If we can’t, it is either we successfully divide the array into m parts and
+        the sum of each part is less than mid, or we used up all numbers before we reach m.
+        Both of them mean that we should LOWER mid because we need to find the minimum one. This leads to r = mid - 1;
+        * */
     public int splitArray(int[] nums, int m) {
-        int max = Integer.MIN_VALUE;
-        long sum = 0;
-        sum = Arrays.stream(nums).sum();
-        max = Arrays.stream(nums).reduce(Integer::max).getAsInt();
+        long sum = Arrays.stream(nums).sum();
+        int max = Arrays.stream(nums).reduce(Integer::max).getAsInt();
         long left = max;
         long right = sum;
         while (left <= right) {
-            long mid = left + (right - left)/2;
-            if (isValid(nums, m, mid)){
+            long mid = left + (right - left) / 2;
+            if (isValid(nums, m, mid)) {
                 right = mid - 1;
-            }else{
+            } else {
                 left = mid + 1;
             }
         }
-        return (int)left;
+        return (int) left;
     }
-    public boolean isValid(int[] nums, int m, long target){
+
+    public boolean isValid(int[] nums, int m, long target) {
         int presum = 0, count = 1;
-        for (int num:nums){
+        for (int num : nums) {
             presum += num;
-            if (presum > target){
+            if (presum > target) {
                 presum = num;
                 count++;
                 if (count > m) return false;

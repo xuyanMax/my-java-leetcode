@@ -1,4 +1,6 @@
-package unionFind;
+package graph.kruskal;
+
+import unionFind.UF;
 
 import java.util.ArrayList;
 import java.util.Collections;

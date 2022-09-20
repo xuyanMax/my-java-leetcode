@@ -1,4 +1,4 @@
-package twoPointers;
+package array.presum;
 
 /**
  * Created by xu on 18/08/2017.

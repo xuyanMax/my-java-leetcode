@@ -1,4 +1,4 @@
-package dp.medium;
+package array.presum;
 
 import java.util.HashMap;
 import java.util.HashSet;

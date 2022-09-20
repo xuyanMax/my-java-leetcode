@@ -37,6 +37,7 @@ public class UF {
             parents[k1p] = k2p;
             size[k2p] += size[k1p];
         }
+        // 两个连通分量合并成一个连通分量
         count--;
     }
 

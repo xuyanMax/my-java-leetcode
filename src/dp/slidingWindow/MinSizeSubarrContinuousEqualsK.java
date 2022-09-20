@@ -1,4 +1,4 @@
-package array.medium;
+package dp.slidingWindow;
 
 /**
  * @author xu
