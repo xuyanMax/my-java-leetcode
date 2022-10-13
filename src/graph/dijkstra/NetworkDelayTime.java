@@ -77,7 +77,7 @@ public class NetworkDelayTime {
         return res;
     }
 
-    // input a start, calculate the shortest distance between other nodes to start.
+    // input a start, calculate the shortest distance among other nodes to start.
     public int[] dijkstra(int start, List<int[]>[] graph) {
         // distToEnd[i] = distance between start and node graph[i]
         int[] distToEnd = new int[graph.length];
