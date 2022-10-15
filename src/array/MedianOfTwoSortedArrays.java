@@ -1,4 +1,4 @@
-package dp.medium;
+package array;
 
 /**
  * @Author: xyx

@@ -1,5 +1,7 @@
 package array.binarysearch;
 
+import org.junit.Test;
+
 /**
  * Created by xu on 2022/10/13 09:06.
  */
@@ -36,7 +38,7 @@ public class BinarySearch {
         }
         if (left >= nums.length || nums[left] != target)
             return -1;
-        return left; // == return right;
+        return left;
     }
 
     int right_bound(int[] nums, int target) {
@@ -52,5 +54,11 @@ public class BinarySearch {
         if (right < 0 || nums[right] != target)
             return -1;
         return right;
+    }
+
+    @Test
+    public void test() {
+        int[] nums = new int[]{1, 2, 3, 4, 5, 6, 6};
+        System.out.println(right_bound(nums, 6));
     }
 }

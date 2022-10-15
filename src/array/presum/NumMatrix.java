@@ -20,7 +20,7 @@ public class NumMatrix {
             for (int j = 1; j <= n; j++)
                 presum[i][j] = presum[i][j - 1] + presum[i - 1][j] + matrix[i - 1][j - 1] - presum[i - 1][j - 1];
 
-        return presum[x2 + 1][y2 + 1] - presum[x2+1][y1] - presum[x1][y2+1] + presum[x1][y1];
+        return presum[x2 + 1][y2 + 1] - presum[x2 + 1][y1] - presum[x1][y2 + 1] + presum[x1][y1];
     }
 
 
@@ -29,9 +29,9 @@ public class NumMatrix {
         int[][] matrix = new int[][]{{3, 0, 1, 4, 2}, {5, 6, 3, 2, 1}, {1, 2, 0, 1, 5}, {4, 1, 0, 1, 7}, {1, 0, 3, 0, 5}};
 
         System.out.println(sumRange(matrix, 0, 0, 1, 2));
-        System.out.println(sumRange(matrix, 2,1,4,3)); //[4,3]-[2,1] = [4,3]-[4,0]-[1,3] + [1,0]
-        System.out.println(sumRange(matrix, 2,1,4,2));
-        System.out.println(sumRange(matrix, 0,0,1,0));
+        System.out.println(sumRange(matrix, 2, 1, 4, 3)); //[4,3]-[2,1] = [4,3]-[4,0]-[1,3] + [1,0]
+        System.out.println(sumRange(matrix, 2, 1, 4, 2));
+        System.out.println(sumRange(matrix, 0, 0, 1, 0));
     }
 }
 
